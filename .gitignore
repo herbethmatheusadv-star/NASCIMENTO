@@ -1,0 +1,9 @@
+# Lixo do Windows/Office que o git deve ignorar
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+
+# Lixo do Python
+__pycache__/
+*.pyc

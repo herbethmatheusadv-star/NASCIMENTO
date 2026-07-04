@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python -c \"import yaml; print\\('pyyaml OK', yaml.__version__\\)\")",
+      "PowerShell(python -c \"import ruamel.yaml; print\\('ruamel OK'\\)\")",
+      "PowerShell(python -m pip install ruamel.yaml --quiet --disable-pip-version-check)",
+      "PowerShell(python -c \"import ruamel.yaml; print\\('ruamel.yaml instalado OK'\\)\")",
+      "PowerShell(git config --global user.name)",
+      "PowerShell(git config --global user.email)",
+      "PowerShell(git -C \"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\" rev-parse --is-inside-work-tree 2>$null)",
+      "PowerShell(\"---\")",
+      "PowerShell(git init -b main)",
+      "PowerShell(git config user.name \"Herbeth Matheus\")",
+      "PowerShell(git config user.email \"herbethmatheus.adv@gmail.com\")",
+      "PowerShell(git add -A)"
+    ]
+  }
+}
