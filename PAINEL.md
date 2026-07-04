@@ -1,6 +1,6 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-04 17:56 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-04 17:57 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 | Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |
 |---|---|---|---|---|---|---|---|---|

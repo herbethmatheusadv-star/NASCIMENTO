@@ -334,16 +334,19 @@ def checar_g3(pasta, dados, entradas):
                   "na vespera", not problemas, "; ".join(problemas[:8])))
 
     # 5. checklist anti-erro fatal do modulo
+    # (so vale registro em entrada humana — NOTA/DECISAO_ADVOGADO/RATIFICACAO;
+    #  entradas GATE sao excluidas para o texto de uma reprovacao anterior
+    #  nao satisfazer a checagem seguinte)
+    TIPOS_HUMANOS = ["NOTA", "DECISAO_ADVOGADO", "RATIFICACAO"]
     modulo = str(dados["caso"].get("modulo", ""))
     area_mod = modulo.split("/")[0] if "/" in modulo else modulo
     arq_anti = soj.ESCRITORIO / "MODULOS" / area_mod / "anti_erro_fatal.md"
+    ok = _tem_entrada(entradas, TIPOS_HUMANOS, "anti-erro")
     if arq_anti.exists() and "(a completar" not in arq_anti.read_text(encoding="utf-8") \
             and "esqueleto" not in soj.normaliza(arq_anti.read_text(encoding="utf-8")):
-        ok = _tem_entrada(entradas, None, "anti-erro")
         itens.append(("Checklist anti-erro fatal do modulo executado", ok,
                       "" if ok else "sem entrada no DIARIO registrando a execucao"))
     else:
-        ok = _tem_entrada(entradas, None, "anti-erro")
         itens.append(("Checklist anti-erro fatal (modulo ainda em construcao — "
                       "rodar o generico e registrar 'anti-erro' no DIARIO)", ok,
                       "" if ok else "sem entrada no DIARIO registrando a revisao anti-erro"))

@@ -29,7 +29,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA)",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G1; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2; \"exit=$LASTEXITCODE\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
-      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do script ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA re-executado ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
+      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do script ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA re-executado ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
+      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA definitivo ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
     ]
   }
 }

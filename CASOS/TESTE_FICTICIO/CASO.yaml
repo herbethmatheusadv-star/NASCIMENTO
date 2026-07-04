@@ -18,7 +18,7 @@ caso:
     G1:
       status: aprovado
       data: '2026-07-04'
-      diario: '#006'
+      diario: '#008'
     G2:
       status: reprovado
       data: '2026-07-04'
