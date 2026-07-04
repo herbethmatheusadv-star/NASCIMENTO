@@ -164,3 +164,7 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 ## #017 | 2026-07-04 17:55 | GATE
 G2 executado: APROVADO. 6/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 ---
+## #018 | 2026-07-04 17:55 | GATE
+G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Fundamentos na BASE_LEGAL, dentro da validade; nucleo rechecado na vespera; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Advogado declarou revisao humana integral da peca (DIARIO)
+---

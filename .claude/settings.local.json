@@ -27,7 +27,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\novo_caso.py\" TANIA --titulo \"Tania x Cicero - Alimentos c/c Guarda e Regulamentacao de Convivencia\" --area familia --modulo familia/alimentos_guarda_convivencia --comarca \"Parauapebas/PA\" --complexidade padrao --segredo)",
       "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\reconstruir_diario_tania.py\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA)",
-      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G1; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2; \"exit=$LASTEXITCODE\")"
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G1; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2; \"exit=$LASTEXITCODE\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
     ]
   }
 }

@@ -7,7 +7,7 @@ fase: E3_minuta
 complexidade: padrao
 g1: aprovado
 g2: aprovado
-g3: pendente
+g3: reprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 e PEN04"
 pendencias_criticas_abertas: 2
 atualizado: 2026-07-04 17:55
@@ -17,7 +17,7 @@ atualizado: 2026-07-04 17:55
 
 **Cliente/pasta:** TANIA · **Caso:** 2026-0002 · **Área:** familia · **Módulo:** familia/alimentos_guarda_convivencia
 **Fase:** E3_minuta · **Complexidade:** padrao · **Segredo de justiça:** sim
-**Gates:** G1 aprovado (2026-07-04) · G2 aprovado (2026-07-04) · G3 pendente
+**Gates:** G1 aprovado (2026-07-04) · G2 aprovado (2026-07-04) · G3 reprovado (2026-07-04)
 
 ## Próximos prazos
 - PZ01 — **2026-06-11** (alta): Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 e PEN04
@@ -30,10 +30,10 @@ atualizado: 2026-07-04 17:55
 - Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 5
 
 ## Últimas entradas do diário
+- #018 | 2026-07-04 17:55 | GATE — G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #017 | 2026-07-04 17:55 | GATE — G2 executado: APROVADO. 6/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #016 | 2026-07-04 17:55 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #015 | 2026-07-04 17:55 | ALERTA — [2026-07-04 — constatado na migracao] O prazo PZ01 (protocolar ate 11/06/2026,
 - #014 | 2026-07-04 17:55 | ALERTA — [HISTORICO — 03/07/2026] Duas descobertas criticas da pesquisa juridica:
-- #013 | 2026-07-04 17:55 | PESQUISA — [HISTORICO — 03/07/2026] PESQUISA_JURIDICA_v01 concluida no sistema antigo:
 
 _Gerado por gerar_views.py — não editar._
