@@ -161,3 +161,6 @@ Nota: qualquer dos cenarios mantem a urgencia — o que muda e a prova de renda.
 ## #016 | 2026-07-04 17:55 | GATE
 G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 ---
+## #017 | 2026-07-04 17:55 | GATE
+G2 executado: APROVADO. 6/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
+---
