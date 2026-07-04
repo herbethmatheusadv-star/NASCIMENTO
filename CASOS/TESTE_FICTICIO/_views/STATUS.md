@@ -30,10 +30,10 @@ atualizado: 2026-07-04 17:57
 - Partes: 3 · Fatos: 2 (provados 1 / alegados 1 / controversos 0) · Provas: 1 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #009 | 2026-07-04 17:57 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #008 | 2026-07-04 17:57 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #007 | 2026-07-04 17:56 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #006 | 2026-07-04 17:56 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #005 | 2026-07-04 17:19 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
-- #004 | 2026-07-04 17:19 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 
 _Gerado por gerar_views.py — não editar._
