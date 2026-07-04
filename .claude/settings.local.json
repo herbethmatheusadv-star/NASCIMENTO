@@ -28,7 +28,8 @@
       "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\reconstruir_diario_tania.py\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA)",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G1; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2; \"exit=$LASTEXITCODE\")",
-      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
+      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do script ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA re-executado ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
     ]
   }
 }

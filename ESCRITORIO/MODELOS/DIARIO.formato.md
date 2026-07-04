@@ -56,5 +56,5 @@ Cada entrada termina com uma linha `---`.
 - Checklist enviado ao cliente → entrada `CONTATO_CLIENTE` contendo a palavra "checklist" (G1).
 - Caso sem prazos → entrada `NOTA` contendo "SEM PRAZOS" e a justificativa (G1).
 - Aceitação de risco da simulação adversária → entrada `DECISAO_ADVOGADO` contendo "aceito o risco" (G2).
-- Conferência final de dados → entrada `NOTA` contendo "CONFERÊNCIA" de valores/datas/nomes/CPFs (G3).
+- Conferência final de dados → entrada `NOTA` contendo as palavras "CONFERÊNCIA" **e** "valores" — ex.: "CONFERÊNCIA FINAL: valores, datas, nomes e CPFs conferidos contra os documentos" (G3).
 - Revisão final do advogado → entrada `DECISAO_ADVOGADO` contendo "revisão humana integral" (G3).

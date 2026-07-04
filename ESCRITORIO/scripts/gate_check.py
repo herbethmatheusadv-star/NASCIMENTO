@@ -372,11 +372,16 @@ def checar_g3(pasta, dados, entradas):
     itens.append(("Nenhuma pendencia aberta com bloqueia: [G3]", not travas,
                   ", ".join(str(p.get("id")) for p in travas)))
 
-    # 8. conferencia de valores, datas, nomes e CPFs registrada
-    ok = _tem_entrada(entradas, ["NOTA", "DECISAO_ADVOGADO"], "conferencia")
-    itens.append(("Conferencia de valores/datas/nomes/CPFs registrada no DIARIO "
-                  "(entrada com 'CONFERENCIA')", ok,
-                  "" if ok else "sem entrada de conferencia"))
+    # 8. conferencia FINAL de valores, datas, nomes e CPFs registrada
+    # (exige 'conferencia' E 'valores' na mesma entrada, para nao confundir com
+    #  conferencias parciais historicas — convencao no DIARIO.formato.md)
+    ok = any(e["tipo"] in ("NOTA", "DECISAO_ADVOGADO")
+             and "conferencia" in soj.normaliza(e["corpo"])
+             and "valores" in soj.normaliza(e["corpo"])
+             for e in entradas)
+    itens.append(("Conferencia final de valores/datas/nomes/CPFs registrada no "
+                  "DIARIO (entrada com 'CONFERENCIA' + 'valores')", ok,
+                  "" if ok else "sem entrada de conferencia final"))
 
     # 9. revisao humana integral declarada pelo advogado
     ok = _tem_entrada(entradas, ["DECISAO_ADVOGADO", "RATIFICACAO"],
