@@ -6,27 +6,27 @@
 
 ## Qualificação completa
 
-- **Nome completo:** [PREENCHER]
-- **Nacionalidade:** [PREENCHER]
-- **Estado civil:** [PREENCHER]
-- **Inscrição OAB:** [PREENCHER — nº e seccional, ex.: OAB/PA 12.345]
+- **Nome completo:** Herbeth Matheus Mendonça do Nascimento
+- **Nacionalidade:** Brasileiro
+- **Estado civil:** [PREENCHER — veio duplicado como "Brasileiro" na entrega dos dados]
+- **Inscrição OAB:** OAB/PA nº [PREENCHER — número não informado]
 - **CPF:** [PREENCHER — opcional, usado em procurações/JG quando necessário]
 
 ## Endereço profissional
 
-- **Endereço:** [PREENCHER — logradouro, nº, complemento]
-- **Bairro / Cidade / UF / CEP:** [PREENCHER]
+- **Endereço:** Rua D, nº 410-B
+- **Bairro / Cidade / UF / CEP:** Cidade Nova / [PREENCHER cidade] / PA / [PREENCHER CEP]
 
 ## Contatos
 
-- **Telefone / WhatsApp:** [PREENCHER]
-- **E-mail profissional:** herbethmatheus.adv@gmail.com  <!-- confirmar -->
+- **Telefone / WhatsApp:** (94) 98412-8321
+- **E-mail profissional:** herbethmatheus.adv@gmail.com
 
 ## Bloco de assinatura (padrão para petições)
 
 ```
-[PREENCHER — Nome completo]
-OAB/[UF] nº [PREENCHER]
+Herbeth Matheus Mendonça do Nascimento
+OAB/PA nº [PREENCHER]
 ```
 
 ## Dados bancários para depósitos judiciais (se aplicável)

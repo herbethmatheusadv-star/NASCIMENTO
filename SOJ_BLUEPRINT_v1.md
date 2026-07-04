@@ -2,7 +2,7 @@
 ## Blueprint de Arquitetura v1.3
 
 **Data:** 2026-07-04
-**Status:** v1.3 — invertida a autonomia decisória (D11): o sistema decide as questões técnico-jurídicas pela praxe nacional, fundamenta e submete; o advogado ratifica por exceção e assina. Mantém o contrato de entrada e a regra do módulo (v1.2) e a D2 ajustada (v1.1).
+**Status:** v1.3 — invertida a autonomia decisória (D11): o sistema decide as questões técnico-jurídicas pela praxe nacional, fundamenta e submete; o advogado ratifica por exceção e assina. Mantém o contrato de entrada e a regra do módulo (v1.2) e a D2 ajustada (v1.1). Árvore da seção 2 corrigida após a auditoria da Fase 1 (obra construída conforme a D11).
 **Origem:** Redesenho crítico do sistema testado no CASO_TESTE_001 (37 arquivos → arquitetura dados + visões)
 **Premissas:** Operador único (advogado + IA). Volume atual baixo, ambição de escala — a arquitetura custa o mesmo em 5 ou 50 casos/mês; o que muda é o retorno.
 
@@ -104,7 +104,8 @@ Sem dependência de nenhum outro programa: o sistema inteiro é pasta + arquivos
 │   ├── MODULOS/
 │   │   ├── familia/
 │   │   │   ├── MODULO.md              ← contrato do módulo (seção 9)
-│   │   │   ├── decisoes_obrigatorias.md
+│   │   │   ├── praxe_decisoria.md
+│   │   │   ├── decisoes_reservadas.md
 │   │   │   ├── checklist_documental.md
 │   │   │   ├── teses.md
 │   │   │   └── templates/
