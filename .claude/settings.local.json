@@ -18,7 +18,9 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TESTE_FICTICIO)",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1)",
       "PowerShell(\"===========\")",
-      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G3; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TESTE_FICTICIO; \"exit=$LASTEXITCODE\")"
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G3; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TESTE_FICTICIO; \"exit=$LASTEXITCODE\")",
+      "PowerShell(git log --oneline; \"===========\"; Get-ChildItem -Recurse \"CASOS\\\\TESTE_FICTICIO\" | Select-Object -ExpandProperty FullName | ForEach-Object { $_.Replace\\(\"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\\", \"\"\\) })",
+      "PowerShell(\"fim\")"
     ]
   }
 }
