@@ -17,7 +17,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\receber_documento.py\" TESTE_FICTICIO \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\certidao ana - foto do cartorio.pdf\" --descricao \"CERTIDAO NASCIMENTO ANA FICTICIA\" --o-que-prova \"Filiacao e idade da menor \\(FICTICIO\\)\" --forca plena --fato F01 --marca-provado)",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TESTE_FICTICIO)",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1)",
-      "PowerShell(\"===========\")"
+      "PowerShell(\"===========\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G3; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TESTE_FICTICIO; \"exit=$LASTEXITCODE\")"
     ]
   }
 }
