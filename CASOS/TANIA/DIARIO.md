@@ -172,3 +172,7 @@ Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido f
 G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Fundamentos na BASE_LEGAL, dentro da validade; nucleo rechecado na vespera; Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
 ---
+## #020 | 2026-07-04 17:57 | GATE
+G3 executado: REPROVADO. 1/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Fundamentos na BASE_LEGAL, dentro da validade; nucleo rechecado na vespera; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
+---

@@ -10,7 +10,7 @@ g2: aprovado
 g3: reprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 e PEN04"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-04 17:56
+atualizado: 2026-07-04 17:57
 ---
 
 # STATUS — Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia
@@ -30,10 +30,10 @@ atualizado: 2026-07-04 17:56
 - Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 5
 
 ## Últimas entradas do diário
+- #020 | 2026-07-04 17:57 | GATE — G3 executado: REPROVADO. 1/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #019 | 2026-07-04 17:56 | GATE — G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #018 | 2026-07-04 17:55 | GATE — G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #017 | 2026-07-04 17:55 | GATE — G2 executado: APROVADO. 6/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #016 | 2026-07-04 17:55 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
-- #015 | 2026-07-04 17:55 | ALERTA — [2026-07-04 — constatado na migracao] O prazo PZ01 (protocolar ate 11/06/2026,
 
 _Gerado por gerar_views.py — não editar._
