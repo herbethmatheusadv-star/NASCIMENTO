@@ -12,7 +12,12 @@
       "PowerShell(git init -b main)",
       "PowerShell(git config user.name \"Herbeth Matheus\")",
       "PowerShell(git config user.email \"herbethmatheus.adv@gmail.com\")",
-      "PowerShell(git add -A)"
+      "PowerShell(git add -A)",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\novo_caso.py\" TESTE_FICTICIO --titulo \"Maria Ficticia x Joao Ficticio - Alimentos c/c Guarda \\(CASO DE TESTE\\)\" --area familia --modulo familia/alimentos_guarda_convivencia --comarca \"Parauapebas/PA\" --complexidade simples --segredo)",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\receber_documento.py\" TESTE_FICTICIO \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\certidao ana - foto do cartorio.pdf\" --descricao \"CERTIDAO NASCIMENTO ANA FICTICIA\" --o-que-prova \"Filiacao e idade da menor \\(FICTICIO\\)\" --forca plena --fato F01 --marca-provado)",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TESTE_FICTICIO)",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1)",
+      "PowerShell(\"===========\")"
     ]
   }
 }
