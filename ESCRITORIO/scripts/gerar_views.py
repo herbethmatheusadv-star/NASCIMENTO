@@ -319,6 +319,48 @@ def _view_resumo_decisoes(entradas):
 
 
 # ---------------------------------------------------------------- PAINEL
+def _verbetes_a_vencer(janela_dias=15):
+    """Varre ESCRITORIO/BASE_LEGAL/*.md: verbetes com 'Verificado em' +
+    'Validade: N dias' cujo vencimento esta a <= janela_dias (ou ja passou).
+    Devolve lista de (arquivo, ref, vence_em, dias_restantes)."""
+    import datetime
+    achados = []
+    base = soj.ESCRITORIO / "BASE_LEGAL"
+    if not base.exists():
+        return achados
+    for arq in sorted(base.glob("*.md")):
+        texto = arq.read_text(encoding="utf-8")
+        for bloco in re.split(r"(?m)^## ", texto)[1:]:
+            linha_titulo = bloco.splitlines()[0].strip()
+            ref = linha_titulo.split(" —")[0].strip()
+            m_ver = re.search(r"\*\*Verificado em:\*\*\s*(\d{4}-\d{2}-\d{2})", bloco)
+            m_val = re.search(r"\*\*Validade:\*\*\s*(\d+)\s*dias", bloco)
+            if not (m_ver and m_val):
+                continue          # sem validade em dias (permanente/casos especiais)
+            verificado = datetime.date.fromisoformat(m_ver.group(1))
+            vence = verificado + datetime.timedelta(days=int(m_val.group(1)))
+            dias = (vence - soj.hoje()).days
+            if dias <= janela_dias:
+                achados.append((arq.name, ref, vence, dias))
+    achados.sort(key=lambda a: a[3])
+    return achados
+
+
+def _secao_verbetes_a_vencer():
+    """Seção 'VERBETES A VENCER' do painel (ritual mensal de revalidação)."""
+    linhas = ["## 📚 VERBETES A VENCER (validade ≤ 15 dias)", ""]
+    achados = _verbetes_a_vencer(15)
+    for arquivo, ref, vence, dias in achados:
+        situacao = (f"**VENCIDO há {-dias} dia(s)**" if dias < 0
+                    else f"vence em **{dias} dia(s)**")
+        linhas.append(f"- 🟡 **{ref}** ({arquivo}) · validade até {vence} · "
+                      f"{situacao} → revalidar na fonte oficial")
+    if not achados:
+        linhas.append("- Nenhum. Base legal dentro da validade.")
+    linhas.append("")
+    return linhas
+
+
 def _radar_de_prazos():
     """Seção 'PRAZOS NO RADAR' do painel (vigia de prazos — Adendo A1)."""
     linhas = ["## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)", ""]
@@ -346,6 +388,7 @@ def atualizar_painel():
               f"Gerado em {soj.agora()} por gerar_views.py — não editar. "
               "Fonte: frontmatter dos STATUS.md de cada caso.", ""]
     linhas += _radar_de_prazos()
+    linhas += _secao_verbetes_a_vencer()
     linhas += [
               "| Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |",
               "|---|---|---|---|---|---|---|---|---|"]

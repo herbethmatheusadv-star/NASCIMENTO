@@ -1,8 +1,8 @@
 # SOJ — SISTEMA OPERACIONAL JURÍDICO NASCIMENTO
-## Blueprint de Arquitetura v1.3
+## Blueprint de Arquitetura v1.4
 
 **Data:** 2026-07-04
-**Status:** v1.3 — invertida a autonomia decisória (D11): o sistema decide as questões técnico-jurídicas pela praxe nacional, fundamenta e submete; o advogado ratifica por exceção e assina. Mantém o contrato de entrada e a regra do módulo (v1.2) e a D2 ajustada (v1.1). Árvore da seção 2 corrigida após a auditoria da Fase 1 (obra construída conforme a D11).
+**Status:** v1.4 — OBRA ENTREGUE: Fases 1–4 executadas e auditadas em 04/07/2026 (fundação testada, piloto migrado, ativo legal verificado na fonte, primeiro caso real a 9/9 no G3, módulo família completo + skill soj-kernel). Sistema em operação. Histórico: D11 (v1.3), contrato de entrada e regra do módulo (v1.2), D2 ajustada (v1.1).
 **Origem:** Redesenho crítico do sistema testado no CASO_TESTE_001 (37 arquivos → arquitetura dados + visões)
 **Premissas:** Operador único (advogado + IA). Volume atual baixo, ambição de escala — a arquitetura custa o mesmo em 5 ou 50 casos/mês; o que muda é o retorno.
 
@@ -146,7 +146,7 @@ Sem dependência de nenhum outro programa: o sistema inteiro é pasta + arquivos
 
 # 3. `CASO.yaml` — A FONTE DA VERDADE
 
-Schema comentado, com trechos reais do CASO_TESTE_001:
+Schema comentado, com trechos baseados no CASO_TESTE_001 — **valores ilustrativos**. Regra de precedência (lição da E3): a fonte da verdade de um caso é sempre o seu próprio CASO.yaml + DIARIO; em conflito entre exemplo desta planta e registro do caso, **o registro do caso governa**:
 
 ```yaml
 caso:
@@ -227,7 +227,7 @@ pendencias:                     # responsavel: cliente | advogado | terceiro
 
 # 4. `DIARIO.md` — O LEDGER
 
-Formato de entrada (numeração sequencial, nunca editar, só acrescentar ao fim):
+Formato de entrada (numeração sequencial, nunca editar, só acrescentar ao fim; o conteúdo do exemplo é ilustrativo):
 
 ```markdown
 ## #015 | 2026-06-27 16:40 | DECISAO_SISTEMA
@@ -376,7 +376,7 @@ Regras: (1) verbete vencido não passa no G3 sem revalidação; (2) dispositivo 
 | `praxe_decisoria.md` | A árvore de decisão da área: como um sênior fixa percentuais, verbas, quantum e regimes — critérios, faixas e ramos, com fontes | Embrião: tabela de danos morais da skill Águas do Pará |
 | `decisoes_reservadas.md` | Lista curta do que exige "ok" humano expresso (Tier B) | Evolução do `decisoes_do_advogado_humano.md` |
 | `checklist_documental.md` | Docs típicos por tipo de ação (alimenta pendências do intake) | Águas do Pará: seção 7 |
-| `teses.md` | Banco de teses da área | Águas do Pará: `referencias/teses-juridicas.md` |
+| `teses.md` | Banco de teses da área + seção **antiteses — "nunca usar"** (dispositivos revogados, redações superadas, fontes inexistentes: conhecimento negativo codificado; padrão de kernel desde a Fase 4) | Águas do Pará: `referencias/teses-juridicas.md` |
 | `templates/*.md` | Esqueletos de minuta no markup da formatação Nascimento | Águas do Pará: `referencias/modelo-peticao.md` |
 | Checklist anti-erro fatal | Itens específicos da área no G3 | Águas do Pará: seção 8 (ex.: Súmula 608 ≠ concessionária) |
 | Tabelas de quantum (se houver) | Dosimetria padronizada | Águas do Pará: `tabela-danos-morais.md` |
