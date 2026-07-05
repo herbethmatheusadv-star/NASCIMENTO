@@ -343,3 +343,64 @@ exibicao e oficios), PEN01, PEN02, PEN03, PEN06, valor_causa, G3.
 G3 executado: REPROVADO. 5/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final + checagem cruzada peca-decisoes (declaracoes.conferencia_final c/ cruzada_com_decisoes; valor da causa confere); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
 ---
+## #033 | 2026-07-04 22:51 | DECISAO_ADVOGADO
+DECISAO RETIFICADORA DO QUANTUM (Tier B decidida pelo advogado — opcao c),
+retificando o criterio da #006 (ratificada em #011), no ambito do cenario A
+(#028, ok condicionado em #031):
+(1) PEDIDO PRINCIPAL mantido: minimo de 30 por cento da renda liquida do reu
+para os DOIS filhos em conjunto (fiel a decisao historica de 02/06/2026);
+(2) PISO OBJETIVO ELEVADO no cenario de renda desconhecida: arbitramento com
+piso de 30 por cento do salario minimo POR FILHO — R$ 486,30 cada, total
+R$ 972,60 mensais (SM 2026 = R$ 1.621,00, Decreto 12.797/2025, verificado na
+fonte em 04/07 — verbete PARAM:SM2026);
+(3) VALOR DA CAUSA recalculado pelo parametro: 12 x R$ 972,60 = R$ 11.671,20
+(CPC art. 292, III c/c VI, ambos verificados na fonte em 04/07);
+(4) CTPS ANTIGA (DOC-10) mantida como prova de renda da autora na inicial —
+PEN06 (folha atualizada) reclassificada como JUNTADA POSTERIOR, deixando de
+bloquear o protocolo;
+(5) consequencias: MINUTA_v03 (cap. III criterio e parametro; Pedido 1;
+cap. VII; §1.5 sem marcador de anexo da renovacao), caso.valor_causa e
+PED01.parametro atualizados; vespera do protocolo liberada.
+Afeta: PED01, valor_causa, PEN06, MINUTA_v03.
+---
+## #034 | 2026-07-04 22:53 | NOTA
+CHECKLIST ANTI-ERRO FATAL executado sobre a MINUTA_v03 (generico do G3 +
+itens conhecidos do modulo familia em construcao) — TODOS CONFERIDOS:
+1. Competencia = domicilio do alimentando: enderecada a Vara de Familia de
+   Parauapebas/PA com nota expressa do CPC art. 53, II. OK
+2. MP como custos legis: pedido 10 (CPC art. 178, II — interesse de incapaz). OK
+3. Alimentos provisorios pedidos EXPRESSAMENTE: cap. III + pedido 1 (L5478
+   art. 4, desde logo). OK
+4. Segredo de justica requerido: preambulo + pedido 8 (CPC art. 189, II). OK
+5. Percentual sobre base correta: principal = 30 por cento da renda LIQUIDA do
+   reu p/ os 2 filhos; piso = 30 por cento do SM POR FILHO (R$ 972,60) —
+   conforme #006 retificada por #033. OK
+Genericos: nenhuma lei citada sem verbete verificado na BASE_LEGAL (OK);
+nenhum fato afirmado como provado sem prova — alegacoes narradas como
+declaracao da autora (OK); CNPJ OGP/DOC-12 NAO mencionado na peca, conforme
+#009 (OK — unico CNPJ citado e o do empregador da autora, URM); rol = 8
+documentos existentes, DOC-08/09 apenas reservados (OK).
+---
+## #035 | 2026-07-04 22:53 | NOTA
+CONFERENCIA FINAL da MINUTA_v03 — valores, datas, nomes e CPFs conferidos
+contra os documentos e fonte da verdade, e CHECAGEM CRUZADA peca-decisoes:
+DADOS x DOCUMENTOS: Tania Silva Rodrigues CPF 028.405.932-38 nasc. 15/09/1993
+(DOC-04/DOC-10); salario R$ 1.621,00 (DOC-10); conta Itau 341/Ag.1019/
+CC 33883-7 (confirmada pela cliente em 02/06 — #004); endereco Rua Quatro 46
+Primavera CEP 68.515-000 (declarado — #010); reu Cicero CPF 014.640.832-23
+RG 7213033 SSP/PA nasc. 02/04/1992 Timbiras/MA (DOC-03/certidoes); Jullia
+nasc. 15/09/2014 CPF 079.215.852-05 (DOC-01/DOC-06); Cicero Jr. nasc.
+11/06/2018 CPF 074.003.542-80 (DOC-02/DOC-05); endereco anterior de citacao
+Rua G-13 Qd.148 Lt.35 Ipiranga (certidoes); termo do contrato 11/06/2026
+(DOC-10). TODOS CONFEREM.
+CRUZADA PECA x DECISOES: PED01 (30 por cento renda liquida + piso 972,60) x
+#006/#033 OK; PED02 (compartilhada legal, residencia materna, sem salvaguardas)
+x #007 OK; PED03 (consensualizacao + minimos) x #008 OK; PED04 (3 oficios, sem
+CNPJ) x #009 OK; PED05 (subsidiario, CPC 529) x #009/#022 OK; gratuidade/
+segredo/citacao em cascata/honorarios x #010/#027 OK; valor da causa
+R$ 11.671,20 x #033 OK (12 x 972,60; CPC 292 III c/c VI). NENHUMA DIVERGENCIA.
+---
+## #036 | 2026-07-04 22:54 | GATE
+G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
+---

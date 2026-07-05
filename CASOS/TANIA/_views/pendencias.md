@@ -1,10 +1,8 @@
 # PENDÊNCIAS
 
-## CRITICA
-- **PEN06** (cliente): Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 e a narrativa do §1.5 da minuta; UNICA pendencia de protocolo (DIARIO #031) — bloqueia: G3
-
 ## ALTA
 - **PEN01** (cliente): Extrato bancario da autora, ultimos 12 meses — prova direta da irregularidade dos pagamentos (F05); reservado como DOC-08 — bloqueia: nada
+- **PEN06** (cliente): Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 — bloqueia: nada
 
 ## MEDIA
 - **PEN03** (cliente): Declaracao de matricula escolar dos menores (escola publica de Parauapebas) — comprova residencia habitual e rotina; reservado como DOC-09 — bloqueia: nada

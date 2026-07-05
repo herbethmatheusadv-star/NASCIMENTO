@@ -15,7 +15,7 @@ caso:
   fase: E3_minuta               # minuta v01 redigida em 02/06/2026, em revisao
   comarca: "Parauapebas/PA"     # Vara de Familia — CPC art. 53, II (domicilio do alimentando)
   segredo_justica: true         # menores de 11 e 7 anos
-  valor_causa: "R$ 5.835,60"    # 12 x R$ 486,30 (30% do SM 2026 = R$ 1.621,00, Decreto 12.797/2025) — CPC 292 III e VI; DIARIO #027
+  valor_causa: "R$ 11.671,20"   # 12 x R$ 972,60 (30% do SM POR FILHO, 2 filhos; SM 2026 = R$ 1.621,00, Decreto 12.797/2025) — CPC 292 III c/c VI; DIARIO #033
   gates:
     G1:
       status: aprovado
@@ -28,7 +28,7 @@ caso:
     G3:
       status: reprovado
       data: '2026-07-04'
-      diario: '#032'
+      diario: '#036'
 partes:
 - {id: PT01, papel: autora_representante, nome: "TANIA SILVA RODRIGUES", cpf: "028.405.932-38", nascimento: 1993-09-15, profissao: recepcionista, empregador: "URM SERVICE ALOJAMENTOS E ALIMENTOS LTDA (CNPJ 29.565.523/0004-00)", renda_mensal: 1621.00, endereco: "Rua Quatro, 46, Bairro Primavera, Parauapebas/PA, CEP 68515-000", nota_endereco: "declarado pela autora em 02/06/2026; conta de luz em nome de co-residente (Eudicleia); declaracao do advogado supre o comprovante na inicial", conta_deposito: "Itau Unibanco 341, Ag. 1019, CC 33883-7, CPF 028.405.932-38", qualificacao: completa}
 - {id: PT02, papel: reu, nome: "CICERO SILVA DE ARAUJO", cpf: "014.640.832-23", rg: "7213033 SSP/PA", nascimento: 1992-04-02, profissao: "tecnico em refrigeracao (dado de 2014, certidao); atual desconhecida", endereco: {status: nao_confirmado, cidade_declarada: "Rio de Janeiro/RJ", anterior: "Rua G-13, Qd. 148, Lt. 35, Ipiranga, Parauapebas/PA (certidoes 2014)", pendencia: PEN02}}
@@ -124,7 +124,7 @@ provas:
 pedidos:
 - id: PED01
   tipo: alimentos_provisorios_e_definitivos
-  parametro: "minimo 30% da renda liquida do reu p/ os 2 filhos + arbitramento judicial (renda desconhecida); deposito conta Itau da autora; retroacao a citacao — DIARIO #006, ratificado em #011"
+  parametro: "pedido principal: minimo 30% da renda liquida do reu p/ os 2 filhos em conjunto; PISO objetivo no cenario renda desconhecida: 30% do SM POR FILHO (R$ 486,30 cada, R$ 972,60/mes — SM 2026); deposito conta Itau; retroacao a citacao — DIARIO #006 retificada por #033"
   fundamentos: [LEI5478:art1, LEI5478:art4, LEI5478:art13p2, CC:art1694, CPC:art300]
   fatos: [F01, F02, F05, F07, F08, F09]
   excecao_prova: {motivo: "cenario A ratificado pelo advogado: irregularidade dos pagamentos (F05) narrada como ALEGACAO, com prova em juizo via exibicao de documentos pelo reu (cap. V-d) e oficios (pedido 5); extrato reclassificado como juntada posterior (PEN01/DOC-08)", diario: '#031'}
@@ -194,14 +194,14 @@ pendencias:
 - {id: PEN03, descricao: "Declaracao de matricula escolar dos menores (escola publica de Parauapebas) — comprova residencia habitual e rotina; reservado como DOC-09", responsavel: cliente, prioridade: media, bloqueia: [], reclassificada: "JUNTADA POSTERIOR — cenario A (DIARIO #031); juntar como DOC-09 quando obtida", mensagem_cliente: "uma declaracao de matricula das criancas, que a escola emite na hora e de graca — e so pedir na secretaria"}
 - {id: PEN04, descricao: "Confirmar se o contrato de trabalho da autora foi renovado apos 11/06/2026 — muda a prova de renda e a narrativa de urgencia da minuta (F08)", responsavel: cliente, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "cliente informou em 04/07/2026: contrato RENOVADO (DIARIO #021); comprovante da renovacao pendente em PEN06"}
 - {id: PEN05, descricao: "Verificacoes juridicas manuais: (a) Resolucao CNJ do SERASAJUD; (b) art. do CPC p/ desconto em folha (arts. 16-18 L5478 revogados); (c) conferir na fonte os textos apurados (CC 1583/1584/1694-6; CPC 178/189/256-7/292/300-2); (d) valor da causa com SM vigente", responsavel: advogado, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "(a) SERASAJUD = TCT CNJ 015/2019 + CPC art. 256 §3º; (b) CPC art. 529 confirmado; (c) todos os apurados verificados na fonte em 04/07 (DIARIO #022); (d) valor da causa fica coberto pelo marcador [VALIDAR VALOR DA CAUSA] da minuta, a calcular na E3 com o SM vigente"}
-- {id: PEN06, descricao: "Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 e a narrativa do §1.5 da minuta; UNICA pendencia de protocolo (DIARIO #031)", responsavel: cliente, prioridade: critica, bloqueia: [G3], mensagem_cliente: "aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF"}
+- {id: PEN06, descricao: "Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10", responsavel: cliente, prioridade: alta, bloqueia: [], reclassificada: "JUNTADA POSTERIOR — advogado decidiu usar a CTPS antiga (DOC-10) na inicial (DIARIO #033); juntar quando chegar", mensagem_cliente: "aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF"}
 
 declaracoes:
 # Registros estruturados exigidos pelos gates (Adendo A2) — cada um referencia
 # a entrada do DIARIO que o narra. Os gates leem ESTES campos, nao texto livre.
   checklist_cliente_enviado: {diario: '#004', data: 2026-06-02}
-# anti_erro_fatal:          {diario: '#0NN', data: ...}   <- vespera do protocolo
-# conferencia_final:        {diario: '#0NN', data: ...}   <- vespera do protocolo
-# revisao_humana_integral:  {diario: '#0NN', data: ...}   <- ato humano obrigatorio (D11)
+  anti_erro_fatal: {diario: '#034', data: 2026-07-04}
+  conferencia_final: {diario: '#035', data: 2026-07-04, cruzada_com_decisoes: true}
+# revisao_humana_integral:  {diario: '#0NN', data: ...}   <- ato humano obrigatorio (D11) — AGUARDA O ADVOGADO
 # aceites_de_risco:         [{risco: "...", diario: '#0NN'}]
 # sem_prazos:               {diario: '#0NN', motivo: "..."}

@@ -48,7 +48,10 @@
       "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__list_events",
       "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__create_event",
       "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__update_event",
-      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do gate ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"=== TANIA: G3 pos-ratificacao ===\"; python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
+      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do gate ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"=== TANIA: G3 pos-ratificacao ===\"; python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
+      "PowerShell(Copy-Item \"CASOS\\\\TANIA\\\\MINUTA_v02.md\" \"CASOS\\\\TANIA\\\\MINUTA_v03.md\")",
+      "PowerShell(\"copiado\")",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\gerar_minuta_v03.py\")"
     ]
   }
 }
