@@ -57,4 +57,5 @@ Cada entrada termina com uma linha `---`.
 - Caso sem prazos → entrada `NOTA` contendo "SEM PRAZOS" e a justificativa (G1).
 - Aceitação de risco da simulação adversária → entrada `DECISAO_ADVOGADO` contendo "aceito o risco" (G2).
 - Conferência final de dados → entrada `NOTA` contendo as palavras "CONFERÊNCIA" **e** "valores" — ex.: "CONFERÊNCIA FINAL: valores, datas, nomes e CPFs conferidos contra os documentos" (G3).
+- Exceção de prova de um pedido → a frase deve começar com "Exceção" e citar o PED## **na mesma frase** (sem ponto final no meio) — ex.: "Exceção justificada de prova: PED04 é pedido instrumental..." (G3). Frases como "PED01 não recebe exceção" NÃO contam.
 - Revisão final do advogado → entrada `DECISAO_ADVOGADO` contendo "revisão humana integral" (G3).

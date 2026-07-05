@@ -273,13 +273,19 @@ def checar_g3(pasta, dados, entradas):
                   not problemas, "; ".join(problemas[:8])))
 
     # 3. todo PED fecha o circuito pedido<->fato<->prova<->paragrafo<->fundamento
+    # Excecao justificada: so vale se 'excecao ... PED##' aparecer na MESMA
+    # frase (sem ponto final no meio) de uma entrada humana — evita que uma
+    # mencao como "PED01 NAO recebe excecao" seja lida como excecao concedida.
     problemas = []
     peds_com_tag = set()
     for t in tags:
         peds_com_tag.update(t["pedidos"])
+    tipos_humanos = ("NOTA", "DECISAO_ADVOGADO", "DECISAO_SISTEMA", "RATIFICACAO")
     for p in (dados.get("pedidos") or []):
         pid = str(p.get("id"))
-        excecao = any(pid in e["corpo"] and "exce" in soj.normaliza(e["corpo"])
+        padrao_excecao = re.compile(r"excecao[^.]*\b" + re.escape(pid.lower()) + r"\b")
+        excecao = any(e["tipo"] in tipos_humanos
+                      and padrao_excecao.search(soj.normaliza(e["corpo"]))
                       for e in entradas)
         if excecao:
             continue
