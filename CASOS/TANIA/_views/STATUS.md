@@ -10,7 +10,7 @@ g2: aprovado
 g3: reprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-04 21:35
+atualizado: 2026-07-04 22:27
 ---
 
 # STATUS — Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia
@@ -30,10 +30,10 @@ atualizado: 2026-07-04 21:35
 - Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 4
 
 ## Últimas entradas do diário
+- #029 | 2026-07-04 22:27 | GATE — G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+- #028 | 2026-07-04 22:25 | DECISAO_SISTEMA — DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado):
+- #027 | 2026-07-04 22:25 | DECISAO_SISTEMA — MINUTA_v02 redigida (E3), substituindo a v01. O que mudou:
+- #026 | 2026-07-04 22:25 | PESQUISA — Verificacoes complementares na fonte (04/07/2026, E3):
 - #025 | 2026-07-04 21:35 | GATE — G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
-- #024 | 2026-07-04 21:34 | GATE — G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
-- #023 | 2026-07-04 21:31 | NOTA — Excecao justificada de prova — PED05 (desconto em folha): pedido SUBSIDIARIO e
-- #022 | 2026-07-04 21:31 | PESQUISA — Verificacao na fonte oficial (04/07/2026): paginas do Planalto baixadas
-- #021 | 2026-07-04 21:31 | CONTATO_CLIENTE — Cliente informou em 04/07/2026: (1) o contrato de trabalho FOI RENOVADO apos
 
 _Gerado por gerar_views.py — não editar._

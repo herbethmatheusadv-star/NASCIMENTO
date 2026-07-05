@@ -222,3 +222,91 @@ Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Checklist ant
 G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
 ---
+## #026 | 2026-07-04 22:25 | PESQUISA
+Verificacoes complementares na fonte (04/07/2026, E3):
+(a) CPC art. 319, §§1º-3º CONFIRMADO (arquivo oficial ja baixado): permite
+ajuizar sem os dados completos do reu, requerendo diligencias judiciais, e
+veda o indeferimento da inicial quando a exigencia inviabilizar o acesso a
+justica — base legal do cenario "protocolar ja" (com CPC art. 256 §3º);
+(b) SALARIO MINIMO 2026 verificado na norma: R$ 1.621,00 (Decreto nº 12.797,
+de 23/12/2025, art. 1º, planalto.gov.br) — ATENCAO: noticia da Camara citava
+R$ 1.631, mas era o projeto de orcamento; vale o decreto. Valor da causa:
+12 x 30% x 1.621,00 = R$ 5.835,60 (CPC 292, III e VI);
+(c) JURISPRUDENCIA verificada em fonte oficial do STJ e incorporada a
+BASE_LEGAL/familia.md: REsp 1.878.041/SP (guarda compartilhada com genitores
+em cidades diferentes — 3a Turma, Nancy Andrighi, 2021; noticia oficial
+stj.jus.br 23/06/2021); REsp 1.312.706/AL (presuncao de necessidade do
+alimentando menor; inteiro teor oficial); tese de que a gratuidade em acao de
+alimentos de menor nao exige prova de insuficiencia do representante
+(noticia oficial stj.jus.br). NAO VERIFICADO (nao citado na minuta): patamar
+de 30% p/ 2 filhos no TJPA — tratado como praxe forense + arbitramento.
+---
+## #027 | 2026-07-04 22:25 | DECISAO_SISTEMA
+MINUTA_v02 redigida (E3), substituindo a v01. O que mudou:
+(1) TODOS os fundamentos legais incorporados com texto verificado na fonte —
+zerados os 25 marcadores [VALIDAR]/[PESQUISAR]; citada SEMPRE a redacao
+vigente (CC 1584 §2º com a Lei 14.713/2023; ECA 22 com a Lei 15.240/2025;
+CPC 529 no desconto em folha; CPC 319/256 §3º + SERASAJUD-TCT 015/2019 na
+citacao; L5478 arts. 1, 4, 5 §4, 13 §2, 20);
+(2) narrativa de urgencia REESCRITA para o cenario "contrato renovado":
+urgencia fundada na presuncao legal (L5478 art. 4), na precariedade
+estrutural do vinculo a termo e na renda materna de 1 SM — nao mais no
+termino iminente do contrato;
+(3) valor da causa fixado: R$ 5.835,60 (12 x R$ 486,30 = 30% do SM 2026);
+(4) jurisprudencia: apenas a verificada (REsp 1.878.041/SP; REsp 1.312.706/AL;
+tese de gratuidade) — sem citacao de patamar TJPA nao verificado;
+(5) qualificacao do advogado preenchida (ADVOGADO.md); testemunhas "a arrolar
+no momento oportuno"; honorarios de sucumbencia REQUERIDOS (praxe).
+Fundamento: incorporacao mecanica de pesquisa verificada + decisoes ja
+ratificadas (#005-#011); praxe forense nos pontos acessorios.
+Alternativa descartada: manter marcadores ate a jurisprudencia TJPA — atrasaria
+a peca sem ganho (a tese nacional verificada cobre a argumentacao).
+Confianca: alta · Tier A (ratificacao em bloco no proximo gate) ·
+Afeta: PED01-PED05, valor_causa. Marcadores remanescentes (legitimos):
+[ANEXAR DOCUMENTO] extrato/matricula/CTPS-renovacao e [INSERIR DATA DO
+PROTOCOLO] — dependem de PEN01/PEN03/PEN06 e da vespera.
+---
+## #028 | 2026-07-04 22:25 | DECISAO_SISTEMA
+DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado):
+
+CENARIO A — PROTOCOLAR JA (sem extrato e sem endereco do reu):
+Base legal verificada: CPC art. 319 §§1º-3º (inicial sem os dados do reu +
+diligencias) c/c art. 256 §3º (requisicao de endereco em cadastros publicos,
+via SERASAJUD-TCT CNJ 015/2019) — pedido 9 da MINUTA_v02 ja formulado assim;
+inadimplencia narrada como alegacao + exibicao de comprovantes pelo reu +
+oficios (pedidos 5 e V-d). O que muda na peca: nada — a v02 ja esta pronta
+para este cenario. Riscos: (i) provisorios arbitrados conservadoramente sem o
+extrato (mitigado: parametro objetivo de 30% do SM ja sugerido); (ii) citacao
+pode demorar (mitigado: cascata endereco anterior -> SERASAJUD -> edital).
+Ganho decisivo: os alimentos RETROAGEM A DATA DA CITACAO (L5478 art. 13 §2º)
+— cada mes sem protocolo e um mes de alimentos que os menores perdem para
+sempre; protocolar ja poe o relogio da citacao para correr.
+
+CENARIO B — PROTOCOLAR SO COM O EXTRATO (PEN01):
+Ganho: urgencia documentada (extrato vazio = prova direta da irregularidade);
+provisorios tendem a vir menos conservadores. Custo: espera indefinida (a
+cliente ainda nao obteve o documento) SEM retroacao compensatoria — o tempo
+perdido nao volta. O que mudaria na peca: §1.3 afirmaria a irregularidade
+como comprovada (DOC-08) em vez de alegada.
+
+CENARIO C — AGUARDAR TUDO (extrato + endereco):
+Ganho marginal sobre B (citacao pessoal imediata, sem cascata). Custo maximo
+de tempo; o endereco pode simplesmente nunca ser obtido extrajudicialmente —
+e exatamente para isso existem o art. 256 §3º e o SERASAJUD em juizo.
+
+RECOMENDACAO DO SISTEMA: CENARIO A. Fundamento: a retroacao a citacao
+(L5478 13 §2º) torna o tempo o fator dominante; a lei autoriza expressamente
+o ajuizamento sem os dados do reu (CPC 319 §§1º-3º); a fragilidade probatoria
+da inadimplencia e mitigavel em juizo (exibicao + oficios) e o extrato pode
+ser juntado a qualquer momento como DOC-08. Alternativa descartada: cenarios
+B e C — trocam meses de alimentos das criancas por conforto probatorio que o
+processo obtem por outros meios.
+Confianca: alta · TIER B — decisao reservada: AGUARDA O "OK" EXPRESSO DO
+ADVOGADO (registrar DECISAO_ADVOGADO citando esta entrada). Afeta: momento do
+protocolo; PEN01/PEN02 (deixariam de bloquear o G3 se aprovado o cenario A,
+convertendo-se PEN02 em diligencia judicial e PEN01 em juntada posterior).
+---
+## #029 | 2026-07-04 22:27 | GATE
+G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs (declaracoes.conferencia_final); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
+---

@@ -10,7 +10,7 @@ g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-04 22:21
+atualizado: 2026-07-04 22:27
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
@@ -32,10 +32,10 @@ atualizado: 2026-07-04 22:21
 - Partes: 3 · Fatos: 2 (provados 1 / alegados 1 / controversos 0) · Provas: 1 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #016 | 2026-07-04 22:27 | NOTA — PZ01 espelhado no Google Calendar do escritorio como evento anonimizado [SOJ] 2026-0001 - PZ01 (31/07/2026, lembretes D-7 e D-1), conforme regra de privacidade do blueprint. Agenda dedicada SOJ - Prazos ainda a criar pelo advogado.
 - #015 | 2026-07-04 22:21 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #014 | 2026-07-04 22:21 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #013 | 2026-07-04 21:35 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #012 | 2026-07-04 21:35 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
-- #011 | 2026-07-04 21:34 | ALERTA — VIGIA-PRAZO PZ03 [PROXIMO]: 'TESTE DO VIGIA: prazo a 5 dias de mentira' vence em 2026-07-09 (em 5 dia(s), criticidade media).
 
 _Gerado por gerar_views.py — não editar._

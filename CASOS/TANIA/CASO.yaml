@@ -15,6 +15,7 @@ caso:
   fase: E3_minuta               # minuta v01 redigida em 02/06/2026, em revisao
   comarca: "Parauapebas/PA"     # Vara de Familia — CPC art. 53, II (domicilio do alimentando)
   segredo_justica: true         # menores de 11 e 7 anos
+  valor_causa: "R$ 5.835,60"    # 12 x R$ 486,30 (30% do SM 2026 = R$ 1.621,00, Decreto 12.797/2025) — CPC 292 III e VI; DIARIO #027
   gates:
     G1:
       status: aprovado
@@ -27,7 +28,7 @@ caso:
     G3:
       status: reprovado
       data: '2026-07-04'
-      diario: '#025'
+      diario: '#029'
 partes:
 - {id: PT01, papel: autora_representante, nome: "TANIA SILVA RODRIGUES", cpf: "028.405.932-38", nascimento: 1993-09-15, profissao: recepcionista, empregador: "URM SERVICE ALOJAMENTOS E ALIMENTOS LTDA (CNPJ 29.565.523/0004-00)", renda_mensal: 1621.00, endereco: "Rua Quatro, 46, Bairro Primavera, Parauapebas/PA, CEP 68515-000", nota_endereco: "declarado pela autora em 02/06/2026; conta de luz em nome de co-residente (Eudicleia); declaracao do advogado supre o comprovante na inicial", conta_deposito: "Itau Unibanco 341, Ag. 1019, CC 33883-7, CPF 028.405.932-38", qualificacao: completa}
 - {id: PT02, papel: reu, nome: "CICERO SILVA DE ARAUJO", cpf: "014.640.832-23", rg: "7213033 SSP/PA", nascimento: 1992-04-02, profissao: "tecnico em refrigeracao (dado de 2014, certidao); atual desconhecida", endereco: {status: nao_confirmado, cidade_declarada: "Rio de Janeiro/RJ", anterior: "Rua G-13, Qd. 148, Lt. 35, Ipiranga, Parauapebas/PA (certidoes 2014)", pendencia: PEN02}}
@@ -175,6 +176,12 @@ fundamentos_citados:
 - {ref: "ECA:art19", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "direito a convivencia familiar"}
 - {ref: "ECA:art21", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "poder familiar em igualdade de condicoes"}
 - {ref: "ECA:art22", verificado_em: 2026-07-04, status: vigente_com_alteracao_2025, validade_dias: 30, nucleo: true, nota: "REDACAO ALTERADA pela Lei 15.240/2025 — inclui convivencia e assistencia material/afetiva; usar texto atual"}
+- {ref: "CPC:art319", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "§§1º-3º: ajuizar sem endereco do reu + diligencias judiciais (cenario 'protocolar ja')"}
+- {ref: "CPC:art257", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "requisitos da citacao por edital (subsidiario a L5478 art. 5 §4)"}
+- {ref: "STJ:REsp1878041", verificado_em: 2026-07-04, status: vigente, validade_dias: 180, nota: "guarda compartilhada com genitores em cidades diferentes — 3a Turma, Nancy Andrighi, 2021"}
+- {ref: "STJ:REsp1312706", verificado_em: 2026-07-04, status: vigente, validade_dias: 180, nota: "presuncao de necessidade do alimentando menor"}
+- {ref: "STJ:gratuidade-alimentos", verificado_em: 2026-07-04, status: vigente, validade_dias: 180, nota: "gratuidade em acao de alimentos de menor nao exige prova de insuficiencia do representante"}
+- {ref: "PARAM:SM2026", verificado_em: 2026-07-04, status: vigente, validade_dias: 180, nota: "SM 2026 = R$ 1.621,00 (Decreto 12.797/2025) — base do valor da causa e do parametro dos provisorios"}
 
 prazos:
 # status: ativo (padrao) | cumprido | prejudicado — o vigia de prazos so alerta os ativos

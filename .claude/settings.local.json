@@ -42,7 +42,11 @@
       "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do script ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"=== CASO REAL: G3 TANIA definitivo \\(Fase 3\\) ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
       "WebFetch(domain:www.planalto.gov.br)",
       "WebFetch(domain:www.stj.jus.br)",
-      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) com gates endurecidos ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"exit=$LASTEXITCODE\")"
+      "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) com gates endurecidos ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"exit=$LASTEXITCODE\")",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\diario_tania_e3.py\")",
+      "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__list_calendars",
+      "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__list_events",
+      "mcp__16990b55-e102-42fa-81ae-e789ed85d40b__create_event"
     ]
   }
 }
