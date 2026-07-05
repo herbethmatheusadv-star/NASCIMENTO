@@ -267,7 +267,7 @@ Parauapebas/PA, [INSERIR DATA DO PROTOCOLO].
 
 ## ROL DE DOCUMENTOS
 
-*(Fonte da verdade: CASO.yaml / view rol_documentos.md. Extrato bancário e declaração de matrícula serão juntados quando obtidos — PEN01/PEN03, reservados os números DOC-08/DOC-09.)*
+*(Fonte da verdade: CASO.yaml / view rol_documentos.md. Extrato bancário e declaração de matrícula serão juntados quando obtidos — PEN01/PEN03, com os números 08 e 09 da numeração de documentos já reservados para eles.)*
 
 | n.º | Documento | Arquivo |
 |-----|-----------|---------|

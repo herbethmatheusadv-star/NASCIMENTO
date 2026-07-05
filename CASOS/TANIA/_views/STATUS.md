@@ -30,10 +30,10 @@ atualizado: 2026-07-04 22:27
 - Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 4
 
 ## Últimas entradas do diário
+- #030 | 2026-07-04 22:27 | GATE — G3 executado: REPROVADO. 4/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #029 | 2026-07-04 22:27 | GATE — G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #028 | 2026-07-04 22:25 | DECISAO_SISTEMA — DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado):
 - #027 | 2026-07-04 22:25 | DECISAO_SISTEMA — MINUTA_v02 redigida (E3), substituindo a v01. O que mudou:
 - #026 | 2026-07-04 22:25 | PESQUISA — Verificacoes complementares na fonte (04/07/2026, E3):
-- #025 | 2026-07-04 21:35 | GATE — G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 
 _Gerado por gerar_views.py — não editar._

@@ -310,3 +310,7 @@ convertendo-se PEN02 em diligencia judicial e PEN01 em juntada posterior).
 G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs (declaracoes.conferencia_final); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
 ---
+## #030 | 2026-07-04 22:27 | GATE
+G3 executado: REPROVADO. 4/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs (declaracoes.conferencia_final); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
+---
