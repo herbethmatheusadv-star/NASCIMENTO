@@ -32,10 +32,10 @@ atualizado: 2026-07-04 23:25
 - Partes: 3 · Fatos: 2 (provados 1 / alegados 1 / controversos 0) · Provas: 1 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #020 | 2026-07-04 23:25 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #019 | 2026-07-04 23:25 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #018 | 2026-07-04 22:38 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 - #017 | 2026-07-04 22:38 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 - #016 | 2026-07-04 22:27 | NOTA — PZ01 espelhado no Google Calendar do escritorio como evento anonimizado [SOJ] 2026-0001 - PZ01 (31/07/2026, lembretes D-7 e D-1), conforme regra de privacidade do blueprint. Agenda dedicada SOJ - Prazos ainda a criar pelo advogado.
-- #015 | 2026-07-04 22:21 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 
 _Gerado por gerar_views.py — não editar._
