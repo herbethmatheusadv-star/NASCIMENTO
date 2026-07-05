@@ -339,3 +339,7 @@ iniciar quando a peca congelar.
 Afeta: PED01 (excecao de prova ratificada — irregularidade como alegacao com
 exibicao e oficios), PEN01, PEN02, PEN03, PEN06, valor_causa, G3.
 ---
+## #032 | 2026-07-04 22:38 | GATE
+G3 executado: REPROVADO. 5/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final + checagem cruzada peca-decisoes (declaracoes.conferencia_final c/ cruzada_com_decisoes; valor da causa confere); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
+---

@@ -9,8 +9,8 @@ g1: aprovado
 g2: aprovado
 g3: reprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015"
-pendencias_criticas_abertas: 2
-atualizado: 2026-07-04 22:27
+pendencias_criticas_abertas: 1
+atualizado: 2026-07-04 22:38
 ---
 
 # STATUS — Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia
@@ -23,17 +23,16 @@ atualizado: 2026-07-04 22:27
 - PZ01 — **2026-06-11** (alta): Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015
 
 ## Pendências críticas abertas
-- PEN01 (cliente): Extrato bancario da autora, ultimos 12 meses — prova direta da irregularidade dos pagamentos (F05); reservado como DOC-08 — bloqueia G3
-- PEN02 (advogado): Endereco atual do reu no Rio de Janeiro/RJ — sem ele a citacao depende de SERASAJUD/edital (estrategia ja definida, DIARIO #010); confirmar antes do protocolo — bloqueia G3
+- PEN06 (cliente): Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 e a narrativa do §1.5 da minuta; UNICA pendencia de protocolo (DIARIO #031) — bloqueia G3
 
 ## Números do caso
-- Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 4
+- Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 3
 
 ## Últimas entradas do diário
+- #032 | 2026-07-04 22:38 | GATE — G3 executado: REPROVADO. 5/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+- #031 | 2026-07-04 22:37 | DECISAO_ADVOGADO — RATIFICACAO DA TIER B #028 — DECISAO DO ADVOGADO: OK, CENARIO A (protocolar
 - #030 | 2026-07-04 22:27 | GATE — G3 executado: REPROVADO. 4/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #029 | 2026-07-04 22:27 | GATE — G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #028 | 2026-07-04 22:25 | DECISAO_SISTEMA — DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado):
-- #027 | 2026-07-04 22:25 | DECISAO_SISTEMA — MINUTA_v02 redigida (E3), substituindo a v01. O que mudou:
-- #026 | 2026-07-04 22:25 | PESQUISA — Verificacoes complementares na fonte (04/07/2026, E3):
 
 _Gerado por gerar_views.py — não editar._

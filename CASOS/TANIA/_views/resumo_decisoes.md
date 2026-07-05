@@ -5,12 +5,12 @@ Decisões DECISAO_SISTEMA do DIARIO (D11). Para ratificar em bloco, registre uma
 | # | Data | Decisão | Tier | Confiança | Situação |
 |---|---|---|---|---|---|
 | #005 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Estrutura da acao: ACAO UNICA CUMULADA — alimentos | A | alta | ratificada (#011) |
-| #006 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Alimentos: tutela de urgencia INCLUIDA; criterio = | A | alta | ratificada (#011) |
+| #006 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Alimentos: tutela de urgencia INCLUIDA; criterio = | A | alta | vetada/ajustada (#031) |
 | #007 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Guarda: COMPARTILHADA LEGAL com residencia fixa dos | A | alta | ratificada (#011) |
 | #008 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Convivencia: proposta de CONSENSUALIZACAO entre as | A | media | ratificada (#011) |
 | #009 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Investigacao de renda e execucao: oficios a Receita | A | alta | ratificada (#011) |
 | #010 | 2026-07-04 17:55 | [HISTORICO — 02/06/2026] Requerimentos processuais: gratuidade de justica | A | alta | ratificada (#011) |
 | #027 | 2026-07-04 22:25 | MINUTA_v02 redigida (E3), substituindo a v01. O que mudou: | A | alta | aguardando ratificação |
-| #028 | 2026-07-04 22:25 | DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado): | B | alta | aguardando ratificação |
+| #028 | 2026-07-04 22:25 | DESTRAVAMENTO DO PROTOCOLO — cenarios analisados (aguarda decisao do advogado): | B | alta | vetada/ajustada (#031) |
 
 _Gerado por gerar_views.py — não editar._
