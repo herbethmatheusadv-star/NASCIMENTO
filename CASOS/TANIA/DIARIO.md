@@ -422,3 +422,19 @@ G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 ## #039 | 2026-07-04 22:58 | NOTA
 Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v03.md (10 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
 ---
+## #040 | 2026-07-04 23:04 | NOTA
+DOCX NO TIMBRADO GERADO (skill formatacao-peticoes-nascimento, apos a revisao
+humana integral #037 e o G3 aprovado #038):
+PROTOCOLO/PETICAO INICIAL - TANIA - ALIMENTOS GUARDA E CONVIVENCIA.docx
+(Century Gothic 11, timbrado oficial, titulos I-IX, 103 paragrafos).
+Fonte: MINUTA_v03 congelada, via peticao_markup.md. Adaptacoes DE FORMA (sem
+alteracao de conteudo juridico): remocao das anotacoes internas (caixas de
+comentario, marcadores [ANEXAR], nota de competencia sob o enderecamento),
+data do fecho em branco para preenchimento no protocolo, rol convertido de
+tabela para lista numerada, dados bancarios centralizados. Quantum conferido
+no DOCX: piso R$ 972,60 e valor da causa R$ 11.671,20 presentes.
+PROXIMOS PASSOS DO ADVOGADO: (1) preencher a data; (2) protocolar no PJe/TJPA
+com os DOC-01..07 e DOC-10 da pasta PROTOCOLO/; (3) registrar
+EVENTO_PROCESSUAL com numero do processo; (4) cadastrar os prazos reais
+(PZ##) — o vigia e o Calendar assumem dali em diante.
+---
