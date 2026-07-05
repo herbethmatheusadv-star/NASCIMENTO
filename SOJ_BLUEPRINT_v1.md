@@ -299,7 +299,7 @@ Executados por `gate_check.py` + revisão da IA; resultado vira entrada no DIARI
 - [ ] Checklist anti-erro fatal do módulo executado (ex.: no família — competência = domicílio do alimentando; MP como custos legis; alimentos provisórios pedidos expressamente)
 - [ ] Rol de documentos = arquivos da pasta = referências DOC-NN na peça (conferência automática)
 - [ ] Nenhuma pendência com `bloqueia: [G3]` aberta
-- [ ] Valores, datas, nomes e CPFs conferidos contra os documentos
+- [ ] Valores, datas, nomes e CPFs conferidos contra os documentos — e contra as decisões registradas (checagem cruzada peça ↔ DECISAO_SISTEMA: todo quantum/percentual da minuta bate com a decisão que o originou)
 - [ ] **Entrada final no DIARIO: advogado declara revisão humana integral da peça** (a IA prepara; você assina)
 
 ---

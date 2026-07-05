@@ -59,3 +59,6 @@ Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adv
 ## #016 | 2026-07-04 22:27 | NOTA
 PZ01 espelhado no Google Calendar do escritorio como evento anonimizado [SOJ] 2026-0001 - PZ01 (31/07/2026, lembretes D-7 e D-1), conforme regra de privacidade do blueprint. Agenda dedicada SOJ - Prazos ainda a criar pelo advogado.
 ---
+## #017 | 2026-07-04 22:38 | GATE
+G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
+---

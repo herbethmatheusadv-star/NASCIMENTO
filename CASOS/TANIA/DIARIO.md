@@ -314,3 +314,28 @@ Itens reprovados: Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento)
 G3 executado: REPROVADO. 4/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal generico executado — modulo em construcao (declaracoes.anti_erro_fatal); Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs (declaracoes.conferencia_final); Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
 ---
+## #031 | 2026-07-04 22:37 | DECISAO_ADVOGADO
+RATIFICACAO DA TIER B #028 — DECISAO DO ADVOGADO: OK, CENARIO A (protocolar
+ja, sem extrato e sem endereco do reu), CONDICIONADO a:
+(1) VALOR DA CAUSA reconciliado com a decisao de alimentos ANTES de qualquer
+ato de vespera — constatada divergencia entre fontes historicas (30 por cento
+TOTAL na DECISOES_REGISTRADAS de 02/06/2026, migrada como #006, base da v02;
+30 por cento POR FILHO no exemplo do blueprint): questao SUBMETIDA ao advogado
+com explicacao; a peca NAO sera alterada ate a resposta;
+(2) evento do Calendar conferido: era a meta interna ficticia do
+caso-laboratorio TESTE_FICTICIO (PZ01, 31/07) — rotulo corrigido para
+[SOJ-TESTE] com descricao explicita;
+(3) PEN02 convertida em diligencia judicial (pedido 9-b da MINUTA_v02: CPC
+319 par.1 + 256 par.3 + SERASAJUD); PEN01 (extrato) e PEN03 (matricula)
+reclassificadas como JUNTADA POSTERIOR (DOC-08/DOC-09 reservados); UNICA
+pendencia de protocolo: PEN06 (CTPS renovada — ja cobrada da cliente);
+(4) nova regra do G3 (ja gravada pelo advogado no blueprint, secao 6, item 8):
+conferencia final INCLUI checagem cruzada peca-decisoes — todo valor,
+percentual ou quantum da minuta deve bater com a DECISAO_SISTEMA de origem;
+implementada no gate_check nesta data;
+(5) vespera do protocolo somente apos resolvida a condicao (1); DOCX no
+timbrado somente apos revisao humana integral assinada; Fase 4 autorizada a
+iniciar quando a peca congelar.
+Afeta: PED01 (excecao de prova ratificada — irregularidade como alegacao com
+exibicao e oficios), PEN01, PEN02, PEN03, PEN06, valor_causa, G3.
+---

@@ -386,10 +386,34 @@ def checar_g3(pasta, dados, entradas):
     itens.append(("Nenhuma pendencia aberta com bloqueia: [G3]", not travas,
                   ", ".join(str(p.get("id")) for p in travas)))
 
-    # 8. conferencia FINAL de valores/datas/nomes/CPFs — campo estruturado (A2)
+    # 8. conferencia FINAL de valores/datas/nomes/CPFs + CHECAGEM CRUZADA
+    #    peca <-> decisoes (blueprint §6, item 8 do G3):
+    #    (a) declaracoes.conferencia_final com diario valido E com o campo
+    #        cruzada_com_decisoes: true (o advogado/IA conferiu cada quantum
+    #        da minuta contra a DECISAO_SISTEMA que o originou);
+    #    (b) checagem mecanica: os digitos de caso.valor_causa devem aparecer
+    #        na minuta — peca e fonte da verdade nao podem divergir.
+    problemas8 = []
     ok, detalhe = soj.declaracao_ok(dados, entradas, "conferencia_final")
-    itens.append(("Conferencia final de valores/datas/nomes/CPFs "
-                  "(declaracoes.conferencia_final)", ok, detalhe))
+    if not ok:
+        problemas8.append(detalhe)
+    else:
+        decl = (dados.get("declaracoes") or {}).get("conferencia_final") or {}
+        if not decl.get("cruzada_com_decisoes"):
+            problemas8.append("declaracoes.conferencia_final sem "
+                              "'cruzada_com_decisoes: true' — a checagem "
+                              "peca x DECISAO_SISTEMA e obrigatoria")
+    vc = re.sub(r"\D", "", str(dados["caso"].get("valor_causa", "")))
+    if not vc:
+        problemas8.append("caso.valor_causa ausente no CASO.yaml")
+    elif vc not in re.sub(r"\D", "", texto_minuta):
+        problemas8.append(f"valor da causa da fonte da verdade "
+                          f"({dados['caso'].get('valor_causa')}) nao encontrado "
+                          "na minuta — peca e decisao divergem")
+    itens.append(("Conferencia final + checagem cruzada peca-decisoes "
+                  "(declaracoes.conferencia_final c/ cruzada_com_decisoes; "
+                  "valor da causa confere)", not problemas8,
+                  "; ".join(problemas8)))
 
     # 9. revisao humana integral do advogado — campo estruturado (A2)
     ok, detalhe = soj.declaracao_ok(dados, entradas, "revisao_humana_integral")

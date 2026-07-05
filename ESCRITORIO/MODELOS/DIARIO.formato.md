@@ -65,7 +65,7 @@ apontando o número da entrada — o gate valida que a entrada existe.
 | Aceite de risco da simulação | `declaracoes.aceites_de_risco: [{risco, diario}]` | G2 |
 | Exceção de prova de um pedido | no próprio pedido: `excecao_prova: {motivo, diario}` | G3 |
 | Checklist anti-erro fatal executado | `declaracoes.anti_erro_fatal: {diario, data}` | G3 |
-| Conferência final de valores/datas/nomes/CPFs | `declaracoes.conferencia_final: {diario, data}` | G3 |
+| Conferência final de valores/datas/nomes/CPFs **+ checagem cruzada peça↔decisões** (todo quantum da minuta bate com a DECISAO_SISTEMA de origem) | `declaracoes.conferencia_final: {diario, data, cruzada_com_decisoes: true}` — o gate também confere mecanicamente `caso.valor_causa` contra a minuta | G3 |
 | Revisão humana integral do advogado | `declaracoes.revisao_humana_integral: {diario, data}` | G3 |
 
 (As convenções antigas por palavra-chave foram DESATIVADAS após três
