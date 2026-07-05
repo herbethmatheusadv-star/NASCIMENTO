@@ -58,7 +58,8 @@
       "PowerShell(\"=== LAB: gates ===\")",
       "PowerShell(\"=== views + painel ===\")",
       "PowerShell(\"=== deteccao com janela de 45 dias \\(prova de funcionamento\\) ===\")",
-      "PowerShell(\"=== secao real do PAINEL ===\")"
+      "PowerShell(\"=== secao real do PAINEL ===\")",
+      "PowerShell(\"=== Item 1: contrato do modulo familia \\(secao 9\\) ===\"; Get-ChildItem \"ESCRITORIO\\\\MODULOS\\\\familia\" -Recurse -File | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\ESCRITORIO\\\\MODULOS\\\\familia\\\\\",\"\"\\) + \" [\" + [math]::Round\\($_.Length/1KB,1\\) + \" KB]\" }; \"=== Item 2: estado real da PEN06 ===\"; Select-String -Path \"CASOS\\\\TANIA\\\\CASO.yaml\" -Pattern \"PEN06\" -Encoding UTF8 | ForEach-Object { $_.Line.Substring\\(0, [Math]::Min\\(220, $_.Line.Length\\)\\) })"
     ]
   }
 }
