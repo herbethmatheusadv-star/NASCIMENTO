@@ -1,28 +1,50 @@
-# MÓDULO FAMÍLIA — contrato do módulo (esqueleto)
+# MÓDULO FAMÍLIA — contrato do módulo (COMPLETO — Fase 4, 2026-07-04)
 
-> Primeiro módulo completo do SOJ (decisão D1). **Será construído na Fase 4**,
-> extraindo tudo do CASO_TESTE_001. Este esqueleto existe para o kernel já
-> reconhecer a área; o conteúdo real entra na Fase 4.
+> Primeiro módulo pleno do SOJ (D1), construído a partir do caso-fonte
+> 2026-0002 (TANIA): a peça aprovada virou template, as decisões ratificadas
+> viraram árvore, os erros e quase-erros viraram checklist.
 
-## O que este módulo fornecerá (contrato — blueprint, seção 9)
+## Estado do contrato (blueprint, seção 9)
 
 | Arquivo | Função | Estado |
 |---|---|---|
-| `MODULO.md` | Tipos de ação cobertos, rito, foro padrão, particularidades | esqueleto |
-| `praxe_decisoria.md` | A árvore de decisão: como um sênior fixa percentual, guarda, convivência — com fontes (D11) | esqueleto |
-| `decisoes_reservadas.md` | Lista curta do que exige "ok" humano expresso (Tier B) | esqueleto |
-| `checklist_documental.md` | Documentos típicos por tipo de ação (alimenta pendências do intake) | esqueleto |
-| `teses.md` | Banco de teses da área | esqueleto |
-| `templates/alimentos_guarda_convivencia.md` | Esqueleto de minuta no markup da formatação Nascimento | esqueleto |
-| `anti_erro_fatal.md` | Checklist anti-erro fatal específico da área (roda no G3) | esqueleto |
+| `MODULO.md` | Tipos de ação, rito, foro, particularidades | ✅ completo |
+| `praxe_decisoria.md` | Árvore de decisão com fontes e Tier A/B (D11) | ✅ completo (1ª geração) |
+| `decisoes_reservadas.md` | O que exige "ok" humano expresso (Tier B) | ✅ completo |
+| `checklist_documental.md` | Docs típicos → pendências do intake | ✅ completo |
+| `teses.md` | Banco de teses verificadas (T1–T8) | ✅ semeado |
+| `templates/alimentos_guarda_convivencia.md` | Esqueleto de minuta com tags SOJ | ✅ extraído da MINUTA_v03 aprovada |
+| `anti_erro_fatal.md` | Checklist da véspera (roda no G3) | ✅ definitivo |
+| Tabelas de quantum | Dosimetria | parcial — piso 30% SM/filho na praxe (§alimentos); tabela ampla conforme novos casos |
 
-## Tipos de ação (a preencher na Fase 4)
+## Tipos de ação cobertos
 
-- Alimentos c/c guarda e regulamentação de convivência (nasce do CASO_TESTE_001)
+1. **Alimentos c/c guarda compartilhada e regulamentação de convivência**
+   (com tutela de urgência para provisórios) — template pronto.
+2. Alimentos simples — usar o mesmo template, suprimindo capítulos de
+   guarda/convivência (decisão pela árvore §estrutura).
+3. Fora de cobertura (rodam no kernel genérico + decisão reservada):
+   revisional, execução de alimentos, guarda contenciosa com risco,
+   medidas protetivas.
 
-## Nota sobre a nomenclatura (v1.3)
+## Rito e foro padrão
 
-A árvore da seção 2 do blueprint ainda menciona `decisoes_obrigatorias.md`
-(texto herdado da v1.0), mas a decisão **D11 (v1.3)** substituiu expressamente
-esse conceito por `praxe_decisoria.md` + `decisoes_reservadas.md`. Este módulo
-segue a D11.
+- **Rito especial** da Lei 5.478/1968 (LEI5478:art1) com tutela do art. 4º.
+- **Foro:** domicílio do alimentando (CPC:art53, II).
+- **Segredo de justiça** sempre que houver menores (CPC:art189, II).
+- **MP custos legis** (CPC:art178, II).
+
+## Particularidades da comarca-base (Parauapebas/PA)
+
+- Intimações pelo Portal Eletrônico do TJPA, em nome do advogado
+  (ESCRITORIO/ADVOGADO.md).
+- Patamar de provisórios praticado pela vara: NÃO VERIFICADO em fonte
+  oficial — enquanto assim for, a peça usa praxe forense + piso objetivo +
+  arbitramento (nunca citar precedente local não conferido).
+
+## Amadurecimento (regra da seção 9 do blueprint)
+
+Cada caso novo da área realimenta o módulo: decisões ratificadas viram novos
+ramos da praxe; correções do advogado na revisão viram itens do anti-erro;
+pesquisa nova vira verbete e tese. Migração Tier B → Tier A só com decisão
+expressa do advogado.

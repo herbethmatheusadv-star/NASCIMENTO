@@ -27,6 +27,13 @@ importantes.
 - Decisões técnico-jurídicas: DECISAO_SISTEMA no DIARIO com fundamento,
   alternativa descartada e confiança (D11); ratificação em bloco nos gates.
 
+## Módulos e kernel
+
+- Comandos padrão do sistema: skill `soj-kernel` (.claude/skills/soj-kernel/).
+- Caso de família: usar `ESCRITORIO/MODULOS/familia/` — praxe_decisoria.md
+  (árvore Tier A/B), decisoes_reservadas.md, checklist_documental.md,
+  anti_erro_fatal.md, teses.md e templates/ (minuta nasce ~70% pronta).
+
 ## Regra do laboratório
 
 `CASOS/TESTE_FICTICIO` é o caso-laboratório PERMANENTE. Alterou qualquer
