@@ -12,7 +12,7 @@ caso:
   area: familia
   modulo: familia/alimentos_guarda_convivencia
   complexidade: padrao          # simples | padrao | complexo (D9)
-  fase: E3_minuta               # minuta v01 redigida em 02/06/2026, em revisao
+  fase: E4_protocolo            # minuta v01 redigida em 02/06/2026, em revisao
   comarca: "Parauapebas/PA"     # Vara de Familia — CPC art. 53, II (domicilio do alimentando)
   segredo_justica: true         # menores de 11 e 7 anos
   valor_causa: "R$ 11.671,20"   # 12 x R$ 972,60 (30% do SM POR FILHO, 2 filhos; SM 2026 = R$ 1.621,00, Decreto 12.797/2025) — CPC 292 III c/c VI; DIARIO #033
@@ -26,9 +26,9 @@ caso:
       data: '2026-07-04'
       diario: '#017'
     G3:
-      status: reprovado
+      status: aprovado
       data: '2026-07-04'
-      diario: '#036'
+      diario: '#038'
 partes:
 - {id: PT01, papel: autora_representante, nome: "TANIA SILVA RODRIGUES", cpf: "028.405.932-38", nascimento: 1993-09-15, profissao: recepcionista, empregador: "URM SERVICE ALOJAMENTOS E ALIMENTOS LTDA (CNPJ 29.565.523/0004-00)", renda_mensal: 1621.00, endereco: "Rua Quatro, 46, Bairro Primavera, Parauapebas/PA, CEP 68515-000", nota_endereco: "declarado pela autora em 02/06/2026; conta de luz em nome de co-residente (Eudicleia); declaracao do advogado supre o comprovante na inicial", conta_deposito: "Itau Unibanco 341, Ag. 1019, CC 33883-7, CPF 028.405.932-38", qualificacao: completa}
 - {id: PT02, papel: reu, nome: "CICERO SILVA DE ARAUJO", cpf: "014.640.832-23", rg: "7213033 SSP/PA", nascimento: 1992-04-02, profissao: "tecnico em refrigeracao (dado de 2014, certidao); atual desconhecida", endereco: {status: nao_confirmado, cidade_declarada: "Rio de Janeiro/RJ", anterior: "Rua G-13, Qd. 148, Lt. 35, Ipiranga, Parauapebas/PA (certidoes 2014)", pendencia: PEN02}}
@@ -202,6 +202,6 @@ declaracoes:
   checklist_cliente_enviado: {diario: '#004', data: 2026-06-02}
   anti_erro_fatal: {diario: '#034', data: 2026-07-04}
   conferencia_final: {diario: '#035', data: 2026-07-04, cruzada_com_decisoes: true}
-# revisao_humana_integral:  {diario: '#0NN', data: ...}   <- ato humano obrigatorio (D11) — AGUARDA O ADVOGADO
+  revisao_humana_integral: {diario: '#037', data: 2026-07-04}
 # aceites_de_risco:         [{risco: "...", diario: '#0NN'}]
 # sem_prazos:               {diario: '#0NN', motivo: "..."}

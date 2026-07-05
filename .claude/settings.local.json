@@ -51,7 +51,8 @@
       "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do gate ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"=== TANIA: G3 pos-ratificacao ===\"; python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
       "PowerShell(Copy-Item \"CASOS\\\\TANIA\\\\MINUTA_v02.md\" \"CASOS\\\\TANIA\\\\MINUTA_v03.md\")",
       "PowerShell(\"copiado\")",
-      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\gerar_minuta_v03.py\")"
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\gerar_minuta_v03.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA | Select-Object -First 1; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\"; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TANIA --minuta MINUTA_v03.md; \"exit=$LASTEXITCODE\")"
     ]
   }
 }

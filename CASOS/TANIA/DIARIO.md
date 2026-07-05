@@ -404,3 +404,18 @@ R$ 11.671,20 x #033 OK (12 x 972,60; CPC 292 III c/c VI). NENHUMA DIVERGENCIA.
 G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
 ---
+## #037 | 2026-07-04 22:58 | DECISAO_ADVOGADO
+REVISAO HUMANA INTEGRAL DA PECA — declaracao do advogado (D11, ato humano
+obrigatorio): o advogado Herbeth Matheus Mendonca do Nascimento (OAB/PA 39.261)
+declara ter realizado a revisao humana integral da MINUTA_v03 nesta data, com
+apoio do relatorio de revisao (_efemeros/RELATORIO_REVISAO_MINUTA_v03.md),
+e APROVA o texto para protocolo, sem ajustes. A peca sai sob sua
+responsabilidade e assinatura (Estatuto da OAB). Texto CONGELADO — a partir
+daqui, alteracao = nova versao + nova revisao. Referencias: #027 (v02), #031
+(cenario A), #033 (quantum), #034 (anti-erro), #035 (conferencia cruzada).
+Autoriza: G3, preparar_protocolo e geracao do DOCX no timbrado. Fase 4
+liberada (template a colher da v03 aprovada).
+---
+## #038 | 2026-07-04 22:58 | GATE
+G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+---
