@@ -27,7 +27,7 @@ caso:
     G3:
       status: reprovado
       data: '2026-07-04'
-      diario: '#020'
+      diario: '#024'
 partes:
 - {id: PT01, papel: autora_representante, nome: "TANIA SILVA RODRIGUES", cpf: "028.405.932-38", nascimento: 1993-09-15, profissao: recepcionista, empregador: "URM SERVICE ALOJAMENTOS E ALIMENTOS LTDA (CNPJ 29.565.523/0004-00)", renda_mensal: 1621.00, endereco: "Rua Quatro, 46, Bairro Primavera, Parauapebas/PA, CEP 68515-000", nota_endereco: "declarado pela autora em 02/06/2026; conta de luz em nome de co-residente (Eudicleia); declaracao do advogado supre o comprovante na inicial", conta_deposito: "Itau Unibanco 341, Ag. 1019, CC 33883-7, CPF 028.405.932-38", qualificacao: completa}
 - {id: PT02, papel: reu, nome: "CICERO SILVA DE ARAUJO", cpf: "014.640.832-23", rg: "7213033 SSP/PA", nascimento: 1992-04-02, profissao: "tecnico em refrigeracao (dado de 2014, certidao); atual desconhecida", endereco: {status: nao_confirmado, cidade_declarada: "Rio de Janeiro/RJ", anterior: "Rua G-13, Qd. 148, Lt. 35, Ipiranga, Parauapebas/PA (certidoes 2014)", pendencia: PEN02}}
@@ -71,10 +71,11 @@ fatos:
   provas: [P10]
   pedidos: [PED01]
 - id: F08
-  descricao: "Contrato de trabalho da autora era de prazo determinado com termino em 11/06/2026 — data ja transcorrida; situacao atual a confirmar"
+  descricao: "Contrato de trabalho da autora era de prazo determinado com termino em 11/06/2026; RENOVADO segundo a cliente (04/07/2026 — DIARIO #021), comprovante pendente"
   status: provado
   provas: [P10]
-  pendencias: [PEN04]
+  pendencias: [PEN06]
+  nota: "o termino em 11/06 esta provado pela CTPS (P10); a RENOVACAO e informacao da cliente ate a chegada do comprovante (PEN06)"
 - id: F09
   descricao: "Despesas mensais da familia (lista filtrada 02/06: itens dos filhos/compartilhados ~R$ 1.585,00; itens pessoais da mae excluidos)"
   status: alegado
@@ -112,7 +113,7 @@ provas:
 - {id: P05, doc: "01_documentos/DOC-05_CPF_MENOR_CICERO_JUNIOR_074.003.542-80.pdf", original: "00_originais/CPF - CÍCERO JÚNIOR.pdf", o_que_prova: "CPF do menor (tambem consta na certidao P02)", forca: relativa, fragilidade: "OCR em branco; conferencia humana em 02/06/2026"}
 - {id: P06, doc: "01_documentos/DOC-06_CPF_MENOR_JULLIA_079.215.852-05.pdf", original: "00_originais/CPF - JULLIA.pdf", o_que_prova: "CPF da menor Jullia (unica fonte do numero)", forca: relativa, fragilidade: "OCR em branco; conferencia humana em 02/06/2026"}
 - {id: P07, doc: "01_documentos/DOC-07_LISTA_DESPESAS_MANUSCRITA_INFORMAL.jpeg", original: "00_originais/WhatsApp Image 2026-05-31 at 09.57.07.jpeg", o_que_prova: "Indicio das despesas mensais da familia (~R$ 2.323,66 brutos; R$ 1.585,00 filtrados)", forca: indiciaria, fragilidade: "manuscrita, informal, sem data/assinatura; itens pessoais da mae filtrados em 02/06/2026"}
-- {id: P10, doc: "01_documentos/DOC-10_CTPS_MAE_TANIA_SILVA_RODRIGUES.pdf", original: "00_originais/CTPSContratosDigitais_028.405.932-38_02-06-2026.pdf", o_que_prova: "Renda da autora (R$ 1.621,00/mes); historico laboral desde 2021; contrato a prazo determinado com termino 11/06/2026", forca: plena, fragilidade: "contrato expirou em 11/06/2026 — como prova de renda EM VIGOR perdeu validade; ver PEN04"}
+- {id: P10, doc: "01_documentos/DOC-10_CTPS_MAE_TANIA_SILVA_RODRIGUES.pdf", original: "00_originais/CTPSContratosDigitais_028.405.932-38_02-06-2026.pdf", o_que_prova: "Renda da autora (R$ 1.621,00/mes); historico laboral desde 2021; contrato a prazo determinado com termino 11/06/2026", forca: plena, fragilidade: "documento emitido em 02/06/2026 — nao mostra a renovacao pos 11/06 informada pela cliente; atualizar com PEN06"}
 - {id: P11, doc: "01_documentos/DOC-11_BOLETO_INTERNET_EUDICLEIA_TITULAR_DIVERGENTE.pdf", original: "00_originais/cliente_78424_receber_1963817_390340384438001777553399.pdf", o_que_prova: "Despesa de internet do imovel (R$ 53,09/mes)", forca: indiciaria, fragilidade: "titular Eudicleia Silva Rodrigues (co-residente), nao a autora"}
 - {id: P12, doc: "01_documentos/DOC-12_SITUACAO_CADASTRAL_CNPJ_RELACAO_INCERTA.pdf", original: "00_originais/SITUAÇÃO CADASTRAL.pdf", o_que_prova: "Empresa de alojamentos ativa desde 2021 (possivel vinculo do reu — NAO confirmado)", forca: indiciaria, fragilidade: "relacao com o reu nao estabelecida; decidido nao mencionar na peticao (DIARIO #009)"}
 # Nota de migracao: P08/P09 e DOC-08/DOC-09 ficam RESERVADOS para o extrato
@@ -142,41 +143,43 @@ pedidos:
   fatos: [F05, F06, F12]
 - id: PED05
   tipo: desconto_em_folha_subsidiario
-  parametro: "subsidiario, condicionado a confirmacao de vinculo empregaticio — DIARIO #009; FUNDAMENTO PENDENTE: arts. 16-18 da L5478 revogados; art. do CPC a verificar (PEN05)"
-  fundamentos: []
+  parametro: "subsidiario, condicionado a confirmacao de vinculo empregaticio — DIARIO #009; fundamento verificado em 04/07/2026: CPC art. 529 (substituto dos revogados arts. 16-18 da L5478) — DIARIO #022"
+  fundamentos: [CPC:art529]
   fatos: [F05]
 
 fundamentos_citados:
-  # Espelho da PESQUISA_JURIDICA_v01 (03/07/2026). status: vigente = texto lido
-  # na fonte oficial; apurado_nao_confirmado = reproduzido de conhecimento
-  # tecnico, SEM verificacao na fonte — conferir antes do protocolo (PEN05).
-- {ref: "LEI5478:art1", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nucleo: true, nota: "rito especial; gratuidade por simples afirmativa"}
-- {ref: "LEI5478:art4", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nucleo: true, nota: "provisorios ao despachar — presuncao de urgencia; dispensa art. 300 CPC"}
-- {ref: "LEI5478:art5p4", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "citacao por edital — norma especial (3 publicacoes)"}
-- {ref: "LEI5478:art13p2", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nucleo: true, nota: "retroacao dos alimentos a data da citacao"}
-- {ref: "LEI5478:art20", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "oficios as reparticoes publicas"}
-- {ref: "CPC:art22", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "competencia internacional — credor domiciliado no Brasil"}
-- {ref: "CPC:art53", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nucleo: true, nota: "foro do domicilio do alimentando — Parauapebas/PA"}
-- {ref: "CPC:art98", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "gratuidade da justica"}
-- {ref: "CPC:art99p3", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "presuncao de veracidade da alegacao de insuficiencia"}
-- {ref: "ECA:art19", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "direito a convivencia familiar"}
-- {ref: "ECA:art21", verificado_em: 2026-07-03, status: vigente, validade_dias: 90, nota: "poder familiar em igualdade de condicoes"}
-- {ref: "ECA:art22", verificado_em: 2026-07-03, status: vigente_com_alteracao_2025, validade_dias: 30, nucleo: true, nota: "REDACAO ALTERADA pela Lei 15.240/2025 — inclui convivencia e assistencia material/afetiva; usar texto atual"}
-- {ref: "CC:art1694", status: apurado_nao_confirmado, nota: "trinomio do §1º; CONFERIR na fonte antes do protocolo (PEN05)"}
-- {ref: "CC:art1583", status: apurado_nao_confirmado, nota: "guarda compartilhada; §3º cidade-base; CONFERIR (PEN05)"}
-- {ref: "CC:art1584", status: apurado_nao_confirmado, nota: "§2º compartilhada como regra; CONFERIR (PEN05)"}
-- {ref: "CPC:art178", status: apurado_nao_confirmado, nota: "MP custos legis — interesse de incapaz; CONFERIR (PEN05)"}
-- {ref: "CPC:art189", status: apurado_nao_confirmado, nota: "segredo de justica — inciso II; CONFERIR (PEN05)"}
-- {ref: "CPC:art256", status: apurado_nao_confirmado, nota: "citacao por edital (subsidiario); CONFERIR (PEN05)"}
-- {ref: "CPC:art292", status: apurado_nao_confirmado, nota: "valor da causa: 12x prestacao (III) + cumulacao (VI); CONFERIR (PEN05)"}
-- {ref: "CPC:art300", status: apurado_nao_confirmado, nota: "tutela de urgencia (reforco subsidiario ao art. 4 L5478); CONFERIR (PEN05)"}
+  # Espelho da BASE_LEGAL/familia.md. TODOS os dispositivos reverificados na
+  # fonte oficial (planalto.gov.br) em 2026-07-04 — ver DIARIO #022.
+- {ref: "LEI5478:art1", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "rito especial; gratuidade por simples afirmativa"}
+- {ref: "LEI5478:art4", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "provisorios 'desde logo' — presuncao de urgencia; dispensa art. 300 CPC"}
+- {ref: "LEI5478:art5p4", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "citacao por edital — norma especial (3 publicacoes)"}
+- {ref: "LEI5478:art13p2", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "retroacao a citacao (§2º) + provisorios ate decisao final (§3º)"}
+- {ref: "LEI5478:art20", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "informacoes de reparticoes publicas, INCLUSIVE Imposto de Renda (texto corrigido em 04/07)"}
+- {ref: "CPC:art22", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "competencia internacional — credor domiciliado no Brasil"}
+- {ref: "CPC:art53", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "foro do domicilio do alimentando — Parauapebas/PA"}
+- {ref: "CPC:art98", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "gratuidade da justica"}
+- {ref: "CPC:art99p3", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "presuncao de veracidade da alegacao de insuficiencia"}
+- {ref: "CPC:art178", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "MP custos legis — inciso II (interesse de incapaz)"}
+- {ref: "CPC:art189", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "segredo de justica — inciso II (alimentos e guarda de menores)"}
+- {ref: "CPC:art256", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "citacao por edital; §3º = ancora do pedido de localizacao (SERASAJUD — TCT CNJ 015/2019)"}
+- {ref: "CPC:art292", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "valor da causa: 12x prestacao (III) + cumulacao (VI)"}
+- {ref: "CPC:art300", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "tutela de urgencia — reforco SUBSIDIARIO ao art. 4 da L5478"}
+- {ref: "CPC:art529", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "desconto em folha — substituto dos revogados arts. 16-18 da L5478 (fundamento do PED05)"}
+- {ref: "CC:art1583", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "guarda; §3º cidade-base; incisos do §2º REVOGADOS desde 2014 (divergencia da pesquisa antiga)"}
+- {ref: "CC:art1584", verificado_em: 2026-07-04, status: vigente_com_alteracao_2023, validade_dias: 90, nucleo: true, nota: "§2º com redacao da Lei 14.713/2023 (excecao de violencia domestica) — usar texto ATUAL; sem alegacao de violencia no caso, a regra da compartilhada segue"}
+- {ref: "CC:art1694", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nucleo: true, nota: "trinomio do §1º — confirmado na fonte"}
+- {ref: "ECA:art19", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "direito a convivencia familiar"}
+- {ref: "ECA:art21", verificado_em: 2026-07-04, status: vigente, validade_dias: 90, nota: "poder familiar em igualdade de condicoes"}
+- {ref: "ECA:art22", verificado_em: 2026-07-04, status: vigente_com_alteracao_2025, validade_dias: 30, nucleo: true, nota: "REDACAO ALTERADA pela Lei 15.240/2025 — inclui convivencia e assistencia material/afetiva; usar texto atual"}
 
 prazos:
-- {id: PZ01, descricao: "Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 e PEN04", data: 2026-06-11, criticidade: alta}
+# status: ativo (padrao) | cumprido | prejudicado — o vigia de prazos so alerta os ativos
+- {id: PZ01, descricao: "Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015", data: 2026-06-11, criticidade: alta, status: prejudicado, nota: "contrato renovado segundo a cliente (04/07/2026 — DIARIO #021): o prazo perdeu o objeto; narrativa da minuta a revisar na E3"}
 
 pendencias:
 - {id: PEN01, descricao: "Extrato bancario da autora, ultimos 12 meses — prova direta da irregularidade dos pagamentos (F05); reservado como DOC-08", responsavel: cliente, prioridade: critica, bloqueia: [G3], mensagem_cliente: "o extrato da sua conta dos ultimos 12 meses (daquela conta em que ele fazia os depositos) — pode tirar direto no aplicativo do banco e mandar em PDF"}
 - {id: PEN02, descricao: "Endereco atual do reu no Rio de Janeiro/RJ — sem ele a citacao depende de SERASAJUD/edital (estrategia ja definida, DIARIO #010); confirmar antes do protocolo", responsavel: advogado, prioridade: critica, bloqueia: [G3]}
 - {id: PEN03, descricao: "Declaracao de matricula escolar dos menores (escola publica de Parauapebas) — comprova residencia habitual e rotina; reservado como DOC-09", responsavel: cliente, prioridade: media, bloqueia: [], mensagem_cliente: "uma declaracao de matricula das criancas, que a escola emite na hora e de graca — e so pedir na secretaria"}
-- {id: PEN04, descricao: "Confirmar se o contrato de trabalho da autora foi renovado apos 11/06/2026 — muda a prova de renda e a narrativa de urgencia da minuta (F08)", responsavel: cliente, prioridade: alta, bloqueia: [], mensagem_cliente: "me conta: seu contrato de trabalho foi renovado depois de 11 de junho? Se sim, manda a folha atualizada da carteira digital; se nao, o comprovante do seguro-desemprego"}
-- {id: PEN05, descricao: "Verificacoes juridicas manuais: (a) Resolucao CNJ do SERASAJUD; (b) art. do CPC p/ desconto em folha (arts. 16-18 L5478 revogados); (c) conferir na fonte os textos apurados (CC 1583/1584/1694-6; CPC 178/189/256-7/292/300-2); (d) valor da causa com SM vigente", responsavel: advogado, prioridade: alta, bloqueia: []}
+- {id: PEN04, descricao: "Confirmar se o contrato de trabalho da autora foi renovado apos 11/06/2026 — muda a prova de renda e a narrativa de urgencia da minuta (F08)", responsavel: cliente, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "cliente informou em 04/07/2026: contrato RENOVADO (DIARIO #021); comprovante da renovacao pendente em PEN06"}
+- {id: PEN05, descricao: "Verificacoes juridicas manuais: (a) Resolucao CNJ do SERASAJUD; (b) art. do CPC p/ desconto em folha (arts. 16-18 L5478 revogados); (c) conferir na fonte os textos apurados (CC 1583/1584/1694-6; CPC 178/189/256-7/292/300-2); (d) valor da causa com SM vigente", responsavel: advogado, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "(a) SERASAJUD = TCT CNJ 015/2019 + CPC art. 256 §3º; (b) CPC art. 529 confirmado; (c) todos os apurados verificados na fonte em 04/07 (DIARIO #022); (d) valor da causa fica coberto pelo marcador [VALIDAR VALOR DA CAUSA] da minuta, a calcular na E3 com o SM vigente"}
+- {id: PEN06, descricao: "Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 e a narrativa do §1.5 da minuta", responsavel: cliente, prioridade: alta, bloqueia: [], mensagem_cliente: "aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF"}

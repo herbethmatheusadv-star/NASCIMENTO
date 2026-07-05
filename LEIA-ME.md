@@ -67,6 +67,7 @@ Mas é bom saber o que existe:
 | `gerar_views.py` | Regenera os relatórios (status, pendências, checklist do cliente, painel) | Após qualquer mudança |
 | `gate_check.py` | Roda os portões de qualidade G1/G2/G3 (checklists objetivos que BLOQUEIAM o avanço se algo falta) | Fim de cada etapa |
 | `preparar_protocolo.py` | Monta o pacote final (petição limpa + documentos + índice) | Depois do G3 aprovado |
+| `vigia_prazos.py` | Varre os prazos de TODOS os casos: vencido ou a ≤ 7 dias → ALERTA no diário + destaque no painel | **Início de toda sessão** (Adendo A1) |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 

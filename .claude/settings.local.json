@@ -31,7 +31,14 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
       "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) apos alteracao do script ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA re-executado ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
       "PowerShell(\"=== LABORATORIO \\(TESTE_FICTICIO\\) ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G1 | Select-Object -First 1; \"exit=$LASTEXITCODE\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_FICTICIO G2 | Select-Object -First 1; \"exit=$LASTEXITCODE\"; \"=== CASO REAL: G3 TANIA definitivo ===\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")",
-      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TANIA; \"exit=$LASTEXITCODE\"; \"===========\"; git log --format=\"%h %ad %s\" --date=format:\"%H:%M\" | Select-Object -First 12; \"===========\"; git status --porcelain; \"fim\")"
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" TANIA; \"exit=$LASTEXITCODE\"; \"===========\"; git log --format=\"%h %ad %s\" --date=format:\"%H:%M\" | Select-Object -First 12; \"===========\"; git status --porcelain; \"fim\")",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\extrair_artigos.py\" > \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\artigos_extraidos.txt\" 2>&1; Get-Content \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\artigos_extraidos.txt\" -TotalCount 150 -Encoding UTF8)",
+      "WebSearch",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\diario_tania_f3.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\vigia_prazos.py\")",
+      "PowerShell(\"=== 1a rodada \\(deve disparar 2 alertas no TESTE_FICTICIO e ignorar PZ01 prejudicado da TANIA\\) ===\")",
+      "PowerShell(\"=== 2a rodada \\(nao pode duplicar\\) ===\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" TANIA; \"===========\"; python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G3; \"exit=$LASTEXITCODE\")"
     ]
   }
 }

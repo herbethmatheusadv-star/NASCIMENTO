@@ -454,3 +454,23 @@ Estimativa conservadora: **60–75% menos tokens por caso** já no segundo caso 
 ---
 
 *SOJ Blueprint v1.0 — preparado para aprovação. Nenhuma linha deste desenho exige ferramenta paga além do que você já usa.*
+
+---
+
+# ADENDO A1 — VIGIA DE PRAZOS (aprovado pelo advogado em 2026-07-04)
+
+**Regra permanente do kernel, aprendida no piloto** (o prazo de 11/06/2026 do
+CASO_TESTE_001 venceu sem alarme; o STATUS antigo continuou mandando
+"protocolar antes de 11/06" três semanas depois de vencido):
+
+1. **Toda sessão, sobre qualquer caso, começa com o vigia de prazos**:
+   `python ESCRITORIO/scripts/vigia_prazos.py` varre os prazos de TODOS os
+   casos contra a data do dia.
+2. Prazo **ativo** vencido ou a **≤ 7 dias**: gera entrada `ALERTA` no DIARIO
+   do caso (uma única vez por estado — marcador `VIGIA-PRAZO PZ## [VENCIDO|PROXIMO]`)
+   e ganha destaque na seção **"PRAZOS NO RADAR"** do PAINEL.md.
+3. Prazos ganham campo opcional `status: ativo (padrão) | cumprido | prejudicado`
+   — o vigia ignora não-ativos; encerrar um prazo exige nota justificando.
+4. Espelhamento no Google Calendar: previsto na Fase 5 (D2/F5), operado pelo
+   conector do Calendar nas sessões do Claude, com eventos anonimizados
+   (id do caso + PZ##, nunca nomes de partes — segredo de justiça/LGPD).

@@ -319,10 +319,34 @@ def _view_resumo_decisoes(entradas):
 
 
 # ---------------------------------------------------------------- PAINEL
+def _radar_de_prazos():
+    """Seção 'PRAZOS NO RADAR' do painel (vigia de prazos — Adendo A1)."""
+    linhas = ["## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)", ""]
+    achados = 0
+    if soj.CASOS.exists():
+        for pasta in sorted(soj.CASOS.iterdir()):
+            if not (pasta / "CASO.yaml").exists():
+                continue
+            dados = soj.load_caso(pasta)
+            for prazo, dias in soj.prazos_em_alerta(dados):
+                situacao = (f"**VENCIDO há {-dias} dia(s)**" if dias < 0
+                            else f"vence em **{dias} dia(s)**")
+                linhas.append(f"- 🔴 **{pasta.name}** · {prazo.get('id')} · "
+                              f"{prazo.get('data')} · {situacao} "
+                              f"({prazo.get('criticidade')}): {prazo.get('descricao')}")
+                achados += 1
+    if achados == 0:
+        linhas.append("- Nenhum. Tudo em dia.")
+    linhas.append("")
+    return linhas
+
+
 def atualizar_painel():
     linhas = ["# PAINEL DO ESCRITÓRIO", "",
               f"Gerado em {soj.agora()} por gerar_views.py — não editar. "
-              "Fonte: frontmatter dos STATUS.md de cada caso.", "",
+              "Fonte: frontmatter dos STATUS.md de cada caso.", ""]
+    linhas += _radar_de_prazos()
+    linhas += [
               "| Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |",
               "|---|---|---|---|---|---|---|---|---|"]
     casos = 0

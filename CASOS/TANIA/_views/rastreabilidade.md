@@ -27,7 +27,7 @@ Minuta lida: MINUTA_v01.md
 | PED02 | guarda_compartilhada_legal_residencia_materna | F01, F02, F04, F06 | CC:art1583, CC:art1584, ECA:art21 | 8 |
 | PED03 | regulamentacao_de_convivencia_interestadual | F01, F02, F06, F10 | ECA:art19, ECA:art22 | 7 |
 | PED04 | oficios_investigacao_de_renda | F05, F06, F12 | LEI5478:art20 | 3 |
-| PED05 | desconto_em_folha_subsidiario | F05 | — | 1 |
+| PED05 | desconto_em_folha_subsidiario | F05 | CPC:art529 | 1 |
 
 ## Alertas de cobertura
 

@@ -176,3 +176,45 @@ Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido f
 G3 executado: REPROVADO. 1/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Fundamentos na BASE_LEGAL, dentro da validade; nucleo rechecado na vespera; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
 ---
+## #021 | 2026-07-04 21:31 | CONTATO_CLIENTE
+Cliente informou em 04/07/2026: (1) o contrato de trabalho FOI RENOVADO apos
+11/06/2026 — resolve PEN04; aberta PEN06 (folha atualizada da CTPS digital como
+comprovante); PZ01 marcado como prejudicado (perdeu o objeto); a narrativa de
+urgencia da minuta (§1.5 e cap. III) sera reescrita na E3 para o cenario
+"contrato renovado"; (2) o extrato bancario AINDA NAO foi obtido — PEN01 segue
+aberta; (3) o endereco do reu segue desconhecido — PEN02 segue aberta.
+---
+## #022 | 2026-07-04 21:31 | PESQUISA
+Verificacao na fonte oficial (04/07/2026): paginas do Planalto baixadas
+integralmente (CC, CPC, L5478, ECA) e artigos extraidos localmente — supera a
+limitacao tecnica que impediu a pesquisa de 03/07. RESULTADO:
+(a) os 10 fundamentos "apurados" foram CONFIRMADOS e viraram verbetes
+verificados: CC 1583, 1584, 1694 (+1695/1696), CPC 178, 189, 256, 257, 292,
+300 (+302);
+(b) CPC art. 529 CONFIRMADO como fundamento vigente do desconto em folha
+(substituto dos revogados arts. 16-18 da L5478) — PED05 fundamentado;
+(c) SERASAJUD: NAO existe resolucao do CNJ — o sistema opera pelo Termo de
+Cooperacao Tecnica CNJ n. 015/2019; ancora legal do pedido de localizacao =
+CPC art. 256, §3º (requisicao de endereco em cadastros publicos);
+(d) DIVERGENCIAS contra a pesquisa de 03/07: CC 1584 §2º tem redacao NOVA
+(Lei 14.713/2023 — excecao de violencia domestica; o texto apurado era o
+anterior a 2023); CC 1583 §2º vigente TERMINA em "interesses dos filhos"
+(incisos transcritos pela pesquisa estao revogados desde 2014); L5478 art. 20
+tem texto diverso do transcrito (menciona expressamente o Imposto de Renda);
+L5478 art. 4 contem "desde logo" (omitido) e a pagina grafa "As despachar"
+[sic]; L5478 art. 13 §1º trata de REVISAO de provisorios (nao de desconto em
+folha como transcrito); CPC 257, I fala em "presenca das circunstancias
+autorizadoras". Verbetes completos: ESCRITORIO/BASE_LEGAL/familia.md.
+Resolve: PEN05 (o item "valor da causa" fica coberto pelo marcador [VALIDAR
+VALOR DA CAUSA] da minuta, a calcular na E3 com o salario minimo vigente).
+---
+## #023 | 2026-07-04 21:31 | NOTA
+Excecao justificada de prova — PED05 (desconto em folha): pedido SUBSIDIARIO e
+instrumental, expressamente condicionado a confirmacao futura de vinculo
+empregaticio do reu; nao depende de prova previa de F05 (mesma logica da
+excecao do PED04 registrada em #012). Fundamento verificado: CPC art. 529.
+---
+## #024 | 2026-07-04 21:34 | GATE
+G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
+---

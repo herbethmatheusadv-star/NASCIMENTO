@@ -81,6 +81,9 @@ fundamentos_citados:
 
 prazos:
   # criticidade: alta | media | baixa. Incluir prescrição/decadência quando aplicável.
+  # status: ativo (padrão, pode omitir) | cumprido | prejudicado (+ nota justificando).
+  #   O VIGIA DE PRAZOS (vigia_prazos.py, Adendo A1) roda no início de toda sessão:
+  #   prazo ATIVO vencido ou a <= 7 dias gera ALERTA no DIARIO e destaque no PAINEL.
   # Caso genuinamente sem prazos: registrar entrada NOTA no DIARIO contendo "SEM PRAZOS".
   - { id: PZ01, descricao: "Protocolar antes do recesso", data: 2026-07-15, criticidade: alta }
 

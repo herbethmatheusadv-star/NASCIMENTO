@@ -68,7 +68,10 @@ fundamentos_citados: []
 
 prazos:
 # Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
+# status: ativo (padrao) | cumprido | prejudicado — o vigia so alerta ativos.
 - {id: PZ01, descricao: "Meta interna: protocolar a inicial (FICTICIO)", data: 2026-07-31, criticidade: media}
+- {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta}
+- {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media}
 
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa

@@ -8,14 +8,14 @@
 
 - **Nome completo:** Herbeth Matheus Mendonça do Nascimento
 - **Nacionalidade:** Brasileiro
-- **Estado civil:** [PREENCHER — veio duplicado como "Brasileiro" na entrega dos dados]
-- **Inscrição OAB:** OAB/PA nº [PREENCHER — número não informado]
+- **Estado civil:** Solteiro
+- **Inscrição OAB:** OAB/PA nº 39.261
 - **CPF:** [PREENCHER — opcional, usado em procurações/JG quando necessário]
 
 ## Endereço profissional
 
 - **Endereço:** Rua D, nº 410-B
-- **Bairro / Cidade / UF / CEP:** Cidade Nova / [PREENCHER cidade] / PA / [PREENCHER CEP]
+- **Bairro / Cidade / UF / CEP:** Cidade Nova / Parauapebas / PA / CEP 68515-000
 
 ## Contatos
 
@@ -26,7 +26,7 @@
 
 ```
 Herbeth Matheus Mendonça do Nascimento
-OAB/PA nº [PREENCHER]
+OAB/PA nº 39.261
 ```
 
 ## Dados bancários para depósitos judiciais (se aplicável)

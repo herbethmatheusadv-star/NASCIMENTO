@@ -198,6 +198,33 @@ def pendencias_abertas(dados, bloqueia=None):
     return resultado
 
 
+# ----------------------------------------------------------------- prazos
+def prazo_ativo(p):
+    """status: ativo (padrao) | cumprido | prejudicado — o vigia so olha ativos."""
+    return normaliza(p.get("status", "ativo")) == "ativo"
+
+
+def prazos_em_alerta(dados, janela_dias=7):
+    """Prazos ATIVOS vencidos ou a <= janela_dias.
+    Devolve lista de (prazo, dias) — dias negativo = vencido ha N dias."""
+    resultado = []
+    for p in (dados.get("prazos") or []):
+        if not prazo_ativo(p):
+            continue
+        d = p.get("data")
+        if isinstance(d, datetime.date):
+            data = d
+        else:
+            try:
+                data = datetime.date.fromisoformat(str(d))
+            except Exception:
+                continue
+        dias = (data - hoje()).days
+        if dias <= janela_dias:
+            resultado.append((p, dias))
+    return resultado
+
+
 # ----------------------------------------------------------------- numeração
 def proximo_id_caso():
     """Id sequencial ANO-NNNN varrendo todos os CASO.yaml existentes."""
