@@ -272,7 +272,7 @@ Regra única: **se está em `_views/`, foi gerado.** Divergiu da realidade? A fo
 
 # 6. OS TRÊS GATES
 
-Executados por `gate_check.py` + revisão da IA; resultado vira entrada no DIARIO e relatório em `_views/`. **Reprovado = etapa seguinte bloqueada.**
+Executados por `gate_check.py` + revisão da IA; resultado vira entrada no DIARIO e relatório em `_views/`. **Reprovado = etapa seguinte bloqueada.** **Robustez (aprendizado da Fase 3):** os checks leem campos estruturados do CASO.yaml, nunca raspagem de texto livre do DIARIO — exceções e justificativas são campos com referência à entrada do diário, não frases a interpretar.
 
 ### G1 — Intake completo (habilita a Etapa 2)
 - [ ] `00_originais/` preservado; todo documento renomeado em `01_documentos/` e registrado como P## com campo `original`
@@ -346,6 +346,8 @@ Uma ação do usuário, consistência total. Nada de atualizar 4 arquivos à mã
 ### Comandos padrão do kernel (a interface homem-sistema)
 
 `novo caso` · `chegou documento X do caso Y` · `registrar decisão:` · `rodar G1/G2/G3` · `status do caso Y` · `status do escritório` · `gerar minuta` · `preparar protocolo` — encapsulados na skill `soj-kernel` (Fase 4) para que qualquer sessão opere igual.
+
+**Vigia de prazos (aprendizado do piloto da Fase 2):** o sistema é movido a evento, mas prazo é movido a tempo. Regra: toda sessão, sobre qualquer caso, começa varrendo os prazos de TODOS os casos contra a data do dia; prazo vencido ou a ≤ 7 dias gera entrada ALERTA no DIARIO do caso e destaque no PAINEL. Complemento recomendado: espelhar prazos no Google Calendar do advogado (antecipável da Fase 5), como rede de segurança independente de sessões. Regra de privacidade do espelhamento (aprovada na Fase 3): eventos anonimizados — id do caso + id do prazo (ex.: "SOJ 2026-0002 · PZ01"), nunca nomes das partes.
 
 ---
 
@@ -454,23 +456,3 @@ Estimativa conservadora: **60–75% menos tokens por caso** já no segundo caso 
 ---
 
 *SOJ Blueprint v1.0 — preparado para aprovação. Nenhuma linha deste desenho exige ferramenta paga além do que você já usa.*
-
----
-
-# ADENDO A1 — VIGIA DE PRAZOS (aprovado pelo advogado em 2026-07-04)
-
-**Regra permanente do kernel, aprendida no piloto** (o prazo de 11/06/2026 do
-CASO_TESTE_001 venceu sem alarme; o STATUS antigo continuou mandando
-"protocolar antes de 11/06" três semanas depois de vencido):
-
-1. **Toda sessão, sobre qualquer caso, começa com o vigia de prazos**:
-   `python ESCRITORIO/scripts/vigia_prazos.py` varre os prazos de TODOS os
-   casos contra a data do dia.
-2. Prazo **ativo** vencido ou a **≤ 7 dias**: gera entrada `ALERTA` no DIARIO
-   do caso (uma única vez por estado — marcador `VIGIA-PRAZO PZ## [VENCIDO|PROXIMO]`)
-   e ganha destaque na seção **"PRAZOS NO RADAR"** do PAINEL.md.
-3. Prazos ganham campo opcional `status: ativo (padrão) | cumprido | prejudicado`
-   — o vigia ignora não-ativos; encerrar um prazo exige nota justificando.
-4. Espelhamento no Google Calendar: previsto na Fase 5 (D2/F5), operado pelo
-   conector do Calendar nas sessões do Claude, com eventos anonimizados
-   (id do caso + PZ##, nunca nomes de partes — segredo de justiça/LGPD).

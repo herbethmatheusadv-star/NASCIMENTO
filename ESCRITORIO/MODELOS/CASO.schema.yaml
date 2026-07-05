@@ -93,6 +93,16 @@ pendencias:
   # bloqueia: [G2] e/ou [G3] — trava o portão até resolver
   # status: aberta (padrão, pode omitir) | resolvida (+ resolvida_em: data)
   # mensagem_cliente: versão em linguagem leiga p/ o checklist de WhatsApp (opcional)
+  #
+  # ROBUSTEZ DOS GATES (blueprint §6) — EXCEÇÕES/JUSTIFICATIVAS SÃO CAMPOS, NÃO TEXTO LIVRE:
+  # - pedido sem prova prévia → no PRÓPRIO pedido:
+  #     excecao_prova: { motivo: "...", diario: "#NNN" }   (entrada existente!)
+  # - atos declarados p/ os gates → bloco de nível raiz `declaracoes:` com
+  #     checklist_cliente_enviado / anti_erro_fatal / conferencia_final /
+  #     revisao_humana_integral: { diario: "#NNN", data: ... }
+  #     aceites_de_risco: [{ risco: "...", diario: "#NNN" }]
+  #     sem_prazos: { motivo: "...", diario: "#NNN" }
+  #   O gate valida que a referência `diario` aponta entrada QUE EXISTE.
   - { id: PEN01, descricao: "Extrato bancário 12 meses (comprovar F04)",
       responsavel: cliente, prioridade: critica, bloqueia: [G3],
       mensagem_cliente: "o extrato da sua conta dos últimos 12 meses (pode ser do app do banco)" }

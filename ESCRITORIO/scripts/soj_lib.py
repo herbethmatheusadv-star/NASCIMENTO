@@ -198,6 +198,29 @@ def pendencias_abertas(dados, bloqueia=None):
     return resultado
 
 
+# ------------------------------------------------- declarações estruturadas
+def ref_diario_ok(entradas, ref):
+    """'#012' -> True se a entrada 012 existe no DIARIO (referencia valida)."""
+    m = re.match(r"#?(\d+)$", str(ref).strip())
+    if not m:
+        return False
+    n = int(m.group(1))
+    return any(e["num"] == n for e in entradas)
+
+
+def declaracao_ok(dados, entradas, chave):
+    """Le dados['declaracoes'][chave] (Adendo A2): exige dict com campo
+    'diario' apontando entrada existente. Devolve (ok, detalhe)."""
+    d = (dados.get("declaracoes") or {}).get(chave)
+    if not isinstance(d, dict):
+        return False, (f"campo declaracoes.{chave} ausente no CASO.yaml "
+                       "(registrar a entrada no DIARIO e apontar o numero)")
+    if not ref_diario_ok(entradas, d.get("diario", "")):
+        return False, (f"declaracoes.{chave}.diario = '{d.get('diario')}' "
+                       "nao aponta para entrada existente do DIARIO")
+    return True, ""
+
+
 # ----------------------------------------------------------------- prazos
 def prazo_ativo(p):
     """status: ativo (padrao) | cumprido | prejudicado — o vigia so olha ativos."""

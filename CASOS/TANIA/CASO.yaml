@@ -129,23 +129,27 @@ pedidos:
 - id: PED02
   tipo: guarda_compartilhada_legal_residencia_materna
   parametro: "guarda compartilhada legal, residencia fixa com a mae em Parauapebas/PA; ameacas so como contexto, sem salvaguardas restritivas — DIARIO #007, ratificado em #011"
-  fundamentos: [CC:art1583, CC:art1584, ECA:art21]
+  fundamentos: [CC:art1583, CC:art1584, ECA:art21, STJ:REsp1878041]
   fatos: [F01, F02, F04, F06]
+  excecao_prova: {motivo: "fatos F04/F06 narrados expressamente como declaracao da autora (QUADRO 02/06); sujeitos a prova na instrucao", diario: '#012'}
 - id: PED03
   tipo: regulamentacao_de_convivencia_interestadual
   parametro: "consensualizacao entre as partes + homologacao; minimos: ferias escolares, datas comemorativas, videochamadas; distancia PA-RJ — DIARIO #008, ratificado em #011"
   fundamentos: [ECA:art19, ECA:art22]
   fatos: [F01, F02, F06, F10]
+  excecao_prova: {motivo: "fatos F06/F10 narrados como declaracao da autora (QUADRO 02/06); regulamentacao consensual nao depende de prova previa", diario: '#012'}
 - id: PED04
   tipo: oficios_investigacao_de_renda
   parametro: "Receita Federal (IRPF) + INSS/CNIS + SISBAJUD; CNPJ do DOC-12 nao mencionado — DIARIO #009, ratificado em #011"
   fundamentos: [LEI5478:art20]
   fatos: [F05, F06, F12]
+  excecao_prova: {motivo: "pedido instrumental fundado justamente na AUSENCIA de prova de renda/endereco do reu", diario: '#012'}
 - id: PED05
   tipo: desconto_em_folha_subsidiario
   parametro: "subsidiario, condicionado a confirmacao de vinculo empregaticio — DIARIO #009; fundamento verificado em 04/07/2026: CPC art. 529 (substituto dos revogados arts. 16-18 da L5478) — DIARIO #022"
   fundamentos: [CPC:art529]
   fatos: [F05]
+  excecao_prova: {motivo: "pedido subsidiario/instrumental condicionado a confirmacao futura de vinculo empregaticio; nao depende de prova previa de F05", diario: '#023'}
 
 fundamentos_citados:
   # Espelho da BASE_LEGAL/familia.md. TODOS os dispositivos reverificados na
@@ -183,3 +187,13 @@ pendencias:
 - {id: PEN04, descricao: "Confirmar se o contrato de trabalho da autora foi renovado apos 11/06/2026 — muda a prova de renda e a narrativa de urgencia da minuta (F08)", responsavel: cliente, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "cliente informou em 04/07/2026: contrato RENOVADO (DIARIO #021); comprovante da renovacao pendente em PEN06"}
 - {id: PEN05, descricao: "Verificacoes juridicas manuais: (a) Resolucao CNJ do SERASAJUD; (b) art. do CPC p/ desconto em folha (arts. 16-18 L5478 revogados); (c) conferir na fonte os textos apurados (CC 1583/1584/1694-6; CPC 178/189/256-7/292/300-2); (d) valor da causa com SM vigente", responsavel: advogado, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "(a) SERASAJUD = TCT CNJ 015/2019 + CPC art. 256 §3º; (b) CPC art. 529 confirmado; (c) todos os apurados verificados na fonte em 04/07 (DIARIO #022); (d) valor da causa fica coberto pelo marcador [VALIDAR VALOR DA CAUSA] da minuta, a calcular na E3 com o SM vigente"}
 - {id: PEN06, descricao: "Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 e a narrativa do §1.5 da minuta", responsavel: cliente, prioridade: alta, bloqueia: [], mensagem_cliente: "aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF"}
+
+declaracoes:
+# Registros estruturados exigidos pelos gates (Adendo A2) — cada um referencia
+# a entrada do DIARIO que o narra. Os gates leem ESTES campos, nao texto livre.
+  checklist_cliente_enviado: {diario: '#004', data: 2026-06-02}
+# anti_erro_fatal:          {diario: '#0NN', data: ...}   <- vespera do protocolo
+# conferencia_final:        {diario: '#0NN', data: ...}   <- vespera do protocolo
+# revisao_humana_integral:  {diario: '#0NN', data: ...}   <- ato humano obrigatorio (D11)
+# aceites_de_risco:         [{risco: "...", diario: '#0NN'}]
+# sem_prazos:               {diario: '#0NN', motivo: "..."}

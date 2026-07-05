@@ -1,11 +1,10 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-04 21:35 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-04 22:21 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
-- 🔴 **TESTE_FICTICIO** · PZ02 · 2026-06-30 · **VENCIDO há 4 dia(s)** (alta): TESTE DO VIGIA: prazo vencido de mentira
-- 🔴 **TESTE_FICTICIO** · PZ03 · 2026-07-09 · vence em **5 dia(s)** (media): TESTE DO VIGIA: prazo a 5 dias de mentira
+- Nenhum. Tudo em dia.
 
 | Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |
 |---|---|---|---|---|---|---|---|---|

@@ -132,6 +132,13 @@
 **Notas de uso:** em alimentos, citar apenas como reforço SUBSIDIÁRIO do L5478:art4 (norma especial). Confirmou o apurado de 03/07.
 **Casos que citam:** 2026-0002
 
+## CPC:art319 — CPC/2015, art. 319 (requisitos da inicial; diligências para dados do réu)
+**Texto literal:** "A petição inicial indicará: [...] II - os nomes, os prenomes, o estado civil, a existência de união estável, a profissão, o número de inscrição no Cadastro de Pessoas Físicas ou no Cadastro Nacional da Pessoa Jurídica, o endereço eletrônico, o domicílio e a residência do autor e do réu; [...] § 1º Caso não disponha das informações previstas no inciso II, poderá o autor, na petição inicial, requerer ao juiz diligências necessárias a sua obtenção. § 2º A petição inicial não será indeferida se, a despeito da falta de informações a que se refere o inciso II, for possível a citação do réu. § 3º A petição inicial não será indeferida pelo não atendimento ao disposto no inciso II deste artigo se a obtenção de tais informações tornar impossível ou excessivamente oneroso o acesso à justiça."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-04 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** §§ 1º-3º permitem AJUIZAR SEM O ENDEREÇO DO RÉU, requerendo diligências (par com CPC:art256 §3º e SERASAJUD). Base do cenário "protocolar já" na decisão de destravamento do caso Tânia.
+**Casos que citam:** 2026-0002
+
 ## CPC:art529 — CPC/2015, art. 529 (desconto em folha de prestação alimentícia)
 **Texto literal:** "Quando o executado for funcionário público, militar, diretor ou gerente de empresa ou empregado sujeito à legislação do trabalho, o exequente poderá requerer o desconto em folha de pagamento da importância da prestação alimentícia. § 1º Ao proferir a decisão, o juiz oficiará à autoridade, à empresa ou ao empregador, determinando, sob pena de crime de desobediência, o desconto a partir da primeira remuneração posterior do executado, a contar do protocolo do ofício. § 2º O ofício conterá o nome e o número de inscrição no Cadastro de Pessoas Físicas do exequente e do executado, a importância a ser descontada mensalmente, o tempo de sua duração e a conta na qual deve ser feito o depósito. § 3º [...] o débito objeto de execução pode ser descontado dos rendimentos ou rendas do executado, de forma parcelada [...] contanto que, somado à parcela devida, não ultrapasse cinquenta por cento de seus ganhos líquidos."
 **Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
@@ -204,10 +211,46 @@
 
 ---
 
+# PARÂMETROS VERIFICADOS
+
+## PARAM:SM2026 — Salário mínimo nacional de 2026
+**Texto literal (Decreto nº 12.797, de 23/12/2025, art. 1º):** "A partir de 1º de janeiro de 2026, o valor do salário mínimo será de R$ 1.621,00 (mil seiscentos e vinte e um reais)."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12797.htm
+**Verificado em:** 2026-07-04 · **Situação:** vigente · **Validade:** até novo decreto (rechecar em janeiro/2027)
+**Notas de uso:** 30% = R$ 486,30/mês; ×12 = R$ 5.835,60 (valor da causa da ação da Tânia, CPC art. 292, III e VI). ATENÇÃO: notícia da Câmara citava R$ 1.631 — era o PROJETO de orçamento; o decreto fixou R$ 1.621,00.
+**Casos que citam:** 2026-0002
+
+---
+
 # JURISPRUDÊNCIA
 
-(nenhum verbete ainda — a PESQUISA_JURIDICA_v01 não incluiu jurisprudência; os
-marcadores [PESQUISAR JURISPRUDÊNCIA OFICIAL] da minuta da Tânia permanecem
-abertos para a etapa E3: patamar de 30% p/ 2 filhos no TJPA/STJ, guarda
-compartilhada com genitor em outro estado, presunção de necessidade de menores,
-gratuidade com renda ~R$ 1.621 no TJPA.)
+## STJ:REsp1878041 — Guarda compartilhada com genitores em cidades diferentes
+**Tese (ementa resumida):** A guarda compartilhada impõe o compartilhamento de RESPONSABILIDADES, não se confundindo com a custódia física conjunta nem com divisão igualitária do tempo; não há óbice à sua fixação quando os genitores residem em cidades, estados ou países diferentes — com o avanço tecnológico, é possível compartilhar à distância as decisões sobre a prole; é recomendável definir uma residência principal para os filhos.
+**Processo:** REsp 1.878.041/SP · 3ª Turma · Rel. Min. Nancy Andrighi · j. 2021 (notícia oficial de 23/06/2021)
+**Fontes:** https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/23062021-Guarda-compartilhada-e-possivel-mesmo-que-pais-morem-em-cidades-diferentes.aspx · inteiro teor via SCON (scon.stj.jus.br)
+**Verificado em:** 2026-07-04 · **Validade:** 180 dias (precedente consolidado)
+**Notas de uso:** responde diretamente à objeção "guarda compartilhada com pai a 2.000 km" (risco R-10 do caso Tânia). Citar com a ressalva de que o processo tramitou em segredo (número público via SCON).
+**Casos que citam:** 2026-0002
+
+## STJ:REsp1312706 — Presunção de necessidade do alimentando menor
+**Tese (ementa resumida):** Enquanto menor o alimentando, a obrigação alimentar decorre do poder familiar e a NECESSIDADE É PRESUMIDA — desnecessária sua prova; após a maioridade, a obrigação passa a fundar-se no parentesco, exigindo demonstração de necessidade.
+**Processo:** REsp 1.312.706/AL (2012/0046782-0) · publicação 12/04/2013
+**Fonte:** https://www.stj.jus.br/websecstj/cgi/revista/REJ.cgi/ATC?seq=26939813&tipo=91&nreg=201200467820&dt=20130412&formato=PDF (inteiro teor oficial)
+**Verificado em:** 2026-07-04 · **Validade:** 180 dias (entendimento reiterado)
+**Notas de uso:** fundamento jurisprudencial da dispensa de prova específica da necessidade (menores de 11 e 7 anos). Conferir o nome do relator no inteiro teor antes de citação nominal em sustentação oral.
+**Casos que citam:** 2026-0002
+
+## STJ:gratuidade-alimentos — Gratuidade em ação de alimentos de menor
+**Tese (notícia oficial STJ):** A gratuidade de justiça em ação de alimentos proposta em favor de menor NÃO exige prova de insuficiência financeira do responsável legal — a presunção milita em favor do alimentando.
+**Fonte:** https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/Gratuidade-em-acao-de-alimentos-nao-exige-prova-de-insuficiencia-financeira-do-responsavel-legal.aspx
+**Verificado em:** 2026-07-04 · **Validade:** 180 dias
+**Notas de uso:** reforça o pedido de gratuidade (par com CPC arts. 98/99 §3º e L5478 art. 1º §§2º-3º). Extrair número do processo do inteiro teor antes de citar nominalmente.
+**Casos que citam:** 2026-0002
+
+## NÃO VERIFICADOS (não citar)
+
+- **Patamar de 30% para 2 filhos no TJPA:** não localizado em fonte oficial
+  verificável nesta pesquisa (o portal de jurisprudência do TJPA não é
+  acessível por esta via). A minuta v02 trata o percentual como praxe forense
+  + pedido de arbitramento, SEM citar precedente específico. Buscar no PJe/
+  portal TJPA quando conveniente.

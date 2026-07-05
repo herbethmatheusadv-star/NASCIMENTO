@@ -18,7 +18,7 @@ caso:
     G1:
       status: aprovado
       data: '2026-07-04'
-      diario: '#012'
+      diario: '#014'
     G2:
       status: reprovado
       data: '2026-07-04'
@@ -70,8 +70,8 @@ prazos:
 # Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
 # status: ativo (padrao) | cumprido | prejudicado — o vigia so alerta ativos.
 - {id: PZ01, descricao: "Meta interna: protocolar a inicial (FICTICIO)", data: 2026-07-31, criticidade: media}
-- {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta}
-- {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media}
+- {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026 (alerta disparou 1x e nao duplicou)"}
+- {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026"}
 
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
@@ -79,3 +79,7 @@ pendencias:
 # mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
 - {id: PEN01, descricao: "Comprovantes de despesas da menor e da inadimplencia (F02)", responsavel: cliente, prioridade: critica, bloqueia: [G3], mensagem_cliente: "os comprovantes das despesas da Ana (escola, saude) e prints das conversas sobre a pensao"}
 - {id: PEN02, descricao: "Confirmar endereco atual do reu", responsavel: advogado, prioridade: critica, bloqueia: [G3]}
+
+declaracoes:
+# Registros estruturados exigidos pelos gates (Adendo A2).
+  checklist_cliente_enviado: {diario: '#003', data: 2026-07-04}

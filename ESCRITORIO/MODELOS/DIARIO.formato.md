@@ -51,11 +51,23 @@ Cada entrada termina com uma linha `---`.
 2. **Decisão sem registro não existe** — toda decisão do sistema entra como DECISAO_SISTEMA completa; vetos como DECISAO_ADVOGADO; ratificações como RATIFICACAO.
 3. **Todo gate gera entrada**, aprovado ou não.
 
-## Convenções que os gates leem (para o gate_check.py reconhecer)
+## Como os gates leem exceções e declarações (blueprint, seção 6 "Robustez" — desde 04/07/2026)
 
-- Checklist enviado ao cliente → entrada `CONTATO_CLIENTE` contendo a palavra "checklist" (G1).
-- Caso sem prazos → entrada `NOTA` contendo "SEM PRAZOS" e a justificativa (G1).
-- Aceitação de risco da simulação adversária → entrada `DECISAO_ADVOGADO` contendo "aceito o risco" (G2).
-- Conferência final de dados → entrada `NOTA` contendo as palavras "CONFERÊNCIA" **e** "valores" — ex.: "CONFERÊNCIA FINAL: valores, datas, nomes e CPFs conferidos contra os documentos" (G3).
-- Exceção de prova de um pedido → a frase deve começar com "Exceção" e citar o PED## **na mesma frase** (sem ponto final no meio) — ex.: "Exceção justificada de prova: PED04 é pedido instrumental..." (G3). Frases como "PED01 não recebe exceção" NÃO contam.
+**Os gates leem CAMPOS estruturados do CASO.yaml, nunca texto livre do DIARIO.**
+O fluxo é sempre em dois passos: (1) registrar a entrada narrativa no DIARIO
+(o porquê, com data e contexto); (2) gravar o campo correspondente no CASO.yaml
+apontando o número da entrada — o gate valida que a entrada existe.
+
+| O que | Campo no CASO.yaml | Gate |
+|---|---|---|
+| Checklist enviado ao cliente | `declaracoes.checklist_cliente_enviado: {diario: "#NNN", data}` | G1 |
+| Caso sem prazos | `declaracoes.sem_prazos: {motivo, diario}` | G1 |
+| Aceite de risco da simulação | `declaracoes.aceites_de_risco: [{risco, diario}]` | G2 |
+| Exceção de prova de um pedido | no próprio pedido: `excecao_prova: {motivo, diario}` | G3 |
+| Checklist anti-erro fatal executado | `declaracoes.anti_erro_fatal: {diario, data}` | G3 |
+| Conferência final de valores/datas/nomes/CPFs | `declaracoes.conferencia_final: {diario, data}` | G3 |
+| Revisão humana integral do advogado | `declaracoes.revisao_humana_integral: {diario, data}` | G3 |
+
+(As convenções antigas por palavra-chave foram DESATIVADAS após três
+falso-positivos no piloto — histórico nas entradas GATE do caso TANIA.)
 - Revisão final do advogado → entrada `DECISAO_ADVOGADO` contendo "revisão humana integral" (G3).

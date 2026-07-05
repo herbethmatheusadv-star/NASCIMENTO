@@ -118,10 +118,13 @@ def checar_g1(pasta, dados, entradas):
     itens.append(("Fatos essenciais com status honesto (provado/alegado/controverso)",
                   not problemas, "; ".join(problemas)))
 
-    # 4. prazos identificados (ou NOTA "SEM PRAZOS" justificando)
-    ok = bool(dados.get("prazos")) or _tem_entrada(entradas, ["NOTA"], "sem prazos")
-    itens.append(("Prazos identificados (PZ##) ou NOTA 'SEM PRAZOS' no DIARIO",
-                  ok, "" if ok else "nenhum prazo registrado e nenhuma justificativa"))
+    # 4. prazos identificados (ou declaracao estruturada sem_prazos — Adendo A2)
+    if dados.get("prazos"):
+        ok, detalhe = True, ""
+    else:
+        ok, detalhe = soj.declaracao_ok(dados, entradas, "sem_prazos")
+    itens.append(("Prazos identificados (PZ##) ou declaracoes.sem_prazos com "
+                  "referencia ao DIARIO", ok, detalhe))
 
     # 5. pendencias com responsavel; criticas dizem o que bloqueiam
     problemas = []
@@ -141,15 +144,17 @@ def checar_g1(pasta, dados, entradas):
                   ok, "" if ok else f"complexidade='{caso.get('complexidade')}', "
                                     f"modulo='{caso.get('modulo')}'"))
 
-    # 7. checklist do cliente gerado e enviado
+    # 7. checklist do cliente gerado e enviado (campo estruturado — Adendo A2)
     view_ok = (pasta / "_views" / "checklist_cliente.md").exists()
-    envio_ok = _tem_entrada(entradas, ["CONTATO_CLIENTE"], "checklist")
+    envio_ok, det_envio = soj.declaracao_ok(dados, entradas,
+                                            "checklist_cliente_enviado")
     detalhe = []
     if not view_ok:
         detalhe.append("view checklist_cliente.md nao gerada")
     if not envio_ok:
-        detalhe.append("sem entrada CONTATO_CLIENTE contendo 'checklist' no DIARIO")
-    itens.append(("Checklist do cliente gerado e enviado",
+        detalhe.append(det_envio)
+    itens.append(("Checklist do cliente gerado e enviado "
+                  "(declaracoes.checklist_cliente_enviado)",
                   view_ok and envio_ok, "; ".join(detalhe)))
     return itens
 
@@ -226,14 +231,18 @@ def checar_g2(pasta, dados, entradas):
     itens.append(("Nenhuma pendencia aberta com bloqueia: [G2]", not travas,
                   ", ".join(str(p.get("id")) for p in travas)))
 
-    # 6. riscos com contramedida ou aceitacao expressa
+    # 6. riscos com contramedida ou aceitacao estruturada (Adendo A2:
+    #    aceites em declaracoes.aceites_de_risco, cada um com ref ao DIARIO)
     tem_riscos = "risco" in texto
-    tem_resposta = ("contramedida" in texto
-                    or _tem_entrada(entradas, ["DECISAO_ADVOGADO"], "aceito o risco"))
+    aceites = (dados.get("declaracoes") or {}).get("aceites_de_risco") or []
+    aceites_ok = bool(aceites) and all(
+        isinstance(a, dict) and soj.ref_diario_ok(entradas, a.get("diario", ""))
+        for a in aceites)
+    tem_resposta = "contramedida" in texto or aceites_ok
     ok = tem_riscos and tem_resposta
-    itens.append(("Riscos da simulacao com contramedida na estrategia ou aceitacao "
-                  "expressa no DIARIO", ok,
-                  "" if ok else "secao de riscos ausente ou sem contramedida/aceitacao"))
+    itens.append(("Riscos da simulacao com contramedida na estrategia ou aceite "
+                  "estruturado (declaracoes.aceites_de_risco)", ok,
+                  "" if ok else "secao de riscos ausente ou sem contramedida/aceite valido"))
     return itens
 
 
@@ -273,20 +282,21 @@ def checar_g3(pasta, dados, entradas):
                   not problemas, "; ".join(problemas[:8])))
 
     # 3. todo PED fecha o circuito pedido<->fato<->prova<->paragrafo<->fundamento
-    # Excecao justificada: so vale se 'excecao ... PED##' aparecer na MESMA
-    # frase (sem ponto final no meio) de uma entrada humana — evita que uma
-    # mencao como "PED01 NAO recebe excecao" seja lida como excecao concedida.
+    # Excecao justificada: CAMPO ESTRUTURADO no pedido (Adendo A2) —
+    # excecao_prova: {motivo: "...", diario: "#NNN"} com referencia valida.
+    # Fim da raspagem de texto livre.
     problemas = []
     peds_com_tag = set()
     for t in tags:
         peds_com_tag.update(t["pedidos"])
-    tipos_humanos = ("NOTA", "DECISAO_ADVOGADO", "DECISAO_SISTEMA", "RATIFICACAO")
     for p in (dados.get("pedidos") or []):
         pid = str(p.get("id"))
-        padrao_excecao = re.compile(r"excecao[^.]*\b" + re.escape(pid.lower()) + r"\b")
-        excecao = any(e["tipo"] in tipos_humanos
-                      and padrao_excecao.search(soj.normaliza(e["corpo"]))
-                      for e in entradas)
+        exc = p.get("excecao_prova")
+        excecao = (isinstance(exc, dict) and exc.get("motivo")
+                   and soj.ref_diario_ok(entradas, exc.get("diario", "")))
+        if isinstance(exc, dict) and not excecao:
+            problemas.append(f"{pid}: excecao_prova mal formada (exige motivo "
+                             "e diario apontando entrada existente)")
         if excecao:
             continue
         if not (p.get("fatos") or []):
@@ -339,23 +349,18 @@ def checar_g3(pasta, dados, entradas):
     itens.append(("Fundamentos na BASE_LEGAL, dentro da validade; nucleo rechecado "
                   "na vespera", not problemas, "; ".join(problemas[:8])))
 
-    # 5. checklist anti-erro fatal do modulo
-    # (so vale registro em entrada humana — NOTA/DECISAO_ADVOGADO/RATIFICACAO;
-    #  entradas GATE sao excluidas para o texto de uma reprovacao anterior
-    #  nao satisfazer a checagem seguinte)
-    TIPOS_HUMANOS = ["NOTA", "DECISAO_ADVOGADO", "RATIFICACAO"]
+    # 5. checklist anti-erro fatal — campo estruturado (Adendo A2)
+    ok, detalhe = soj.declaracao_ok(dados, entradas, "anti_erro_fatal")
     modulo = str(dados["caso"].get("modulo", ""))
     area_mod = modulo.split("/")[0] if "/" in modulo else modulo
     arq_anti = soj.ESCRITORIO / "MODULOS" / area_mod / "anti_erro_fatal.md"
-    ok = _tem_entrada(entradas, TIPOS_HUMANOS, "anti-erro")
-    if arq_anti.exists() and "(a completar" not in arq_anti.read_text(encoding="utf-8") \
-            and "esqueleto" not in soj.normaliza(arq_anti.read_text(encoding="utf-8")):
-        itens.append(("Checklist anti-erro fatal do modulo executado", ok,
-                      "" if ok else "sem entrada no DIARIO registrando a execucao"))
-    else:
-        itens.append(("Checklist anti-erro fatal (modulo ainda em construcao — "
-                      "rodar o generico e registrar 'anti-erro' no DIARIO)", ok,
-                      "" if ok else "sem entrada no DIARIO registrando a revisao anti-erro"))
+    completo = arq_anti.exists() and \
+        "esqueleto" not in soj.normaliza(arq_anti.read_text(encoding="utf-8"))
+    rotulo = ("Checklist anti-erro fatal do modulo executado "
+              "(declaracoes.anti_erro_fatal)") if completo else \
+             ("Checklist anti-erro fatal generico executado — modulo em "
+              "construcao (declaracoes.anti_erro_fatal)")
+    itens.append((rotulo, ok, detalhe))
 
     # 6. rol = arquivos da pasta = referencias DOC-NN na peca
     problemas = []
@@ -381,22 +386,15 @@ def checar_g3(pasta, dados, entradas):
     itens.append(("Nenhuma pendencia aberta com bloqueia: [G3]", not travas,
                   ", ".join(str(p.get("id")) for p in travas)))
 
-    # 8. conferencia FINAL de valores, datas, nomes e CPFs registrada
-    # (exige 'conferencia' E 'valores' na mesma entrada, para nao confundir com
-    #  conferencias parciais historicas — convencao no DIARIO.formato.md)
-    ok = any(e["tipo"] in ("NOTA", "DECISAO_ADVOGADO")
-             and "conferencia" in soj.normaliza(e["corpo"])
-             and "valores" in soj.normaliza(e["corpo"])
-             for e in entradas)
-    itens.append(("Conferencia final de valores/datas/nomes/CPFs registrada no "
-                  "DIARIO (entrada com 'CONFERENCIA' + 'valores')", ok,
-                  "" if ok else "sem entrada de conferencia final"))
+    # 8. conferencia FINAL de valores/datas/nomes/CPFs — campo estruturado (A2)
+    ok, detalhe = soj.declaracao_ok(dados, entradas, "conferencia_final")
+    itens.append(("Conferencia final de valores/datas/nomes/CPFs "
+                  "(declaracoes.conferencia_final)", ok, detalhe))
 
-    # 9. revisao humana integral declarada pelo advogado
-    ok = _tem_entrada(entradas, ["DECISAO_ADVOGADO", "RATIFICACAO"],
-                      "revisao humana integral")
-    itens.append(("Advogado declarou revisao humana integral da peca (DIARIO)",
-                  ok, "" if ok else "sem declaracao de revisao humana integral"))
+    # 9. revisao humana integral do advogado — campo estruturado (A2)
+    ok, detalhe = soj.declaracao_ok(dados, entradas, "revisao_humana_integral")
+    itens.append(("Advogado declarou revisao humana integral da peca "
+                  "(declaracoes.revisao_humana_integral)", ok, detalhe))
     return itens
 
 
