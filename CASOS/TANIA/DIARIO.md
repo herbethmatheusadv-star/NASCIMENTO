@@ -218,3 +218,7 @@ excecao do PED04 registrada em #012). Fundamento verificado: CPC art. 529.
 G3 executado: REPROVADO. 3/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
 ---
+## #025 | 2026-07-04 21:35 | GATE
+G3 executado: REPROVADO. 2/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
+Itens reprovados: Zero marcadores [VALIDAR]/[PESQUISAR] na minuta; Todo pedido fecha o circuito (fato-prova-paragrafo-fundamento) ou tem excecao no DIARIO; Checklist anti-erro fatal (modulo ainda em construcao — rodar o generico e registrar 'anti-erro' no DIARIO); Rol = arquivos da pasta = referencias DOC-NN na peca; Nenhuma pendencia aberta com bloqueia: [G3]; Conferencia final de valores/datas/nomes/CPFs registrada no DIARIO (entrada com 'CONFERENCIA' + 'valores'); Advogado declarou revisao humana integral da peca (DIARIO)
+---

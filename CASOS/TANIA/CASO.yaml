@@ -27,7 +27,7 @@ caso:
     G3:
       status: reprovado
       data: '2026-07-04'
-      diario: '#024'
+      diario: '#025'
 partes:
 - {id: PT01, papel: autora_representante, nome: "TANIA SILVA RODRIGUES", cpf: "028.405.932-38", nascimento: 1993-09-15, profissao: recepcionista, empregador: "URM SERVICE ALOJAMENTOS E ALIMENTOS LTDA (CNPJ 29.565.523/0004-00)", renda_mensal: 1621.00, endereco: "Rua Quatro, 46, Bairro Primavera, Parauapebas/PA, CEP 68515-000", nota_endereco: "declarado pela autora em 02/06/2026; conta de luz em nome de co-residente (Eudicleia); declaracao do advogado supre o comprovante na inicial", conta_deposito: "Itau Unibanco 341, Ag. 1019, CC 33883-7, CPF 028.405.932-38", qualificacao: completa}
 - {id: PT02, papel: reu, nome: "CICERO SILVA DE ARAUJO", cpf: "014.640.832-23", rg: "7213033 SSP/PA", nascimento: 1992-04-02, profissao: "tecnico em refrigeracao (dado de 2014, certidao); atual desconhecida", endereco: {status: nao_confirmado, cidade_declarada: "Rio de Janeiro/RJ", anterior: "Rua G-13, Qd. 148, Lt. 35, Ipiranga, Parauapebas/PA (certidoes 2014)", pendencia: PEN02}}
