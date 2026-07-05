@@ -419,3 +419,6 @@ liberada (template a colher da v03 aprovada).
 ## #038 | 2026-07-04 22:58 | GATE
 G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 ---
+## #039 | 2026-07-04 22:58 | NOTA
+Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v03.md (10 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
+---

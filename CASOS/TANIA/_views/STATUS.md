@@ -29,10 +29,10 @@ atualizado: 2026-07-04 22:58
 - Partes: 4 · Fatos: 14 (provados 5 / alegados 9 / controversos 0) · Provas: 10 · Pedidos: 5 · Pendências abertas: 3
 
 ## Últimas entradas do diário
+- #039 | 2026-07-04 22:58 | NOTA — Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v03.md (10 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
 - #038 | 2026-07-04 22:58 | GATE — G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #037 | 2026-07-04 22:58 | DECISAO_ADVOGADO — REVISAO HUMANA INTEGRAL DA PECA — declaracao do advogado (D11, ato humano
 - #036 | 2026-07-04 22:54 | GATE — G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-04.md
 - #035 | 2026-07-04 22:53 | NOTA — CONFERENCIA FINAL da MINUTA_v03 — valores, datas, nomes e CPFs conferidos
-- #034 | 2026-07-04 22:53 | NOTA — CHECKLIST ANTI-ERRO FATAL executado sobre a MINUTA_v03 (generico do G3 +
 
 _Gerado por gerar_views.py — não editar._
