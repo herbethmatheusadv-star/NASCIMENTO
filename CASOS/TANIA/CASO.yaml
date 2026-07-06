@@ -196,6 +196,12 @@ pendencias:
 - {id: PEN04, descricao: "Confirmar se o contrato de trabalho da autora foi renovado apos 11/06/2026 — muda a prova de renda e a narrativa de urgencia da minuta (F08)", responsavel: cliente, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "cliente informou em 04/07/2026: contrato RENOVADO (DIARIO #021); comprovante da renovacao pendente em PEN06"}
 - {id: PEN05, descricao: "Verificacoes juridicas manuais: (a) Resolucao CNJ do SERASAJUD; (b) art. do CPC p/ desconto em folha (arts. 16-18 L5478 revogados); (c) conferir na fonte os textos apurados (CC 1583/1584/1694-6; CPC 178/189/256-7/292/300-2); (d) valor da causa com SM vigente", responsavel: advogado, prioridade: alta, bloqueia: [], status: resolvida, resolvida_em: '2026-07-04', resolucao: "(a) SERASAJUD = TCT CNJ 015/2019 + CPC art. 256 §3º; (b) CPC art. 529 confirmado; (c) todos os apurados verificados na fonte em 04/07 (DIARIO #022); (d) valor da causa fica coberto pelo marcador [VALIDAR VALOR DA CAUSA] da minuta, a calcular na E3 com o SM vigente"}
 - {id: PEN06, descricao: "Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10", responsavel: cliente, prioridade: alta, bloqueia: [], reclassificada: "JUNTADA POSTERIOR — advogado decidiu usar a CTPS antiga (DOC-10) na inicial (DIARIO #033); juntar quando chegar", mensagem_cliente: "aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF"}
+- id: PEN07
+  descricao: 'Contrato de honorarios ASSINADO e arquivado como DOC-NN + preencher financeiro.contrato (regularizacao — nao bloqueia; DIARIO #041)'
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+  mensagem_cliente: o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
 
 declaracoes:
 # Registros estruturados exigidos pelos gates (Adendo A2) — cada um referencia

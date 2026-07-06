@@ -438,3 +438,13 @@ com os DOC-01..07 e DOC-10 da pasta PROTOCOLO/; (3) registrar
 EVENTO_PROCESSUAL com numero do processo; (4) cadastrar os prazos reais
 (PZ##) — o vigia e o Calendar assumem dali em diante.
 ---
+## #041 | 2026-07-06 15:01 | DECISAO_ADVOGADO
+DECISAO DO ADVOGADO (auditoria da Onda 1/F6): contrato de honorarios NAO
+bloqueia o protocolo — e regularizavel em qualquer fase do processo.
+Efeitos: (1) regra do kernel retificada: a pendencia padrao do intake nasce
+com prioridade alta e bloqueia: [] (novo_caso.py, blueprint secao 13,
+LEIA-ME); (2) neste caso (migrado antes da regra): aberta PEN07 para
+regularizar o contrato da cliente, SEM bloquear nada; (3) bloco financeiro
+deste caso segue vazio ate o advogado informar os dados reais do contrato
+(tipo/valor/parcelas) — nada sera inventado.
+---

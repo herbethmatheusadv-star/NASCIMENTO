@@ -201,16 +201,19 @@ def main():
     (pasta / "CASO.yaml").write_text(conteudo, encoding="utf-8", newline="\n")
 
     # Pendencia PADRAO do intake (Onda 1/F6): contrato de honorarios assinado
-    # — salvo probono/gratuidade marcada.
+    # — salvo probono/gratuidade marcada. NAO bloqueia o protocolo (decisao do
+    # advogado na auditoria da Onda 1, 06/07/2026: regularizavel em qualquer
+    # fase do processo).
     if not args.probono:
         dados = soj.load_caso(pasta)
         soj.lista_de(dados, "pendencias").append({
             "id": "PEN01",
             "descricao": "Contrato de honorarios ASSINADO e arquivado como "
-                         "DOC-NN (pendencia padrao do intake — Onda 1/F6); "
-                         "preencher financeiro.contrato (tipo/valor/parcelas)",
-            "responsavel": "cliente", "prioridade": "critica",
-            "bloqueia": ["G3"],
+                         "DOC-NN (pendencia padrao do intake — Onda 1/F6; "
+                         "NAO bloqueia protocolo: regularizavel em qualquer "
+                         "fase); preencher financeiro.contrato",
+            "responsavel": "cliente", "prioridade": "alta",
+            "bloqueia": [],
             "mensagem_cliente": "o contrato de honorarios assinado (posso te "
                                 "mandar pelo WhatsApp para assinar digital)"})
         soj.save_caso(pasta, dados)

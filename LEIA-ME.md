@@ -112,7 +112,8 @@ com a sua declaração de revisão humana integral registrada no DIARIO.
 
 Cada caso tem o bloco `financeiro` no CASO.yaml (contrato de honorários,
 custas, recebimentos) — o **contrato assinado é pendência padrão de todo caso
-novo** (salvo pro bono). A view `_views/FINANCEIRO.md` mostra o caso; o
+novo** (salvo pro bono), mas **não trava o protocolo**: regulariza-se em
+qualquer fase. A view `_views/FINANCEIRO.md` mostra o caso; o
 PAINEL soma o escritório (a receber, recebido no mês, custas). E o CASO.yaml
 ganhou a `fase_processual` (pré-protocolo → postulatória → instrutória →
 decisória → recursal → cumprimento → encerrado), visível no painel.

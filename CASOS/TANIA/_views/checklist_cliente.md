@@ -7,7 +7,8 @@ Olá, Tania! Tudo bem? Para avançarmos com o seu caso, preciso que você me env
 
 1. o extrato da sua conta dos ultimos 12 meses (daquela conta em que ele fazia os depositos) — pode tirar direto no aplicativo do banco e mandar em PDF
 2. aquela folha atualizada da sua carteira de trabalho digital (app CTPS Digital > contratos) mostrando a renovacao do contrato — e so tirar print ou exportar o PDF
-3. uma declaracao de matricula das criancas, que a escola emite na hora e de graca — e so pedir na secretaria
+3. o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
+4. uma declaracao de matricula das criancas, que a escola emite na hora e de graca — e so pedir na secretaria
 
 Pode mandar foto ou PDF por aqui mesmo. Qualquer dúvida, me chame!
 ```

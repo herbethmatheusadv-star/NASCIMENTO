@@ -3,6 +3,7 @@
 ## ALTA
 - **PEN01** (cliente): Extrato bancario da autora, ultimos 12 meses — prova direta da irregularidade dos pagamentos (F05); reservado como DOC-08 — bloqueia: nada
 - **PEN06** (cliente): Comprovante da renovacao do contrato de trabalho da autora (folha atualizada da CTPS digital) — atualiza a prova de renda P10 — bloqueia: nada
+- **PEN07** (cliente): Contrato de honorarios ASSINADO e arquivado como DOC-NN + preencher financeiro.contrato (regularizacao — nao bloqueia; DIARIO #041) — bloqueia: nada
 
 ## MEDIA
 - **PEN03** (cliente): Declaracao de matricula escolar dos menores (escola publica de Parauapebas) — comprova residencia habitual e rotina; reservado como DOC-09 — bloqueia: nada

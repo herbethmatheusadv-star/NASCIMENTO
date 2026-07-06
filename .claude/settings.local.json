@@ -72,7 +72,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\revalidar_biblioteca.py\" --marcar \"LAB:art999=2026-07-06\")",
       "PowerShell(\"=== T5: revalidar biblioteca \\(verbete vencido + casos afetados\\) ===\")",
       "PowerShell(\"=== T6: --marcar apos revalidacao confirmada ===\")",
-      "PowerShell(\"=== T7: lembrete mensal - 1a rodada \\(deve avisar\\) e 2a \\(nao deve\\) ===\")"
+      "PowerShell(\"=== T7: lembrete mensal - 1a rodada \\(deve avisar\\) e 2a \\(nao deve\\) ===\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\novo_caso.py\" TESTE_ONDA1D --titulo \"reteste contrato 2\" --area geral)"
     ]
   }
 }
