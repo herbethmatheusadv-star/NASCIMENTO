@@ -89,6 +89,35 @@ def main():
             out.append("- (nenhum candidato)")
         out.append("")
 
+    # Acervo de modelos da area (blueprint §9): tecnicas candidatas a
+    # destilacao para template/teses — igualmente sujeitas a ratificacao.
+    area = str(dados["caso"].get("area", ""))
+    fichas = []
+    for subpasta in (area, "geral"):
+        p = soj.ESCRITORIO / "ACERVO" / subpasta
+        if p.exists():
+            fichas.extend(sorted(p.glob("M-*_FICHA.md")))
+    out.append("## Técnicas do ACERVO da área → candidatas a DESTILAÇÃO "
+               "para template/teses")
+    out.append("")
+    if fichas:
+        for f in fichas:
+            t = f.read_text(encoding="utf-8")
+            m_pq = re.search(r"\*\*Por que guardado:\*\* (.+)", t)
+            m_rs = re.search(r"\*\*Ressalvas:\*\* (.+)", t)
+            mid = f.name.split("_")[0]
+            out.append(f"- **{mid}** ({f.parent.name}): "
+                       f"{m_pq.group(1).strip() if m_pq else '?'} · "
+                       f"ressalvas: {m_rs.group(1).strip() if m_rs else '?'}")
+            total += 1
+        out.append("")
+        out.append("> Lembrete da REGRA DE FERRO: destilar TÉCNICA/ESTILO; "
+                   "citações jurídicas dos modelos NUNCA entram sem "
+                   "verificação na BASE_LEGAL.")
+    else:
+        out.append("- (acervo da área vazio)")
+    out.append("")
+
     out += ["---",
             "## Como ratificar",
             "",

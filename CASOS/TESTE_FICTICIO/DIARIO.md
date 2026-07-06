@@ -136,3 +136,6 @@ nivelado — candidatos a variante do template familia na proxima colheita.
 G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #031 | 2026-07-06 09:25 | NOTA
+CICLO DE COLHEITA executado (gatilho: teste do acervo): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 12 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
+---

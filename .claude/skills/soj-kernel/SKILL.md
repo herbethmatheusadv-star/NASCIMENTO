@@ -72,6 +72,25 @@ Regras INEGOCIÁVEIS do modo:
 4. **Melhoria aprovada = candidata de colheita**: marcar `COLHEITA:` no
    DIARIO (vai para template/teses na próxima colheita do caso).
 
+## ACERVO DE MODELOS (ESCRITORIO/ACERVO/ — blueprint §9)
+
+- **"guardar modelo"** → `guardar_modelo.py ARQUIVO --area ... --tipo
+  peca|decisao|sentenca --origem --acao --ano --porque ... [--ressalva]
+  [--resultado] [--proprio] [--anon "NOME=SUBSTITUTO"]...`
+  Fluxo obrigatório da sessão ANTES do comando: ler o texto, identificar
+  TODOS os nomes de terceiros e passá-los em `--anon` (a varredura mecânica
+  do script cobre CPF/CNPJ/CEP/e-mail/telefone). O script RECUSA autos
+  sigilosos (sem exceção) e PDFs (converter antes). Aceita decisões e
+  sentenças dos processos do PRÓPRIO escritório (`--proprio`) — semente da
+  praxe local.
+- **REGRA DE FERRO:** modelo é professor de ESTILO e TÉCNICA, nunca de lei.
+  Citação jurídica vinda de modelo só entra em peça após verificação na
+  BASE_LEGAL (verbete válido) — sem verbete, a citação é BARRADA.
+- **Uso sob demanda, nunca automático:** só quando o advogado pedir
+  ("compare com o M-02", "inspire o capítulo X no M-03") ou na colheita
+  (a proposta lista as técnicas do acervo da área como candidatas a
+  destilação para template/teses — promoção só com ratificação).
+
 ## Regras duras (não negociar)
 
 - `00_originais/` imutável · `DIARIO.md` append-only (corrigir = nova entrada)

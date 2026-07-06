@@ -70,6 +70,7 @@ Mas é bom saber o que existe:
 | `vigia_prazos.py` | Varre os prazos de TODOS os casos: vencido ou a ≤ 7 dias → ALERTA no diário + destaque no painel | **Início de toda sessão** |
 | `colher_aprendizados.py` | Colhe do diário os aprendizados do caso (proposta que SÓ vira módulo com a sua ratificação) | Automático no protocolo e no encerramento |
 | `absorver_versao.py` | Porta de retorno: compara a SUA versão da peça com a do sistema e prepara a absorção classificada | Quando você melhorar a peça por fora |
+| `guardar_modelo.py` | Guarda peça/decisão de referência no ACERVO: anonimiza na entrada, recusa autos sigilosos, monta ficha de curadoria M-NN | Comando "guardar modelo" |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 
