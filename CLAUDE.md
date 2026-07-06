@@ -32,9 +32,14 @@ importantes.
 ## Módulos e kernel
 
 - Comandos padrão do sistema: skill `soj-kernel` (.claude/skills/soj-kernel/).
-- Caso de família: usar `ESCRITORIO/MODULOS/familia/` — praxe_decisoria.md
-  (árvore Tier A/B), decisoes_reservadas.md, checklist_documental.md,
-  anti_erro_fatal.md, teses.md e templates/ (minuta nasce ~70% pronta).
+- Módulos PLENOS: `familia/` · `consumidor_aguas/` (negativação × Águas do
+  Pará, JEC) · `bancario_ccb/` (defesa em execução de CCB × cooperativas —
+  **modo defesa nativo: novo caso da área nasce --polo passivo**). Cada um:
+  praxe_decisoria (árvore Tier A/B + camada LOCAL), decisoes_reservadas,
+  checklist_documental, anti_erro_fatal, teses (com antiteses) e templates.
+  Esqueletos: `trabalhista/`, `previdenciario/` (módulo nasce do caso 1).
+- Camada LOCAL da praxe: anotação com contagem (fontes = Acervo); vira
+  recomendação só com n≥3 do MESMO juízo; divergiu do nacional = Tier B.
 
 ## Regra do laboratório
 

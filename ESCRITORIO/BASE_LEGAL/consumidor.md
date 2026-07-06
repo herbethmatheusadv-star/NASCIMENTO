@@ -7,8 +7,14 @@
 
 # VERBETES
 
-(nenhum ainda — Fase 5)
+(nenhum verbete formal ainda — os CANDIDATOS herdados da skill vivem
+íntegros em `MODULOS/consumidor_aguas/referencias/teses-juridicas.md` e
+`jurisprudencia.md`, validados em uso; cada um vira verbete AQUI, com texto
+literal + fonte + data, na PRIMEIRA vez em que for usado em peça nova —
+candidatos prioritários: CDC arts. 22, 6º X e 42 §ún.; Lei 8.987/95 art. 7º;
+Lei 13.460/2017; Tema 929/STJ; Súmula 385/STJ. O G3 impede o uso sem verbete.)
 
 # JURISPRUDÊNCIA
 
-(nenhuma ainda — Fase 5)
+(mesma regra: precedentes TJPA/STJ da skill em
+`MODULOS/consumidor_aguas/referencias/jurisprudencia.md` — verbetar ao usar.)

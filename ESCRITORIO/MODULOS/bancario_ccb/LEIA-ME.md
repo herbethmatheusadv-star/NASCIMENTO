@@ -1,9 +1,3 @@
-# MÓDULO BANCÁRIO / CCB — reservado para a Fase 5
+﻿# Modulo ADAPTADO ao kernel (Onda 3/F6, 2026-07-06) — comece por MODULO.md
 
-Este módulo nascerá da adaptação da skill existente
-`advogado-bancario-cooperativas` ao kernel do SOJ (decisão D10), seguindo o
-contrato de módulo da seção 9 do blueprint.
-
-Regra de kernel (blueprint §9, desde a Fase 4): o `teses.md` deste módulo
-DEVERÁ conter a seção final **"antiteses — nunca usar"** (dispositivos
-revogados, redações superadas, fontes inexistentes da área).
+Conteudo da skill advogado-bancario-cooperativas preservado 100% (copia integra) em referencias/, checklists/, playbooks/, templates/ e SKILL_original.md. MODO DEFESA NATIVO: caso novo da area = novo_caso --polo passivo.

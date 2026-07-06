@@ -1,6 +1,6 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-06 15:14 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-06 15:17 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 

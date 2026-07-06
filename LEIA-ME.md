@@ -29,7 +29,8 @@ NASCIMENTO/
 ├── ESCRITORIO/         ← o que é do escritório, não de um caso específico
 │   ├── ADVOGADO.md     ← seus dados profissionais (fonte única da qualificação)
 │   ├── BASE_LEGAL/     ← leis e jurisprudência verificadas, com data de validade
-│   ├── MODULOS/        ← o "conhecimento" de cada área do direito (família etc.)
+│   ├── MODULOS/        ← o "conhecimento" por área: familia, consumidor_aguas,
+│   │                     bancario_ccb (defesa nativa) + esqueletos trab./prev.
 │   ├── MODELOS/        ← modelos comentados do CASO.yaml e do DIARIO.md
 │   └── scripts/        ← os 5 programas que operam o sistema
 │

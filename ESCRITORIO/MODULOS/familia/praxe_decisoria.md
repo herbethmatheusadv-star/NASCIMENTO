@@ -141,6 +141,20 @@
 
 ---
 
+## Camada LOCAL (regra de kernel — Onda 3/F6)
+
+Anotações de praxe do juízo local, alimentadas pelas sentenças e decisões do
+ACERVO desta área (calibração local da árvore — blueprint §9):
+
+> *(nenhuma anotação ainda — n=0; o primeiro material virá das decisões do
+> processo da Tânia na Vara de Família de Parauapebas)*
+
+Formato ao anotar: `LOCAL (juízo) — ANOTAÇÃO (n=X; fontes: M-NN, M-NN): ...`
+**Regras duras:** anotação NÃO é recomendação — o sistema não decide por
+ela; vira recomendação apenas com **n≥3 amostras consistentes do MESMO
+juízo** (registradas no Acervo, com fichas); e **camada local divergindo da
+praxe nacional = SEMPRE Tier B** (o advogado decide qual seguir).
+
 ## Distribuição Tier A × Tier B deste módulo
 
 **Tier A (decide, fundamenta, ratificação em bloco no gate):** estrutura da
