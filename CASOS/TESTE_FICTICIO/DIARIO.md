@@ -143,3 +143,13 @@ CICLO DE COLHEITA executado (gatilho: teste do acervo): proposta de aprendizado 
 G1 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
 Itens reprovados: ITEM ZERO (polo passivo): prazo de resposta identificado, calculado e no vigia
 ---
+## #033 | 2026-07-06 10:26 | DOC_RECEBIDO
+Recebido INICIAL ADVERSARIA COBRANCA FICTICIA [rota: peca_adversaria] -> 00_originais/inicial_adversaria_falsa.md -> DOC-02_INICIAL_ADVERSARIA_COBRANCA_FICTICIA.md.
+Registrado como P02.
+---
+## #034 | 2026-07-06 10:26 | ALERTA
+VIGIA-PRAZO PZ04 [PROXIMO]: 'PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)' vence em 2026-07-10 (em 4 dia(s), criticidade alta).
+---
+## #035 | 2026-07-06 10:26 | GATE
+G1 executado: APROVADO. 8/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
+---

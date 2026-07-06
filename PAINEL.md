@@ -4,7 +4,7 @@ Gerado em 2026-07-06 10:26 por gerar_views.py — não editar. Fonte: frontmatte
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
-- Nenhum. Tudo em dia.
+- 🔴 **TESTE_FICTICIO** · PZ04 · 2026-07-10 · vence em **4 dia(s)** (alta): PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)
 
 ## 📚 VERBETES A VENCER (validade ≤ 15 dias)
 
@@ -13,4 +13,4 @@ Gerado em 2026-07-06 10:26 por gerar_views.py — não editar. Fonte: frontmatte
 | Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |
 |---|---|---|---|---|---|---|---|---|
 | TANIA | 2026-0002 | Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia | E4_protocolo | aprovado | aprovado | aprovado | 2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 | 0 |
-| TESTE_FICTICIO | 2026-0001 | Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE) | E2_estrategia | reprovado | reprovado | pendente | 2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira | 2 |
+| TESTE_FICTICIO | 2026-0001 | Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE) | E2_estrategia | aprovado | reprovado | pendente | 2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira | 2 |

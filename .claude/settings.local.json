@@ -64,7 +64,10 @@
       "PowerShell(\"=== verificacao NA FONTE da citacao nova \\(art. 999-Z do CPC\\) ===\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\diff_pecas.py\" \"CASOS\\\\TESTE_FICTICIO\\\\MINUTA_v01.md\" \"CASOS\\\\TESTE_FICTICIO\\\\MINUTA_v02.md\")",
       "PowerShell(\"=== regressao absorver_versao \\(vs v02; esperado: 3 mudancas\\) ===\")",
-      "PowerShell(\"=== smoke diff_pecas v01 x v02 \\(esperado: 1 mudanca, zero efeitos\\) ===\")"
+      "PowerShell(\"=== smoke diff_pecas v01 x v02 \\(esperado: 1 mudanca, zero efeitos\\) ===\")",
+      "PowerShell(\"=== 4. Vigia: o prazo de resposta deve disparar \\(D-4\\) ===\")",
+      "PowerShell(\"=== 5. Verificacao NA FONTE da citacao adversaria \\(CC/1916\\) ===\")",
+      "PowerShell(\"=== 6. G1 com o item zero satisfeito ===\")"
     ]
   }
 }

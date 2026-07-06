@@ -17,9 +17,9 @@ caso:
   segredo_justica: true  # true quando ha menores / dados sensiveis
   gates:
     G1:
-      status: reprovado
+      status: aprovado
       data: '2026-07-06'
-      diario: '#032'
+      diario: '#035'
     G2:
       status: reprovado
       data: '2026-07-06'
@@ -46,6 +46,11 @@ fatos:
   status: alegado
   provas: []
   pendencias: [PEN01]
+- id: F03
+  descricao: "Adversario alega inadimplemento contratual de 3 parcelas de R$ 350,00 (TESTE MODO DEFESA)"
+  status: alegado_pelo_adversario
+  provas: [P02]
+  nota: "tese da inicial adversaria ficticia — ver analise adversarial na ESTRATEGIA"
 
 provas:
 - id: P01
@@ -54,6 +59,13 @@ provas:
   o_que_prova: Filiacao e idade da menor (FICTICIO)
   forca: plena
   fragilidade:
+- id: P02
+  doc: 01_documentos/DOC-02_INICIAL_ADVERSARIA_COBRANCA_FICTICIA.md
+  original: 00_originais/inicial_adversaria_falsa.md
+  o_que_prova: Peca do adversario — teses e pedidos da cobranca (FICTICIO)
+  forca: relativa
+  fragilidade:
+  categoria: peca_adversaria
 # Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
 # - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
 #     o_que_prova: "...", forca: plena, fragilidade: null }
@@ -73,6 +85,7 @@ prazos:
 - {id: PZ01, descricao: "Meta interna: protocolar a inicial (FICTICIO)", data: 2026-07-31, criticidade: media}
 - {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026 (alerta disparou 1x e nao duplicou)"}
 - {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026"}
+- {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)"}
 
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
