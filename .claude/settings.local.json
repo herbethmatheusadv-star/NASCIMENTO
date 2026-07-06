@@ -67,7 +67,12 @@
       "PowerShell(\"=== smoke diff_pecas v01 x v02 \\(esperado: 1 mudanca, zero efeitos\\) ===\")",
       "PowerShell(\"=== 4. Vigia: o prazo de resposta deve disparar \\(D-4\\) ===\")",
       "PowerShell(\"=== 5. Verificacao NA FONTE da citacao adversaria \\(CC/1916\\) ===\")",
-      "PowerShell(\"=== 6. G1 com o item zero satisfeito ===\")"
+      "PowerShell(\"=== 6. G1 com o item zero satisfeito ===\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\revalidar_biblioteca.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\revalidar_biblioteca.py\" --marcar \"LAB:art999=2026-07-06\")",
+      "PowerShell(\"=== T5: revalidar biblioteca \\(verbete vencido + casos afetados\\) ===\")",
+      "PowerShell(\"=== T6: --marcar apos revalidacao confirmada ===\")",
+      "PowerShell(\"=== T7: lembrete mensal - 1a rodada \\(deve avisar\\) e 2a \\(nao deve\\) ===\")"
     ]
   }
 }

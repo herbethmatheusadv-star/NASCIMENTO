@@ -10,7 +10,9 @@ importantes.
 1. **Vigia de prazos** (blueprint, seção 7): `python ESCRITORIO/scripts/vigia_prazos.py`
    — antes de qualquer outra coisa, sobre qualquer caso. Depois, espelhar
    prazos ativos novos na agenda Google "SOJ — Prazos" (eventos anonimizados:
-   "SOJ <id-do-caso> · PZ##" — nunca nomes de partes).
+   "SOJ <id-do-caso> · PZ##" — nunca nomes de partes). Se o vigia lembrar o
+   ritual mensal: rodar `revalidar_biblioteca.py` e reverificar NA FONTE os
+   verbetes vencidos (casos afetados listados pelo próprio comando).
 2. Se for trabalhar um caso: leia `CASOS/<CLIENTE>/CASO.yaml` +
    `_views/STATUS.md` + cauda do `DIARIO.md`. NÃO releia a pasta inteira.
 

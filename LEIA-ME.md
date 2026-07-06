@@ -71,6 +71,7 @@ Mas é bom saber o que existe:
 | `colher_aprendizados.py` | Colhe do diário os aprendizados do caso (proposta que SÓ vira módulo com a sua ratificação) | Automático no protocolo e no encerramento |
 | `absorver_versao.py` | Porta de retorno: compara a SUA versão da peça com a do sistema e prepara a absorção classificada | Quando você melhorar a peça por fora |
 | `guardar_modelo.py` | Guarda peça/decisão de referência no ACERVO: anonimiza na entrada, recusa autos sigilosos, monta ficha de curadoria M-NN | Comando "guardar modelo" |
+| `revalidar_biblioteca.py` | Ritual mensal da BASE_LEGAL: lista verbetes vencidos + casos ativos afetados; `--marcar` registra a revalidação | 1ª sessão do mês (o vigia lembra) |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 
@@ -106,6 +107,15 @@ com a sua declaração de revisão humana integral registrada no DIARIO.
   momento e para recuperar qualquer estado passado.
 - **Backup em nuvem** (Google Drive para desktop ou OneDrive) mantém uma cópia
   contínua fora do computador. Veja as instruções de ativação com o Claude.
+
+## Dinheiro do caso (Onda 1 da expansão F6)
+
+Cada caso tem o bloco `financeiro` no CASO.yaml (contrato de honorários,
+custas, recebimentos) — o **contrato assinado é pendência padrão de todo caso
+novo** (salvo pro bono). A view `_views/FINANCEIRO.md` mostra o caso; o
+PAINEL soma o escritório (a receber, recebido no mês, custas). E o CASO.yaml
+ganhou a `fase_processual` (pré-protocolo → postulatória → instrutória →
+decisória → recursal → cumprimento → encerrado), visível no painel.
 
 ## Regra de ouro da peça
 

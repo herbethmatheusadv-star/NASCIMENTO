@@ -1,6 +1,6 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-06 14:54 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-06 14:55 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
@@ -8,7 +8,7 @@ Gerado em 2026-07-06 14:54 por gerar_views.py — não editar. Fonte: frontmatte
 
 ## 📚 VERBETES A VENCER (validade ≤ 15 dias)
 
-- 🟡 **LAB:art999** (teste_laboratorio.md) · validade até 2026-01-31 · **VENCIDO há 156 dia(s)** → revalidar na fonte oficial
+- Nenhum. Base legal dentro da validade.
 
 ## 💰 FINANCEIRO DO ESCRITÓRIO
 

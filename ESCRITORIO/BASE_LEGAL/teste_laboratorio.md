@@ -7,6 +7,6 @@
 ## LAB:art999 — Lei Fictícia de Laboratório, art. 999
 **Texto literal:** "Artigo fictício criado exclusivamente para testar o ritual de revalidação da biblioteca."
 **Fonte:** (inexistente — verbete de teste)
-**Verificado em:** 2026-01-01 · **Situação:** vigente · **Validade:** 30 dias
+**Verificado em:** 2026-07-06 · **Situação:** vigente · **Validade:** 30 dias
 **Notas de uso:** verbete de teste do comando revalidar_biblioteca — vencido de propósito.
 **Casos que citam:** 2026-0001 (teste)

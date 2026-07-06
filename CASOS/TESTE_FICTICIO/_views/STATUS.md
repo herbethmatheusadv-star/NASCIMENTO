@@ -11,7 +11,7 @@ g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-06 14:54
+atualizado: 2026-07-06 14:55
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)

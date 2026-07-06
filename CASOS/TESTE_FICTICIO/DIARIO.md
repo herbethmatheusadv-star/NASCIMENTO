@@ -174,3 +174,18 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #040 | 2026-07-06 14:56 | NOTA
+ONDA 1 DA EXPANSAO F6 testada neste laboratorio (06/07/2026):
+(a) bloco financeiro FICTICIO criado (contrato fixo R\$ 2.000 em 2 parcelas;
+1 custa; 2 recebimentos) — view FINANCEIRO.md e agregado do PAINEL conferidos
+na matematica (recebido 1.500; mes 500; custas 150; a receber 500);
+(b) verbete de teste LAB:art999 (BASE_LEGAL/teste_laboratorio.md, VENCIDO de
+proposito) — revalidar_biblioteca listou o vencido E o caso ativo afetado
+(este), e o --marcar atualizou a data cirurgicamente; FIXTURE PERMANENTE:
+re-vence a cada 30 dias e exercita o ritual mensal;
+(c) lembrete mensal do vigia disparou 1x e nao repetiu;
+(d) novo_caso: pendencia padrao de contrato de honorarios nasceu no caso
+normal e NAO nasceu no --probono (casos descartaveis TESTE_ONDA1/B criados e
+removidos). fase_processual adicionada a este caso e a TANIA.
+Fixtures das proximas ondas (contestacao falsa, audiencia falsa): Onda 2.
+---
