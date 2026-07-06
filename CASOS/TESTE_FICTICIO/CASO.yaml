@@ -12,7 +12,7 @@ caso:
   modulo: familia/alimentos_guarda_convivencia            # ex.: familia/alimentos_guarda_convivencia
   complexidade: simples  # simples | padrao | complexo (D9)
   fase: E2_estrategia           # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
-  fase_processual: pre_protocolo  # Onda 1/F6
+  fase_processual: instrutoria    # Onda 1/F6
   comarca: "Parauapebas/PA"
   polo: ativo                   # baseline do laboratorio (teste do modo defesa concluido em 06/07 — DIARIO #036/#037)
   segredo_justica: true  # true quando ha menores / dados sensiveis
@@ -20,7 +20,7 @@ caso:
     G1:
       status: aprovado
       data: '2026-07-06'
-      diario: '#038'
+      diario: '#045'
     G2:
       status: reprovado
       data: '2026-07-06'
@@ -71,6 +71,23 @@ provas:
 # - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
 #     o_que_prova: "...", forca: plena, fragilidade: null }
 
+- id: P03
+  doc: 01_documentos/DOC-03_CONTESTACAO_FALSA_ONDA2.md
+  original: 00_originais/contestacao_falsa.md
+  o_que_prova: Teses defensivas do reu ficticio (fixture Onda 2)
+  forca: relativa
+  fragilidade:
+  categoria: contestacao
+- id: P04
+  doc: 01_documentos/DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md
+  original: 00_originais/ata_falsa.md
+  o_que_prova: Registro da audiencia ficticia (fixture Onda 2)
+  forca: plena
+  fragilidade:
+  categoria: ata_audiencia
+  juizo: Vara de Familia de Parauapebas (FICTICIO)
+  comarca: Parauapebas/PA
+  resultado: instrucao encerrada sem acordo (FICTICIO)
 pedidos:
 - {id: PED01, tipo: alimentos_provisorios_e_definitivos, parametro: "a fixar na E2 (arvore do modulo)", fundamentos: [CC:art1694, LEI5478:art4], fatos: [F01, F02]}
 
@@ -90,8 +107,15 @@ financeiro:
   - {data: 2026-06-20, descricao: "parcela 1/2 (FICTICIO)", valor: 1000.00}
   - {data: 2026-07-05, descricao: "parcela 2/2 parcial (FICTICIO)", valor: 500.00}
 
-audiencias: []
+audiencias:
+- data: '2026-07-20'
+  hora: 09:00
+  tipo: instrucao
+  local: Forum de Parauapebas (FICTICIO)
+  status: realizada
+  pasta: AUDIENCIAS/2026-07-20_instrucao/
 
+  ata: P04
 prazos:
 # Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
 # status: ativo (padrao) | cumprido | prejudicado — o vigia so alerta ativos.
@@ -99,7 +123,21 @@ prazos:
 - {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026 (alerta disparou 1x e nao duplicou)"}
 - {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026"}
 - {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)", status: prejudicado, nota: "prazo ficticio do teste do modo defesa; teste concluido em 06/07/2026 (item zero reprovou sem ele e aprovou 8/8 com ele; vigia alertou D-4)"}
+- id: PZ05
+  descricao: Replica (impugnacao a contestacao) — 15 dias uteis simulados (FICTICIO)
+  data: '2026-07-13'
+  criticidade: alta
+  origem: DOC-03_CONTESTACAO_FALSA_ONDA2.md (P03)
 
+- id: PZ06
+  descricao: AUDIENCIA de instrucao (09:00, Forum de Parauapebas (FICTICIO))
+  data: '2026-07-20'
+  criticidade: alta
+- id: PZ07
+  descricao: Memoriais — 10 dias simulados (FICTICIO)
+  data: '2026-07-16'
+  criticidade: alta
+  origem: DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md (P04)
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
 # critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.

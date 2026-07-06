@@ -189,3 +189,24 @@ normal e NAO nasceu no --probono (casos descartaveis TESTE_ONDA1/B criados e
 removidos). fase_processual adicionada a este caso e a TANIA.
 Fixtures das proximas ondas (contestacao falsa, audiencia falsa): Onda 2.
 ---
+## #041 | 2026-07-06 15:12 | EVENTO_PROCESSUAL
+Recebido CONTESTACAO FALSA ONDA2 [rota: contestacao] -> 00_originais/contestacao_falsa.md -> DOC-03_CONTESTACAO_FALSA_ONDA2.md.
+Registrado como P03.
+PRAZO EXTRAIDO ANTES DE QUALQUER ANALISE: PZ05 — Replica (impugnacao a contestacao) — 15 dias uteis simulados (FICTICIO) (2026-07-13, alta).
+PROPOSTA DE FASE: elaborar REPLICA (impugnacao a contestacao) dentro do prazo PZ05. Modulo sem template de replica: gerar do zero e marcar o texto aprovado com COLHEITA: (candidato a template). [fase_processual: pre_protocolo -> postulatoria]
+---
+## #042 | 2026-07-06 15:12 | ALERTA
+VIGIA-PRAZO PZ05 [PROXIMO]: 'Replica (impugnacao a contestacao) — 15 dias uteis simulados (FICTICIO)' vence em 2026-07-13 (em 7 dia(s), criticidade alta).
+---
+## #043 | 2026-07-06 15:12 | EVENTO_PROCESSUAL
+Audiencia de INSTRUCAO designada para 2026-07-20 09:00 (Forum de Parauapebas (FICTICIO)). Roteiro para revisao do advogado em AUDIENCIAS/2026-07-20_instrucao/ROTEIRO.md. Prazo PZ06 no vigia. Proximos passos: sessao completa o roteiro (perguntas, ataques, riscos), advogado revisa, espelhar no Calendar (anonimizado). Apos a audiencia: 'chegou a ata' pela porta unica.
+---
+## #044 | 2026-07-06 15:12 | EVENTO_PROCESSUAL
+Recebido ATA AUDIENCIA INSTRUCAO FICTICIA [rota: ata_audiencia] -> 00_originais/ata_falsa.md -> DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md.
+Registrado como P04.
+PRAZO EXTRAIDO ANTES DE QUALQUER ANALISE: PZ07 — Memoriais — 10 dias simulados (FICTICIO) (2026-07-16, alta).
+COLHEITA DE AUDIENCIA: registrar no DIARIO o que o juizo valorizou/perguntou (marcar COLHEITA:), atualizar fatos controversos e cumprir os prazos fixados na ata. [fase_processual: postulatoria -> instrutoria]
+---
+## #045 | 2026-07-06 15:14 | GATE
+G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
+---

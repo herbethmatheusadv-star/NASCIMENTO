@@ -47,11 +47,15 @@ def main():
     ap.add_argument("--marca-provado", action="store_true",
                     help="Muda o status do fato vinculado para 'provado'")
     ap.add_argument("--resolve", help="Baixa uma pendencia, ex.: PEN01")
-    # ROTEADOR DE TIPOS (blueprint §7, v1.7)
+    # ROTEADOR DE TIPOS (blueprint §7, v1.7) + GATILHOS DE FASE (Onda 2/F6)
     ap.add_argument("--tipo", default="prova",
-                    choices=["prova", "peca_adversaria", "decisao",
-                             "sentenca_favoravel"],
+                    choices=["prova", "peca_adversaria", "contestacao",
+                             "decisao", "sentenca", "sentenca_favoravel",
+                             "transito", "ata_audiencia"],
                     help="Rota do documento na porta unica")
+    ap.add_argument("--audiencia-data", dest="audiencia_data",
+                    help="(ata_audiencia) data da audiencia a que a ata se "
+                         "refere (YYYY-MM-DD) — marca status: realizada")
     ap.add_argument("--prazo-data", help="(decisao/sentenca) data do prazo extraido, YYYY-MM-DD")
     ap.add_argument("--prazo-descricao", help="(decisao/sentenca) descricao do prazo")
     ap.add_argument("--prazo-criticidade", default="alta",
@@ -62,18 +66,22 @@ def main():
                     help="(decisao/sentenca) declara que a decisao NAO abre prazo, com motivo")
     # Onda 1/F6: metadados da decisao judicial
     ap.add_argument("--juizo", help="(decisao/sentenca) juizo prolator, ex.: 'Vara de Familia de Parauapebas'")
-    ap.add_argument("--resultado", help="(decisao/sentenca) resultado em uma linha, ex.: 'liminar deferida — provisorios em 30% do SM'")
+    ap.add_argument("--resultado", help="(decisao/sentenca) resultado em uma linha, ex.: 'liminar deferida — provisorios em 30 por cento do SM'")
     args = ap.parse_args()
 
-    # REGRA DURA do roteador: decisao/sentenca so entram com o prazo extraido
-    # (ou a declaracao fundamentada de que nao ha prazo) — ANTES de qualquer
-    # outra analise (blueprint §7, v1.7).
-    if args.tipo in ("decisao", "sentenca_favoravel"):
+    # REGRA DURA do roteador: TODO documento processual (decisao, sentenca,
+    # contestacao, transito, ata) so entra com o prazo extraido (ou a
+    # declaracao fundamentada de que nao ha prazo) — ANTES de qualquer outra
+    # analise (blueprint §7, v1.7 + gatilhos de fase da Onda 2/F6).
+    TIPOS_PROCESSUAIS = ("decisao", "sentenca", "sentenca_favoravel",
+                         "contestacao", "transito", "ata_audiencia")
+    if args.tipo in TIPOS_PROCESSUAIS:
         tem_prazo = args.prazo_data and args.prazo_descricao
         if not tem_prazo and not args.sem_prazo:
-            sys.exit("[BLOQUEADO] Decisao/sentenca exige a EXTRACAO DO PRAZO "
-                     "antes de qualquer outra analise: informe --prazo-data e "
-                     "--prazo-descricao, ou declare --sem-prazo \"motivo\".")
+            sys.exit("[BLOQUEADO] Documento processual exige a EXTRACAO DO "
+                     "PRAZO antes de qualquer outra analise: informe "
+                     "--prazo-data e --prazo-descricao, ou declare "
+                     "--sem-prazo \"motivo\".")
 
     pasta = soj.caso_dir(args.cliente)
     dados = soj.load_caso(pasta)
@@ -121,15 +129,16 @@ def main():
     }
     if args.tipo != "prova":
         registro["categoria"] = args.tipo
-    if args.tipo in ("decisao", "sentenca_favoravel"):
+    if args.tipo in ("decisao", "sentenca", "sentenca_favoravel", "transito",
+                     "ata_audiencia"):
         registro["juizo"] = args.juizo or "(a preencher)"
         registro["comarca"] = str(dados["caso"].get("comarca", ""))
         registro["resultado"] = args.resultado or "(a preencher)"
     soj.lista_de(dados, "provas").append(registro)
 
-    # 3b. ROTA decisao/sentenca: PZ## criado ANTES de qualquer outra analise
+    # 3b. ROTAS PROCESSUAIS: PZ## criado ANTES de qualquer outra analise
     prazo_id = None
-    if args.tipo in ("decisao", "sentenca_favoravel") and args.prazo_data:
+    if args.tipo in TIPOS_PROCESSUAIS and args.prazo_data:
         maior = 0
         for pz in (dados.get("prazos") or []):
             m = re.match(r"PZ(\d+)", str(pz.get("id", "")))
@@ -143,6 +152,44 @@ def main():
         if args.prazo_resposta:
             novo_prazo["resposta"] = True
         soj.lista_de(dados, "prazos").append(novo_prazo)
+
+    # 3c. GATILHOS DE FASE (Onda 2/F6): fase_processual + proposta de peca
+    NOVA_FASE = {"contestacao": "postulatoria", "sentenca": "decisoria",
+                 "sentenca_favoravel": "decisoria", "transito": "cumprimento",
+                 "ata_audiencia": "instrutoria"}
+    PROPOSTA_FASE = {
+        "contestacao": ("PROPOSTA DE FASE: elaborar REPLICA (impugnacao a "
+                        "contestacao) dentro do prazo{PZ}. Modulo sem template "
+                        "de replica: gerar do zero e marcar o texto aprovado "
+                        "com COLHEITA: (candidato a template)."),
+        "sentenca": ("PROPOSTA DE FASE: avaliar EMBARGOS DE DECLARACAO e/ou "
+                     "APELACAO dentro do prazo{PZ} — decisao reservada do "
+                     "advogado (recurso = Tier B)."),
+        "sentenca_favoravel": ("PROPOSTA DE FASE: (a) avaliar embargos/"
+                               "contrarrazoes dentro do prazo{PZ}; (b) apos "
+                               "anonimizar, guardar no ACERVO (praxe local)."),
+        "transito": ("PROPOSTA DE FASE: iniciar CUMPRIMENTO DE SENTENCA "
+                     "(modulo sem template: gerar do zero e marcar COLHEITA:)."),
+        "ata_audiencia": ("COLHEITA DE AUDIENCIA: registrar no DIARIO o que o "
+                          "juizo valorizou/perguntou (marcar COLHEITA:), "
+                          "atualizar fatos controversos e cumprir os prazos "
+                          "fixados na ata."),
+    }
+    proposta = ""
+    if args.tipo in NOVA_FASE:
+        fase_ant = dados["caso"].get("fase_processual", "pre_protocolo")
+        dados["caso"]["fase_processual"] = NOVA_FASE[args.tipo]
+        proposta = PROPOSTA_FASE[args.tipo].replace(
+            "{PZ}", f" {prazo_id}" if prazo_id else " (sem prazo aberto)")
+        proposta += (f" [fase_processual: {fase_ant} -> "
+                     f"{NOVA_FASE[args.tipo]}]")
+
+    # 3d. ata vinculada a audiencia designada -> status: realizada
+    if args.tipo == "ata_audiencia" and args.audiencia_data:
+        for aud in (dados.get("audiencias") or []):
+            if str(aud.get("data")) == args.audiencia_data:
+                aud["status"] = "realizada"
+                aud["ata"] = pid
 
     # 4. vincula ao fato (e opcionalmente muda o status)
     mudanca_status = ""
@@ -171,7 +218,7 @@ def main():
     if pendencia is not None:
         corpo += f"\nResolve: {args.resolve}"
     tipo_entrada = "DOC_RECEBIDO"
-    if args.tipo in ("decisao", "sentenca_favoravel"):
+    if args.tipo in TIPOS_PROCESSUAIS:
         tipo_entrada = "EVENTO_PROCESSUAL"
         if prazo_id:
             corpo += (f"\nPRAZO EXTRAIDO ANTES DE QUALQUER ANALISE: {prazo_id} "
@@ -180,6 +227,8 @@ def main():
                       + (", PRAZO DE RESPOSTA" if args.prazo_resposta else "") + ").")
         else:
             corpo += f"\nSem prazo aberto — motivo declarado: {args.sem_prazo}"
+    if proposta:
+        corpo += "\n" + proposta
     num_diario = soj.append_diario(pasta, tipo_entrada, corpo)
 
     # 7. regenera as views
@@ -199,16 +248,18 @@ def main():
     if not soj.pendencias_abertas(dados):
         print("     Nenhuma pendencia aberta.")
 
-    # 9. checklist da rota para a SESSAO (blueprint §7, v1.7)
-    if args.tipo == "peca_adversaria":
-        print("     [ROTA peca_adversaria] Agora a sessao DEVE: (1) analise "
+    # 9. checklist da rota para a SESSAO (blueprint §7, v1.7 + Onda 2/F6)
+    if proposta:
+        print(f"     [GATILHO DE FASE] {proposta}")
+    if args.tipo in ("peca_adversaria", "contestacao"):
+        print(f"     [ROTA {args.tipo}] Agora a sessao DEVE: (1) analise "
               "adversarial -> ESTRATEGIA.md (teses deles, fraquezas, pontos "
               "de ataque); (2) alegacoes deles como fatos com status "
               "alegado_pelo_adversario/controverso; (3) TODA lei citada por "
               "eles: verificar na BASE_LEGAL antes de entrar em qualquer "
-              "defesa; (4) se abrir prazo de resposta: registrar PZ## "
-              "(resposta: true) e rodar o vigia.")
-    elif args.tipo in ("decisao", "sentenca_favoravel"):
+              "defesa; (4) rodar o vigia (prazo ja registrado pela rota).")
+    elif args.tipo in ("decisao", "sentenca", "sentenca_favoravel",
+                       "transito", "ata_audiencia"):
         print(f"     [ROTA {args.tipo}] Rodar o vigia AGORA "
               "(python ESCRITORIO/scripts/vigia_prazos.py) e espelhar o prazo "
               "no Calendar; so depois analisar o merito da decisao.")
