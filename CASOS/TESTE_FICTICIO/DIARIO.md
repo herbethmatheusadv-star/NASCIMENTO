@@ -73,3 +73,42 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-04.md
 G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-04.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #021 | 2026-07-06 09:01 | DECISAO_ADVOGADO
+[TESTE DA COLHEITA] Veto ficticio: o advogado veta o regime de convivencia
+quinzenal proposto e determina regime mensal com videochamadas semanais.
+COLHEITA: candidato a novo ramo da arvore (§convivencia — variante distancia
+extrema) do modulo familia. Tier B de mentira, so para testar a captura.
+---
+## #022 | 2026-07-06 09:01 | ALERTA
+[TESTE DA COLHEITA] Quase-erro ficticio: a minuta de teste citava o art. 99
+da Lei Imaginaria 0.000/1900, dispositivo REVOGADO pela Lei Ficticia
+1.111/2000 — fonte revogada detectada antes do protocolo. Candidato a
+antitese (nunca usar) e a item do anti-erro fatal.
+---
+## #023 | 2026-07-06 09:01 | NOTA
+CICLO DE COLHEITA executado (gatilho: teste de laboratorio): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 6 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
+---
+## #024 | 2026-07-06 09:02 | NOTA
+PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v01.md com 1 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0902.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
+---
+## #025 | 2026-07-06 09:02 | NOTA
+PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v01.md com 4 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0902.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
+---
+## #026 | 2026-07-06 09:03 | NOTA
+PORTA DE RETORNO — classificacao do diff ABSORCAO_2026-07-06 (4 mudancas):
+(1) ESTILO (qualificacao do preambulo reescrita) — ABSORVIDA em MINUTA_v02.
+COLHEITA: preferencia de estilo do advogado no preambulo (candidata a
+variante do template na proxima colheita);
+(2) QUANTUM/VALOR (R$ 500 -> R$ 800 no maximo pago) — RETIDA: diverge do fato
+F02 da fonte da verdade; exige confirmacao da cliente e retificacao do fato
+antes de entrar na peca;
+(3) FATO NOVO (motocicleta financiada) — RETIDA: exige F03 novo com prova ou
+status honesto de alegacao no CASO.yaml antes de entrar;
+(4) CITACAO NOVA (art. 999-Z do CPC) — REJEITADA: verificacao NA FONTE
+(arquivo oficial do CPC) = 0 ocorrencias; dispositivo INEXISTENTE. Candidato
+a antitese. Nada alem do estilo foi absorvido.
+---
+## #027 | 2026-07-06 09:03 | GATE
+G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
+Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
+---

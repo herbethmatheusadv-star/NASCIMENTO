@@ -67,7 +67,9 @@ Mas é bom saber o que existe:
 | `gerar_views.py` | Regenera os relatórios (status, pendências, checklist do cliente, painel) | Após qualquer mudança |
 | `gate_check.py` | Roda os portões de qualidade G1/G2/G3 (checklists objetivos que BLOQUEIAM o avanço se algo falta) | Fim de cada etapa |
 | `preparar_protocolo.py` | Monta o pacote final (petição limpa + documentos + índice) | Depois do G3 aprovado |
-| `vigia_prazos.py` | Varre os prazos de TODOS os casos: vencido ou a ≤ 7 dias → ALERTA no diário + destaque no painel | **Início de toda sessão** (Adendo A1) |
+| `vigia_prazos.py` | Varre os prazos de TODOS os casos: vencido ou a ≤ 7 dias → ALERTA no diário + destaque no painel | **Início de toda sessão** |
+| `colher_aprendizados.py` | Colhe do diário os aprendizados do caso (proposta que SÓ vira módulo com a sua ratificação) | Automático no protocolo e no encerramento |
+| `absorver_versao.py` | Porta de retorno: compara a SUA versão da peça com a do sistema e prepara a absorção classificada | Quando você melhorar a peça por fora |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 
@@ -103,6 +105,15 @@ com a sua declaração de revisão humana integral registrada no DIARIO.
   momento e para recuperar qualquer estado passado.
 - **Backup em nuvem** (Google Drive para desktop ou OneDrive) mantém uma cópia
   contínua fora do computador. Veja as instruções de ativação com o Claude.
+
+## Regra de ouro da peça
+
+**A versão protocolada é SEMPRE a última que o sistema conhece.** Se você
+melhorar a petição no Word ou em qualquer lugar fora daqui, ela volta pelo
+comando *"absorver minha versão da peça"* — o sistema compara, classifica
+cada mudança (estilo / fato novo / citação a verificar / valor a reconciliar),
+salva como versão nova e re-roda o portão. Nunca protocole um texto que o
+sistema não viu: a rastreabilidade morre ali.
 
 ## Se você se perder
 

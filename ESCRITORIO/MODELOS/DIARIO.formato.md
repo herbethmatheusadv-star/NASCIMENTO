@@ -70,4 +70,8 @@ apontando o número da entrada — o gate valida que a entrada existe.
 
 (As convenções antigas por palavra-chave foram DESATIVADAS após três
 falso-positivos no piloto — histórico nas entradas GATE do caso TANIA.)
+
+**Marcador de colheita:** qualquer entrada pode conter `COLHEITA:` seguido do
+aprendizado — o `colher_aprendizados.py` a captura garantidamente na
+PROPOSTA_DE_APRENDIZADO do caso (blueprint, seção 7 — ciclo de colheita).
 - Revisão final do advogado → entrada `DECISAO_ADVOGADO` contendo "revisão humana integral" (G3).

@@ -34,7 +34,10 @@ pare e pergunte). Regras completas: `CLAUDE.md` da raiz + `SOJ_BLUEPRINT_v1.md`.
 | "status do escritório" | Leia `PAINEL.md` (radar de prazos no topo) |
 | "gerar minuta" | Parta de `MODULOS/<area>/templates/*.md` (v1 = template preenchido do CASO.yaml); tags SOJ por parágrafo; fundamentos SÓ com verbete válido na BASE_LEGAL — pesquise apenas o que falta/venceu e vire verbete |
 | "preparar protocolo" | Véspera: anti-erro fatal (`MODULOS/<area>/anti_erro_fatal.md`) + conferência final com checagem cruzada peça↔decisões → declaracoes no CASO.yaml → G3 → revisão humana assinada do advogado → `preparar_protocolo.py X` → DOCX pela skill formatacao-peticoes-nascimento (NUNCA antes da assinatura) |
-| "protocolado, processo nº N" | DIARIO: EVENTO_PROCESSUAL com o número; cadastrar prazos reais (PZ##); espelhar no Calendar (anonimizado: "[SOJ] <id> · PZ##"; laboratório = "[SOJ·TESTE]") |
+| "protocolado, processo nº N" | DIARIO: EVENTO_PROCESSUAL com o número; cadastrar prazos reais (PZ##); espelhar no Calendar (anonimizado: "[SOJ] <id> · PZ##"; laboratório = "[SOJ·TESTE]"); **disparar `colher_aprendizados.py X --evento "protocolado processo N"`** |
+| "encerrar caso X" | fase: encerrado no CASO.yaml + NOTA no DIARIO + **disparar `colher_aprendizados.py X --evento encerramento`** |
+| "colher aprendizados do caso X" | `colher_aprendizados.py X` → `_views/PROPOSTA_DE_APRENDIZADO.md` (Tier B/vetos→árvore ou reservada; quase-erros→anti-erro; fontes revogadas/inexistentes→antiteses; desvios→variantes; verbetes→inventário). **NADA entra no módulo sem RATIFICACAO em bloco do advogado** — depois do ok, promover item a item |
+| "absorver minha versão da peça" (.md/.docx) | `absorver_versao.py X <arquivo>` → diff em `_efemeros/ABSORCAO_*.md`; classificar CADA mudança: **estilo** (absorve + marca COLHEITA:) · **fato novo** (exige F## com prova/alegação) · **citação nova** (VERIFICAR NA FONTE antes de aceitar) · **quantum/pedido** (reconciliar com decisões; DECISAO_ADVOGADO com ok). Depois: re-taguear → salvar vNN (nunca sobrescrever) → DIARIO → re-rodar o gate da fase → regerar DOCX |
 
 ## Regras duras (não negociar)
 
@@ -47,3 +50,6 @@ pare e pergunte). Regras completas: `CLAUDE.md` da raiz + `SOJ_BLUEPRINT_v1.md`.
 - `segredo_justica: true` = dados de menores: nada identificado sai deste
   ambiente; serviços externos só com id do caso + PZ##.
 - Commits: automáticos a cada gate; não fazer push sem ordem.
+- **REGRA DE OURO da peça:** a versão protocolada é SEMPRE a última que o
+  sistema conhece — versão melhorada do advogado entra SÓ pela porta de
+  retorno (absorver_versao), nunca por fora.

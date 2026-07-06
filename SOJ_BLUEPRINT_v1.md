@@ -345,9 +345,13 @@ Uma ação do usuário, consistência total. Nada de atualizar 4 arquivos à mã
 
 ### Comandos padrão do kernel (a interface homem-sistema)
 
-`novo caso` · `chegou documento X do caso Y` · `registrar decisão:` · `rodar G1/G2/G3` · `status do caso Y` · `status do escritório` · `gerar minuta` · `preparar protocolo` — encapsulados na skill `soj-kernel` (Fase 4) para que qualquer sessão opere igual.
+`novo caso` · `chegou documento X do caso Y` · `registrar decisão:` · `rodar G1/G2/G3` · `status do caso Y` · `status do escritório` · `gerar minuta` · `preparar protocolo` · `colher aprendizados do caso X` · `absorver minha versão da peça` — encapsulados na skill `soj-kernel` (Fase 4) para que qualquer sessão opere igual.
 
 **Vigia de prazos (aprendizado do piloto da Fase 2):** o sistema é movido a evento, mas prazo é movido a tempo. Regra: toda sessão, sobre qualquer caso, começa varrendo os prazos de TODOS os casos contra a data do dia; prazo vencido ou a ≤ 7 dias gera entrada ALERTA no DIARIO do caso e destaque no PAINEL. Complemento recomendado: espelhar prazos no Google Calendar do advogado (antecipável da Fase 5), como rede de segurança independente de sessões. Regra de privacidade do espelhamento (aprovada na Fase 3): eventos anonimizados — id do caso + id do prazo (ex.: "SOJ 2026-0002 · PZ01"), nunca nomes das partes.
+
+**Ciclo de colheita (regra de kernel — 1ª sessão de operação, 2026-07-04):** todo caso devolve conhecimento ao módulo, mas nunca sozinho. O comando `colher aprendizados do caso X` (`colher_aprendizados.py`) — disparado automaticamente no "protocolado, processo nº X" e no "encerrar caso" — varre o DIARIO e gera `_views/PROPOSTA_DE_APRENDIZADO.md`: decisões Tier B e vetos → candidatos a ramo da árvore ou decisão reservada; quase-erros e falso-positivos → candidatos ao anti-erro fatal; fontes inexistentes/revogadas → antiteses; desvios de template → variantes; verbetes novos → inventário (já vivem na BASE_LEGAL). Entradas podem ser marcadas explicitamente com `COLHEITA:` para captura garantida. **NADA é promovido ao módulo sem RATIFICACAO em bloco da proposta pelo advogado.**
+
+**Porta de retorno (regra de kernel — idem):** quando o advogado devolve a SUA versão melhorada da peça (`absorver minha versão da peça`, .md ou .docx — `absorver_versao.py` gera o diff), cada mudança é classificada: **estilo** (absorve e marca para colheita) · **fato novo** (exige F## com prova ou status honesto de alegação) · **citação nova** (verificar NA FONTE antes de aceitar — a regra do "nunca de memória" vale nos dois sentidos) · **quantum/pedido** (reconciliar com as decisões; DECISAO_ADVOGADO retificadora com o "ok"). Depois: re-taguear, salvar como vNN (NUNCA sobrescrever), DIARIO, re-rodar o gate da fase e só então regerar o DOCX no timbrado. **Regra de ouro: a versão protocolada é SEMPRE a última que o sistema conhece.**
 
 ---
 
