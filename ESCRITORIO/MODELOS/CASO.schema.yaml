@@ -62,9 +62,13 @@ fatos:
 provas:
   # doc = cópia renomeada · original = como chegou (cadeia de custódia é um CAMPO)
   # forca: plena | relativa | indiciaria
-  # categoria (roteador v1.7): peca_adversaria | decisao | sentenca_favoravel (ausente = prova comum)
+  # categoria (roteador v1.7): peca_adversaria | decisao | sentenca_favoravel
+  #   | conversa_whatsapp (Onda 4 — via receber_whatsapp.py) (ausente = prova comum)
   # Decisões judiciais (Onda 1/F6) ganham ainda: juizo, comarca, resultado
   # (preenchidos pela porta única via --juizo/--resultado)
+  # sha256 (Onda 4/F6): hash do original na ENTRADA — cadeia de custódia;
+  #   preenchido automaticamente pela porta única (conversas: hash do .txt,
+  #   manifesto por arquivo dentro do próprio DOC de cronologia)
   - id: P01
     doc: "01_documentos/DOC-01_CERTIDAO_NASCIMENTO_JULLIA.pdf"
     original: "00_originais/D-03.jpg"

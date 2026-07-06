@@ -75,6 +75,7 @@ Mas é bom saber o que existe:
 | `revalidar_biblioteca.py` | Ritual mensal da BASE_LEGAL: lista verbetes vencidos + casos ativos afetados; `--marcar` registra a revalidação | 1ª sessão do mês (o vigia lembra) |
 | `preparar_audiencia.py` | Cria a pasta da audiência com roteiro (perguntas, ataques, provas, logística) para a SUA revisão + prazo no vigia | Comando "preparar audiência" |
 | `relatorio_mensal.py` | Retrato do mês: casos, prazos, reprovações de gate e motivos, decisões, verbetes, pendências, horas (estimativa) | Fim do mês |
+| `receber_whatsapp.py` | Export de conversa do WhatsApp: lacra tudo com hash SHA-256, monta a cronologia unificada (mensagens + falas), registra como prova | Chegou conversa como prova |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 

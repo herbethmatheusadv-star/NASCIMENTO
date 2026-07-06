@@ -77,6 +77,27 @@ Regras INEGOCIÁVEIS do modo:
 4. **Melhoria aprovada = candidata de colheita**: marcar `COLHEITA:` no
    DIARIO (vai para template/teses na próxima colheita do caso).
 
+## MOTOR DE MÍDIA (Onda 4/F6 — WhatsApp, áudios, custódia)
+
+- **"chegou export de conversa do WhatsApp"** → `receber_whatsapp.py X
+  <pasta_do_export> --descricao ... [--fato F##]`: lacra TODOS os arquivos
+  em `00_originais/whatsapp_<slug>/` com **manifesto SHA-256**, parseia o
+  .txt e monta a **cronologia unificada** (mensagens + falas inline, cada
+  fala apontando o arquivo de origem); áudio com sidecar `<arquivo>.txt`
+  entra degravado; sem sidecar = "degravação pendente". A conversa vira P##
+  (categoria conversa_whatsapp).
+- **Cadeia de custódia:** TODO original que entra pela porta única ganha
+  **SHA-256 na ficha** automaticamente (receber_documento e receber_whatsapp).
+- **Rótulo obrigatório** em toda degravação: *"degravação de trabalho — não
+  substitui perícia/ata notarial"*; se a AUTENTICIDADE do áudio/conversa for
+  ponto controverso no caso → ALERTA no DIARIO: providenciar prova técnica.
+- **Regras de mídia:** consentimento do cliente para gravação de atendimento
+  = **entrada obrigatória no DIARIO ANTES** do áudio entrar; áudio de
+  atendimento entra LACRADO em 00_originais; transcrição pronta do celular
+  é aceita como RELATO (contrato de entrada).
+- **Transcritor local (faster-whisper): NÃO INSTALADO** — avaliação
+  reportada ao advogado (Onda 4); instalar só com o "ok" dele.
+
 ## ACERVO DE MODELOS (ESCRITORIO/ACERVO/ — blueprint §9)
 
 - **"guardar modelo"** → `guardar_modelo.py ARQUIVO --area ... --tipo
