@@ -164,3 +164,6 @@ adversaria do CC/1916 BARRADA por verificacao na fonte: art. 2.045 do
 CC/2002 revoga a Lei 3.071/1916 — nada do adversario entra sem BASE_LEGAL.
 F03 criado com status alegado_pelo_adversario (novo vocabulario do G1).
 ---
+## #037 | 2026-07-06 10:28 | NOTA
+Higiene do laboratorio: teste do modo defesa concluido — polo devolvido a ativo (baseline) e PZ04 encerrado como prejudicado. Artefatos preservados: P02/DOC-02 (rota peca_adversaria), F03 (alegado_pelo_adversario), analise adversarial 3-A na ESTRATEGIA, relatorios de gate. Baseline do lab: G1 7/7 em polo ativo.
+---

@@ -32,10 +32,10 @@ atualizado: 2026-07-06 10:28
 - Partes: 3 · Fatos: 3 (provados 1 / alegados 1 / controversos 0) · Provas: 2 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #037 | 2026-07-06 10:28 | NOTA — Higiene do laboratorio: teste do modo defesa concluido — polo devolvido a ativo (baseline) e PZ04 encerrado como prejudicado. Artefatos preservados: P02/DOC-02 (rota peca_adversaria), F03 (alegado_pelo_adversario), analise adversarial 3-A na ESTRATEGIA, relatorios de gate. Baseline do lab: G1 7/7 em polo ativo.
 - #036 | 2026-07-06 10:28 | NOTA — TESTE DO ROTEADOR + MODO DEFESA (v1.7) concluido: (1) polo passivo ativou o
 - #035 | 2026-07-06 10:26 | GATE — G1 executado: APROVADO. 8/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
 - #034 | 2026-07-06 10:26 | ALERTA — VIGIA-PRAZO PZ04 [PROXIMO]: 'PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)' vence em 2026-07-10 (em 4 dia(s), criticidade alta).
 - #033 | 2026-07-06 10:26 | DOC_RECEBIDO — Recebido INICIAL ADVERSARIA COBRANCA FICTICIA [rota: peca_adversaria] -> 00_originais/inicial_adversaria_falsa.md -> DOC-02_INICIAL_ADVERSARIA_COBRANCA_FICTICIA.md.
-- #032 | 2026-07-06 10:26 | GATE — G1 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
 
 _Gerado por gerar_views.py — não editar._

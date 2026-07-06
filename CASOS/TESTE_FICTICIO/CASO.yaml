@@ -13,7 +13,7 @@ caso:
   complexidade: simples  # simples | padrao | complexo (D9)
   fase: E2_estrategia           # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   comarca: "Parauapebas/PA"
-  polo: passivo                 # TESTE DO MODO DEFESA (v1.7) — laboratorio
+  polo: ativo                   # baseline do laboratorio (teste do modo defesa concluido em 06/07 — DIARIO #036/#037)
   segredo_justica: true  # true quando ha menores / dados sensiveis
   gates:
     G1:
@@ -85,7 +85,8 @@ prazos:
 - {id: PZ01, descricao: "Meta interna: protocolar a inicial (FICTICIO)", data: 2026-07-31, criticidade: media}
 - {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026 (alerta disparou 1x e nao duplicou)"}
 - {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026"}
-- {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)"}
+- {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)",
+   status: prejudicado, nota: "prazo ficticio do teste do modo defesa; teste concluido em 06/07/2026 (item zero reprovou sem ele e aprovou 8/8 com ele; vigia alertou D-4)"}
 
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa

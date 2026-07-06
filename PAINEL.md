@@ -4,7 +4,7 @@ Gerado em 2026-07-06 10:28 por gerar_views.py — não editar. Fonte: frontmatte
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
-- 🔴 **TESTE_FICTICIO** · PZ04 · 2026-07-10 · vence em **4 dia(s)** (alta): PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)
+- Nenhum. Tudo em dia.
 
 ## 📚 VERBETES A VENCER (validade ≤ 15 dias)
 
