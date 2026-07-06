@@ -104,7 +104,11 @@ def main():
     ap.add_argument("--acao", required=True, help="Tipo de acao")
     ap.add_argument("--ano", required=True)
     ap.add_argument("--porque", required=True,
-                    help="A TECNICA que justifica guardar (curadoria)")
+                    help="ANALISE DO SISTEMA (curadoria autonoma, v1.7): tecnicas, "
+                         "movimentos, estrutura, o que e copiavel e o que e datado "
+                         "— a sessao analisa o modelo ANTES de rodar o comando")
+    ap.add_argument("--nota-advogado", default="",
+                    help="Nota do advogado (campo OPCIONAL)")
     ap.add_argument("--ressalva", default="nenhuma",
                     help='Ex.: "nao copiar o capitulo X — fundamento superado"')
     ap.add_argument("--resultado", default="desconhecido")
@@ -164,6 +168,7 @@ def main():
         f"**Ação:** {args.acao}",
         f"**Ano:** {args.ano}",
         f"**Por que guardado:** {args.porque}",
+        f"**Nota do advogado:** {args.nota_advogado or '(nenhuma — campo opcional)'}",
         f"**Ressalvas:** {args.ressalva}",
         f"**Resultado:** {args.resultado}",
         f"**Guardado em:** {soj.agora()}",

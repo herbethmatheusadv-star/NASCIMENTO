@@ -23,6 +23,10 @@ caso:
   complexidade: padrao          # simples | padrao | complexo — decide a profundidade (D9)
   fase: E3_minuta               # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   comarca: "Parauapebas/PA"
+  polo: ativo                   # ativo (autor) | passivo (réu/executado) — MODO DEFESA (v1.7):
+                                # no passivo, o G1 ganha ITEM ZERO (prazo de resposta ativo com
+                                # resposta: true), alegações adversárias usam status
+                                # alegado_pelo_adversario, e a simulação adversária é invertida
   segredo_justica: true         # true quando há menores, dados sensíveis etc.
   gates:                        # preenchido automaticamente pelo gate_check.py
     G1: { status: aprovado, data: 2026-06-20, diario: "#012" }
@@ -39,7 +43,7 @@ partes:
   - { id: PT03, papel: alimentanda, nome: "Jullia …", nascimento: 2014-01-01, doc: P01 }
 
 fatos:
-  # status: provado | alegado | controverso  ← a distinção-coração do trabalho jurídico
+  # status: provado | alegado | controverso | alegado_pelo_adversario (modo defesa)
   # Fato "provado" DEVE ter ao menos uma prova. Fato sem prova DEVE ter
   # pendência aberta (ou campo justificativa: "…" com a razão estratégica).
   - id: F01
@@ -82,6 +86,8 @@ fundamentos_citados:
 prazos:
   # criticidade: alta | media | baixa. Incluir prescrição/decadência quando aplicável.
   # status: ativo (padrão, pode omitir) | cumprido | prejudicado (+ nota justificando).
+  # resposta: true = prazo de RESPOSTA (contestação/embargos) — ITEM ZERO do G1 em polo passivo.
+  # origem: "DOC-NN (P##)" quando extraído de decisão/sentença pela porta única.
   #   O VIGIA DE PRAZOS (vigia_prazos.py, Adendo A1) roda no início de toda sessão:
   #   prazo ATIVO vencido ou a <= 7 dias gera ALERTA no DIARIO e destaque no PAINEL.
   # Caso genuinamente sem prazos: registrar entrada NOTA no DIARIO contendo "SEM PRAZOS".

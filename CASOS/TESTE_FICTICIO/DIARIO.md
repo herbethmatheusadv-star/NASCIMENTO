@@ -139,3 +139,7 @@ Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adv
 ## #031 | 2026-07-06 09:25 | NOTA
 CICLO DE COLHEITA executado (gatilho: teste do acervo): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 12 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 ---
+## #032 | 2026-07-06 10:26 | GATE
+G1 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
+Itens reprovados: ITEM ZERO (polo passivo): prazo de resposta identificado, calculado e no vigia
+---

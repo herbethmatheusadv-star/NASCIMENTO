@@ -63,6 +63,20 @@ def _data(valor):
 # ------------------------------------------------------------------ G1
 def checar_g1(pasta, dados, entradas):
     itens = []
+
+    # ITEM ZERO — MODO DEFESA (blueprint §7, v1.7): com o cliente no polo
+    # passivo, o prazo de RESPOSTA vem antes de tudo: identificado, calculado
+    # (data no CASO.yaml) e ATIVO no vigia (prazos com resposta: true).
+    if soj.normaliza(dados["caso"].get("polo", "ativo")) == "passivo":
+        respostas = [p for p in (dados.get("prazos") or [])
+                     if p.get("resposta") and soj.prazo_ativo(p)]
+        ok = bool(respostas)
+        detalhe = "" if ok else ("nenhum prazo ATIVO com resposta: true — "
+                                 "identificar e calcular o prazo de resposta "
+                                 "ANTES de qualquer outra coisa")
+        itens.append(("ITEM ZERO (polo passivo): prazo de resposta "
+                      "identificado, calculado e no vigia", ok, detalhe))
+
     provas = dados.get("provas") or []
     docs_dir = pasta / "01_documentos"
     arquivos = sorted(a.name for a in docs_dir.iterdir() if a.is_file()) \
@@ -111,11 +125,13 @@ def checar_g1(pasta, dados, entradas):
         problemas.append("nenhum fato registrado")
     for f in fatos:
         s = str(f.get("status", ""))
-        if s not in ("provado", "alegado", "controverso"):
+        if s not in ("provado", "alegado", "controverso",
+                     "alegado_pelo_adversario"):
             problemas.append(f"{f.get('id')} com status invalido: '{s}'")
         if s == "provado" and not (f.get("provas") or []):
             problemas.append(f"{f.get('id')} marcado 'provado' sem nenhuma prova")
-    itens.append(("Fatos essenciais com status honesto (provado/alegado/controverso)",
+    itens.append(("Fatos essenciais com status honesto (provado/alegado/"
+                  "controverso/alegado_pelo_adversario)",
                   not problemas, "; ".join(problemas)))
 
     # 4. prazos identificados (ou declaracao estruturada sem_prazos — Adendo A2)

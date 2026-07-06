@@ -31,6 +31,7 @@ caso:
   complexidade: __COMPLEXIDADE__  # simples | padrao | complexo (D9)
   fase: E1_intake               # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   comarca: "__COMARCA__"
+  polo: __POLO__                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
   segredo_justica: __SEGREDO__  # true quando ha menores / dados sensiveis
   gates:
     G1: {status: pendente}
@@ -149,6 +150,8 @@ def main():
                     choices=["simples", "padrao", "complexo"])
     ap.add_argument("--segredo", action="store_true",
                     help="Marca segredo_justica: true (menores, dados sensiveis)")
+    ap.add_argument("--polo", default="ativo", choices=["ativo", "passivo"],
+                    help="passivo = cliente reu/executado (MODO DEFESA)")
     args = ap.parse_args()
 
     nome = args.nome.strip()
@@ -174,6 +177,7 @@ def main():
                 .replace("__MODULO__", args.modulo)
                 .replace("__COMARCA__", args.comarca)
                 .replace("__COMPLEXIDADE__", args.complexidade)
+                .replace("__POLO__", args.polo)
                 .replace("__SEGREDO__", "true" if args.segredo else "false"))
     (pasta / "CASO.yaml").write_text(conteudo, encoding="utf-8", newline="\n")
 

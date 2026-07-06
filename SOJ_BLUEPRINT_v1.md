@@ -1,8 +1,8 @@
 # SOJ — SISTEMA OPERACIONAL JURÍDICO NASCIMENTO
-## Blueprint de Arquitetura v1.4
+## Blueprint de Arquitetura v1.7
 
 **Data:** 2026-07-04
-**Status:** v1.4 — OBRA ENTREGUE: Fases 1–4 executadas e auditadas em 04/07/2026 (fundação testada, piloto migrado, ativo legal verificado na fonte, primeiro caso real a 9/9 no G3, módulo família completo + skill soj-kernel). Sistema em operação. Histórico: D11 (v1.3), contrato de entrada e regra do módulo (v1.2), D2 ajustada (v1.1).
+**Status:** v1.7 — porta única ganha **roteador de tipos de documento** e **modo defesa** (seção 7): análise de peças adversárias, decisões e sentenças com extração automática de prazos; casos com o cliente no polo passivo; Acervo com extração autônoma de técnicas. v1.6: Acervo. v1.5: mão dupla (colheita + porta de retorno). Obra entregue na v1.4 (Fases 1–4 em 04/07/2026). Histórico: D11 (v1.3), contrato de entrada (v1.2), D2 (v1.1).
 **Origem:** Redesenho crítico do sistema testado no CASO_TESTE_001 (37 arquivos → arquitetura dados + visões)
 **Premissas:** Operador único (advogado + IA). Volume atual baixo, ambição de escala — a arquitetura custa o mesmo em 5 ou 50 casos/mês; o que muda é o retorno.
 
@@ -101,6 +101,7 @@ Sem dependência de nenhum outro programa: o sistema inteiro é pasta + arquivos
 │   │   ├── familia.md                 ← verbetes verificados (seção 8)
 │   │   ├── consumidor.md
 │   │   └── bancario.md
+│   ├── ACERVO/                        ← modelos de referência (M-01…): peças e decisões, anonimizados, com ficha de curadoria
 │   ├── MODULOS/
 │   │   ├── familia/
 │   │   │   ├── MODULO.md              ← contrato do módulo (seção 9)
@@ -329,6 +330,8 @@ A pasta do cliente nasce do jeito mais preguiçoso possível: um arquivo de text
 
 **A estrutura do caso é SAÍDA do sistema, nunca tarefa do advogado.** Convenção única e opcional: havendo vários arquivos de texto, nomear o principal como RELATO ajuda — mas o sistema descobre sozinho.
 
+**Roteador de tipos e modo defesa (v1.7):** a porta única classifica todo documento por tipo e destino — prova → P##; **peça do adversário** → análise adversarial (teses deles, fraquezas, pontos de ataque) alimentando a defesa; **decisão/despacho/sentença do próprio processo** → EVENTO_PROCESSUAL com *extração automática do prazo* (PZ## no vigia e no Calendar antes de qualquer outra análise); **sentença favorável** → candidata ao ACERVO (praxe local). Casos iniciados por peça adversária (cliente réu/executado) entram em **modo defesa**: campo `polo` no CASO.yaml, alegações do adversário com status próprio (alegado_pelo_adversario/controverso), G1 com item zero — *prazo de resposta identificado, calculado e no vigia* —, produto = peça de defesa do módulo, e simulação adversária invertida (simula-se a réplica do autor). A inteligência de leitura é nativa do motor; o roteador é o que a torna disciplinada: toda tese extraída passa pela BASE_LEGAL, toda estratégia pelo G2.
+
 ### O ponto único de entrada (resolve o "Problema 4" do manual)
 
 Quando qualquer coisa nova chega — documento, informação, decisão — existe UM fluxo:
@@ -345,13 +348,13 @@ Uma ação do usuário, consistência total. Nada de atualizar 4 arquivos à mã
 
 ### Comandos padrão do kernel (a interface homem-sistema)
 
-`novo caso` · `chegou documento X do caso Y` · `registrar decisão:` · `rodar G1/G2/G3` · `status do caso Y` · `status do escritório` · `gerar minuta` · `preparar protocolo` · `colher aprendizados do caso X` · `absorver minha versão da peça` — encapsulados na skill `soj-kernel` (Fase 4) para que qualquer sessão opere igual.
+`novo caso` · `chegou documento X do caso Y` · `registrar decisão:` · `rodar G1/G2/G3` · `status do caso Y` · `status do escritório` · `gerar minuta` · `revisar peça` (ciclo diagnóstico → alvo → reescrita → diff) · `absorver minha versão da peça` · `colher aprendizados do caso X` · `preparar protocolo` — encapsulados na skill `soj-kernel` (Fase 4) para que qualquer sessão opere igual.
 
 **Vigia de prazos (aprendizado do piloto da Fase 2):** o sistema é movido a evento, mas prazo é movido a tempo. Regra: toda sessão, sobre qualquer caso, começa varrendo os prazos de TODOS os casos contra a data do dia; prazo vencido ou a ≤ 7 dias gera entrada ALERTA no DIARIO do caso e destaque no PAINEL. Complemento recomendado: espelhar prazos no Google Calendar do advogado (antecipável da Fase 5), como rede de segurança independente de sessões. Regra de privacidade do espelhamento (aprovada na Fase 3): eventos anonimizados — id do caso + id do prazo (ex.: "SOJ 2026-0002 · PZ01"), nunca nomes das partes.
 
-**Ciclo de colheita (regra de kernel — 1ª sessão de operação, 2026-07-04):** todo caso devolve conhecimento ao módulo, mas nunca sozinho. O comando `colher aprendizados do caso X` (`colher_aprendizados.py`) — disparado automaticamente no "protocolado, processo nº X" e no "encerrar caso" — varre o DIARIO e gera `_views/PROPOSTA_DE_APRENDIZADO.md`: decisões Tier B e vetos → candidatos a ramo da árvore ou decisão reservada; quase-erros e falso-positivos → candidatos ao anti-erro fatal; fontes inexistentes/revogadas → antiteses; desvios de template → variantes; verbetes novos → inventário (já vivem na BASE_LEGAL). Entradas podem ser marcadas explicitamente com `COLHEITA:` para captura garantida. **NADA é promovido ao módulo sem RATIFICACAO em bloco da proposta pelo advogado.**
+**Colheita de aprendizados (era da operação):** ao protocolar/encerrar um caso, o kernel varre o DIARIO e propõe promoções ao acervo — decisões Tier B e vetos → ramos/ajustes da árvore ou novas reservadas; falso-positivos e quase-erros → anti-erro fatal; fontes inexistentes/revogadas → antiteses; desvios de template → variantes; verbetes novos já estão na BASE_LEGAL (apenas listados). Sai uma PROPOSTA_DE_APRENDIZADO de 1 página; o advogado ratifica em bloco (padrão D11) e só então o módulo é atualizado. **Captura é automática; promoção é ratificada** — a catraca avança um dente por caso e nunca desliza para trás.
 
-**Porta de retorno (regra de kernel — idem):** quando o advogado devolve a SUA versão melhorada da peça (`absorver minha versão da peça`, .md ou .docx — `absorver_versao.py` gera o diff), cada mudança é classificada: **estilo** (absorve e marca para colheita) · **fato novo** (exige F## com prova ou status honesto de alegação) · **citação nova** (verificar NA FONTE antes de aceitar — a regra do "nunca de memória" vale nos dois sentidos) · **quantum/pedido** (reconciliar com as decisões; DECISAO_ADVOGADO retificadora com o "ok"). Depois: re-taguear, salvar como vNN (NUNCA sobrescrever), DIARIO, re-rodar o gate da fase e só então regerar o DOCX no timbrado. **Regra de ouro: a versão protocolada é SEMPRE a última que o sistema conhece.**
+**Porta de retorno (a mão dupla da minuta):** o advogado pode devolver ao sistema uma versão melhorada da peça (.md ou DOCX). O kernel faz o diff contra a última versão e classifica cada mudança: estilo → absorve e vira candidato de colheita; fato novo → exige F## com prova ou status de alegação; citação nova → verificação na fonte antes de aceitar (a regra "nunca de memória" vale também para o humano); quantum/pedido → reconciliação com as decisões (DECISAO_ADVOGADO retificadora). Depois: re-tagueia, versiona (vNN — nada se sobrescreve), registra no DIARIO e re-roda o gate da fase antes de regerar o DOCX. Regra de ouro: **a versão protocolada é sempre a última que o sistema conhece** — peça editada por fora e protocolada sem retornar é a única forma de quebrar o sistema.
 
 ---
 
@@ -389,7 +392,7 @@ O módulo **família** nasce na Fase 3–4 extraindo tudo isso do CASO_TESTE_001
 
 **Área nova sem módulo (ex.: trabalhista, previdenciário):** o kernel funciona integralmente — intake, ficha, diário, gates, views. Só a minuta parte do zero e o anti-erro fatal roda no genérico do G3. E o **primeiro caso da área constrói o módulo como subproduto**: a pesquisa semeia `BASE_LEGAL/<area>.md`, a minuta aprovada vira o primeiro template, as decisões tomadas e ratificadas viram os primeiros ramos de `praxe_decisoria.md`, e os erros que o advogado apontar na revisão viram o checklist anti-erro fatal. O caso 1 de uma área é mais caro; o caso 2 já herda. Não se "constrói o sistema da área" antes — atende-se o primeiro caso dentro do kernel, e o módulo nasce dele. (Escopo do sistema: **contencioso** de qualquer área — tudo que termina em peça processual. Consultivo/contratos seria um módulo de natureza distinta, fora do alvo atual.)
 
-**Acervo de modelos (`ESCRITORIO/ACERVO/` — regra de kernel, 1ª semana de operação, 2026-07-06):** peças e decisões de referência (inclusive sentenças e decisões dos processos do PRÓPRIO escritório — semente da praxe local da comarca) entram pelo comando `guardar modelo` (`guardar_modelo.py`), que **anonimiza dados pessoais de terceiros na entrada** (varredura mecânica de CPF/CNPJ/CEP/e-mail/telefone + substituições nominais indicadas na sessão), **recusa peças de autos sigilosos**, e monta a **ficha de curadoria M-NN**: origem, área, tipo, ano, POR QUE foi guardada (a técnica que interessa), ressalvas ("não copiar X") e resultado se conhecido. Organização: subpasta por área + `geral/`; índice gerado. **Regra de ferro:** modelo é professor de ESTILO e TÉCNICA, nunca de lei — citação jurídica vinda de modelo só entra em peça após verificação na BASE_LEGAL. **Uso: sob demanda** na revisão de peça ("compare com o M-02") e, na colheita, como proposta de destilação de técnicas para template/teses — sempre com ratificação do advogado; modelos NÃO são consultados automaticamente a cada minuta.
+**Acervo de modelos (v1.6):** o escritório guarda peças e decisões de referência em `ESCRITORIO/ACERVO/` (IDs M-01…), cada uma com ficha de curadoria (origem, área, ano, *por que foi guardada*, ressalvas, resultado) e **anonimizada na entrada** — dados pessoais de terceiros não se armazenam, e peças de autos sigilosos não entram. Regra de ferro: **modelo é professor de estilo e técnica, nunca de lei** — citação jurídica vinda de modelo só entra em peça após verificação na BASE_LEGAL (modelo antigo = lei possivelmente superada). Modelos alimentam **o molde, não cada peça**: sua sabedoria é destilada para template/teses via colheita ratificada; consulta direta só sob demanda na revisão. Extensão natural: decisões e sentenças dos próprios processos entram no acervo — semente da calibração **local** da árvore (o que o juízo da comarca costuma deferir). **Curadoria autônoma (v1.7):** quem analisa o modelo primeiro é o sistema — técnicas, movimentos, estrutura, o que é copiável e o que é datado — e preenche a ficha; a nota do advogado é campo opcional.
 
 ---
 
