@@ -10,7 +10,7 @@ g2: aprovado
 g3: aprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015"
 pendencias_criticas_abertas: 0
-atualizado: 2026-07-04 23:25
+atualizado: 2026-07-06 10:28
 ---
 
 # STATUS — Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia

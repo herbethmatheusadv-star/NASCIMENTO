@@ -153,3 +153,14 @@ VIGIA-PRAZO PZ04 [PROXIMO]: 'PRAZO DE RESPOSTA (contestacao) a inicial adversari
 ## #035 | 2026-07-06 10:26 | GATE
 G1 executado: APROVADO. 8/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
 ---
+## #036 | 2026-07-06 10:28 | NOTA
+TESTE DO ROTEADOR + MODO DEFESA (v1.7) concluido: (1) polo passivo ativou o
+ITEM ZERO do G1, que REPROVOU sem o prazo de resposta e APROVOU 8/8 com o
+PZ04 (resposta: true) no vigia (ALERTA D-4 disparado); (2) rota decisao
+BLOQUEADA sem extracao de prazo (regra prazo-antes-de-tudo); (3) rota
+peca_adversaria registrou P02 com categoria e a analise adversarial entrou
+na ESTRATEGIA 3-A (3 teses, fraquezas, pontos de ataque); (4) citacao
+adversaria do CC/1916 BARRADA por verificacao na fonte: art. 2.045 do
+CC/2002 revoga a Lei 3.071/1916 — nada do adversario entra sem BASE_LEGAL.
+F03 criado com status alegado_pelo_adversario (novo vocabulario do G1).
+---
