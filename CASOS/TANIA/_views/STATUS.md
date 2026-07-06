@@ -4,19 +4,20 @@ cliente: TANIA
 titulo: "Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia"
 area: familia
 fase: E4_protocolo
+fase_processual: pre_protocolo
 complexidade: padrao
 g1: aprovado
 g2: aprovado
 g3: aprovado
 proximo_prazo: "2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015"
 pendencias_criticas_abertas: 0
-atualizado: 2026-07-06 10:28
+atualizado: 2026-07-06 14:54
 ---
 
 # STATUS — Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia
 
 **Cliente/pasta:** TANIA · **Caso:** 2026-0002 · **Área:** familia · **Módulo:** familia/alimentos_guarda_convivencia
-**Fase:** E4_protocolo · **Complexidade:** padrao · **Segredo de justiça:** sim
+**Fase interna:** E4_protocolo · **Fase processual:** pre_protocolo · **Complexidade:** padrao · **Segredo de justiça:** sim
 **Gates:** G1 aprovado (2026-07-04) · G2 aprovado (2026-07-04) · G3 aprovado (2026-07-04)
 
 ## Próximos prazos

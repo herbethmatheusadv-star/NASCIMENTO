@@ -76,6 +76,17 @@ def main():
             gerar_views.gerar_views(nome)
         gerar_views.atualizar_painel()
 
+    # Lembrete mensal da biblioteca (Onda 1/F6): dispara UMA vez por mes,
+    # na primeira sessao em que o vigia roda no mes novo.
+    if not args.so_ver:
+        estado = soj.ESCRITORIO / ".lembrete_revalidacao"
+        mes = soj.hoje().strftime("%Y-%m")
+        anterior = estado.read_text(encoding="utf-8").strip() if estado.exists() else ""
+        if anterior != mes:
+            estado.write_text(mes, encoding="utf-8")
+            print(f"[BIBLIOTECA] 1a sessao do mes {mes}: rode o ritual de "
+                  "revalidacao — python ESCRITORIO/scripts/revalidar_biblioteca.py")
+
     if not achados:
         print("[VIGIA] Nenhum prazo vencido ou a 7 dias em nenhum caso. Tudo em dia.")
         return

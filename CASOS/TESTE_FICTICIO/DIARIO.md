@@ -167,3 +167,6 @@ F03 criado com status alegado_pelo_adversario (novo vocabulario do G1).
 ## #037 | 2026-07-06 10:28 | NOTA
 Higiene do laboratorio: teste do modo defesa concluido — polo devolvido a ativo (baseline) e PZ04 encerrado como prejudicado. Artefatos preservados: P02/DOC-02 (rota peca_adversaria), F03 (alegado_pelo_adversario), analise adversarial 3-A na ESTRATEGIA, relatorios de gate. Baseline do lab: G1 7/7 em polo ativo.
 ---
+## #038 | 2026-07-06 14:54 | GATE
+G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
+---

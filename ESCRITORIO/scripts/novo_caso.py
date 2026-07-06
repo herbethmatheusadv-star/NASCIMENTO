@@ -29,7 +29,8 @@ caso:
   area: __AREA__                # familia | consumidor | bancario | ...
   modulo: __MODULO__            # ex.: familia/alimentos_guarda_convivencia
   complexidade: __COMPLEXIDADE__  # simples | padrao | complexo (D9)
-  fase: E1_intake               # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
   comarca: "__COMARCA__"
   polo: __POLO__                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
   segredo_justica: __SEGREDO__  # true quando ha menores / dados sensiveis
@@ -63,6 +64,20 @@ fundamentos_citados: []
 # nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
 # - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
 #     validade_dias: 90, nucleo: true }
+
+financeiro:
+  contrato:
+    tipo: __CONTRATO_TIPO__     # fixo | percentual | exito | misto | probono
+    valor: 0.00
+    parcelas: 0
+    doc_assinado: false         # true quando o contrato assinado for arquivado (DOC-NN)
+  custas: []
+  # - { data: 2026-01-01, descricao: "custas iniciais", valor: 0.00 }
+  recebimentos: []
+  # - { data: 2026-01-01, descricao: "parcela 1/N", valor: 0.00 }
+
+audiencias: []
+# - { data: 2026-01-01, hora: "09:00", tipo: instrucao, local: "...", status: designada }
 
 prazos: []
 # - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
@@ -152,6 +167,9 @@ def main():
                     help="Marca segredo_justica: true (menores, dados sensiveis)")
     ap.add_argument("--polo", default="ativo", choices=["ativo", "passivo"],
                     help="passivo = cliente reu/executado (MODO DEFESA)")
+    ap.add_argument("--probono", action="store_true",
+                    help="Caso pro bono: contrato tipo probono e SEM a pendencia "
+                         "padrao de contrato de honorarios (Onda 1/F6)")
     args = ap.parse_args()
 
     nome = args.nome.strip()
@@ -178,8 +196,24 @@ def main():
                 .replace("__COMARCA__", args.comarca)
                 .replace("__COMPLEXIDADE__", args.complexidade)
                 .replace("__POLO__", args.polo)
+                .replace("__CONTRATO_TIPO__", "probono" if args.probono else "a_definir")
                 .replace("__SEGREDO__", "true" if args.segredo else "false"))
     (pasta / "CASO.yaml").write_text(conteudo, encoding="utf-8", newline="\n")
+
+    # Pendencia PADRAO do intake (Onda 1/F6): contrato de honorarios assinado
+    # — salvo probono/gratuidade marcada.
+    if not args.probono:
+        dados = soj.load_caso(pasta)
+        soj.lista_de(dados, "pendencias").append({
+            "id": "PEN01",
+            "descricao": "Contrato de honorarios ASSINADO e arquivado como "
+                         "DOC-NN (pendencia padrao do intake — Onda 1/F6); "
+                         "preencher financeiro.contrato (tipo/valor/parcelas)",
+            "responsavel": "cliente", "prioridade": "critica",
+            "bloqueia": ["G3"],
+            "mensagem_cliente": "o contrato de honorarios assinado (posso te "
+                                "mandar pelo WhatsApp para assinar digital)"})
+        soj.save_caso(pasta, dados)
 
     # 3. DIARIO com cabecalho + entrada #001
     cab = CABECALHO_DIARIO.replace("__CLIENTE__", nome).replace("__ID__", caso_id)

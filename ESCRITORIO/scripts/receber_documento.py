@@ -60,6 +60,9 @@ def main():
                     help="Marca o prazo como prazo de RESPOSTA (item zero do G1 em polo passivo)")
     ap.add_argument("--sem-prazo", metavar="MOTIVO",
                     help="(decisao/sentenca) declara que a decisao NAO abre prazo, com motivo")
+    # Onda 1/F6: metadados da decisao judicial
+    ap.add_argument("--juizo", help="(decisao/sentenca) juizo prolator, ex.: 'Vara de Familia de Parauapebas'")
+    ap.add_argument("--resultado", help="(decisao/sentenca) resultado em uma linha, ex.: 'liminar deferida — provisorios em 30% do SM'")
     args = ap.parse_args()
 
     # REGRA DURA do roteador: decisao/sentenca so entram com o prazo extraido
@@ -118,6 +121,10 @@ def main():
     }
     if args.tipo != "prova":
         registro["categoria"] = args.tipo
+    if args.tipo in ("decisao", "sentenca_favoravel"):
+        registro["juizo"] = args.juizo or "(a preencher)"
+        registro["comarca"] = str(dados["caso"].get("comarca", ""))
+        registro["resultado"] = args.resultado or "(a preencher)"
     soj.lista_de(dados, "provas").append(registro)
 
     # 3b. ROTA decisao/sentenca: PZ## criado ANTES de qualquer outra analise

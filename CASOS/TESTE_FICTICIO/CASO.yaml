@@ -12,6 +12,7 @@ caso:
   modulo: familia/alimentos_guarda_convivencia            # ex.: familia/alimentos_guarda_convivencia
   complexidade: simples  # simples | padrao | complexo (D9)
   fase: E2_estrategia           # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # Onda 1/F6
   comarca: "Parauapebas/PA"
   polo: ativo                   # baseline do laboratorio (teste do modo defesa concluido em 06/07 — DIARIO #036/#037)
   segredo_justica: true  # true quando ha menores / dados sensiveis
@@ -19,7 +20,7 @@ caso:
     G1:
       status: aprovado
       data: '2026-07-06'
-      diario: '#035'
+      diario: '#038'
     G2:
       status: reprovado
       data: '2026-07-06'
@@ -73,11 +74,23 @@ provas:
 pedidos:
 - {id: PED01, tipo: alimentos_provisorios_e_definitivos, parametro: "a fixar na E2 (arvore do modulo)", fundamentos: [CC:art1694, LEI5478:art4], fatos: [F01, F02]}
 
-fundamentos_citados: []
+fundamentos_citados:
+- {ref: "LAB:art999", verificado_em: 2026-01-01, status: vigente, validade_dias: 30, nota: "FICTICIO — teste do revalidar biblioteca (Onda 1/F6); remover apos o teste"}
 # Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
 # nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
 # - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
 #     validade_dias: 90, nucleo: true }
+
+financeiro:
+# BLOCO FICTICIO — teste da Onda 1/F6 (views FINANCEIRO + agregado do PAINEL)
+  contrato: {tipo: fixo, valor: 2000.00, parcelas: 2, doc_assinado: false}
+  custas:
+  - {data: 2026-07-02, descricao: "custas iniciais (FICTICIO)", valor: 150.00}
+  recebimentos:
+  - {data: 2026-06-20, descricao: "parcela 1/2 (FICTICIO)", valor: 1000.00}
+  - {data: 2026-07-05, descricao: "parcela 2/2 parcial (FICTICIO)", valor: 500.00}
+
+audiencias: []
 
 prazos:
 # Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
@@ -85,8 +98,7 @@ prazos:
 - {id: PZ01, descricao: "Meta interna: protocolar a inicial (FICTICIO)", data: 2026-07-31, criticidade: media}
 - {id: PZ02, descricao: "TESTE DO VIGIA: prazo vencido de mentira", data: 2026-06-30, criticidade: alta, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026 (alerta disparou 1x e nao duplicou)"}
 - {id: PZ03, descricao: "TESTE DO VIGIA: prazo a 5 dias de mentira", data: 2026-07-09, criticidade: media, status: prejudicado, nota: "prazo ficticio criado so para testar o vigia; teste concluido em 04/07/2026"}
-- {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)",
-   status: prejudicado, nota: "prazo ficticio do teste do modo defesa; teste concluido em 06/07/2026 (item zero reprovou sem ele e aprovou 8/8 com ele; vigia alertou D-4)"}
+- {id: PZ04, descricao: "PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)", data: 2026-07-10, criticidade: alta, resposta: true, origem: "DOC-02 (P02)", status: prejudicado, nota: "prazo ficticio do teste do modo defesa; teste concluido em 06/07/2026 (item zero reprovou sem ele e aprovou 8/8 com ele; vigia alertou D-4)"}
 
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa

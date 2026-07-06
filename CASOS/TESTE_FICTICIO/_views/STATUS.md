@@ -4,19 +4,20 @@ cliente: TESTE_FICTICIO
 titulo: "Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)"
 area: familia
 fase: E2_estrategia
+fase_processual: pre_protocolo
 complexidade: simples
 g1: aprovado
 g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-06 10:28
+atualizado: 2026-07-06 14:54
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
 
 **Cliente/pasta:** TESTE_FICTICIO · **Caso:** 2026-0001 · **Área:** familia · **Módulo:** familia/alimentos_guarda_convivencia
-**Fase:** E2_estrategia · **Complexidade:** simples · **Segredo de justiça:** sim
+**Fase interna:** E2_estrategia · **Fase processual:** pre_protocolo · **Complexidade:** simples · **Segredo de justiça:** sim
 **Gates:** G1 aprovado (2026-07-06) · G2 reprovado (2026-07-06) · G3 pendente
 
 ## Próximos prazos
@@ -32,10 +33,10 @@ atualizado: 2026-07-06 10:28
 - Partes: 3 · Fatos: 3 (provados 1 / alegados 1 / controversos 0) · Provas: 2 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #038 | 2026-07-06 14:54 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 - #037 | 2026-07-06 10:28 | NOTA — Higiene do laboratorio: teste do modo defesa concluido — polo devolvido a ativo (baseline) e PZ04 encerrado como prejudicado. Artefatos preservados: P02/DOC-02 (rota peca_adversaria), F03 (alegado_pelo_adversario), analise adversarial 3-A na ESTRATEGIA, relatorios de gate. Baseline do lab: G1 7/7 em polo ativo.
 - #036 | 2026-07-06 10:28 | NOTA — TESTE DO ROTEADOR + MODO DEFESA (v1.7) concluido: (1) polo passivo ativou o
 - #035 | 2026-07-06 10:26 | GATE — G1 executado: APROVADO. 8/8 itens. Relatorio: _views/gate_G1_2026-07-06.md
 - #034 | 2026-07-06 10:26 | ALERTA — VIGIA-PRAZO PZ04 [PROXIMO]: 'PRAZO DE RESPOSTA (contestacao) a inicial adversaria ficticia — 15 dias uteis simulados (TESTE MODO DEFESA)' vence em 2026-07-10 (em 4 dia(s), criticidade alta).
-- #033 | 2026-07-06 10:26 | DOC_RECEBIDO — Recebido INICIAL ADVERSARIA COBRANCA FICTICIA [rota: peca_adversaria] -> 00_originais/inicial_adversaria_falsa.md -> DOC-02_INICIAL_ADVERSARIA_COBRANCA_FICTICIA.md.
 
 _Gerado por gerar_views.py — não editar._

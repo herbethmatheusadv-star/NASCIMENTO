@@ -11,11 +11,48 @@ Uso:
   python gerar_views.py --todos        # todos os casos (e o painel)
 """
 import argparse
+import datetime
 import re
 
 import soj_lib as soj
 
 PRIORIDADES = ["critica", "alta", "media", "baixa"]
+
+
+def _brl(v):
+    """1234.5 -> 'R$ 1.234,50' (formato brasileiro)."""
+    return ("R$ " + f"{float(v):,.2f}").replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def _mes_atual(d):
+    """True se a data (date ou string ISO) cai no mes corrente."""
+    if not isinstance(d, datetime.date):
+        try:
+            d = datetime.date.fromisoformat(str(d))
+        except Exception:
+            return False
+    hoje = soj.hoje()
+    return d.year == hoje.year and d.month == hoje.month
+
+
+def _resumo_financeiro(dados):
+    """Numeros do bloco financeiro (Onda 1/F6): devolve dict com contrato,
+    recebido_total, recebido_mes, custas_total, a_receber (None = nao apuravel)."""
+    fin = dados.get("financeiro") or {}
+    contrato = fin.get("contrato") or {}
+    recebimentos = fin.get("recebimentos") or []
+    custas = fin.get("custas") or []
+    recebido_total = sum(float(r.get("valor", 0) or 0) for r in recebimentos)
+    recebido_mes = sum(float(r.get("valor", 0) or 0) for r in recebimentos
+                       if _mes_atual(r.get("data")))
+    custas_total = sum(float(c.get("valor", 0) or 0) for c in custas)
+    a_receber = None
+    valor = contrato.get("valor")
+    if str(contrato.get("tipo")) in ("fixo", "misto") and valor:
+        a_receber = max(float(valor) - recebido_total, 0.0)
+    return {"contrato": contrato, "recebido_total": recebido_total,
+            "recebido_mes": recebido_mes, "custas_total": custas_total,
+            "a_receber": a_receber}
 
 
 def _fmt_gate(g):
@@ -59,6 +96,7 @@ def _view_status(nome, pasta, dados, entradas):
         f"titulo: \"{caso.get('titulo')}\"",
         f"area: {caso.get('area')}",
         f"fase: {caso.get('fase')}",
+        f"fase_processual: {caso.get('fase_processual', 'pre_protocolo')}",
         f"complexidade: {caso.get('complexidade')}",
         f"g1: {(gates.get('G1') or {}).get('status', 'pendente')}",
         f"g2: {(gates.get('G2') or {}).get('status', 'pendente')}",
@@ -75,7 +113,9 @@ def _view_status(nome, pasta, dados, entradas):
         "",
         f"**Cliente/pasta:** {nome} · **Caso:** {caso.get('id')} · "
         f"**Área:** {caso.get('area')} · **Módulo:** {caso.get('modulo')}",
-        f"**Fase:** {caso.get('fase')} · **Complexidade:** {caso.get('complexidade')} · "
+        f"**Fase interna:** {caso.get('fase')} · **Fase processual:** "
+        f"{caso.get('fase_processual', 'pre_protocolo')} · "
+        f"**Complexidade:** {caso.get('complexidade')} · "
         f"**Segredo de justiça:** {'sim' if caso.get('segredo_justica') else 'não'}",
         f"**Gates:** G1 {_fmt_gate(gates.get('G1') or {})} · "
         f"G2 {_fmt_gate(gates.get('G2') or {})} · G3 {_fmt_gate(gates.get('G3') or {})}",
@@ -285,6 +325,46 @@ def _view_pendencias(dados):
     return "\n".join(out)
 
 
+# ---------------------------------------------------------- FINANCEIRO
+def _view_financeiro(dados):
+    """FINANCEIRO.md do caso (Onda 1/F6) — gerado do bloco financeiro."""
+    fin = dados.get("financeiro") or {}
+    r = _resumo_financeiro(dados)
+    c = r["contrato"]
+    out = ["# FINANCEIRO DO CASO", "",
+           "## Contrato de honorários",
+           f"- Tipo: **{c.get('tipo', 'a_definir')}** · Valor: "
+           f"{_brl(c.get('valor', 0)) if c.get('valor') else '—'} · "
+           f"Parcelas: {c.get('parcelas', '—')} · Assinado e arquivado: "
+           f"{'SIM' if c.get('doc_assinado') else 'NÃO'}",
+           "",
+           "## Recebimentos"]
+    recebimentos = fin.get("recebimentos") or []
+    if recebimentos:
+        out += ["| Data | Descrição | Valor |", "|---|---|---|"]
+        for x in recebimentos:
+            out.append(f"| {x.get('data')} | {x.get('descricao')} | "
+                       f"{_brl(x.get('valor', 0))} |")
+    else:
+        out.append("- (nenhum)")
+    out += ["", "## Custas e desembolsos"]
+    custas = fin.get("custas") or []
+    if custas:
+        out += ["| Data | Descrição | Valor |", "|---|---|---|"]
+        for x in custas:
+            out.append(f"| {x.get('data')} | {x.get('descricao')} | "
+                       f"{_brl(x.get('valor', 0))} |")
+    else:
+        out.append("- (nenhuma)")
+    out += ["", "## Resumo",
+            f"- Recebido (total): **{_brl(r['recebido_total'])}** · "
+            f"Recebido no mês: **{_brl(r['recebido_mes'])}** · "
+            f"Custas: **{_brl(r['custas_total'])}** · A receber: "
+            f"**{_brl(r['a_receber']) if r['a_receber'] is not None else '— (contrato ' + str(c.get('tipo', 'a_definir')) + ')'}**",
+            "", "_Gerado por gerar_views.py — não editar._", ""]
+    return "\n".join(out)
+
+
 # ------------------------------------------------------ resumo de decisões
 def _view_resumo_decisoes(entradas):
     decisoes = [e for e in entradas if e["tipo"] == "DECISAO_SISTEMA"]
@@ -383,15 +463,49 @@ def _radar_de_prazos():
     return linhas
 
 
+def _financeiro_do_escritorio():
+    """Agregado financeiro do PAINEL (Onda 1/F6)."""
+    linhas = ["## 💰 FINANCEIRO DO ESCRITÓRIO", "",
+              "| Caso | Contrato | A receber | Recebido no mês | Custas |",
+              "|---|---|---|---|---|"]
+    tot_rec_mes = tot_custas = tot_a_receber = 0.0
+    algum = False
+    if soj.CASOS.exists():
+        for pasta in sorted(soj.CASOS.iterdir()):
+            if not (pasta / "CASO.yaml").exists():
+                continue
+            dados = soj.load_caso(pasta)
+            r = _resumo_financeiro(dados)
+            c = r["contrato"]
+            algum = True
+            a_rec = _brl(r["a_receber"]) if r["a_receber"] is not None else \
+                f"— ({c.get('tipo', 'a_definir')})"
+            if r["a_receber"] is not None:
+                tot_a_receber += r["a_receber"]
+            tot_rec_mes += r["recebido_mes"]
+            tot_custas += r["custas_total"]
+            linhas.append(f"| {pasta.name} | {c.get('tipo', 'a_definir')}"
+                          f"{' (assinado)' if c.get('doc_assinado') else ''} | "
+                          f"{a_rec} | {_brl(r['recebido_mes'])} | "
+                          f"{_brl(r['custas_total'])} |")
+    if not algum:
+        linhas.append("| (nenhum caso) | | | | |")
+    linhas.append(f"| **TOTAL** | | **{_brl(tot_a_receber)}** (só contratos "
+                  f"com valor) | **{_brl(tot_rec_mes)}** | **{_brl(tot_custas)}** |")
+    linhas.append("")
+    return linhas
+
+
 def atualizar_painel():
     linhas = ["# PAINEL DO ESCRITÓRIO", "",
               f"Gerado em {soj.agora()} por gerar_views.py — não editar. "
               "Fonte: frontmatter dos STATUS.md de cada caso.", ""]
     linhas += _radar_de_prazos()
     linhas += _secao_verbetes_a_vencer()
+    linhas += _financeiro_do_escritorio()
     linhas += [
-              "| Cliente | Caso | Título | Fase | G1 | G2 | G3 | Próximo prazo | Pend. críticas |",
-              "|---|---|---|---|---|---|---|---|---|"]
+              "| Cliente | Caso | Título | Fase | F. processual | G1 | G2 | G3 | Próximo prazo | Pend. críticas |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
     casos = 0
     if soj.CASOS.exists():
         for pasta in sorted(soj.CASOS.iterdir()):
@@ -411,13 +525,14 @@ def atualizar_painel():
                     fm[k.strip()] = v.strip().strip('"')
             linhas.append(
                 f"| {fm.get('cliente', pasta.name)} | {fm.get('caso_id', '?')} | "
-                f"{fm.get('titulo', '?')} | {fm.get('fase', '?')} | {fm.get('g1', '?')} | "
+                f"{fm.get('titulo', '?')} | {fm.get('fase', '?')} | "
+                f"{fm.get('fase_processual', 'pre_protocolo')} | {fm.get('g1', '?')} | "
                 f"{fm.get('g2', '?')} | {fm.get('g3', '?')} | "
                 f"{fm.get('proximo_prazo') or '—'} | "
                 f"{fm.get('pendencias_criticas_abertas', '0')} |")
             casos += 1
     if casos == 0:
-        linhas.append("| (nenhum caso ainda) | | | | | | | | |")
+        linhas.append("| (nenhum caso ainda) | | | | | | | | | |")
     linhas.append("")
     (soj.ROOT / "PAINEL.md").write_text("\n".join(linhas), encoding="utf-8", newline="\n")
 
@@ -436,6 +551,7 @@ def gerar_views(nome):
     _escrever(views, "rol_documentos.md", _view_rol(dados))
     _escrever(views, "checklist_cliente.md", _view_checklist_cliente(nome, dados))
     _escrever(views, "pendencias.md", _view_pendencias(dados))
+    _escrever(views, "FINANCEIRO.md", _view_financeiro(dados))
     _escrever(views, "resumo_decisoes.md", _view_resumo_decisoes(entradas))
     atualizar_painel()
     return views

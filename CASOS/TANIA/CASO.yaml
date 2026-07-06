@@ -13,6 +13,7 @@ caso:
   modulo: familia/alimentos_guarda_convivencia
   complexidade: padrao          # simples | padrao | complexo (D9)
   fase: E4_protocolo            # minuta v01 redigida em 02/06/2026, em revisao
+  fase_processual: pre_protocolo  # Onda 1/F6 — vira 'postulatoria' no "protocolado, processo n. X"
   comarca: "Parauapebas/PA"     # Vara de Familia — CPC art. 53, II (domicilio do alimentando)
   segredo_justica: true         # menores de 11 e 7 anos
   valor_causa: "R$ 11.671,20"   # 12 x R$ 972,60 (30% do SM POR FILHO, 2 filhos; SM 2026 = R$ 1.621,00, Decreto 12.797/2025) — CPC 292 III c/c VI; DIARIO #033
