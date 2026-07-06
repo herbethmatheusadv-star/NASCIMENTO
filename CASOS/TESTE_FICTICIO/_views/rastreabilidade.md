@@ -5,7 +5,7 @@ Minuta lida: MINUTA_v03.md
 | Fato | Status | Provas | Pedidos | Minuta (linhas) |
 |---|---|---|---|---|
 | F01 | provado | P01 | PED01 | 6, 12, 15 |
-| F02 | alegado | — | PED01 | 9, 15 |
+| F02 | alegado | P05 | PED01 | 9, 15 |
 | F03 | alegado_pelo_adversario | P02 | — | — |
 
 ## Pedidos

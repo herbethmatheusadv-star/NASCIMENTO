@@ -104,8 +104,10 @@ def main():
             sys.exit(f"[ERRO] Pendencia {args.resolve} nao existe no CASO.yaml.")
 
     # 1. lacra o original em 00_originais/ (nome intocado; nunca sobrescreve)
+    #    + CADEIA DE CUSTODIA (Onda 4/F6): hash SHA-256 registrado na ficha
     dest_orig = destino_livre(pasta / "00_originais", origem.name)
     shutil.copy2(origem, dest_orig)
+    hash_original = soj.sha256_arquivo(dest_orig)
 
     # 2. copia renomeada em 01_documentos/ (padrao DOC-NN das skills)
     num = soj.proximo_doc_num(dados)
@@ -126,6 +128,7 @@ def main():
         "o_que_prova": args.o_que_prova,
         "forca": args.forca,
         "fragilidade": None,
+        "sha256": hash_original,
     }
     if args.tipo != "prova":
         registro["categoria"] = args.tipo
@@ -212,6 +215,7 @@ def main():
     # 6. entrada no DIARIO (tipo conforme a rota)
     corpo = (f"Recebido {args.descricao} [rota: {args.tipo}] -> "
              f"00_originais/{dest_orig.name} -> {nome_doc}.\n"
+             f"Cadeia de custodia: SHA-256 {hash_original}.\n"
              f"Registrado como {pid}"
              + (f", vinculado a {args.fato}{mudanca_status}" if fato is not None else "")
              + ".")

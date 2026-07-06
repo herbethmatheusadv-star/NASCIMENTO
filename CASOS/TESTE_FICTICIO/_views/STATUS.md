@@ -11,7 +11,7 @@ g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-06 15:14
+atualizado: 2026-07-06 15:51
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
@@ -30,13 +30,13 @@ atualizado: 2026-07-06 15:14
 - PEN02 (advogado): Confirmar endereco atual do reu — bloqueia G3
 
 ## Números do caso
-- Partes: 3 · Fatos: 3 (provados 1 / alegados 1 / controversos 0) · Provas: 4 · Pedidos: 1 · Pendências abertas: 2
+- Partes: 3 · Fatos: 3 (provados 1 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #050 | 2026-07-06 15:51 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
+- #049 | 2026-07-06 15:50 | DOC_RECEBIDO — Export de conversa do WhatsApp recebido: CONVERSA WHATSAPP MARIA X JOAO (FIXTURE ONDA 4) -> 00_originais/whatsapp_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O/ (4 arquivos com SHA-256 no manifesto) -> DOC-05_CONVERSA_WHATSAPP_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O.md (cronologia unificada). Registrado como P05, vinculado a F02. Mensagens: 4; audios: 2 (1 degravados via sidecar, 1 pendentes). DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica.
+- #048 | 2026-07-06 15:29 | NOTA — CICLO DE COLHEITA executado (gatilho: sanidade onda 3): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 16 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 - #047 | 2026-07-06 15:14 | NOTA — ONDA 2 DA EXPANSAO F6 testada neste laboratorio (06/07/2026):
 - #046 | 2026-07-06 15:14 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
-- #045 | 2026-07-06 15:14 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
-- #044 | 2026-07-06 15:12 | EVENTO_PROCESSUAL — Recebido ATA AUDIENCIA INSTRUCAO FICTICIA [rota: ata_audiencia] -> 00_originais/ata_falsa.md -> DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md.
-- #043 | 2026-07-06 15:12 | EVENTO_PROCESSUAL — Audiencia de INSTRUCAO designada para 2026-07-20 09:00 (Forum de Parauapebas (FICTICIO)). Roteiro para revisao do advogado em AUDIENCIAS/2026-07-20_instrucao/ROTEIRO.md. Prazo PZ06 no vigia. Proximos passos: sessao completa o roteiro (perguntas, ataques, riscos), advogado revisa, espelhar no Calendar (anonimizado). Apos a audiencia: 'chegou a ata' pela porta unica.
 
 _Gerado por gerar_views.py — não editar._

@@ -46,6 +46,21 @@ def normaliza(texto):
     return t.lower()
 
 
+def sha256_arquivo(caminho):
+    """Hash SHA-256 do arquivo (cadeia de custodia — Onda 4/F6)."""
+    import hashlib
+    h = hashlib.sha256()
+    with open(caminho, "rb") as f:
+        for bloco in iter(lambda: f.read(1 << 20), b""):
+            h.update(bloco)
+    return h.hexdigest()
+
+
+ROTULO_DEGRAVACAO = ("DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata "
+                     "notarial; se a autenticidade for ponto controverso, "
+                     "providenciar prova técnica.")
+
+
 def slug(texto):
     """'Certidão de nascimento' -> 'CERTIDAO_DE_NASCIMENTO' (nomes de arquivo)."""
     t = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("ascii")

@@ -74,7 +74,8 @@
       "PowerShell(\"=== T6: --marcar apos revalidacao confirmada ===\")",
       "PowerShell(\"=== T7: lembrete mensal - 1a rodada \\(deve avisar\\) e 2a \\(nao deve\\) ===\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\novo_caso.py\" TESTE_ONDA1D --titulo \"reteste contrato 2\" --area geral)",
-      "PowerShell(\"stubs atualizados\")"
+      "PowerShell(\"stubs atualizados\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\vigia_prazos.py\" | Select-Object -First 2; \"===\"; Get-CimInstance Win32_Processor | Select-Object -ExpandProperty Name; \"nucleos logicos: $\\(\\(Get-CimInstance Win32_ComputerSystem\\).NumberOfLogicalProcessors\\)\"; \"RAM: $\\([math]::Round\\(\\(Get-CimInstance Win32_ComputerSystem\\).TotalPhysicalMemory/1GB,1\\)\\) GB\"; $gpu = Get-CimInstance Win32_VideoController | Select-Object -ExpandProperty Name; \"GPU: $\\($gpu -join ' | '\\)\"; $d = Get-PSDrive C; \"disco C livre: $\\([math]::Round\\($d.Free/1GB,1\\)\\) GB\")"
     ]
   }
 }

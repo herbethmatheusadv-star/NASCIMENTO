@@ -234,3 +234,9 @@ pasta de audiencia com roteiro.
 ## #048 | 2026-07-06 15:29 | NOTA
 CICLO DE COLHEITA executado (gatilho: sanidade onda 3): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 16 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 ---
+## #049 | 2026-07-06 15:50 | DOC_RECEBIDO
+Export de conversa do WhatsApp recebido: CONVERSA WHATSAPP MARIA X JOAO (FIXTURE ONDA 4) -> 00_originais/whatsapp_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O/ (4 arquivos com SHA-256 no manifesto) -> DOC-05_CONVERSA_WHATSAPP_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O.md (cronologia unificada). Registrado como P05, vinculado a F02. Mensagens: 4; audios: 2 (1 degravados via sidecar, 1 pendentes). DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica.
+---
+## #050 | 2026-07-06 15:51 | GATE
+G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
+---

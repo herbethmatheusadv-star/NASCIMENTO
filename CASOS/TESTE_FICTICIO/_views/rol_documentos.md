@@ -6,5 +6,6 @@
 | P02 | DOC-02_INICIAL_ADVERSARIA_COBRANCA_FICTICIA.md | Peca do adversario — teses e pedidos da cobranca (FICTICIO) | relativa | inicial_adversaria_falsa.md |
 | P03 | DOC-03_CONTESTACAO_FALSA_ONDA2.md | Teses defensivas do reu ficticio (fixture Onda 2) | relativa | contestacao_falsa.md |
 | P04 | DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md | Registro da audiencia ficticia (fixture Onda 2) | plena | ata_falsa.md |
+| P05 | DOC-05_CONVERSA_WHATSAPP_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O.md | Negociacao da pensao e promessas nao cumpridas (FICTICIO) | indiciaria | whatsapp_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O |
 
 _Gerado por gerar_views.py — não editar._
