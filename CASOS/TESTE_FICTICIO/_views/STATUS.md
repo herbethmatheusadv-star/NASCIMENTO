@@ -10,7 +10,7 @@ g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-06 09:03
+atualizado: 2026-07-06 09:17
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
@@ -32,10 +32,10 @@ atualizado: 2026-07-06 09:03
 - Partes: 3 · Fatos: 2 (provados 1 / alegados 1 / controversos 0) · Provas: 1 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #030 | 2026-07-06 09:17 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
+- #029 | 2026-07-06 09:17 | NOTA — MODO REVISAO DE PECA — teste de laboratorio concluido:
+- #028 | 2026-07-06 09:13 | NOTA — PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v02.md com 3 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0913.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
 - #027 | 2026-07-06 09:03 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 - #026 | 2026-07-06 09:03 | NOTA — PORTA DE RETORNO — classificacao do diff ABSORCAO_2026-07-06 (4 mudancas):
-- #025 | 2026-07-06 09:02 | NOTA — PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v01.md com 4 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0902.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
-- #024 | 2026-07-06 09:02 | NOTA — PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v01.md com 1 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0902.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
-- #023 | 2026-07-06 09:01 | NOTA — CICLO DE COLHEITA executado (gatilho: teste de laboratorio): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 6 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 
 _Gerado por gerar_views.py — não editar._

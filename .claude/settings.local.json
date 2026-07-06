@@ -61,7 +61,10 @@
       "PowerShell(\"=== secao real do PAINEL ===\")",
       "PowerShell(\"=== Item 1: contrato do modulo familia \\(secao 9\\) ===\"; Get-ChildItem \"ESCRITORIO\\\\MODULOS\\\\familia\" -Recurse -File | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\ESCRITORIO\\\\MODULOS\\\\familia\\\\\",\"\"\\) + \" [\" + [math]::Round\\($_.Length/1KB,1\\) + \" KB]\" }; \"=== Item 2: estado real da PEN06 ===\"; Select-String -Path \"CASOS\\\\TANIA\\\\CASO.yaml\" -Pattern \"PEN06\" -Encoding UTF8 | ForEach-Object { $_.Line.Substring\\(0, [Math]::Min\\(220, $_.Line.Length\\)\\) })",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\absorver_versao.py\" TESTE_FICTICIO \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\versao_advogado_teste.md\")",
-      "PowerShell(\"=== verificacao NA FONTE da citacao nova \\(art. 999-Z do CPC\\) ===\")"
+      "PowerShell(\"=== verificacao NA FONTE da citacao nova \\(art. 999-Z do CPC\\) ===\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\diff_pecas.py\" \"CASOS\\\\TESTE_FICTICIO\\\\MINUTA_v01.md\" \"CASOS\\\\TESTE_FICTICIO\\\\MINUTA_v02.md\")",
+      "PowerShell(\"=== regressao absorver_versao \\(vs v02; esperado: 3 mudancas\\) ===\")",
+      "PowerShell(\"=== smoke diff_pecas v01 x v02 \\(esperado: 1 mudanca, zero efeitos\\) ===\")"
     ]
   }
 }

@@ -39,6 +39,39 @@ pare e pergunte). Regras completas: `CLAUDE.md` da raiz + `SOJ_BLUEPRINT_v1.md`.
 | "colher aprendizados do caso X" | `colher_aprendizados.py X` → `_views/PROPOSTA_DE_APRENDIZADO.md` (Tier B/vetos→árvore ou reservada; quase-erros→anti-erro; fontes revogadas/inexistentes→antiteses; desvios→variantes; verbetes→inventário). **NADA entra no módulo sem RATIFICACAO em bloco do advogado** — depois do ok, promover item a item |
 | "absorver minha versão da peça" (.md/.docx) | `absorver_versao.py X <arquivo>` → diff em `_efemeros/ABSORCAO_*.md`; classificar CADA mudança: **estilo** (absorve + marca COLHEITA:) · **fato novo** (exige F## com prova/alegação) · **citação nova** (VERIFICAR NA FONTE antes de aceitar) · **quantum/pedido** (reconciliar com decisões; DECISAO_ADVOGADO com ok). Depois: re-taguear → salvar vNN (nunca sobrescrever) → DIARIO → re-rodar o gate da fase → regerar DOCX |
 
+## MODO REVISÃO DE PEÇA (diálogo de melhoria sobre a minuta)
+
+Comandos que ativam o modo:
+
+- **"revisar peça [do caso X]"** — abre o diálogo de melhoria sobre a minuta
+  atual (ou a vNN indicada).
+- **"juiz rigoroso na vNN"** / **"adversário contra a vNN"** — diagnósticos
+  rodáveis sobre QUALQUER versão. Saída SEMPRE em **lista objetiva de pontos
+  atacáveis** (ponto → onde na peça → por que ataca → contramedida sugerida),
+  salva em `_efemeros/DIAGNOSTICO_JUIZ_vNN.md` / `_efemeros/DIAGNOSTICO_ADVERSARIO_vNN.md`.
+  Diagnóstico não altera a peça — só alimenta o diálogo.
+- **"absorva este parágrafo meu e nivele o resto pelo padrão dele"** — o
+  texto do advogado vira REFERÊNCIA DE ESTILO da peça: absorver o parágrafo
+  e reescrever o restante no MESMO registro, sem tocar em fatos, citações ou
+  quantum (que seguem as portas abaixo).
+- Formato sempre aceito: **"Objetivo: X. Restrição: Y. Reescreva com isso em
+  mente."** — a restrição é vinculante (ex.: "não afirmar fato sem prova").
+
+Regras INEGOCIÁVEIS do modo:
+
+1. **Toda mudança vira PROPOSTA antes de virar versão**: rascunho em
+   `_efemeros/PROPOSTA_vNN.md` + diff apresentado ao advogado
+   (`diff_pecas.py BASE PROPOSTA` — sem efeitos colaterais) ANTES de qualquer
+   aprovação. Só com o ok: salvar como `MINUTA_vNN.md` (NUNCA sobrescrever),
+   re-taguear, DIARIO.
+2. **Classificação da porta de retorno vale dentro do modo**: estilo →
+   absorve; fato novo → exige F## com prova/alegação; citação nova →
+   verificar NA FONTE (verbete) antes de aceitar; quantum/pedido →
+   reconciliar com as decisões (DECISAO_ADVOGADO com ok).
+3. **Re-rodar o gate da fase ANTES de regerar qualquer DOCX.**
+4. **Melhoria aprovada = candidata de colheita**: marcar `COLHEITA:` no
+   DIARIO (vai para template/teses na próxima colheita do caso).
+
 ## Regras duras (não negociar)
 
 - `00_originais/` imutável · `DIARIO.md` append-only (corrigir = nova entrada)

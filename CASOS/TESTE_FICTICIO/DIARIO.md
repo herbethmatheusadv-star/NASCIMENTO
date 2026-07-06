@@ -112,3 +112,27 @@ a antitese. Nada alem do estilo foi absorvido.
 G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #028 | 2026-07-06 09:13 | NOTA
+PORTA DE RETORNO: versao do advogado recebida (versao_advogado_teste.md); diff contra MINUTA_v02.md com 3 bloco(s) de mudanca em _efemeros/ABSORCAO_2026-07-06_0913.md. Aguarda classificacao (estilo / fato novo / citacao nova / quantum) antes de qualquer absorcao.
+---
+## #029 | 2026-07-06 09:17 | NOTA
+MODO REVISAO DE PECA — teste de laboratorio concluido:
+(a) diagnosticos gerados sem tocar a peca (_efemeros/DIAGNOSTICO_JUIZ_v02.md
+e DIAGNOSTICO_ADVERSARIO_v02.md — listas objetivas de pontos atacaveis);
+(b) comando hibrido testado: paragrafo do advogado (preambulo da v02) usado
+como referencia de estilo, paragrafo do pedido nivelado pelo mesmo registro;
+(c) formato objetivo+restricao testado (Objetivo: blindar a narrativa da
+inadimplencia contra o ataque n. 1 do adversario; Restricao: nao afirmar fato
+sem prova) — frase de F02 reescrita como declaracao da autora, fiel ao status
+alegado da fonte da verdade;
+(d) regras inegociaveis cumpridas: PROPOSTA em _efemeros + diff (diff_pecas)
+apresentado ANTES da aprovacao; aprovacao SIMULADA (laboratorio); salvo como
+MINUTA_v03 sem sobrescrever; classificacao: 2x ESTILO (nenhum fato, citacao
+ou quantum alterado — R$ 500,00 preservado conforme F02).
+COLHEITA: registro de alegacao com ressalva de instrucao + fecho de pedido
+nivelado — candidatos a variante do template familia na proxima colheita.
+---
+## #030 | 2026-07-06 09:17 | GATE
+G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
+Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
+---

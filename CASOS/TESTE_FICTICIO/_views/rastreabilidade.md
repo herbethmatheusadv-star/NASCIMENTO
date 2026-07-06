@@ -1,6 +1,6 @@
 # RASTREABILIDADE — fato × prova × pedido × parágrafo × fundamento
 
-Minuta lida: MINUTA_v02.md
+Minuta lida: MINUTA_v03.md
 
 | Fato | Status | Provas | Pedidos | Minuta (linhas) |
 |---|---|---|---|---|

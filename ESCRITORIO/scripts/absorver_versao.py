@@ -54,6 +54,50 @@ def paragrafos_docx(caminho):
             if p.text.strip()]
 
 
+def extrair_paragrafos(caminho):
+    """Extrai paragrafos de .md (sem tags SOJ/comentarios) ou .docx."""
+    caminho = Path(caminho)
+    if caminho.suffix.lower() == ".docx":
+        return paragrafos_docx(caminho)
+    return paragrafos_md(caminho.read_text(encoding="utf-8"))
+
+
+def _itemiza(antes, depois):
+    """Pareia paragrafos de um bloco alterado por similaridade, para que
+    cada mudanca real vire UM item classificavel."""
+    itens, usados = [], set()
+    for d in depois:
+        melhor, melhor_r = None, 0.0
+        for i, a in enumerate(antes):
+            if i in usados:
+                continue
+            r = difflib.SequenceMatcher(a=a, b=d).ratio()
+            if r > melhor_r:
+                melhor, melhor_r = i, r
+        if melhor is not None and melhor_r >= 0.6:
+            usados.add(melhor)
+            if antes[melhor] != d:
+                itens.append(("alterado", antes[melhor], d))
+        else:
+            itens.append(("acrescentado", None, d))
+    for i, a in enumerate(antes):
+        if i not in usados:
+            itens.append(("removido", a, None))
+    return itens
+
+
+def diff_itemizado(base, nova):
+    """Diff de listas de paragrafos, itemizado mudanca a mudanca.
+    Devolve lista de (tipo, antes|None, depois|None). Sem efeitos colaterais."""
+    sm = difflib.SequenceMatcher(a=base, b=nova, autojunk=False)
+    mudancas = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "equal":
+            continue
+        mudancas.extend(_itemiza(base[i1:i2], nova[j1:j2]))
+    return mudancas
+
+
 def main():
     soj.console_utf8()
     ap = argparse.ArgumentParser(description="Porta de retorno do SOJ.")
@@ -76,35 +120,7 @@ def main():
     else:
         nova = paragrafos_md(origem.read_text(encoding="utf-8"))
 
-    def itemiza(antes, depois):
-        """Pareia paragrafos de um bloco alterado por similaridade, para que
-        cada mudanca real vire UM item classificavel."""
-        itens, usados = [], set()
-        for d in depois:
-            melhor, melhor_r = None, 0.0
-            for i, a in enumerate(antes):
-                if i in usados:
-                    continue
-                r = difflib.SequenceMatcher(a=a, b=d).ratio()
-                if r > melhor_r:
-                    melhor, melhor_r = i, r
-            if melhor is not None and melhor_r >= 0.6:
-                usados.add(melhor)
-                if antes[melhor] != d:
-                    itens.append(("alterado", antes[melhor], d))
-            else:
-                itens.append(("acrescentado", None, d))
-        for i, a in enumerate(antes):
-            if i not in usados:
-                itens.append(("removido", a, None))
-        return itens
-
-    sm = difflib.SequenceMatcher(a=base, b=nova, autojunk=False)
-    mudancas = []
-    for op, i1, i2, j1, j2 in sm.get_opcodes():
-        if op == "equal":
-            continue
-        mudancas.extend(itemiza(base[i1:i2], nova[j1:j2]))
+    mudancas = diff_itemizado(base, nova)
 
     carimbo = soj.agora().replace(":", "").replace(" ", "_")
     (pasta / "_efemeros").mkdir(exist_ok=True)
