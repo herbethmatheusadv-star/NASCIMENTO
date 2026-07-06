@@ -210,3 +210,7 @@ COLHEITA DE AUDIENCIA: registrar no DIARIO o que o juizo valorizou/perguntou (ma
 ## #045 | 2026-07-06 15:14 | GATE
 G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 ---
+## #046 | 2026-07-06 15:14 | GATE
+G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
+Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
+---
