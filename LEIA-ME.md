@@ -72,6 +72,8 @@ Mas é bom saber o que existe:
 | `absorver_versao.py` | Porta de retorno: compara a SUA versão da peça com a do sistema e prepara a absorção classificada | Quando você melhorar a peça por fora |
 | `guardar_modelo.py` | Guarda peça/decisão de referência no ACERVO: anonimiza na entrada, recusa autos sigilosos, monta ficha de curadoria M-NN | Comando "guardar modelo" |
 | `revalidar_biblioteca.py` | Ritual mensal da BASE_LEGAL: lista verbetes vencidos + casos ativos afetados; `--marcar` registra a revalidação | 1ª sessão do mês (o vigia lembra) |
+| `preparar_audiencia.py` | Cria a pasta da audiência com roteiro (perguntas, ataques, provas, logística) para a SUA revisão + prazo no vigia | Comando "preparar audiência" |
+| `relatorio_mensal.py` | Retrato do mês: casos, prazos, reprovações de gate e motivos, decisões, verbetes, pendências, horas (estimativa) | Fim do mês |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 

@@ -214,3 +214,20 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #047 | 2026-07-06 15:14 | NOTA
+ONDA 2 DA EXPANSAO F6 testada neste laboratorio (06/07/2026):
+(a) GATILHOS DE FASE: contestacao falsa bloqueada sem prazo e roteada com
+prazo de replica (PZ05, vigia D-7, proposta de replica + aviso de template
+do zero com COLHEITA, fase pre_protocolo->postulatoria);
+(b) AUDIENCIA falsa preparada (pasta AUDIENCIAS/2026-07-20_instrucao com
+ROTEIRO para revisao do advogado, PZ06 no vigia) e ATA recebida pela porta
+unica (P04, prazo de memoriais PZ07, audiencia marcada realizada com ata
+vinculada, fase->instrutoria, colheita de audiencia proposta);
+(c) relatorio_mensal 2026-07 gerado (20 reprovacoes de gate com motivos,
+Tier B, radar, pendencias de clientes, horas/custo como ESTIMATIVA);
+(d) BUG REAL pego pelo laboratorio: sinal de porcentagem no help do argparse
+(Python 3.14) quebrava a porta unica — corrigido antes de tocar caso real.
+Higiene: PZ05/PZ07 prejudicados, PZ06 cumprido, fase_processual devolvida a
+pre_protocolo (baseline). Fixtures permanentes: contestacao (P03), ata (P04),
+pasta de audiencia com roteiro.
+---

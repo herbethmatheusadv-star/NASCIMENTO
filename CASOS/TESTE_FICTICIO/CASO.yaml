@@ -12,7 +12,7 @@ caso:
   modulo: familia/alimentos_guarda_convivencia            # ex.: familia/alimentos_guarda_convivencia
   complexidade: simples  # simples | padrao | complexo (D9)
   fase: E2_estrategia           # E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
-  fase_processual: instrutoria    # Onda 1/F6
+  fase_processual: pre_protocolo  # Onda 1/F6
   comarca: "Parauapebas/PA"
   polo: ativo                   # baseline do laboratorio (teste do modo defesa concluido em 06/07 — DIARIO #036/#037)
   segredo_justica: true  # true quando ha menores / dados sensiveis
@@ -129,15 +129,21 @@ prazos:
   criticidade: alta
   origem: DOC-03_CONTESTACAO_FALSA_ONDA2.md (P03)
 
+  status: prejudicado
+  nota: prazo ficticio do teste da Onda 2 (gatilho contestacao->replica); teste concluido em 06/07/2026
 - id: PZ06
   descricao: AUDIENCIA de instrucao (09:00, Forum de Parauapebas (FICTICIO))
   data: '2026-07-20'
   criticidade: alta
+  status: cumprido
+  nota: audiencia ficticia realizada (fixture Onda 2 — ata P04)
 - id: PZ07
   descricao: Memoriais — 10 dias simulados (FICTICIO)
   data: '2026-07-16'
   criticidade: alta
   origem: DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md (P04)
+  status: prejudicado
+  nota: memoriais ficticios do teste da Onda 2; teste concluido
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
 # critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
