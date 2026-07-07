@@ -137,8 +137,13 @@ def checar_g1(pasta, dados, entradas):
         if s not in ("provado", "alegado", "controverso",
                      "alegado_pelo_adversario"):
             problemas.append(f"{f.get('id')} com status invalido: '{s}'")
-        if s == "provado" and not (f.get("provas") or []):
-            problemas.append(f"{f.get('id')} marcado 'provado' sem nenhuma prova")
+        # provado exige P## OU fonte_autos "fls. X-Y" (motor de autos, Onda 5:
+        # fato extraido dos autos anexados e provado PELOS autos — campo
+        # estruturado com a referencia por folha, nunca texto livre)
+        if s == "provado" and not (f.get("provas") or []) \
+                and not f.get("fonte_autos"):
+            problemas.append(f"{f.get('id')} marcado 'provado' sem prova "
+                             "e sem fonte_autos (fls.)")
     itens.append(("Fatos essenciais com status honesto (provado/alegado/"
                   "controverso/alegado_pelo_adversario)",
                   not problemas, "; ".join(problemas)))

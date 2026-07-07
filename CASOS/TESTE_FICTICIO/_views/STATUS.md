@@ -6,19 +6,19 @@ area: familia
 fase: E2_estrategia
 fase_processual: pre_protocolo
 complexidade: simples
-g1: reprovado
+g1: aprovado
 g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-07 08:45
+atualizado: 2026-07-07 08:47
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
 
 **Cliente/pasta:** TESTE_FICTICIO · **Caso:** 2026-0001 · **Área:** familia · **Módulo:** familia/alimentos_guarda_convivencia
 **Fase interna:** E2_estrategia · **Fase processual:** pre_protocolo · **Complexidade:** simples · **Segredo de justiça:** sim
-**Gates:** G1 reprovado (2026-07-07) · G2 reprovado (2026-07-06) · G3 pendente
+**Gates:** G1 aprovado (2026-07-07) · G2 reprovado (2026-07-06) · G3 pendente
 
 ## Próximos prazos
 - PZ02 — **2026-06-30** (alta): TESTE DO VIGIA: prazo vencido de mentira
@@ -33,10 +33,10 @@ atualizado: 2026-07-07 08:45
 - Partes: 3 · Fatos: 5 (provados 3 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #061 | 2026-07-07 08:47 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #060 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #059 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #058 | 2026-07-07 08:45 | DESTILACAO_AUTOS — Origem: sistema.
 - #057 | 2026-07-07 08:34 | AUTOS_ANEXADOS — Origem: sistema.
-- #056 | 2026-07-07 08:30 | AUTOS_ANEXADOS — Origem: sistema.
 
 _Gerado por gerar_views.py — não editar._

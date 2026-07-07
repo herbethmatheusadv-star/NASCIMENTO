@@ -18,9 +18,9 @@ caso:
   segredo_justica: true  # true quando ha menores / dados sensiveis
   gates:
     G1:
-      status: reprovado
+      status: aprovado
       data: '2026-07-07'
-      diario: '#060'
+      diario: '#061'
     G2:
       status: reprovado
       data: '2026-07-06'
@@ -59,11 +59,13 @@ fatos:
   status: provado
   provas: []
   justificativa: confissao em audiencia registrada em ata — fls. 24-25 dos autos anexados
+  fonte_autos: fls. 24-25 (ata de audiencia dos autos anexados)
 - id: F06
   descricao: FIXTURE ONDA5 — Sentenca fixou alimentos em 25 por cento do SM por filho + 50 por cento das extraordinarias (autos sinteticos, fls. 59-62)
   status: provado
   provas: []
   justificativa: teor da propria sentenca — fls. 59-62 dos autos
+  fonte_autos: fls. 59-62 (sentenca dos autos anexados)
 provas:
 - id: P01
   doc: 01_documentos/DOC-01_CERTIDAO_NASCIMENTO_ANA_FICTICIA.pdf

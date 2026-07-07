@@ -1,6 +1,6 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-07 08:45 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-07 08:47 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
@@ -22,5 +22,5 @@ Gerado em 2026-07-07 08:45 por gerar_views.py — não editar. Fonte: frontmatte
 | Cliente | Caso | Título | Fase | F. processual | G1 | G2 | G3 | Próximo prazo | Pend. críticas |
 |---|---|---|---|---|---|---|---|---|---|
 | TANIA | 2026-0002 | Tania x Cicero — Alimentos c/c Guarda e Regulamentacao de Convivencia | E4_protocolo | pre_protocolo | aprovado | aprovado | aprovado | 2026-06-11 — Protocolar antes do fim do contrato da autora (CTPS como prova de renda EM VIGOR) — VENCIDO sem protocolo; ver ALERTA DIARIO #015 | 0 |
-| TESTE_FICTICIO | 2026-0001 | Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE) | E2_estrategia | pre_protocolo | reprovado | reprovado | pendente | 2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira | 2 |
+| TESTE_FICTICIO | 2026-0001 | Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE) | E2_estrategia | pre_protocolo | aprovado | reprovado | pendente | 2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira | 2 |
 | TESTE_IMPORTACAO | 2026-0003 | CLARA x CARLOS - Alimentos (LAB IMPORTACAO) | E1_intake | pre_protocolo | reprovado | pendente | pendente | — | 1 |
