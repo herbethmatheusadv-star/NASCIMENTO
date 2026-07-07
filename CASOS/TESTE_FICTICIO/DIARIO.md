@@ -247,3 +247,7 @@ Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adv
 ## #052 | 2026-07-06 23:02 | GATE
 G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 ---
+## #053 | 2026-07-06 23:02 | GATE
+G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-06.md
+Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
+---

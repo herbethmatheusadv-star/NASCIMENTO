@@ -33,10 +33,10 @@ atualizado: 2026-07-06 23:02
 - Partes: 3 · Fatos: 3 (provados 1 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #053 | 2026-07-06 23:02 | GATE — G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-06.md
 - #052 | 2026-07-06 23:02 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 - #051 | 2026-07-06 15:51 | GATE — G2 executado: REPROVADO. 3/6 itens. Relatorio: _views/gate_G2_2026-07-06.md
 - #050 | 2026-07-06 15:51 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 - #049 | 2026-07-06 15:50 | DOC_RECEBIDO — Export de conversa do WhatsApp recebido: CONVERSA WHATSAPP MARIA X JOAO (FIXTURE ONDA 4) -> 00_originais/whatsapp_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O/ (4 arquivos com SHA-256 no manifesto) -> DOC-05_CONVERSA_WHATSAPP_CONVERSA_WHATSAPP_MARIA_X_JOAO_FIXTURE_O.md (cronologia unificada). Registrado como P05, vinculado a F02. Mensagens: 4; audios: 2 (1 degravados via sidecar, 1 pendentes). DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica.
-- #048 | 2026-07-06 15:29 | NOTA — CICLO DE COLHEITA executado (gatilho: sanidade onda 3): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 16 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 
 _Gerado por gerar_views.py — não editar._
