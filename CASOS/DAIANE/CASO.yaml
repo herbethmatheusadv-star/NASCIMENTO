@@ -20,7 +20,7 @@ caso:
     G1:
       status: reprovado
       data: '2026-07-07'
-      diario: '#016'
+      diario: '#017'
     G2: {status: pendente}
     G3: {status: pendente}
 
