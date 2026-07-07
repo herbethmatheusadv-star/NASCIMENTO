@@ -130,7 +130,10 @@
       "Bash(python ESCRITORIO/scripts/anexar_autos.py GETULIO --marcar-lido \"2,9,13,16,23,24,27,28\" --diario \"#002\")",
       "Bash(python -c \"import pytesseract; print\\('pytesseract OK'\\)\")",
       "Bash(python -c \"import fitz; print\\('pymupdf', fitz.__doc__[:30]\\)\")",
-      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\colher_aprendizados.py\" DAIANE)"
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\colher_aprendizados.py\" DAIANE)",
+      "PowerShell(python -c \"import sys; sys.path.insert\\(0, r'ESCRITORIO\\\\scripts'\\); import soj_lib as soj; e = soj.parse_diario\\(soj.CASOS / 'DAIANE'\\)[-1]; print\\('ultima entrada:', e['num'], e['tipo']\\)\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" DAIANE)",
+      "PowerShell(git commit -m \"views regeneradas apos trava transitoria do OneDrive no PAINEL\" --quiet)"
     ]
   }
 }
