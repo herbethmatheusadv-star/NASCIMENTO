@@ -285,3 +285,7 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #063 | 2026-07-07 08:47 | NOTA
+Origem: sistema.
+PZ05 (fixture Onda 5) marcado prejudicado apos a demonstracao: prazo sintetico, nao pode gerar alerta real do vigia. Baseline do lab preservada.
+---

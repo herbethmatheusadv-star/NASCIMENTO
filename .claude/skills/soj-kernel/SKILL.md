@@ -105,6 +105,29 @@ Regras INEGOCIÁVEIS do modo:
   próprio em `~/.soj/transcritor/`). Se a qualidade do `small` não bastar
   num áudio real, propor upgrade de modelo ANTES de baixar (download novo).
 
+## MOTOR DE AUTOS (Onda 5/F6 — processo que chega de fora)
+
+- **"anexar autos do caso X"** → `anexar_autos.py X <pdf|pasta> [--descricao
+  ... --processo ...]`: lacra PDF + mídias com SHA-256, extrai texto por
+  SCRIPT (zero token), roda **OCR local** (Windows, pt-BR, nada sai da
+  máquina) só nas páginas sem camada de texto, fatia por documento
+  (marcadores do PJe ou zona de título) e gera `_views/AUTOS_INDICE.md`
+  com o **plano de leitura com orçamento**: ler_integral (peças, decisões,
+  atas) · nunca_ler (certidões, ARs, guias) · sob_demanda (o resto).
+- **Tier B para autos >100 fls.: NADA é lido antes do ok do advogado ao
+  plano.** Até 100 fls.: Tier A (D11, registrado no DIARIO).
+- **Destilação ÚNICA**: o que se lê vai para a ficha com referência por
+  folha — fato provado pelos autos usa o campo `fonte_autos: "fls. X-Y"`
+  (o G1 aceita como prova); prazos de decisão/sentença → PZ## no vigia
+  ANTES de tudo (roteador). Depois: `anexar_autos.py X --marcar-lido "2,5"
+  --diario "#NNN"` grava o CACHE.
+- **Regra de ouro do cache: nada se relê.** Reanexar o mesmo PDF (mesmo
+  hash) responde [CACHE] sem re-extrair; sessões futuras leem a FICHA
+  (DIARIO da destilação + AUTOS_INDICE) — jamais o PDF. Fatias sob_demanda
+  só com pedido expresso (texto já extraído em `_efemeros/autos_texto/`).
+- Mídias dentro dos autos (.opus etc.): lacradas no mesmo manifesto;
+  degravação sob demanda pelo transcritor local.
+
 ## PORTA DE IMPORTAÇÃO (blueprint v1.10 §7 — caso pré-trabalhado)
 
 - **"importar caso trabalhado: [pasta]"** → `importar_caso.py CLIENTE PASTA

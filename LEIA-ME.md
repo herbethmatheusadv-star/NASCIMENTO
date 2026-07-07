@@ -78,6 +78,7 @@ Mas é bom saber o que existe:
 | `receber_whatsapp.py` | Export de conversa do WhatsApp: lacra tudo com hash SHA-256, monta a cronologia unificada (mensagens + falas), registra como prova | Chegou conversa como prova |
 | `degravar.py` | Transcritor 100% local (nenhum áudio sai do computador): degrava os áudios de uma pasta de export (antes do receber_whatsapp) ou um áudio avulso de atendimento | Antes de receber conversa com áudios; atendimento gravado |
 | `importar_caso.py` | Porta de importação: caso pré-trabalhado por colaborador entra com confiança zero — deduplica por hash, separa provas de instrumentais, confere as citações da minuta na BASE_LEGAL e gera o relatório de revisão do colaborador | Sócio/estagiário entregou caso com minuta pronta |
+| `anexar_autos.py` | Motor de autos: lacra o PDF do processo com hash, extrai o texto de graça, OCR local nas páginas digitalizadas, fatia por documento e monta o índice + plano de leitura com orçamento; o que foi lido nunca se relê (cache) | Assumiu processo em andamento / baixou autos do PJe |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 

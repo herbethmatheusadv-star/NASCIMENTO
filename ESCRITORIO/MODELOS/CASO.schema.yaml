@@ -48,6 +48,9 @@ fatos:
   # status: provado | alegado | controverso | alegado_pelo_adversario (modo defesa)
   # Fato "provado" DEVE ter ao menos uma prova. Fato sem prova DEVE ter
   # pendência aberta (ou campo justificativa: "…" com a razão estratégica).
+  # fonte_autos (Onda 5/F6): fato provado PELOS AUTOS anexados usa a
+  # referência por folha no lugar de P## — ex.: fonte_autos: "fls. 24-25
+  # (ata de audiência)". O G1 aceita provado com provas: [P##] OU fonte_autos.
   - id: F01
     descricao: "Filiação dos menores em relação ao réu"
     status: provado
