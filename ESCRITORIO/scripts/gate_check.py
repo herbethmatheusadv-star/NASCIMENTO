@@ -259,6 +259,16 @@ def checar_g2(pasta, dados, entradas):
     itens.append(("Riscos da simulacao com contramedida na estrategia ou aceite "
                   "estruturado (declaracoes.aceites_de_risco)", ok,
                   "" if ok else "secao de riscos ausente ou sem contramedida/aceite valido"))
+
+    # 7. governanca de autoria (porta de importacao, blueprint v1.10 secao 7):
+    #    nada de colaborador vira decisao sem ratificacao do titular — campo
+    #    estruturado propostas_colaborador[].status (nunca texto livre)
+    props = dados.get("propostas_colaborador") or []
+    pendentes = [str(p.get("id")) for p in props
+                 if soj.normaliza(str(p.get("status", ""))) == "aguardando_ratificacao"]
+    itens.append(("Nenhuma proposta de colaborador aguardando ratificacao do "
+                  "titular (governanca de autoria)", not pendentes,
+                  ", ".join(pendentes)))
     return itens
 
 

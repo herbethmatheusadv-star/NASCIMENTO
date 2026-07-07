@@ -130,10 +130,17 @@ def parse_diario(pasta):
     return entradas
 
 
-def append_diario(pasta, tipo, corpo):
-    """Acrescenta uma entrada ao FIM do DIARIO (append-only). Devolve o número."""
+def append_diario(pasta, tipo, corpo, origem=None):
+    """Acrescenta uma entrada ao FIM do DIARIO (append-only). Devolve o número.
+
+    origem (governanca de autoria, blueprint v1.10 secao 7): "titular",
+    "sistema" ou "colaborador <NOME>" — vira a primeira linha do corpo.
+    Entradas antigas sem o campo permanecem validas (origem implicita).
+    """
     entradas = parse_diario(pasta)
     num = (entradas[-1]["num"] + 1) if entradas else 1
+    if origem:
+        corpo = f"Origem: {origem}.\n" + corpo.strip()
     bloco = f"## #{num:03d} | {agora()} | {tipo}\n{corpo.strip()}\n---\n"
     with open(pasta / "DIARIO.md", "a", encoding="utf-8", newline="\n") as f:
         f.write(bloco)

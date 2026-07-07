@@ -1,0 +1,199 @@
+# =====================================================================
+# CASO.yaml — FONTE DA VERDADE deste caso (SOJ, blueprint secao 3).
+# Modelo comentado completo: ESCRITORIO/MODELOS/CASO.schema.yaml
+# Regra de ouro: informacao vive AQUI, uma unica vez. Views sao geradas.
+# IDs estaveis: PT=parte, F=fato, P=prova, PED=pedido, PZ=prazo, PEN=pendencia.
+# =====================================================================
+
+caso:
+  id: 2026-0003
+  titulo: "CLARA x CARLOS - Alimentos (LAB IMPORTACAO)"
+  area: familia                # familia | consumidor | bancario | ...
+  modulo: a_definir            # ex.: familia/alimentos_guarda_convivencia
+  complexidade: padrao  # simples | padrao | complexo (D9)
+  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
+  comarca: "Parauapebas/PA"
+  polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
+  segredo_justica: true  # true quando ha menores / dados sensiveis
+  gates:
+    G1:
+      status: reprovado
+      data: '2026-07-06'
+      diario: '#004'
+    G2: {status: pendente}
+    G3: {status: pendente}
+
+partes:
+- id: PT01
+  papel: autora_representante
+  nome: CLARA FICTICIA DA SILVA
+  qualificacao: incompleta — minuta importada nao traz CPF/endereco (PEN04)
+- id: PT02
+  papel: reu
+  nome: CARLOS FICTICIO DE SOUZA
+  endereco:
+    status: nao_confirmado
+    pendencia: PEN05
+# - { id: PT01, papel: autora_representante, nome: "...", cpf: "...",
+#     renda_mensal: 0.00, qualificacao: completa }
+# - { id: PT02, papel: reu, nome: "...",
+#     endereco: { status: nao_confirmado, pendencia: PEN01 } }
+
+fatos:
+- id: F01
+  descricao: Filiacao dos menores em relacao ao reu; abandono do lar em 01/2026 (afirmado na minuta importada)
+  status: alegado
+  provas: []
+  pendencias:
+  - PEN02
+- id: F02
+  descricao: Pagamentos apenas parciais de pensao desde a separacao
+  status: provado
+  provas:
+  - P01
+- id: F03
+  descricao: 'Renda mensal de ~R$ 8.000,00 como autonomo e padrao de vida incompativel (FATO ORFAO da minuta importada: afirmado SEM nenhuma prova anexa)'
+  status: alegado
+  provas: []
+  pendencias:
+  - PEN03
+# status: provado | alegado | controverso. Provado exige prova; sem prova,
+# abrir pendencia (ou campo justificativa: "...").
+# - { id: F01, descricao: "...", status: alegado, provas: [], pendencias: [PEN01] }
+
+provas:
+- id: P01
+  doc: 01_documentos/DOC-01_COMPROVANTE_PIX_PENSAO.pdf
+  original: 00_originais/importacao_DR_COLABORADOR_FICTICIO/COMPROVANTE PIX PENSAO.pdf
+  sha256: 9d0e30908e9bb461d0d4d3eabaa940dc0c80ed1ce6d07a1f73643f10304cf7fd
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+# Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
+# - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
+#     o_que_prova: "...", forca: plena, fragilidade: null }
+
+pedidos:
+- id: PED01
+  tipo: alimentos_definitivos
+  parametro: 40 por cento do SM por filho — PROPOSTA do colaborador (PC01), aguardando ratificacao do titular
+  fundamentos:
+  - CC:art1694
+  fatos:
+  - F01
+  - F03
+- id: PED02
+  tipo: desconto_em_folha
+  parametro: 'fundamento da minuta importada e LEI MORTA (L5478 arts. 16-18); fundamento vigente: CPC:art529'
+  fundamentos:
+  - CPC:art529
+  fatos:
+  - F02
+- id: PED03
+  tipo: gratuidade_justica
+  parametro: presuncao em favor do alimentando menor
+  fundamentos:
+  - CPC:art98
+  - CPC:art99p3
+  fatos:
+  - F01
+# - { id: PED01, tipo: ..., parametro: "... — DECISAO_SISTEMA #NNN",
+#     fundamentos: [CC:art1694], fatos: [F01] }
+
+fundamentos_citados:
+- ref: CC:art1694
+  verificado_em: '2026-07-04'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: CPC:art529
+  verificado_em: '2026-07-04'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+# Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
+# nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
+# - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
+#     validade_dias: 90, nucleo: true }
+
+financeiro:
+  contrato:
+    tipo: a_definir     # fixo | percentual | exito | misto | probono
+    valor: 0.00
+    parcelas: 0
+    doc_assinado: false         # true quando o contrato assinado for arquivado (DOC-NN)
+  custas: []
+  # - { data: 2026-01-01, descricao: "custas iniciais", valor: 0.00 }
+  recebimentos: []
+  # - { data: 2026-01-01, descricao: "parcela 1/N", valor: 0.00 }
+
+audiencias: []
+# - { data: 2026-01-01, hora: "09:00", tipo: instrucao, local: "...", status: designada }
+
+prazos: []
+# - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
+# Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
+
+pendencias:
+- id: PEN01
+  descricao: 'Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato'
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+  mensagem_cliente: o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
+# responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
+# critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
+# mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
+# - { id: PEN01, descricao: "...", responsavel: cliente, prioridade: critica,
+#     bloqueia: [G3], mensagem_cliente: "..." }
+- id: PEN02
+  descricao: Certidoes de nascimento dos menores (filiacao F01 afirmada na minuta sem documento)
+  responsavel: cliente
+  prioridade: critica
+  bloqueia:
+  - G3
+  mensagem_cliente: as certidoes de nascimento das criancas
+- id: PEN03
+  descricao: Prova da renda/padrao de vida do reu (F03 orfao — minuta afirma R$ 8.000 sem nada anexo)
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: []
+- id: PEN04
+  descricao: Qualificacao completa da autora (CPF, endereco) — ausente na minuta importada
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+- id: PEN05
+  descricao: Endereco do reu ('declinado' na minuta, mas nao consta)
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+instrumentais:
+- id: INS01
+  tipo: procuracao
+  doc: 01_documentos/DOC-02_PROCURACAO_ASSINADA.pdf
+  original: 00_originais/importacao_DR_COLABORADOR_FICTICIO/PROCURACAO ASSINADA.pdf
+  sha256: 20c7bec471a2804a62164cac5154929cd546d83cd58afef342add8af8b0041b5
+  origem: colaborador DR. COLABORADOR FICTICIO
+- id: INS02
+  tipo: identidade
+  doc: 01_documentos/DOC-03_RG_DA_CLIENTE.jpg
+  original: 00_originais/importacao_DR_COLABORADOR_FICTICIO/RG DA CLIENTE.jpg
+  sha256: 474ebe266cd7f9ed28807fa3fdfe0c04cdb3cef9313cdda5c08b15910fcc8184
+  origem: colaborador DR. COLABORADOR FICTICIO
+propostas_colaborador:
+- id: PC01
+  tema: quantum
+  proposta: 40 por cento do SM POR FILHO (80 por cento total)
+  observacao: praxe do modulo familia trabalha com 30 por cento do SM por filho como PISO; desvio sem justificativa na peca
+  origem: colaborador DR. COLABORADOR FICTICIO
+  status: aguardando_ratificacao
+  diario: '#003'
+- id: PC02
+  tema: valor_da_causa
+  proposta: R$ 15.561,60 (12 x 2 x 40 por cento do SM 2026)
+  observacao: matematica EXATA para o pedido formulado (credito ao colaborador); depende da ratificacao/veto do PC01
+  origem: colaborador DR. COLABORADOR FICTICIO
+  status: aguardando_ratificacao
+  diario: '#003'
