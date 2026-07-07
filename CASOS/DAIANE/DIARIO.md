@@ -44,3 +44,27 @@ Contexto probatorio retificado pelo titular: TODOS os prints (P02-P09) foram ext
 Origem: sistema.
 Valoracao prova a prova registrada na ficha e na ESTRATEGIA secao 6 (forca x indispensabilidade): pilar mais forte = identificacao da re (P02-P05, reproduzivel por oficio a Stone/DICT); pilar mais fraco = identificabilidade/repercussao independente (PEN04 CRITICA). P07 classificada NAO JUNTAR (dispensavel e arriscada). Recomendacoes: ata notarial das conversas no aparelho (resolve a unilateralidade — jurisprudencia: print vale salvo adulteracao demonstrada, mas ata blinda), oficio a Stone IP S.A. p/ titularidade da chave Pix (pedido na peca), preservacao Meta urgente (MCI art. 15: 6 meses). COLHEITA: valoracao de provas (forca x indispensabilidade x risco de juntada) como ETAPA PADRAO da E2 — proposta a ratificar na colheita.
 ---
+## #011 | 2026-07-07 11:25 | DECISAO_ADVOGADO
+Origem: titular.
+Instrucoes do titular: (1) TESTEMUNHAS indicadas: Ronielson (funcionario — tambem autentica a propria conversa P08), Daiane Ribeiro (ex-funcionaria — autentica P06; interpretacao do sistema: a 'Daiane' indicada e a ex-funcionaria, pois a cliente Daiane e PARTE e nao pode ser testemunha — corrigir se for outra pessoa) e ANA CELIA (vinculo a confirmar — se independente, e a testemunha mais valiosa do caso). (2) Contrato social sera anexado depois (PEN02 segue aberta, bloqueia G3). (3) CHECKLIST DO CLIENTE: ciente. (4) ATA NOTARIAL DESCARTADA — autenticidade dos prints sera sustentada por outros meios (risco aceito, ver aceite estruturado).
+---
+## #012 | 2026-07-07 11:25 | DECISAO_SISTEMA
+Origem: sistema.
+P07 (WhatsApp da ex-funcionaria) FORA do rol da peca. Fundamento: nao prova fato relevante, expoe conversa pessoal e as 'mensagens apagadas' abrem flanco. Alternativa descartada: juntar todas as provas disponiveis (praxe de quantidade, nao de qualidade). Confianca: alta.
+---
+## #013 | 2026-07-07 11:25 | DECISAO_SISTEMA
+Origem: sistema.
+Tutela de urgencia em DUPLA FACE, com PRESERVACAO de registros na META como pedido prioritario. Fundamento: MCI:art15 — registros de acesso guardados por so 6 meses (fato de 05/07/2026 -> ~05/01/2027); perda dos registros e dano irreversivel a instrucao. Alternativa descartada: pedir apenas remocao/abstencao. Confianca: alta.
+---
+## #014 | 2026-07-07 11:25 | DECISAO_SISTEMA
+Origem: sistema.
+Requerer OFICIO a Stone IP S.A. (instituicao da chave Pix babadosdecanaa@yahoo.com) para confirmacao da titularidade. Fundamento: transforma os prints P04/P05 em fato confirmado por terceiro desinteressado e regulado; diligencia barata e devastadora. Alternativa descartada: depender apenas dos prints. Confianca: alta.
+---
+## #015 | 2026-07-07 11:25 | DECISAO_SISTEMA
+Origem: sistema.
+Autenticacao dos prints SEM ata notarial (opcao do titular, #011): sustentar por (a) cadeia de custodia SHA-256 da entrada, (b) reproduzibilidade da consulta Pix + oficio a Stone, (c) exibicao Meta (art. 22) do conteudo e registros, (d) depoimento dos proprios interlocutores das conversas (Ronielson/P08, Daiane Ribeiro/P06). Fundamento: jurisprudencia admite prints salvo demonstracao de adulteracao; o conjunto acima cobre a lacuna. Alternativa descartada: ata notarial (vetada pelo titular). Confianca: media — RISCO ACEITO registrado em declaracoes.aceites_de_risco.
+---
+## #016 | 2026-07-07 11:25 | GATE
+G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
+Itens reprovados: Pendencias com responsavel; criticas com 'bloqueia'
+---

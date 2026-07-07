@@ -106,7 +106,11 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" DAIANE G1)",
       "PowerShell(\"=== G1 do caso DAIANE ===\")",
       "WebFetch(domain:www.conjur.com.br)",
-      "WebFetch(domain:www.trenchrossi.com)"
+      "WebFetch(domain:www.trenchrossi.com)",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\daiane_fecha_g1.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" DAIANE G2)",
+      "PowerShell(\"=== G1 ===\")",
+      "PowerShell(\"=== G2 \\(previa - espera reprovar so na ratificacao em bloco\\) ===\")"
     ]
   }
 }

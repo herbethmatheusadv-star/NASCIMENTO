@@ -20,7 +20,7 @@ caso:
     G1:
       status: reprovado
       data: '2026-07-07'
-      diario: '#006'
+      diario: '#016'
     G2: {status: pendente}
     G3: {status: pendente}
 
@@ -358,6 +358,8 @@ pendencias:
   prioridade: critica
   bloqueia:
   - G3
+  status: resolvida
+  resolucao: 'Titular DESCARTOU a ata notarial (#011); meios alternativos definidos na DECISAO_SISTEMA #015 + aceite de risco estruturado'
 - id: PEN07
   descricao: 'Criar BASE_LEGAL/civel.md com verbetes verificados NA FONTE: CC 186 e 927, MCI (L12965) arts. 19 e 22, CPC 300 e 85, Sumula 227 STJ (citada de memoria pela IA)'
   responsavel: advogado
@@ -433,3 +435,18 @@ propostas_colaborador:
 declaracoes:
   sem_prazos:
     diario: '#004'
+  checklist_cliente_enviado:
+    diario: '#011'
+  aceites_de_risco:
+  - descricao: 'Prints sem ata notarial: autenticidade sustentada por custodia hash + reproduzibilidade + exibicao Meta + depoimento dos interlocutores'
+    diario: '#015'
+testemunhas:
+- nome: RONIELSON
+  vinculo: funcionario da autora (contradita provavel; ouvir como informante se preciso)
+  confirma: circulacao do story (P08) e autenticidade da propria conversa
+- nome: DAIANE RIBEIRO
+  vinculo: ex-funcionaria (a confirmar pelo titular que e ela a indicada)
+  confirma: recebimento/compartilhamento do story (P06) e autenticidade da propria conversa
+- nome: ANA CELIA
+  vinculo: A CONFIRMAR — se sem vinculo com a empresa, e a testemunha-chave da identificabilidade
+  confirma: '(definir: identificacao publica dos autores / repercussao)'
