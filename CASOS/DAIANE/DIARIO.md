@@ -140,3 +140,11 @@ G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
 ## #035 | 2026-07-07 13:29 | NOTA
 Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v04.md (12 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
 ---
+## #036 | 2026-07-07 13:30 | NOTA
+Origem: sistema.
+PROTOCOLO/ ajustado a DECISAO_SISTEMA #012 (ratificada #020): DOC-08 (P07, conversa pessoal com mensagens apagadas — veredicto NAO JUNTAR da valoracao de provas) REMOVIDO do pacote de protocolo e do indice. O arquivo permanece integro no acervo do caso (01_documentos e 00_originais, com hash).
+---
+## #037 | 2026-07-07 13:31 | NOTA
+Origem: sistema.
+DOCX da peticao gerado no padrao da casa (Century Gothic 11, margens 3/2/2/2, corpo justificado — padrao aferido no DOCX da TANIA) em PROTOCOLO/. SEM timbrado do escritorio NASCIMENTO de proposito: o subscritor e o Dr. Carlos Eduardo (OAB/PA 32.708), que pode aplicar o timbrado DELE antes do protocolo. Ajustes de forma apenas; conteudo identico a v04 congelada. Pacote final: peca DOCX + peca limpa .md + 11 documentos (DOC-08 excluido por decisao) + indice.
+---

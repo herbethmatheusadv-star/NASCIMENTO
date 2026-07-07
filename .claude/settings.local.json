@@ -117,7 +117,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" DAIANE G3)",
       "PowerShell(\"=== G3 ===\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" DAIANE --minuta MINUTA_v04.md)",
-      "PowerShell(\"=== conteudo do pacote ===\")"
+      "PowerShell(\"=== conteudo do pacote ===\")",
+      "PowerShell(Remove-Item \"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\CASOS\\\\DAIANE\\\\PROTOCOLO\\\\DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg\" -Confirm:$false)"
     ]
   }
 }
