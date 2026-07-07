@@ -11,16 +11,16 @@ caso:
   area: civel                # familia | consumidor | bancario | ...
   modulo: civel/honra_reputacao (nasce deste caso)            # ex.: familia/alimentos_guarda_convivencia
   complexidade: padrao  # simples | padrao | complexo (D9)
-  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase: E2_estrategia           # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
   comarca: "Canaa dos Carajas/PA"
   polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
   segredo_justica: false  # true quando ha menores / dados sensiveis
   gates:
     G1:
-      status: reprovado
+      status: aprovado
       data: '2026-07-07'
-      diario: '#017'
+      diario: '#018'
     G2: {status: pendente}
     G3: {status: pendente}
 
@@ -343,7 +343,8 @@ pendencias:
   descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel)'
   responsavel: advogado
   prioridade: critica
-  bloqueia: []
+  bloqueia:
+  - G3
 - id: PEN05
   descricao: 'DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05)'
   responsavel: advogado
