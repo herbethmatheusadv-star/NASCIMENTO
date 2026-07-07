@@ -49,8 +49,8 @@ partes:
     status: nao_confirmado
     pendencia: PEN03
 - id: PT04
-  papel: re_subsidiaria
-  nome: META PLATFORMS, INC. (so p/ exibicao de dados, MCI art. 22)
+  papel: terceira_destinataria_de_ordem
+  nome: META PLATFORMS, INC. (TERCEIRA — fora do polo passivo desde a v03; MCI 22/23 + CPC 380)
 # - { id: PT01, papel: autora_representante, nome: "...", cpf: "...",
 #     renda_mensal: 0.00, qualificacao: completa }
 # - { id: PT02, papel: reu, nome: "...",
@@ -300,6 +300,50 @@ fundamentos_citados:
 # - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
 #     validade_dias: 90, nucleo: true }
 
+- ref: CC:art187
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: MCI:art23
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art53
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art297
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art319
+  verificado_em: '2026-07-04'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art380
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art381
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art396
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: CPC:art400
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: SUM54:STJ
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 180
+- ref: SUM362:STJ
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 180
 financeiro:
   contrato:
     tipo: a_definir     # fixo | percentual | exito | misto | probono
@@ -382,6 +426,8 @@ pendencias:
   responsavel: advogado
   prioridade: media
   bloqueia: []
+  status: resolvida
+  resolucao: Meta retirada do polo passivo na v03 (terceira destinataria) — qualificacao completa desnecessaria; ordem via representante no Brasil
 - id: PEN10
   descricao: 'Antes do G3: extrair do portal do STF a tese LITERAL do Tema 987 (inteiro teor/ata) e da ed. 130 das Jurisprudencias em Teses do STJ a tese literal + REsp que a lastreiam (sinteses de fonte secundaria nao entram em peca)'
   responsavel: advogado

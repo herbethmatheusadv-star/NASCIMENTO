@@ -11,7 +11,7 @@ g2: aprovado
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 3
-atualizado: 2026-07-07 11:38
+atualizado: 2026-07-07 11:54
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
@@ -29,13 +29,13 @@ atualizado: 2026-07-07 11:38
 - PEN10 (advogado): Antes do G3: extrair do portal do STF a tese LITERAL do Tema 987 (inteiro teor/ata) e da ed. 130 das Jurisprudencias em Teses do STJ a tese literal + REsp que a lastreiam (sinteses de fonte secundaria nao entram em peca) — bloqueia G3
 
 ## Números do caso
-- Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 7
+- Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 6
 
 ## Últimas entradas do diário
+- #025 | 2026-07-07 11:54 | MINUTA — Origem: sistema.
+- #024 | 2026-07-07 11:54 | ANALISE_EXTERNA — Origem: colaborador IA EXTERNA (via titular).
 - #023 | 2026-07-07 11:38 | MINUTA — Origem: sistema.
 - #022 | 2026-07-07 11:38 | DECISAO_SISTEMA — Origem: sistema.
 - #021 | 2026-07-07 11:31 | GATE — G2 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
-- #020 | 2026-07-07 11:31 | RATIFICACAO — Origem: titular.
-- #019 | 2026-07-07 11:26 | GATE — G2 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 
 _Gerado por gerar_views.py — não editar._

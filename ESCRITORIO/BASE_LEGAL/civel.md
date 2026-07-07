@@ -59,7 +59,77 @@
 > **CPC:art300 (tutela de urgência)** — verbete já existente em `familia.md`
 > (verificado 2026-07-04, vigente, NÚCLEO). Casos que citam atualizado.
 
+## CC:art187 — Código Civil, art. 187 (abuso de direito)
+**Texto literal:** "Também comete ato ilícito o titular de um direito que, ao exercê-lo, excede manifestamente os limites impostos pelo seu fim econômico ou social, pela boa-fé ou pelos bons costumes."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** complementa o 186 no 2026-0004: a "liberdade de informar" do perfil de fofoca exercida além da boa-fé (acusação anônima não verificada, publicada por veículo comercial).
+**Casos que citam:** 2026-0004
+
+## CPC:art53 — CPC/2015, art. 53, IV, "a" (foro do ato ou fato — reparação de dano)
+**Texto literal (IV, a):** "É competente o foro: [...] IV - do lugar do ato ou fato para a ação: a) de reparação de dano;"
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** fundamenta Canaã dos Carajás (local do ato e da repercussão).
+**Casos que citam:** 2026-0004
+
+## CPC:art297 — CPC/2015, art. 297 (poder geral de efetivação)
+**Texto literal:** "O juiz poderá determinar as medidas que considerar adequadas para efetivação da tutela provisória. Parágrafo único. A efetivação da tutela provisória observará as normas referentes ao cumprimento provisório da sentença, no que couber."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** lastro das ordens de preservação dirigidas à Meta (terceira) e à ré.
+**Casos que citam:** 2026-0004
+
+## CPC:art380 — CPC/2015, art. 380 (deveres do terceiro)
+**Texto literal:** "Incumbe ao terceiro, em relação a qualquer causa: I - informar ao juiz os fatos e as circunstâncias de que tenha conhecimento; II - exibir coisa ou documento que esteja em seu poder. Parágrafo único. Poderá o juiz, em caso de descumprimento, determinar, além da imposição de multa, outras medidas indutivas, coercitivas, mandamentais ou sub-rogatórias."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** é o que permite tratar a META como TERCEIRA destinatária de ordem (sem polo passivo) — c/c MCI arts. 22/23.
+**Casos que citam:** 2026-0004
+
+## CPC:art381 — CPC/2015, art. 381, I (produção antecipada — risco de perecimento)
+**Texto literal (caput e I):** "A produção antecipada da prova será admitida nos casos em que: I - haja fundado receio de que venha a tornar-se impossível ou muito difícil a verificação de certos fatos na pendência da ação;"
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** racional da preservação urgente (registros expiram — MCI:art15).
+**Casos que citam:** 2026-0004
+
+## CPC:art396 — CPC/2015, art. 396 (exibição de documento pela parte)
+**Texto literal:** "O juiz pode ordenar que a parte exiba documento ou coisa que se encontre em seu poder."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** base da exibição dirigida à PRÓPRIA RÉ (mensagem original, métricas, arquivos).
+**Casos que citam:** 2026-0004
+
+## CPC:art400 — CPC/2015, art. 400 (consequência da não exibição)
+**Texto literal:** "Ao decidir o pedido, o juiz admitirá como verdadeiros os fatos que, por meio do documento ou da coisa, a parte pretendia provar se: I - o requerido não efetuar a exibição nem fizer nenhuma declaração no prazo do art. 398; II - a recusa for havida por ilegítima. Parágrafo único. Sendo necessário, o juiz pode adotar medidas indutivas, coercitivas, mandamentais ou sub-rogatórias para que o documento seja exibido."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** a cominação que dá dentes à ordem de não apagar/exibir dirigida à ré.
+**Casos que citam:** 2026-0004
+
+## MCI:art23 — Lei 12.965/2014, art. 23 (sigilo dos dados requisitados)
+**Texto literal:** "Cabe ao juiz tomar as providências necessárias à garantia do sigilo das informações recebidas e à preservação da intimidade, da vida privada, da honra e da imagem do usuário, podendo determinar segredo de justiça, inclusive quanto aos pedidos de guarda de registro."
+**Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
+**Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias
+**Notas de uso:** fundamenta o pedido de APARTADO SIGILOSO para os dados fornecidos.
+**Casos que citam:** 2026-0004
+
 # VERBETES — JURISPRUDÊNCIA
+
+## SUM54:STJ — Súmula 54 do STJ (juros moratórios — evento danoso)
+**Texto literal:** "Os juros moratórios fluem a partir do evento danoso, em caso de responsabilidade extracontratual." (Corte Especial, j. 24/09/1992, DJ 01/10/1992)
+**Fonte:** https://www.stj.jus.br/docs_internet/revista/eletronica/stj-revista-sumulas-2006_4_capSumula54.pdf
+**Verificado em:** 2026-07-07 · **Validade:** 180 dias
+**Notas de uso:** juros desde 05/07/2026 no 2026-0004.
+**Casos que citam:** 2026-0004
+
+## SUM362:STJ — Súmula 362 do STJ (correção monetária do dano moral)
+**Texto literal:** "A correção monetária do valor da indenização do dano moral incide desde a data do arbitramento." (Corte Especial, j. 15/10/2008, DJe 03/11/2008)
+**Fonte:** https://www.stj.jus.br/docs_internet/revista/eletronica/stj-revista-sumulas-2012_32_capSumula362.pdf
+**Verificado em:** 2026-07-07 · **Validade:** 180 dias
+**Notas de uso:** par obrigatório da SUM54 nos pedidos indenizatórios.
+**Casos que citam:** 2026-0004
 
 ## SUM227:STJ — Súmula 227 do STJ (dano moral de pessoa jurídica)
 **Texto literal:** "A pessoa jurídica pode sofrer dano moral."

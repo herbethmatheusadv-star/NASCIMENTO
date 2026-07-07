@@ -10,12 +10,10 @@
 - **PEN03** (advogado): Qualificacao da re Bruna Aurora (CPF, endereco) — diligenciar ou requerer em juizo — bloqueia: nada
 - **PEN08** (advogado): Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca — DECIDIDO: EXPLICAR a divergencia na peca (nao retificar na delegacia) — bloqueia: nada
 
-## MEDIA
-- **PEN09** (advogado): Qualificacao da META p/ citacao: definir se cita META PLATFORMS INC (EUA) ou a representante brasileira (Facebook Servicos Online do Brasil Ltda) — endereco e CNPJ a levantar — bloqueia: nada
-
 ## Resolvidas
 - PEN05: DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05) (resolvida em ?)
 - PEN06: Ata notarial afirmada na minuta NAO existe; story ja indisponivel — avaliar ata notarial das CONVERSAS e PERFIS (ainda acessiveis) e preservacao via pedido judicial (resolvida em ?)
 - PEN07: Criar BASE_LEGAL/civel.md com verbetes verificados NA FONTE: CC 186 e 927, MCI (L12965) arts. 19 e 22, CPC 300 e 85, Sumula 227 STJ (citada de memoria pela IA) (resolvida em ?)
+- PEN09: Qualificacao da META p/ citacao: definir se cita META PLATFORMS INC (EUA) ou a representante brasileira (Facebook Servicos Online do Brasil Ltda) — endereco e CNPJ a levantar (resolvida em ?)
 
 _Gerado por gerar_views.py — não editar._
