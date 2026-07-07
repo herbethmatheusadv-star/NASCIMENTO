@@ -36,3 +36,11 @@ Ratificacao das propostas da importacao (governanca de autoria): PC01 RATIFICADA
 Origem: sistema.
 Pesquisa juridica da E2 concluida e VERIFICADA NA FONTE (2026-07-07): BASE_LEGAL/civel.md criada com CC 186/927, MCI 15/19/21/22, CPC 85 (textos literais extraidos por script do Planalto) + Sumula 227/STJ (PDF oficial STJ), STF Tema 987 (julgado 26/06/2025; EMBARGOS de 17/06/2026: responsabilidade solidaria pos-notificacao e presuncao relativa de culpa p/ conteudo pago/impulsionado) e STJ Jurisprudencia em Teses ed. 130 (identificacao inequivoca pelo contexto). ESTRATEGIA.md escrita: 8 teses (espinha dorsal = responsabilidade DIRETA da curadora REMUNERADA, CC 186/927, com Tema 987 usado para FECHAR a porta do art. 19 a re), 3 antiteses, simulacao adversaria com 6 ataques respondidos, juiz rigoroso, riscos com contramedidas. Achado estrategico: MCI art. 15 (registros guardados so 6 MESES) da urgencia OBJETIVA ao pedido de preservacao — relogios: registros ate ~05/01/2027. PEN07 resolvida; PEN10 aberta (teses literais STF/STJ antes do G3).
 ---
+## #009 | 2026-07-07 11:19 | RETIFICACAO
+Origem: titular.
+Contexto probatorio retificado pelo titular: TODOS os prints (P02-P09) foram extraidos do aparelho de CARLOS EDUARDO (socio-adm e advogado da causa). Ronielson (P08) = funcionario; Daiane Ribeiro (P06/P07) = ex-funcionaria; P09 = mensagem do proprio Carlos Eduardo a vitima. Nenhum dos declarantes e terceiro independente. Fatos F02/F06 e provas revalorados em consequencia.
+---
+## #010 | 2026-07-07 11:19 | VALORACAO_PROVAS
+Origem: sistema.
+Valoracao prova a prova registrada na ficha e na ESTRATEGIA secao 6 (forca x indispensabilidade): pilar mais forte = identificacao da re (P02-P05, reproduzivel por oficio a Stone/DICT); pilar mais fraco = identificabilidade/repercussao independente (PEN04 CRITICA). P07 classificada NAO JUNTAR (dispensavel e arriscada). Recomendacoes: ata notarial das conversas no aparelho (resolve a unilateralidade — jurisprudencia: print vale salvo adulteracao demonstrada, mas ata blinda), oficio a Stone IP S.A. p/ titularidade da chave Pix (pedido na peca), preservacao Meta urgente (MCI art. 15: 6 meses). COLHEITA: valoracao de provas (forca x indispensabilidade x risco de juntada) como ETAPA PADRAO da E2 — proposta a ratificar na colheita.
+---

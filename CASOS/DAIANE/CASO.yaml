@@ -65,14 +65,14 @@ fatos:
   - P09
   - P01
 - id: F02
-  descricao: Identificabilidade dos autores (unica loja de ferro da regiao gerida por mulher) — nucleo da causa de pedir
+  descricao: 'Identificabilidade dos autores (unica loja de ferro da regiao gerida por mulher). RETIFICADO: os que identificaram nos prints sao funcionario (Ronielson, P08) e ex-funcionaria (Daiane Ribeiro, P06) — NAO sao terceiros independentes'
   status: alegado
   provas:
   - P08
   - P09
   pendencias:
   - PEN04
-  justificativa: P08/P09 provam que terceiros IDENTIFICARAM ('essas meninas'; a propria vitima recebeu de varios lados); a EXCLUSIVIDADE local (so duas lojas, so uma gerida por mulher) ainda depende de prova (PEN04)
+  justificativa: indicio interno real, mas vulneravel a contradita; a prova independente (exclusividade objetiva + testemunhas sem vinculo) e o calcanhar do caso — PEN04 elevada a CRITICA
 - id: F03
   descricao: Mesma pessoa administra os perfis (confissao 'Sim as duas sao minhas' + mesma chave Pix)
   status: provado
@@ -93,13 +93,15 @@ fatos:
   provas:
   - P03
 - id: F06
-  descricao: 'Repercussao local: story compartilhado e comentado por terceiros; vitima recebeu de multiplas fontes'
-  status: provado
+  descricao: 'Circulacao do story alem do perfil (compartilhamentos e comentarios). RETIFICADO: todos os prints vem do aparelho de CARLOS EDUARDO (socio-adm/advogado); declarantes com vinculo com a empresa'
+  status: alegado
   provas:
   - P06
-  - P07
   - P08
   - P09
+  pendencias:
+  - PEN04
+  justificativa: circulacao interna provada; repercussao INDEPENDENTE (clientes, publico) ainda por provar — testemunhas + eventual queda de faturamento
 - id: F07
   descricao: 'BO 00156/2026.102866-5 registrado em 06/07/2026 (difamacao). ATENCAO: BO consigna data do FATO como 05/06/2026 — divergencia com os prints (05/07/2026): provavel erro de digitacao da delegacia'
   status: provado
@@ -128,65 +130,66 @@ provas:
   doc: 01_documentos/DOC-01_BOLETIM_DE_OCORRENCIA.pdf
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Boletim de Ocorrencia.pdf
   sha256: f25af6f7cc7d8c328faa67e91f4a0cc003b70be7fea7d19e2e71329bb7672b33
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  o_que_prova: 'BO 00156/2026.102866-5: registro publico contemporaneo do fato pela vitima'
   forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  fragilidade: declaracao unilateral; data do fato digitada errada (05/06) — explicar na peca
 - id: P02
   doc: 01_documentos/DOC-03_CONFIRMACAO_DA_PEFIL_0.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (0).jpeg
   sha256: deb35f756911a247196259bae63bd69c579c030ce20fd63922df0345e269bd7e
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: 'Confissao do perfil: as duas paginas sao da mesma pessoa (DM)'
+  forca: forte_indiciaria
+  fragilidade: print unilateral do aparelho de Carlos Eduardo — cobrir por ata notarial + exibicao Meta
 - id: P03
   doc: 01_documentos/DOC-04_CONFIRMACAO_DA_PEFIL_1.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (1).jpeg
   sha256: e547822bedde684b3110b8a59af61440324c32cc436be50d5ecbd52d3451b827
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Carater COMERCIAL do perfil (tabela R\-150/story) + chave Pix do negocio
+  forca: forte_indiciaria
+  fragilidade: print unilateral — mas fato reproduzivel (tabela e enviada a qualquer interessado)
 - id: P04
   doc: 01_documentos/DOC-05_CONFIRMACAO_DA_PEFIL_2.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (2).jpeg
   sha256: 86de5889e8dada580eef6341cabcdc588a07f9e7e746480c79eb3f0fad50b689
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Chave Pix babadosdecanaa@yahoo.com resolve p/ BRUNA AURORA DE ALMEIDA DOROTEIO
+  forca: forte_indiciaria
+  fragilidade: 'print unilateral — porem REPRODUZIVEL: consulta DICT refaz-se a qualquer momento; oficio a Stone IP S.A. confirma em definitivo'
 - id: P05
   doc: 01_documentos/DOC-06_CONFIRMACAO_DA_PEFIL_3.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (3).jpeg
   sha256: 81dd32702384908e6290ef2140d17332d102ca6bbfc3bed0400aee1fb6c001da
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Tela do banco confirmando titular da chave (Stone IP S.A.)
+  forca: forte_indiciaria
+  fragilidade: idem P04 — verificavel por oficio
 - id: P06
   doc: 01_documentos/DOC-07_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (1).jpeg
   sha256: fb2de4ab332af0c94846b79e77af0b61686e1df66248f4a020ed6f673b1a1537
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: TEOR INTEGRAL do story ofensivo (compartilhado por Daiane Ribeiro, EX-funcionaria, via DM)
+  forca: indiciaria
+  fragilidade: unica prova do conteudo em si; story ja fora do ar; remetente com vinculo pretérito com a empresa; print de aparelho unico — ata notarial + exibicao Meta urgentes
 - id: P07
   doc: 01_documentos/DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (2).jpeg
   sha256: 45817bffbaaa485390a0ecc4078ac369e31d7ed54142f48ccc12456fbc25f1ee
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Conversa WhatsApp com a ex-funcionaria (mensagens apagadas)
+  forca: indiciaria
+  fragilidade: 'DISPENSAVEL E ARRISCADA: nada prova diretamente; conversa pessoal expoe intimidade; mensagens apagadas geram mais pergunta que resposta — NAO JUNTAR a peca (decisao na valoracao, E2)'
+  categoria: nao_juntar
 - id: P08
   doc: 01_documentos/DOC-09_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (3).jpeg
   sha256: cffe0078cb2f1e16ab018abee79c75ee5f9dcccd785e8cb37fe910e13a5289aa
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Ronielson (funcionario) encaminha o story + LINK instagram.com do story + comenta identificando
+  forca: indiciaria
+  fragilidade: declarante e EMPREGADO da autora (contradita provavel; ouvir como informante); o valor real esta no LINK e na data/hora
 - id: P09
   doc: 01_documentos/DOC-10_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (4).jpeg
   sha256: f0f382631f0d7e5ed10a5c4e2deb2627bbfe77ef3938d923dd5c91939f5f38e6
-  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
-  forca: relativa
-  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+  o_que_prova: Carlos Eduardo repassa o story a Daiane (ciencia da vitima no dia)
+  forca: indiciaria
+  fragilidade: emissor e socio-adm/advogado (fonte interessada); prova a ciencia, nao a repercussao independente
 # Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
 # - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
 #     o_que_prova: "...", forca: plena, fragilidade: null }
@@ -337,9 +340,9 @@ pendencias:
   prioridade: alta
   bloqueia: []
 - id: PEN04
-  descricao: 'Prova da identificabilidade: so duas lojas de ferro na via e so a autora gerida por mulher (testemunhas, fotos da via, pesquisa de mercado local)'
+  descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel)'
   responsavel: advogado
-  prioridade: alta
+  prioridade: critica
   bloqueia: []
 - id: PEN05
   descricao: 'DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05)'

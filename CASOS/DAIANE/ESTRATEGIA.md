@@ -17,10 +17,13 @@ Caso de ofensa à honra por **perfil comercial de fofoca** no Instagram
 - **Trunfo 2 — o perfil LUCRA com publicações** (F05/P03: tabela de R$ 30
   a R$ 150 por story). Isso desloca a ré do papel de "mensageira" para o
   de **editora comercial** do conteúdo — muda o caso de patamar.
-- **Trunfo 3 — a identificação dos ofendidos ACONTECEU no mundo real**
-  (F02/F06): terceiros reconheceram os autores espontaneamente (P08:
-  "essas meninas"; P09: a própria vítima recebendo o story de vários
-  lados). A tese da identificabilidade não é conjectura: é fato provado.
+- **Trunfo 3 (REVALORADO em #009/#010) — a identificação aconteceu, mas
+  entre pessoas LIGADAS à empresa**: quem reconheceu nos prints foi um
+  funcionário (Ronielson, P08) e uma ex-funcionária (Daiane Ribeiro, P06);
+  P09 é o próprio Carlos Eduardo repassando à vítima. Vale como indício
+  real de que a leitura era imediata — mas NÃO como prova independente.
+  A prova independente é construível e barata (PEN04 crítica): a
+  exclusividade objetiva + testemunhas sem vínculo.
 - **O relógio**: registros de acesso guardam-se por **6 meses**
   (MCI:art15) — fato de 05/07/2026 → dados seguros só até ~05/01/2027.
   E o story já saiu do ar (P02: "Story indisponível"): preservação é
@@ -52,7 +55,11 @@ verbetar CC:art944 antes (hoje em NÃO VERIFICADOS).
 **T3 — Identificação inequívoca pelo contexto.** Ramo (ferro) + localização
 ("final da cidade") + gênero da gestão ("quem vai está na frente") =
 individualização perante o público local (STJ:teses130 — extrair a tese
-literal antes do protocolo). Prova viva: P08/P09.
+literal antes do protocolo). O peso da tese recai na **exclusividade
+OBJETIVA** (fotos da via, CNPJ/CNAE das duas lojas, mapa) e em
+**testemunhas independentes** (PEN04); os prints internos (P08/P09) entram
+como reforço, COM os vínculos declarados às claras — esconder o vínculo e
+deixar a defesa revelá-lo seria o pior dos mundos.
 
 **T4 — Dano moral da PJ com honra objetiva PROVADA.** SUM227:STJ +
 repercussão real (P06-P09) + chamada expressa a boicote no próprio texto
@@ -96,8 +103,10 @@ está provada; arriscá-la enfraquece). A3 — afirmar prova que não existe
 1. **"Só repassei desabafo de seguidora"** → resposta: curadoria
    remunerada (T1/T2, P03); ela selecionou, editou e publicou em veículo
    comercial próprio.
-2. **"Ninguém foi nomeado"** → T3 + prova viva P08/P09 (a identificação
-   aconteceu; não precisamos convencer o juiz de que aconteceria).
+2. **"Ninguém foi nomeado"** → T3 pela exclusividade objetiva + testemunhas
+   independentes (PEN04); os prints internos como reforço transparente.
+   **"E as únicas 'identificações' vieram de empregado e ex-empregada"** →
+   antecipar: declarar os vínculos na própria peça e não depender deles.
 3. **"Prints fabricados"** → cadeia de custódia (hash SHA-256 na entrada,
    manifesto por arquivo), BO da mesma data, TRÊS fontes independentes se
    corroborando; contramedida adicional recomendada: ata notarial das
@@ -133,7 +142,54 @@ está provada; arriscá-la enfraquece). A3 — afirmar prova que não existe
 | Expiração dos registros em ~6 meses | Pedido de preservação IMEDIATO (T6b) — é a primeira utilidade da ação |
 | Impugnação dos prints | Hash + BO + 3 fontes independentes + ata notarial das conversas (PEN06, recomendada) |
 | Ré sem patrimônio (execução frustrada) | Quantum moderado já ratificado; retratação pública (T8) tem valor reputacional independente de solvência |
-| Identificabilidade contestada | PEN04 (testemunhas/fotos) + prova viva P08/P09 |
+| Identificabilidade contestada | PEN04 CRÍTICA: exclusividade objetiva + testemunhas independentes; prints internos só como reforço declarado |
+| Contradita das testemunhas internas | Ronielson/Daiane Ribeiro ouvidos como informantes se preciso; o caso NÃO pode depender deles |
+| Unilateralidade dos prints (fonte única: aparelho de Carlos Eduardo) | Ata notarial das conversas NO aparelho (uma só ata cobre P02-P06/P08-P09) + ofício à Stone (chave Pix) + exibição Meta; jurisprudência: print vale salvo adulteração demonstrada, ata evita a discussão |
 
 **Aceites de risco:** nenhum pendente — todas as linhas acima têm
 contramedida ativa.
+
+## 6. Valoração das provas (força × indispensabilidade — #009/#010)
+
+> Etapa nova da E2 (candidata de colheita): cada prova recebe força,
+> papel e veredicto de JUNTADA — porque prova fraca nos autos não é
+> neutra: é munição para a defesa.
+
+| Prova | O que realmente prova | Força | Indispensável? | Veredicto |
+|---|---|---|---|---|
+| P01 BO | Registro público contemporâneo pela vítima | relativa | útil | JUNTAR (com a explicação da data) |
+| P02 "as duas são minhas" | Os perfis têm um só dono | forte (indício) | **essencial** | JUNTAR + ata notarial |
+| P03 tabela de preços + Pix | Perfil é NEGÓCIO (curadoria paga) | forte (indício) | **essencial** (sustenta T1/T2) | JUNTAR + ata notarial |
+| P04/P05 chave Pix → Bruna | Identidade da ré | forte e **reproduzível** | **essencial** | JUNTAR + pedir ofício à Stone IP S.A. |
+| P06 story compartilhado | TEOR integral da ofensa (única fonte do conteúdo) | indiciária | **essencial** | JUNTAR (vínculo da remetente declarado) |
+| P07 WhatsApp ex-funcionária | Quase nada (conversa pessoal, mensagens apagadas) | fraca | dispensável | **NÃO JUNTAR** |
+| P08 Ronielson + LINK do story | Circulação + URL específica do story | indiciária | útil (o link vale ouro p/ a exibição Meta) | JUNTAR (vínculo declarado) |
+| P09 repasse à vítima | Ciência da vítima no dia | indiciária | útil | JUNTAR (contexto) |
+| INS01-03 | Representação (CNH sócio, procuração, RG) | — | essencial formal | JUNTAR + contrato social (PEN02) |
+
+## 7. O roteiro da procedência (como especialistas montam esse caso)
+
+A procedência se apoia em **quatro pilares**, cada um com sua prova-rainha:
+
+1. **QUEM publicou** — FECHADO. P02-P05 + ofício à Stone (confirma a
+   titularidade da chave Pix em juízo) + exibição Meta (art. 22). É o
+   pilar mais forte; nenhuma providência externa pendente.
+2. **O QUE foi publicado** — BOM, com urgência. P06 (teor) + P08 (o LINK
+   do story!) + preservação IMEDIATA na Meta (MCI:art15 — registros
+   expiram em ~6 meses). A ata notarial das conversas sela o pilar.
+3. **CONTRA QUEM apontava** — o calcanhar, e é construível em uma semana:
+   fotos da via com as duas lojas, cartões CNPJ/CNAE, print de mapa, e
+   2-3 declarações/testemunhas de clientes ou comerciantes vizinhos SEM
+   vínculo (PEN04 crítica). Com isso, a tese da identificação inequívoca
+   (STJ:teses130) fica de pé sozinha — sem depender de empregado.
+4. **QUANTO doeu** — o texto ofensivo embute o boicote ("não compro mas
+   lá nunca mais"): o dano à honra objetiva da PJ está no próprio ilícito
+   (SUM227:STJ); reforço documental barato: comparativo de faturamento
+   jun×jul/2026, se houver queda. Para a Daiane, dano in re ipsa com
+   componente de gênero.
+
+**Sequência recomendada até o protocolo:** (1º) ata notarial das conversas
+no aparelho do Carlos Eduardo — uma ata cobre P02, P03, P04, P06, P08 e
+P09 de uma vez; (2º) pacote da exclusividade objetiva + testemunhas
+(PEN04); (3º) contrato social (PEN02); (4º) teses literais STF/STJ
+(PEN10); (5º) G2 → minuta v02 → véspera → G3.

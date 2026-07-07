@@ -10,8 +10,8 @@ g1: reprovado
 g2: pendente
 g3: pendente
 proximo_prazo: ""
-pendencias_criticas_abertas: 3
-atualizado: 2026-07-07 11:09
+pendencias_criticas_abertas: 4
+atualizado: 2026-07-07 11:19
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
@@ -25,17 +25,18 @@ atualizado: 2026-07-07 11:09
 
 ## Pendências críticas abertas
 - PEN02 (cliente): Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) — bloqueia G3
+- PEN04 (advogado): Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) — bloqueia —
 - PEN06 (advogado): Ata notarial afirmada na minuta NAO existe; story ja indisponivel — avaliar ata notarial das CONVERSAS e PERFIS (ainda acessiveis) e preservacao via pedido judicial — bloqueia G3
 - PEN10 (advogado): Antes do G3: extrair do portal do STF a tese LITERAL do Tema 987 (inteiro teor/ata) e da ed. 130 das Jurisprudencias em Teses do STJ a tese literal + REsp que a lastreiam (sinteses de fonte secundaria nao entram em peca) — bloqueia G3
 
 ## Números do caso
-- Partes: 4 · Fatos: 9 (provados 6 / alegados 3 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 8
+- Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 8
 
 ## Últimas entradas do diário
+- #010 | 2026-07-07 11:19 | VALORACAO_PROVAS — Origem: sistema.
+- #009 | 2026-07-07 11:19 | RETIFICACAO — Origem: titular.
 - #008 | 2026-07-07 11:09 | PESQUISA — Origem: sistema.
 - #007 | 2026-07-07 10:58 | DECISAO_ADVOGADO — Origem: titular.
 - #006 | 2026-07-07 10:48 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
-- #005 | 2026-07-07 10:47 | GATE — G1 executado: REPROVADO. 5/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
-- #004 | 2026-07-07 10:47 | NOTA — Origem: sistema.
 
 _Gerado por gerar_views.py — não editar._

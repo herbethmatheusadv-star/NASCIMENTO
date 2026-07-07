@@ -9,7 +9,7 @@ Minuta lida: MINUTA_v01.md
 | F03 | provado | P02, P03, P04, P05 | PED01, PED02 | — |
 | F04 | provado | P04, P05 | PED02 | — |
 | F05 | provado | P03 | — | — |
-| F06 | provado | P06, P07, P08, P09 | PED01, PED03, PED04, PED05 | — |
+| F06 | alegado | P06, P08, P09 | PED01, PED03, PED04, PED05 | — |
 | F07 | provado | P01 | — | — |
 | F08 | alegado | — | — | — |
 | F09 | alegado | — | — | — |
