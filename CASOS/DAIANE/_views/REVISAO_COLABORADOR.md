@@ -36,22 +36,97 @@ Caso 2026-0004 · importado em 2026-07-07 10:40 pela porta de importação (blue
 
 _Detecção heurística: a revisão semântica abaixo cobre o que a varredura não pegou._
 
-## 4. O que está bom (crédito ao colaborador)
+## 4. O que está bom (crédito ao colaborador — IA externa)
 
-_(preenchido pelo sistema na sessão de importação)_
+- **Estrutura processual correta e completa**: endereçamento, qualificação,
+  fatos → direito → tutela → pedidos → provas → valor da causa.
+- **Transcrição fiel do story** (conferida contra o print P06) — com uma
+  ressalva: normalizou "fica **dano** em cima" (texto SIC do print) para
+  "fica dando"; em transcrição probatória, manter o SIC.
+- **Tese da identificabilidade sem menção nominal** bem construída (II.1):
+  é o coração do caso e está bem articulada.
+- **Prudência nos placeholders**: onde não tinha o dado, deixou "[nº]"/"[DATA]"
+  em vez de inventar — comportamento raro em minuta de IA.
+- **Valor da causa coerente** (R$ 20.000 = soma exata dos danos pedidos).
+- O pedido de exibição de dados (art. 22 MCI) contra a META como ré
+  subsidiária é o desenho tecnicamente adequado.
 
-## 5. Fatos afirmados sem prova (órfãos)
+## 5. Fatos afirmados sem prova (órfãos) — os achados graves
 
-_(preenchido pelo sistema na sessão de importação)_
+- **"Ata notarial anexa" (F08): NÃO EXISTE.** A minuta a menciona duas
+  vezes como prova já constituída. Pior: o story já está indisponível
+  (o print P02 mostra "Story indisponível") — ata do story é impossível
+  agora; o possível é ata das CONVERSAS e dos PERFIS. → PEN06 (bloqueia G3).
+- **"Notificação extrajudicial" em "[DATA]" (F09): NÃO EXISTE.** E o
+  argumento do art. 19 do Marco Civil (II.2, parte final) depende dela
+  ("notificação prévia e a inércia"). Fundamento construído sobre prova
+  inexistente. → PEN05 (bloqueia G3) + proposta PC03.
+- **Exclusividade local (F02)**: "apenas duas empresas do ramo... a única
+  gerida por mulher" — plausível e provavelmente verdadeiro, mas hoje sem
+  prova além da reação de terceiros (P08/P09). → PEN04.
 
 ## 6. Juiz rigoroso sobre a peça importada
 
-_(preenchido pelo sistema na sessão de importação)_
+1. **Prova constituída ≠ prova prometida.** A peça afirma ata notarial e
+   notificação que não existem. Se protocolada assim, a primeira leitura
+   do juiz encontra dois "doc. [nº]" vazios — credibilidade ferida no
+   ponto mais sensível (prova de conteúdo efêmero).
+2. **Réu em placeholder com prova de identificação nos autos.** A peça
+   mantém "[NOME DO ADMINISTRADOR, SE IDENTIFICADO]" — mas P04/P05
+   identificam Bruna Aurora de Almeida Doroteio pela chave Pix. Juiz
+   rigoroso indefere diligência para descobrir o que o autor já sabe (PC04).
+3. **Divergência de data com o BO**: o BO consigna o fato em 05/06/2026;
+   prints e narrativa dizem 05/07/2026. A defesa vai explorar ("afinal,
+   quando foi?"). Retificar ou explicar. → PEN08.
+4. **Legitimidade/representação da PJ**: sem contrato social nos autos
+   (só a CNH do sócio), a representação da 1ª autora fica descoberta —
+   e a procuração (INS02) indica como sócio-administrador HERBETH M. M.
+   do Nascimento, enquanto a versão "Pela 2" dizia representação pelo
+   sócio da CNH anexa. Alinhar documento ↔ afirmação. → PEN02.
+5. **Citações todas sem verificação** (seção 3): nenhuma tem verbete;
+   a Súmula 227/STJ foi citada de memória pela IA (existe e diz o que a
+   peça afirma? verificar NA FONTE antes da E3). → PEN07.
+6. **Emprego da coautora**: a peça revela que Daiane é registrada por
+   OUTRA empresa (C E S NASCIMENTO SERVIÇOS). A explicação dada é boa,
+   mas expõe flanco para a defesa questionar a legitimidade dela quanto
+   ao dano "profissional" — reforçar com o vínculo fático (F02/P09).
+7. **CEP da sede** ("68.350-447") destoa do CEP geral de Canaã
+   (68.537-000) — conferir antes do protocolo (erro material clássico).
 
 ## 7. Adversário contra a peça importada
 
-_(preenchido pelo sistema na sessão de importação)_
+- **Atacaria o art. 19 do MCI de frente**: "cadê a notificação prévia que
+  a inicial menciona?" — hoje, não existe. Derruba metade do II.2 se a
+  peça for protocolada como está.
+- **Impugnaria os prints**: capturas de tela de celular das próprias
+  partes, sem ata notarial nem cadeia de custódia externa — pediria
+  desconsideração ou perícia. (Contra-resposta que o sistema já preparou:
+  hash SHA-256 de cada arquivo na entrada + BO da mesma data + prints de
+  TRÊS fontes independentes se corroborando; ainda assim, ata das
+  conversas fortaleceria muito.)
+- **Negaria a identificabilidade**: "a mensagem não cita nome nem
+  endereço; qualquer cidade tem lojas de ferro" — é o ponto que exige a
+  prova da exclusividade local (PEN04) e testemunhas.
+- **Alegaria mero repasse de conteúdo de terceiro** ("só publiquei o
+  desabafo de uma seguidora") — a resposta forte é a curadoria REMUNERADA
+  (P03: tabela de preços do perfil), que a minuta importada NÃO explorou.
+- **Contra a Daiane**: "ela nem é funcionária da autora" (registro na
+  C E S NASCIMENTO SERVIÇOS) — flanco de legitimidade a blindar.
+- **Sobre o quantum**: 10k + 10k sem parâmetro jurisprudencial citado —
+  pediria redução drástica; a E3 precisa ancorar o valor em precedentes
+  verificados (módulo cível nasce daí).
 
 ## 8. Decisões embutidas → propostas do colaborador
 
-_(cada uma vira item em `propostas_colaborador:` aguardando ratificação — o G2 bloqueia enquanto houver pendente)_
+| ID | Tema | Proposta da IA | Situação |
+|---|---|---|---|
+| PC01 | Quantum | R$ 10.000 (empresa) + R$ 10.000 (Daiane); causa R$ 20.000 | `aguardando_ratificacao` |
+| PC02 | Competência/rito | Vara Cível de Canaã, rito comum (JEC não avaliado) | `aguardando_ratificacao` |
+| PC03 | Estratégia MCI | Responsabilidade via art. 19 (exige notificação que NÃO existe); alternativa do sistema: responsabilidade direta CC 186/927 pela curadoria remunerada (F05) | `aguardando_ratificacao` |
+| PC04 | Polo passivo | Réu em placeholder; sistema recomenda nomear Bruna Aurora (provas P04/P05) | `aguardando_ratificacao` |
+
+**O G2 deste caso fica travado até o titular ratificar ou vetar cada uma
+(governança de autoria, blueprint v1.10 §7).** Registro: DIARIO #003.
+**Advogado da causa conforme a procuração (INS02): Dr. Carlos Eduardo de
+Sousa do Nascimento, OAB/PA 32.708** — o titular do SOJ figura como
+sócio-administrador da 1ª autora (parte), não como subscritor.
