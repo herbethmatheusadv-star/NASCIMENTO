@@ -76,6 +76,24 @@ provas:
     forca: plena
     fragilidade: null           # ex.: "cópia sem autenticação", "data ilegível"
 
+instrumentais: []
+# Classe própria (v1.10, porta de importação): provam REPRESENTAÇÃO, não fato
+# — procuração ASSINADA, RG/CNH, contrato de honorários, hipossuficiência.
+# tipo: procuracao | identidade | contrato_honorarios | hipossuficiencia | outro
+# Rascunho de instrumental (ex.: procuração em Word) NÃO entra aqui: _efemeros.
+# - { id: INS01, tipo: procuracao, doc: "01_documentos/DOC-02_....pdf",
+#     original: "00_originais/importacao_.../...", sha256: "...",
+#     origem: "colaborador FULANO" }
+
+propostas_colaborador: []
+# Decisões EMBUTIDAS na peça importada (quantum, foro, tutelas) — governança
+# de autoria (v1.10): nada de colaborador vira decisão sem ratificação do
+# titular. status: aguardando_ratificacao | ratificada | vetada.
+# O G2 (item 7) BLOQUEIA enquanto houver aguardando_ratificacao.
+# - { id: PC01, tema: quantum, proposta: "...", observacao: "...",
+#     origem: "colaborador FULANO", status: aguardando_ratificacao,
+#     diario: "#003" }
+
 pedidos:
   # parametro: o valor/critério fixado — cite a entrada do DIARIO que decidiu (D11)
   - id: PED01

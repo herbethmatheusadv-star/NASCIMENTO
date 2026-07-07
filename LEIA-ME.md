@@ -77,6 +77,7 @@ Mas é bom saber o que existe:
 | `relatorio_mensal.py` | Retrato do mês: casos, prazos, reprovações de gate e motivos, decisões, verbetes, pendências, horas (estimativa) | Fim do mês |
 | `receber_whatsapp.py` | Export de conversa do WhatsApp: lacra tudo com hash SHA-256, monta a cronologia unificada (mensagens + falas), registra como prova | Chegou conversa como prova |
 | `degravar.py` | Transcritor 100% local (nenhum áudio sai do computador): degrava os áudios de uma pasta de export (antes do receber_whatsapp) ou um áudio avulso de atendimento | Antes de receber conversa com áudios; atendimento gravado |
+| `importar_caso.py` | Porta de importação: caso pré-trabalhado por colaborador entra com confiança zero — deduplica por hash, separa provas de instrumentais, confere as citações da minuta na BASE_LEGAL e gera o relatório de revisão do colaborador | Sócio/estagiário entregou caso com minuta pronta |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 

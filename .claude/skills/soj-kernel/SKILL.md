@@ -105,6 +105,38 @@ Regras INEGOCIÁVEIS do modo:
   próprio em `~/.soj/transcritor/`). Se a qualidade do `small` não bastar
   num áudio real, propor upgrade de modelo ANTES de baixar (download novo).
 
+## PORTA DE IMPORTAÇÃO (blueprint v1.10 §7 — caso pré-trabalhado)
+
+- **"importar caso trabalhado: [pasta]"** → `importar_caso.py CLIENTE PASTA
+  --colaborador "NOME" [--area ... --modulo ... --titulo ... --comarca ...
+  --polo ... --segredo --probono]`. Também dispara sozinho: se um "novo
+  caso" encontrar MINUTA DE TERCEIRO na pasta, rotear para a importação.
+- O que a porta faz: deduplica por SHA-256 (mantém o melhor nome; cópias
+  ficam lacradas, fora do roteamento); roteia provas → P## (com hash),
+  **instrumentais** (procuração ASSINADA, RG/CNH, contrato de honorários,
+  hipossuficiência) → classe `instrumentais:` (provam representação, não
+  fato — o G1/G3 os reconhece); rascunho de instrumental em formato
+  editável → `_efemeros/importacao/`.
+- **Mais de uma minuta candidata → PARE** (o script sai sem criar NADA):
+  perguntar ao titular se são versões da mesma ação (reexecutar com
+  `--minuta "NOME"`; as preteridas viram rascunho) ou ações distintas
+  (importar em casos separados).
+- **Engenharia reversa com CONFIANÇA ZERO** (na mesma sessão): fatos
+  afirmados → F## cruzados com as provas anexas (sem prova = `alegado` +
+  pendência); pedidos → PED##; TODA citação → BASE_LEGAL (o script já
+  varre e marca revogada/vencida/não verificada — a revisão semântica
+  cobre o resto); decisões embutidas (quantum, foro, tutelas) →
+  `propostas_colaborador:` com `status: aguardando_ratificacao` — **o G2
+  bloqueia enquanto houver proposta pendente** (item 7). A peça vira
+  MINUTA_v01 (importada, com aviso) e segue os gates normais.
+- Saída obrigatória: `_views/REVISAO_COLABORADOR.md` (congelado; parte
+  mecânica = script; seções 4-8 — crédito, órfãos, juiz rigoroso,
+  adversário, propostas — preenchidas pelo sistema NA sessão de importação).
+- **GOVERNANÇA DE AUTORIA (kernel, vale para TUDO):** entradas do DIARIO e
+  decisões ganham campo `origem` (titular / colaborador X / sistema) — no
+  `append_diario(..., origem=...)`. Nada de colaborador vira decisão sem
+  ratificação do titular (DECISAO_ADVOGADO citando o PC##).
+
 ## ACERVO DE MODELOS (ESCRITORIO/ACERVO/ — blueprint §9)
 
 - **"guardar modelo"** → `guardar_modelo.py ARQUIVO --area ... --tipo
