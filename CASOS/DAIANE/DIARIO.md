@@ -114,3 +114,19 @@ PEN10 executada — e a verificacao na fonte DERRUBOU uma citacao: o PDF oficial
 Origem: sistema.
 MINUTA_v04 gerada a partir da v03 com duas correcoes da verificacao na fonte (#027): II.2 sem a citacao inexistente; II.3 com a tese 8 literal da ed. 130 e precedentes civeis. Versoes v02/v03 preservadas. Pronta para revisao do titular e do subscritor.
 ---
+## #029 | 2026-07-07 13:25 | DECISAO_ADVOGADO
+Origem: titular.
+Titular determina prosseguir a VESPERA sem os arquivos no acervo digital: o CONTRATO SOCIAL (PEN02) e o PACOTE DA EXCLUSIVIDADE (PEN04 — fotos da via, cartoes CNPJ das duas lojas, mapa) serao juntados POR ELE, diretamente no PJe, no ato do protocolo. As duas pendencias deixam de bloquear o G3 e passam a responsabilidade expressa do titular no ato de protocolar. AVISO REGISTRADO: a peca afirma prova documental da exclusividade e atos constitutivos — protocolar SEM esses anexos e afirmar prova inexistente (o exato erro que o sistema barrou na minuta importada).
+---
+## #030 | 2026-07-07 13:25 | NOTA
+Origem: sistema.
+ANTI-ERRO FATAL (checklist generico de vespera — modulo civel em construcao) EXECUTADO na MINUTA_v04, item a item: (1) nomes e grafias conferidos contra documentos (autoras x procuracao INS02; re x P04/P05); (2) CNPJ 56.001.353/0001-60 e CPF/RG da 2a autora conferidos contra procuracao e BO; (3) datas consistentes (fato 05/07, BO 06/07, periodo 05-06/07/2026; divergencia do BO explicada no corpo); (4) valores: 10k+10k=20k = valor da causa; astreintes 2k/ato + 500/dia teto 20k conforme #025; (5) comarca Canaa dos Carajas em enderecamento/competencia/fecho; (6) referencias DOC-01 a DOC-12 todas existentes; DOC-08 (P07, nao juntar) NAO citado; (7) transcricao SIC conferida contra o print P06; (8) CEP suspeito da sede REMOVIDO da qualificacao (endereco mantido sem CEP); (9) subscritor = outorgado da procuracao (Dr. Carlos Eduardo, OAB/PA 32.708); (10) so os 2 perfis confessados; (11) zero placeholders de prova. PONTOS DE ATENCAO ao titular no relatorio de revisao: contrato social e pacote da exclusividade ENTRAM NO PJe (decisao #029); data do fecho a preencher no protocolo.
+---
+## #031 | 2026-07-07 13:25 | NOTA
+Origem: sistema.
+CONFERENCIA FINAL CRUZADA peca x decisoes (G3 item 8): quantum 10k+10k e valor da causa 20k = PC01 ratificada (#007/#020); Vara Civel de Canaa = PC02 (#007); responsabilidade DIRETA sem art. 19 contra a re = PC03 modificada (#007) e antitese A1; re nomeada = PC04 (#007); sem oficio Stone (veto #020, mantido #026); sem ata notarial (#011, aceite #015); conciliacao: desinteresse (#026); astreinte = #025; P07 fora do rol = #012; preservacao prioritaria = #013. Cada numero da peca tem decisao de origem no DIARIO. Valor da causa mecanicamente presente na minuta (R$ 20.000,00).
+---
+## #032 | 2026-07-07 13:25 | GATE
+G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
+Itens reprovados: Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
+---

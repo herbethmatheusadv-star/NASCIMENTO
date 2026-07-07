@@ -56,8 +56,9 @@
 **Notas de uso:** pedido padrão de sucumbência.
 **Casos que citam:** 2026-0004
 
-> **CPC:art300 (tutela de urgência)** — verbete já existente em `familia.md`
-> (verificado 2026-07-04, vigente, NÚCLEO). Casos que citam atualizado.
+> **CPC:art300 (tutela de urgência)** e **CPC:art319 (requisitos da inicial)**
+> — verbetes já existentes em `familia.md` (BASE_LEGAL é compartilhada entre
+> áreas). CPC:art300 rechecado na fonte em 2026-07-07 (véspera do 2026-0004).
 
 ## CC:art187 — Código Civil, art. 187 (abuso de direito)
 **Texto literal:** "Também comete ato ilícito o titular de um direito que, ao exercê-lo, excede manifestamente os limites impostos pelo seu fim econômico ou social, pela boa-fé ou pelos bons costumes."

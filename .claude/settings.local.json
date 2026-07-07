@@ -112,7 +112,10 @@
       "PowerShell(\"=== G1 ===\")",
       "PowerShell(\"=== G2 \\(previa - espera reprovar so na ratificacao em bloco\\) ===\")",
       "PowerShell(\"=== G2 ===\")",
-      "WebFetch(domain:scon.stj.jus.br)"
+      "WebFetch(domain:scon.stj.jus.br)",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\daiane_vespera.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" DAIANE G3)",
+      "PowerShell(\"=== G3 ===\")"
     ]
   }
 }

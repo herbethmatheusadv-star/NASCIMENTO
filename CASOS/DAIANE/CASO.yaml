@@ -25,7 +25,11 @@ caso:
       status: aprovado
       data: '2026-07-07'
       diario: '#021'
-    G3: {status: pendente}
+    G3:
+      status: reprovado
+      data: '2026-07-07'
+      diario: '#032'
+  valor_causa: R$ 20.000,00
 
 partes:
 - id: PT01
@@ -275,7 +279,7 @@ fundamentos_citados:
   validade_dias: 90
   nucleo: true
 - ref: CPC:art300
-  verificado_em: '2026-07-04'
+  verificado_em: '2026-07-07'
   status: vigente
   validade_dias: 90
   nucleo: true
@@ -344,6 +348,10 @@ fundamentos_citados:
   verificado_em: '2026-07-07'
   status: vigente
   validade_dias: 180
+- ref: MCI:art19
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
 financeiro:
   contrato:
     tipo: a_definir     # fixo | percentual | exito | misto | probono
@@ -375,11 +383,10 @@ pendencias:
 # - { id: PEN01, descricao: "...", responsavel: cliente, prioridade: critica,
 #     bloqueia: [G3], mensagem_cliente: "..." }
 - id: PEN02
-  descricao: Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio)
+  descricao: 'Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3)'
   responsavel: cliente
   prioridade: critica
-  bloqueia:
-  - G3
+  bloqueia: []
   mensagem_cliente: o contrato social da empresa (ultima alteracao consolidada)
 - id: PEN03
   descricao: Qualificacao da re Bruna Aurora (CPF, endereco) — diligenciar ou requerer em juizo
@@ -387,11 +394,10 @@ pendencias:
   prioridade: alta
   bloqueia: []
 - id: PEN04
-  descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente'
+  descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3)'
   responsavel: advogado
   prioridade: critica
-  bloqueia:
-  - G3
+  bloqueia: []
 - id: PEN05
   descricao: 'DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05)'
   responsavel: advogado
@@ -492,6 +498,11 @@ declaracoes:
   aceites_de_risco:
   - descricao: 'Prints sem ata notarial: autenticidade sustentada por custodia hash + reproduzibilidade + exibicao Meta + depoimento dos interlocutores'
     diario: '#015'
+  anti_erro_fatal:
+    diario: '#030'
+  conferencia_final:
+    diario: '#031'
+    cruzada_com_decisoes: true
 testemunhas:
 - nome: RONIELSON
   vinculo: funcionario da autora (contradita provavel; ouvir como informante se preciso)

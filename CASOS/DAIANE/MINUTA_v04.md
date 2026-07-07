@@ -26,7 +26,7 @@ em face de **BRUNA AURORA DE ALMEIDA DOROTEIO**, brasileira, profissão desconhe
 
 <!-- SOJ: F01 | P06 | PED03,PED04 | CC:art187 -->
 
-**3. A identificação inequívoca dos ofendidos.** A mensagem não declina nomes — e não precisava: no trecho da via a que se refere, no final da cidade de Canaã dos Carajás, existem apenas **duas** empresas do ramo de ferro e aço, situadas defronte uma da outra, e **somente a primeira autora tem a sua administração cotidiana exercida por uma mulher — precisamente a segunda autora**. A conjugação dos três elementos objetivos da publicação — ramo ("empresa de ferro"), localização ("lá no final da cidade") e gênero de quem gere ("quem vai está na frente da sua empresa") — individualiza os ofendidos perante o público local (prova documental da exclusividade anexa/a ser complementada, e prova testemunhal adiante requerida).
+**3. A identificação inequívoca dos ofendidos.** A mensagem não declina nomes — e não precisava: no trecho da via a que se refere, no final da cidade de Canaã dos Carajás, existem apenas **duas** empresas do ramo de ferro e aço, situadas defronte uma da outra, e **somente a primeira autora tem a sua administração cotidiana exercida por uma mulher — precisamente a segunda autora**. A conjugação dos três elementos objetivos da publicação — ramo ("empresa de ferro"), localização ("lá no final da cidade") e gênero de quem gere ("quem vai está na frente da sua empresa") — individualiza os ofendidos perante o público local (prova documental da exclusividade a instruir esta inicial, e prova testemunhal adiante requerida).
 
 <!-- SOJ: F02 | P08,P09 | PED03,PED04 | - -->
 

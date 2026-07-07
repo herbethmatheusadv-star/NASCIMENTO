@@ -1,8 +1,8 @@
 # PENDÊNCIAS
 
 ## CRITICA
-- **PEN02** (cliente): Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) — bloqueia: G3
-- **PEN04** (advogado): Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente — bloqueia: G3
+- **PEN02** (cliente): Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3) — bloqueia: nada
+- **PEN04** (advogado): Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3) — bloqueia: nada
 
 ## ALTA
 - **PEN01** (cliente): Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato — bloqueia: nada
