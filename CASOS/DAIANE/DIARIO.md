@@ -102,3 +102,15 @@ Analise critica da MINUTA_v02 por IA externa (ChatGPT), trazida pelo titular. Cl
 Origem: sistema.
 MINUTA_v03 gerada implementando a analise externa classificada (#024). Sao 10 pedidos (a-j), liminares reorganizadas por destinatario (Meta terceira / re), negativa expressa como item 2 dos fatos, so os dois perfis confessados. Astreinte revista: R\$ 2.000 por publicacao + R\$ 500/dia, teto R\$ 20.000 (substitui a proposta #022). AGUARDA: revisao do titular e respostas aos pontos abertos (Stone; e-mails; conciliacao; pacote da exclusividade).
 ---
+## #026 | 2026-07-07 11:56 | DECISAO_ADVOGADO
+Origem: titular.
+Fechamento dos pontos abertos da v03: (1) VETO A STONE MANTIDO — qualificacao da re somente pelos sistemas conveniados, como esta na peca; (2) CONCILIACAO: desinteresse CONFIRMADO (criterio celeridade); (3) E-MAILS das autoras NAO serao indicados (opcao do titular; a peca permanece silente quanto as autoras e declara desconhecido o da re); (4) PACOTE DA EXCLUSIVIDADE (fotos, CNPJ, mapa) e CONTRATO SOCIAL serao anexados posteriormente pelo titular — PEN02/PEN04 permanecem abertas bloqueando o G3; entram pela porta unica quando chegarem.
+---
+## #027 | 2026-07-07 12:03 | PESQUISA
+Origem: sistema.
+PEN10 executada — e a verificacao na fonte DERRUBOU uma citacao: o PDF oficial da ed. 130 do Jurisprudencia em Teses/STJ (lido na integra) NAO contem tese sobre vitima determinada ou identificavel — a atribuicao vinha de fonte secundaria e e FALSA. A v03 citava a edicao para a identificabilidade; a v04 corrige: II.2 sustenta a identificabilidade por construcao logica (sem citacao), e II.3 ganha a TESE 8 (real, literal, com 6 precedentes civeis: REsp 1.771.866/DF, 1.567.988/PR, 1.322.264/AL, 1.652.588/SP, 1.627.863/DF, AgRg AREsp 606.415/RJ) — limites da liberdade de critica. Verbete STJ:teses130 reescrito com o teor literal; ANTITESE registrada em civel.md: nunca citar ed. 130 para identificabilidade. COLHEITA: antitese nova + confirmacao da regra nada de segunda mao em peca.
+---
+## #028 | 2026-07-07 12:03 | MINUTA
+Origem: sistema.
+MINUTA_v04 gerada a partir da v03 com duas correcoes da verificacao na fonte (#027): II.2 sem a citacao inexistente; II.3 com a tese 8 literal da ed. 130 e precedentes civeis. Versoes v02/v03 preservadas. Pronta para revisao do titular e do subscritor.
+---

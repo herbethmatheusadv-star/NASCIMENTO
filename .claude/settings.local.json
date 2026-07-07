@@ -111,7 +111,8 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" DAIANE G2)",
       "PowerShell(\"=== G1 ===\")",
       "PowerShell(\"=== G2 \\(previa - espera reprovar so na ratificacao em bloco\\) ===\")",
-      "PowerShell(\"=== G2 ===\")"
+      "PowerShell(\"=== G2 ===\")",
+      "WebFetch(domain:scon.stj.jus.br)"
     ]
   }
 }

@@ -429,11 +429,13 @@ pendencias:
   status: resolvida
   resolucao: Meta retirada do polo passivo na v03 (terceira destinataria) — qualificacao completa desnecessaria; ordem via representante no Brasil
 - id: PEN10
-  descricao: 'Antes do G3: extrair do portal do STF a tese LITERAL do Tema 987 (inteiro teor/ata) e da ed. 130 das Jurisprudencias em Teses do STJ a tese literal + REsp que a lastreiam (sinteses de fonte secundaria nao entram em peca)'
+  descricao: 'Antes do G3: extrair da ed. 130 das Jurisprudencias em Teses do STJ a tese LITERAL da identificabilidade + REsp que a lastreiam (unica citacao de 2a mao restante na v03 — o Tema 987 saiu da peca na v03)'
   responsavel: advogado
   prioridade: critica
   bloqueia:
   - G3
+  status: resolvida
+  resolucao: 'Verificacao na fonte concluida (#027): citacao falsa removida da peca; tese 8 real (literal, precedentes civeis) inserida na v04'
 instrumentais:
 - id: INS01
   tipo: identidade

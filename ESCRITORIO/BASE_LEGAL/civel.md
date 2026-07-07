@@ -145,14 +145,17 @@
 **Notas de uso:** (a) NO 2026-0004, o tema serve para DELIMITAR: a ré pessoa física NÃO é provedora — o regime protetivo nunca a alcançou; sua responsabilidade é direta (CC 186/927); (b) contra a META, reforça deveres (representante no Brasil, canais acessíveis) e a exposição pós-notificação extrajudicial; (c) ANTES DE CITAR NOMINALMENTE na peça: extrair a tese oficial do inteiro teor/ata no portal do STF (a síntese acima é de fontes secundárias qualificadas).
 **Casos que citam:** 2026-0004
 
-## STJ:teses130 — STJ, Jurisprudência em Teses ed. 130 (identificação da vítima nos crimes contra a honra)
-**Tese (síntese):** para os crimes contra a honra basta que a vítima seja DETERMINADA OU IDENTIFICÁVEL DE FORMA INEQUÍVOCA pelo contexto da imputação, dispensada a menção nominal — cargo, função, características exclusivas ou circunstâncias que individualizem o ofendido perante o público destinatário satisfazem o requisito. Racional transponível à responsabilidade civil por ofensa à honra.
-**Fonte:** https://www.stj.jus.br/internet_docs/jurisprudencia/jurisprudenciaemteses/ (edição 130 — crimes contra a honra)
+## STJ:teses130 — STJ, Jurisprudência em Teses ed. 130, TESE 8 (limites da liberdade de crítica)
+**Texto literal (tese 8):** "A ampla liberdade de informação, opinião e crítica jornalística reconhecida constitucionalmente à imprensa não é um direito absoluto, encontrando limitações, tais como a preservação dos direitos da personalidade, nestes incluídos os direitos à honra, à imagem, à privacidade e à intimidade, sendo vedada a veiculação de críticas com a intenção de difamar, injuriar ou caluniar."
+**Julgados que a lastreiam (todos cíveis):** REsp 1.771.866/DF (3ª T., j. 12/02/2019); REsp 1.567.988/PR (3ª T., j. 13/11/2018); REsp 1.322.264/AL (4ª T., j. 20/09/2018); REsp 1.652.588/SP (3ª T., j. 26/09/2017); REsp 1.627.863/DF (4ª T., j. 25/10/2016); AgRg no AREsp 606.415/RJ (4ª T., j. 07/04/2015).
+**Fonte:** https://scon.stj.jus.br/docs_internet/jurisprudencia/jurisprudenciaemteses/Jurisprudencia%20em%20Teses%20130%20-%20Dos%20Crimes%20Contra%20a%20Honra.pdf (PDF oficial lido na íntegra em 2026-07-07)
 **Verificado em:** 2026-07-07 · **Validade:** 180 dias
-**Notas de uso:** coração da tese de identificabilidade do 2026-0004 (ramo + localização + gênero da gestão = individualização). ANTES DE CITAR NOMINALMENTE: abrir a ed. 130 no site do STJ, copiar a tese literal e os REsp que a lastreiam (regra da casa: nada de segunda mão na peça). A MELHOR prova da tese é fática: terceiros identificaram ESPONTANEAMENTE (P08/P09).
+**Notas de uso:** perfeita para o 2026-0004: o "jornalismo de fofoca" comercial não tem escudo absoluto de liberdade de expressão. ATENÇÃO — ver antítese na seção final sobre o que esta edição NÃO contém.
 **Casos que citam:** 2026-0004
 
 ## NÃO VERIFICADOS (não citar)
+
+- **ANTÍTESE (verificada na fonte em 2026-07-07): a ed. 130 do Jurisprudência em Teses NÃO contém tese sobre "vítima determinada ou identificável"** — essa atribuição circula em fontes secundárias e NÃO CONSTA do PDF oficial (as 13 teses reais tratam de dolo específico, exceção da verdade, imunidades etc.). A identificabilidade civil deve ser sustentada por construção lógica sobre os fatos e, se necessário, por precedentes específicos a verbetar um a um. NUNCA citar "ed. 130" para identificabilidade.
 
 - CC:art944 (grau de culpa no arbitramento) — verbetar se a peça usar o argumento do lucro com a ofensa como vetor de quantum.
 - Lei 13.188/2015 (direito de resposta) — verbetar se o pedido de retratação for ancorado nela.
