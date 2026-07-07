@@ -274,3 +274,7 @@ Destilacao UNICA dos autos sinteticos (fatias integrais 2,5,6,7,8,14 — orcamen
 G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 Itens reprovados: Fatos essenciais com status honesto (provado/alegado/controverso/alegado_pelo_adversario)
 ---
+## #060 | 2026-07-07 08:45 | GATE
+G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
+Itens reprovados: Fatos essenciais com status honesto (provado/alegado/controverso/alegado_pelo_adversario)
+---

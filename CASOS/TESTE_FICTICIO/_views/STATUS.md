@@ -33,10 +33,10 @@ atualizado: 2026-07-07 08:45
 - Partes: 3 · Fatos: 5 (provados 3 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #060 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #059 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #058 | 2026-07-07 08:45 | DESTILACAO_AUTOS — Origem: sistema.
 - #057 | 2026-07-07 08:34 | AUTOS_ANEXADOS — Origem: sistema.
 - #056 | 2026-07-07 08:30 | AUTOS_ANEXADOS — Origem: sistema.
-- #055 | 2026-07-06 23:03 | GATE — G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-06.md
 
 _Gerado por gerar_views.py — não editar._
