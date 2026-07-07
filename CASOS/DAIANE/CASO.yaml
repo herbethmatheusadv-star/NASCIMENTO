@@ -1,0 +1,359 @@
+# =====================================================================
+# CASO.yaml — FONTE DA VERDADE deste caso (SOJ, blueprint secao 3).
+# Modelo comentado completo: ESCRITORIO/MODELOS/CASO.schema.yaml
+# Regra de ouro: informacao vive AQUI, uma unica vez. Views sao geradas.
+# IDs estaveis: PT=parte, F=fato, P=prova, PED=pedido, PZ=prazo, PEN=pendencia.
+# =====================================================================
+
+caso:
+  id: 2026-0004
+  titulo: "NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados"
+  area: civel                # familia | consumidor | bancario | ...
+  modulo: civel/honra_reputacao (nasce deste caso)            # ex.: familia/alimentos_guarda_convivencia
+  complexidade: padrao  # simples | padrao | complexo (D9)
+  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
+  comarca: "Canaa dos Carajas/PA"
+  polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
+  segredo_justica: false  # true quando ha menores / dados sensiveis
+  gates:
+    G1:
+      status: reprovado
+      data: '2026-07-07'
+      diario: '#005'
+    G2: {status: pendente}
+    G3: {status: pendente}
+
+partes:
+- id: PT01
+  papel: autora_1_pj
+  nome: NASCIMENTO FERRO E ACO LTDA
+  cnpj: 56.001.353/0001-60
+  representante: HERBETH MATHEUS MENDONCA DO NASCIMENTO (socio-adm, conforme procuracao INS02)
+  qualificacao: incompleta
+  pendencia: PEN02
+- id: PT02
+  papel: autora_2_pf
+  nome: DAIANE COSTA ASSUNCAO
+  cpf: 042.831.402-36
+  rg: 7.936.461
+  qualificacao: completa — RG/CPF conferidos no BO (P01) e na procuracao (INS02)
+- id: PT03
+  papel: re
+  nome: BRUNA AURORA DE ALMEIDA DOROTEIO (adm. dos perfis @babadosdecanaareserva / @babadosdecanaarsv / @babadosdecanaaoficial — identificada pela cadeia Pix P04/P05)
+  endereco:
+    status: nao_confirmado
+    pendencia: PEN03
+- id: PT04
+  papel: re_subsidiaria
+  nome: META PLATFORMS, INC. (so p/ exibicao de dados, MCI art. 22)
+# - { id: PT01, papel: autora_representante, nome: "...", cpf: "...",
+#     renda_mensal: 0.00, qualificacao: completa }
+# - { id: PT02, papel: reu, nome: "...",
+#     endereco: { status: nao_confirmado, pendencia: PEN01 } }
+
+fatos:
+- id: F01
+  descricao: "Story ofensivo publicado pelo perfil @babadosdecanaareserva em 05/07/2026 ~19h19 (teor integral no print P06; texto SIC: 'fica dano em cima do homem casado')"
+  status: provado
+  provas:
+  - P06
+  - P08
+  - P09
+  - P01
+- id: F02
+  descricao: Identificabilidade dos autores (unica loja de ferro da regiao gerida por mulher) — nucleo da causa de pedir
+  status: alegado
+  provas:
+  - P08
+  - P09
+  pendencias:
+  - PEN04
+  justificativa: P08/P09 provam que terceiros IDENTIFICARAM ('essas meninas'; a propria vitima recebeu de varios lados); a EXCLUSIVIDADE local (so duas lojas, so uma gerida por mulher) ainda depende de prova (PEN04)
+- id: F03
+  descricao: Mesma pessoa administra os perfis (confissao 'Sim as duas sao minhas' + mesma chave Pix)
+  status: provado
+  provas:
+  - P02
+  - P03
+  - P04
+  - P05
+- id: F04
+  descricao: 'Re identificada: Bruna Aurora de Almeida Doroteio (chave Pix babadosdecanaa@yahoo.com resolve para o nome no app do banco — Stone IP S.A.)'
+  status: provado
+  provas:
+  - P04
+  - P05
+- id: F05
+  descricao: 'Perfil e COMERCIAL e cobra por publicacao (tabela: 1 story R$30 ate 8 stories R$150; destaques R$100/90d) — curadoria editorial REMUNERADA'
+  status: provado
+  provas:
+  - P03
+- id: F06
+  descricao: 'Repercussao local: story compartilhado e comentado por terceiros; vitima recebeu de multiplas fontes'
+  status: provado
+  provas:
+  - P06
+  - P07
+  - P08
+  - P09
+- id: F07
+  descricao: 'BO 00156/2026.102866-5 registrado em 06/07/2026 (difamacao). ATENCAO: BO consigna data do FATO como 05/06/2026 — divergencia com os prints (05/07/2026): provavel erro de digitacao da delegacia'
+  status: provado
+  provas:
+  - P01
+  pendencias:
+  - PEN08
+- id: F08
+  descricao: ATA NOTARIAL afirmada como 'anexa' na minuta importada — NAO EXISTE na pasta (fato orfao da minuta de IA). Story ja indisponivel (P02 mostra 'Story indisponivel')
+  status: alegado
+  provas: []
+  pendencias:
+  - PEN06
+- id: F09
+  descricao: NOTIFICACAO EXTRAJUDICIAL previa afirmada na minuta (data em placeholder) — NAO EXISTE na pasta; o argumento do art. 19 do MCI (inercia apos notificacao) esta SEM LASTRO
+  status: alegado
+  provas: []
+  pendencias:
+  - PEN05
+# status: provado | alegado | controverso. Provado exige prova; sem prova,
+# abrir pendencia (ou campo justificativa: "...").
+# - { id: F01, descricao: "...", status: alegado, provas: [], pendencias: [PEN01] }
+
+provas:
+- id: P01
+  doc: 01_documentos/DOC-01_BOLETIM_DE_OCORRENCIA.pdf
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Boletim de Ocorrencia.pdf
+  sha256: f25af6f7cc7d8c328faa67e91f4a0cc003b70be7fea7d19e2e71329bb7672b33
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P02
+  doc: 01_documentos/DOC-03_CONFIRMACAO_DA_PEFIL_0.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (0).jpeg
+  sha256: deb35f756911a247196259bae63bd69c579c030ce20fd63922df0345e269bd7e
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P03
+  doc: 01_documentos/DOC-04_CONFIRMACAO_DA_PEFIL_1.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (1).jpeg
+  sha256: e547822bedde684b3110b8a59af61440324c32cc436be50d5ecbd52d3451b827
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P04
+  doc: 01_documentos/DOC-05_CONFIRMACAO_DA_PEFIL_2.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (2).jpeg
+  sha256: 86de5889e8dada580eef6341cabcdc588a07f9e7e746480c79eb3f0fad50b689
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P05
+  doc: 01_documentos/DOC-06_CONFIRMACAO_DA_PEFIL_3.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (3).jpeg
+  sha256: 81dd32702384908e6290ef2140d17332d102ca6bbfc3bed0400aee1fb6c001da
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P06
+  doc: 01_documentos/DOC-07_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (1).jpeg
+  sha256: fb2de4ab332af0c94846b79e77af0b61686e1df66248f4a020ed6f673b1a1537
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P07
+  doc: 01_documentos/DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (2).jpeg
+  sha256: 45817bffbaaa485390a0ecc4078ac369e31d7ed54142f48ccc12456fbc25f1ee
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P08
+  doc: 01_documentos/DOC-09_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (3).jpeg
+  sha256: cffe0078cb2f1e16ab018abee79c75ee5f9dcccd785e8cb37fe910e13a5289aa
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+- id: P09
+  doc: 01_documentos/DOC-10_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (4).jpeg
+  sha256: f0f382631f0d7e5ed10a5c4e2deb2627bbfe77ef3938d923dd5c91939f5f38e6
+  o_que_prova: (importada do colaborador — revisar na engenharia reversa)
+  forca: relativa
+  fragilidade: importada sem analise propria; forca a confirmar na revisao do titular
+# Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
+# - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
+#     o_que_prova: "...", forca: plena, fragilidade: null }
+
+pedidos:
+- id: PED01
+  tipo: tutela_urgencia_remocao
+  parametro: remocao do conteudo de todos os perfis + astreinte (minuta nao sugere valor da multa — definir)
+  fundamentos: []
+  fatos:
+  - F01
+  - F03
+  - F06
+- id: PED02
+  tipo: exibicao_de_dados
+  parametro: oficio a META (dados cadastrais/IP dos 3 perfis e do autor da mensagem original)
+  fundamentos: []
+  fatos:
+  - F03
+  - F04
+- id: PED03
+  tipo: danos_morais_pj
+  parametro: R$ 10.000,00 p/ a empresa — PROPOSTA PC01 aguardando ratificacao
+  fundamentos: []
+  fatos:
+  - F01
+  - F02
+  - F06
+- id: PED04
+  tipo: danos_morais_pf
+  parametro: R$ 10.000,00 p/ Daiane — PROPOSTA PC01 aguardando ratificacao
+  fundamentos: []
+  fatos:
+  - F01
+  - F02
+  - F06
+- id: PED05
+  tipo: obrigacao_de_fazer_retratacao
+  parametro: retratacao publica em igual formato e visibilidade
+  fundamentos: []
+  fatos:
+  - F01
+  - F06
+# - { id: PED01, tipo: ..., parametro: "... — DECISAO_SISTEMA #NNN",
+#     fundamentos: [CC:art1694], fatos: [F01] }
+
+fundamentos_citados: []
+# Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
+# nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
+# - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
+#     validade_dias: 90, nucleo: true }
+
+financeiro:
+  contrato:
+    tipo: a_definir     # fixo | percentual | exito | misto | probono
+    valor: 0.00
+    parcelas: 0
+    doc_assinado: false         # true quando o contrato assinado for arquivado (DOC-NN)
+  custas: []
+  # - { data: 2026-01-01, descricao: "custas iniciais", valor: 0.00 }
+  recebimentos: []
+  # - { data: 2026-01-01, descricao: "parcela 1/N", valor: 0.00 }
+
+audiencias: []
+# - { data: 2026-01-01, hora: "09:00", tipo: instrucao, local: "...", status: designada }
+
+prazos: []
+# - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
+# Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
+
+pendencias:
+- id: PEN01
+  descricao: 'Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato'
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+  mensagem_cliente: o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
+# responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
+# critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
+# mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
+# - { id: PEN01, descricao: "...", responsavel: cliente, prioridade: critica,
+#     bloqueia: [G3], mensagem_cliente: "..." }
+- id: PEN02
+  descricao: Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio)
+  responsavel: cliente
+  prioridade: critica
+  bloqueia:
+  - G3
+  mensagem_cliente: o contrato social da empresa (ultima alteracao consolidada)
+- id: PEN03
+  descricao: Qualificacao da re Bruna Aurora (CPF, endereco) — diligenciar ou requerer em juizo
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: []
+- id: PEN04
+  descricao: 'Prova da identificabilidade: so duas lojas de ferro na via e so a autora gerida por mulher (testemunhas, fotos da via, pesquisa de mercado local)'
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: []
+- id: PEN05
+  descricao: 'DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05)'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia:
+  - G3
+- id: PEN06
+  descricao: Ata notarial afirmada na minuta NAO existe; story ja indisponivel — avaliar ata notarial das CONVERSAS e PERFIS (ainda acessiveis) e preservacao via pedido judicial
+  responsavel: advogado
+  prioridade: critica
+  bloqueia:
+  - G3
+- id: PEN07
+  descricao: 'Criar BASE_LEGAL/civel.md com verbetes verificados NA FONTE: CC 186 e 927, MCI (L12965) arts. 19 e 22, CPC 300 e 85, Sumula 227 STJ (citada de memoria pela IA)'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia:
+  - G3
+- id: PEN08
+  descricao: 'Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca'
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: []
+instrumentais:
+- id: INS01
+  tipo: identidade
+  doc: 01_documentos/DOC-02_CNH_E_SOCIO_ADMINISTRADOR.pdf
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/CNH-e_SÓCIO ADMINISTRADOR.pdf
+  sha256: cb280e088acb4b1848ae75853687f1948b66ea5ee1a0626e797d46eb94699e64
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+- id: INS02
+  tipo: procuracao
+  doc: 01_documentos/DOC-11_PROCURACAO_AD_JUDICIA_ASSINADA.pdf
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Procuracao_Ad_Judicia_assinada.pdf
+  sha256: ca45c1697106f6ff41c852614a1778e054529ac74c3dc61e6a28cc865b40cfab
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+- id: INS03
+  tipo: identidade
+  doc: 01_documentos/DOC-12_RG.pdf
+  original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/RG.pdf
+  sha256: b8c00c12f123f03f5846d020e50736f39077405535594d41a72c45d902d91349
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+propostas_colaborador:
+- id: PC01
+  tema: quantum_danos_morais
+  proposta: R$ 10.000 p/ empresa + R$ 10.000 p/ Daiane; valor da causa R$ 20.000 (soma coerente)
+  observacao: modulo civel nasce deste caso — sem praxe propria ainda; parametro a validar na E2
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+  status: aguardando_ratificacao
+  diario: '#003'
+- id: PC02
+  tema: competencia_e_rito
+  proposta: Vara Civel de Canaa dos Carajas/PA (rito comum)
+  observacao: 'alternativa nao discutida pela minuta: JEC (Lei 9.099) se a PJ for ME/EPP — avaliar custas x agilidade'
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+  status: aguardando_ratificacao
+  diario: '#003'
+- id: PC03
+  tema: estrategia_marco_civil
+  proposta: Fundar a responsabilidade TAMBEM no art. 19 do MCI (notificacao previa + inercia)
+  observacao: 'SEM LASTRO HOJE: a notificacao nao existe (F09). Alternativa do sistema: responsabilidade DIRETA por curadoria remunerada (F05 — tabela de precos) via CC 186/927, com o MCI apenas p/ exibicao de dados (art. 22)'
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+  status: aguardando_ratificacao
+  diario: '#003'
+- id: PC04
+  tema: polo_passivo
+  proposta: Peca 1 mantem reu como '[NOME DO ADMINISTRADOR]' a diligenciar
+  observacao: "as provas P04/P05 JA identificam Bruna Aurora de Almeida Doroteio (cadeia Pix) — recomendacao do sistema: nomear a re desde a inicial (como fazia a versao preterida 'Pela 2')"
+  origem: colaborador IA EXTERNA (ChatGPT ou similar)
+  status: aguardando_ratificacao
+  diario: '#003'
+declaracoes:
+  sem_prazos:
+    diario: '#004'

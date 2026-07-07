@@ -50,7 +50,8 @@ INSTRUMENTAL_RE = re.compile(
     r"honorari|hipossufici|declara[cç][aã]o de pobreza|gratuidade", re.I)
 MINUTA_RE = re.compile(
     r"peti[cç][aã]o|pe[cç]a|minuta|inicial|contesta[cç][aã]o|defesa|"
-    r"r[eé]plica|recurso|apela[cç][aã]o|agravo|embargos|a[cç][aã]o de", re.I)
+    r"r[eé]plica|recurso|apela[cç][aã]o|agravo|embargos|a[cç][aã]o de|"
+    r"a[cç][aã]o judicial|\bpela\s*\d", re.I)
 TIPOS_INSTRUMENTAL = [
     (re.compile(r"procura[cç][aã]o", re.I), "procuracao"),
     (re.compile(r"(?:^|[\s_\-])rg(?:[\s_\-]|\.|$)|cnh|identidade", re.I), "identidade"),

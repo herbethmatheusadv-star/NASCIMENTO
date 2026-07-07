@@ -87,7 +87,15 @@ def ocr_pagina(pdf_path, indice):
                                                DataWriter)
 
     doc = pdfium.PdfDocument(str(pdf_path))
-    pil = doc[indice].render(scale=300 / 72).to_pil().convert("RGB")
+    pagina = doc[indice]
+    # OCR do Windows tem limite de dimensao: paginas escaneadas gigantes
+    # sao renderizadas em escala menor (bug pego no 1o BO real)
+    w_pt, h_pt = pagina.get_size()
+    escala = 300 / 72
+    maior = max(w_pt, h_pt) * escala
+    if maior > 7000:
+        escala = 7000 / max(w_pt, h_pt)
+    pil = pagina.render(scale=escala).to_pil().convert("RGB")
     doc.close()
     buf = io.BytesIO()
     pil.save(buf, "PNG")
