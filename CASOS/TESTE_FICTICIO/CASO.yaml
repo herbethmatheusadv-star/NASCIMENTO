@@ -18,9 +18,9 @@ caso:
   segredo_justica: true  # true quando ha menores / dados sensiveis
   gates:
     G1:
-      status: aprovado
-      data: '2026-07-06'
-      diario: '#054'
+      status: reprovado
+      data: '2026-07-07'
+      diario: '#059'
     G2:
       status: reprovado
       data: '2026-07-06'
@@ -54,6 +54,16 @@ fatos:
   provas: [P02]
   nota: "tese da inicial adversaria ficticia — ver analise adversarial na ESTRATEGIA"
 
+- id: F05
+  descricao: FIXTURE ONDA5 — Reu admitiu em audiencia renda media de R$ 3.000-4.000 como motorista de aplicativo (autos sinteticos, ata, fls. 24-25)
+  status: provado
+  provas: []
+  justificativa: confissao em audiencia registrada em ata — fls. 24-25 dos autos anexados
+- id: F06
+  descricao: FIXTURE ONDA5 — Sentenca fixou alimentos em 25 por cento do SM por filho + 50 por cento das extraordinarias (autos sinteticos, fls. 59-62)
+  status: provado
+  provas: []
+  justificativa: teor da propria sentenca — fls. 59-62 dos autos
 provas:
 - id: P01
   doc: 01_documentos/DOC-01_CERTIDAO_NASCIMENTO_ANA_FICTICIA.pdf
@@ -154,6 +164,10 @@ prazos:
   origem: DOC-04_ATA_AUDIENCIA_INSTRUCAO_FICTICIA.md (P04)
   status: prejudicado
   nota: memoriais ficticios do teste da Onda 2; teste concluido
+- id: PZ05
+  descricao: FIXTURE ONDA5 — prazo recursal da sentenca sintetica (15 dias uteis; publicacao DJe 03/07/2026; autos fls. 59-62)
+  data: '2026-07-24'
+  criticidade: alta
 pendencias:
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
 # critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
@@ -164,3 +178,115 @@ pendencias:
 declaracoes:
 # Registros estruturados exigidos pelos gates (Adendo A2).
   checklist_cliente_enviado: {diario: '#003', data: 2026-07-04}
+autos:
+  descricao: AUTOS SINTETICOS ONDA5
+  processo: 0800123-45.2026.8.14.0040
+  arquivo: 00_originais/autos_AUTOS_SINTETICOS_ONDA5/AUTOS_0800123-45.2026.pdf
+  sha256: 66aca274b42b2527d459df83e1783b3b55ff7dbe69b4c2216ced193b9b484106
+  paginas: 62
+  anexado_em: 2026-07-07 08:34
+  ocr_local:
+  - 9
+  - 46
+  ocr_pendente: []
+  midias:
+  - 00_originais/autos_AUTOS_SINTETICOS_ONDA5/AUDIENCIA_15062026_GRAVACAO.opus
+  fatias:
+  - n: 1
+    fls: 1-1
+    tipo: capa
+    classe: nunca_ler
+    data: 10/03/2026
+    tokens_est: 67
+    lido:
+  - n: 2
+    fls: 2-7
+    tipo: peticao_inicial
+    classe: ler_integral
+    data: 10/03/2026
+    tokens_est: 5485
+    lido: 2026-07-07 (#058)
+  - n: 3
+    fls: 8-9
+    tipo: procuracao
+    classe: sob_demanda
+    data: 05/03/2026
+    tokens_est: 98
+    lido:
+  - n: 4
+    fls: 10-10
+    tipo: certidao
+    classe: nunca_ler
+    data: 10/03/2026
+    tokens_est: 46
+    lido:
+  - n: 5
+    fls: 11-18
+    tipo: contestacao
+    classe: ler_integral
+    data: 28/04/2026
+    tokens_est: 6993
+    lido: 2026-07-07 (#058)
+  - n: 6
+    fls: 19-22
+    tipo: replica
+    classe: ler_integral
+    data: 20/05/2026
+    tokens_est: 3415
+    lido: 2026-07-07 (#058)
+  - n: 7
+    fls: 23-23
+    tipo: despacho
+    classe: ler_integral
+    data: 15/06/2026
+    tokens_est: 54
+    lido: 2026-07-07 (#058)
+  - n: 8
+    fls: 24-25
+    tipo: ata_audiencia
+    classe: ler_integral
+    data: 15/06/2026
+    tokens_est: 152
+    lido: 2026-07-07 (#058)
+  - n: 9
+    fls: 26-45
+    tipo: documento
+    classe: sob_demanda
+    data:
+    tokens_est: 16412
+    lido:
+  - n: 10
+    fls: 46-46
+    tipo: documento
+    classe: sob_demanda
+    data:
+    tokens_est: 45
+    lido:
+  - n: 11
+    fls: 47-47
+    tipo: ar
+    classe: nunca_ler
+    data: 05/04/2026
+    tokens_est: 40
+    lido:
+  - n: 12
+    fls: 48-48
+    tipo: guia_custas
+    classe: nunca_ler
+    data: 09/03/2026
+    tokens_est: 37
+    lido:
+  - n: 13
+    fls: 49-58
+    tipo: laudo
+    classe: sob_demanda
+    data: 01/06/2026
+    tokens_est: 8499
+    lido:
+  - n: 14
+    fls: 59-62
+    tipo: sentenca
+    classe: ler_integral
+    data: 01/07/2026
+    tokens_est: 3584
+    lido: 2026-07-07 (#058)

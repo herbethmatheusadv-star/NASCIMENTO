@@ -86,7 +86,14 @@
       "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\eng_reversa_import.py\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_IMPORTACAO G1)",
       "PowerShell(\"=== G1 do caso importado apos ajustes ===\")",
-      "PowerShell(\"=== regressao final do laboratorio permanente ===\")"
+      "PowerShell(\"=== regressao final do laboratorio permanente ===\")",
+      "PowerShell(python -m pip install pypdf pypdfium2 fpdf2 pillow --quiet)",
+      "PowerShell(python -c \"import pypdf, pypdfium2, fpdf, PIL; print\\('pypdf', pypdf.__version__, '| pypdfium2', pypdfium2.__version__, '| fpdf2 ok | pillow ok'\\)\")",
+      "PowerShell(winget install -e --id UB-Mannheim.TesseractOCR --scope user --accept-source-agreements --accept-package-agreements --disable-interactivity --silent)",
+      "PowerShell(python -m pip install winrt-runtime winrt-Windows.Media.Ocr winrt-Windows.Graphics.Imaging winrt-Windows.Storage.Streams winrt-Windows.Foundation winrt-Windows.Foundation.Collections winrt-Windows.Globalization --quiet)",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\montar_autos_sinteticos.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\anexar_autos.py\" TESTE_FICTICIO \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\autos_sinteticos\" --descricao \"AUTOS SINTETICOS ONDA5\" --processo \"0800123-45.2026.8.14.0040\")",
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\reset_autos_lab.py\")"
     ]
   }
 }

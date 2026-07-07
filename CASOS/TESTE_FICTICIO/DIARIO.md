@@ -258,3 +258,19 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-06.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #056 | 2026-07-07 08:30 | AUTOS_ANEXADOS
+Origem: sistema.
+AUTOS ANEXADOS: AUTOS SINTETICOS ONDA5 (62 fls., SHA-256 66aca274b42b2527d459df83e1783b3b55ff7dbe69b4c2216ced193b9b484106). Extracao por script; OCR local nas fls. nenhuma; OCR PENDENTE nas fls. [9, 46]. 45 fatias no indice (_views/AUTOS_INDICE.md). PLANO: 13 integrais (~13623 tokens), 3 nunca-ler (excluidas), 29 sob demanda (~31079 tokens). Tier A (<=100 fls.): destilacao das integrais autorizada pelo D11 — fundamento: piramide da secao 13; alternativa descartada: leitura completa; confianca: alta. Midias: AUDIENCIA_15062026_GRAVACAO.opus. Cadeia de custodia: manifesto SHA-256 por arquivo.
+---
+## #057 | 2026-07-07 08:34 | AUTOS_ANEXADOS
+Origem: sistema.
+AUTOS ANEXADOS: AUTOS SINTETICOS ONDA5 (62 fls., SHA-256 66aca274b42b2527d459df83e1783b3b55ff7dbe69b4c2216ced193b9b484106). Extracao por script; OCR local nas fls. [9, 46]. 14 fatias no indice (_views/AUTOS_INDICE.md). PLANO: 6 integrais (~19683 tokens), 4 nunca-ler (excluidas), 4 sob demanda (~25054 tokens). Tier A (<=100 fls.): destilacao das integrais autorizada pelo D11 — fundamento: piramide da secao 13; alternativa descartada: leitura completa; confianca: alta. Midias: AUDIENCIA_15062026_GRAVACAO.opus. Cadeia de custodia: manifesto SHA-256 por arquivo.
+---
+## #058 | 2026-07-07 08:45 | DESTILACAO_AUTOS
+Origem: sistema.
+Destilacao UNICA dos autos sinteticos (fatias integrais 2,5,6,7,8,14 — orcamento ~19.7k tokens, Tier A <=100 fls., DECISAO_SISTEMA em #057). LINHA DO TEMPO: distribuicao 10/03/2026 (fls. 1) -> inicial pede 30 por cento SM/filho, valor da causa R$ 11.671,20 (fls. 2-7) -> contestacao 28/04: desemprego alegado, pede 15 por cento SM/filho (fls. 11-18) -> replica 20/05: desemprego sem CTPS, pede CNIS/SISBAJUD (fls. 19-22) -> despacho 25/05 designa audiencia (fls. 23) -> audiencia 15/06: conciliacao infrutifera, REU CONFESSA renda R$ 3-4 mil (fls. 24-25) -> SENTENCA parcialmente procedente: 25 por cento SM/filho + 50 por cento extraordinarias, publicada 01/07, DJe 03/07, prazo recursal 15 dias uteis (fls. 59-62). TESES: autora = renda estimada 6.5k + redes sociais; reu = desemprego + boa-fe dos pagamentos parciais. Fatos F05/F06 e prazo PZ05 (2026-07-24) gravados na ficha. Paginas digitalizadas fls. 9 (RG) e 46 (comprovante PIX R$ 486,30 de 02/06/2026) lidas por OCR LOCAL. Midia dos autos: gravacao da audiencia (.opus) lacrada — degravacao sob demanda pelo transcritor local. REGRA DO CACHE: estas fatias NUNCA se releem; sessoes futuras usam esta entrada + AUTOS_INDICE.md.
+---
+## #059 | 2026-07-07 08:45 | GATE
+G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
+Itens reprovados: Fatos essenciais com status honesto (provado/alegado/controverso/alegado_pelo_adversario)
+---
