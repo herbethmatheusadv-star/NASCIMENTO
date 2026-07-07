@@ -11,7 +11,7 @@ caso:
   area: civel                # familia | consumidor | bancario | ...
   modulo: civel/honra_reputacao (nasce deste caso)            # ex.: familia/alimentos_guarda_convivencia
   complexidade: padrao  # simples | padrao | complexo (D9)
-  fase: E2_estrategia           # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase: E3_minuta               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
   comarca: "Canaa dos Carajas/PA"
   polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
@@ -22,9 +22,9 @@ caso:
       data: '2026-07-07'
       diario: '#018'
     G2:
-      status: reprovado
+      status: aprovado
       data: '2026-07-07'
-      diario: '#019'
+      diario: '#021'
     G3: {status: pendente}
 
 partes:
@@ -156,14 +156,14 @@ provas:
   sha256: 86de5889e8dada580eef6341cabcdc588a07f9e7e746480c79eb3f0fad50b689
   o_que_prova: Chave Pix babadosdecanaa@yahoo.com resolve p/ BRUNA AURORA DE ALMEIDA DOROTEIO
   forca: forte_indiciaria
-  fragilidade: 'print unilateral — porem REPRODUZIVEL: consulta DICT refaz-se a qualquer momento; oficio a Stone IP S.A. confirma em definitivo'
+  fragilidade: 'print unilateral — porem REPRODUZIVEL (consulta DICT); oficio a Stone VETADO pelo titular (#020) por celeridade: fica como contingencia se a re negar a titularidade'
 - id: P05
   doc: 01_documentos/DOC-06_CONFIRMACAO_DA_PEFIL_3.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Confirmação da pefil (3).jpeg
   sha256: 81dd32702384908e6290ef2140d17332d102ca6bbfc3bed0400aee1fb6c001da
   o_que_prova: Tela do banco confirmando titular da chave (Stone IP S.A.)
   forca: forte_indiciaria
-  fragilidade: idem P04 — verificavel por oficio
+  fragilidade: idem P04 — contingencia defensiva, nao pedido da inicial
 - id: P06
   doc: 01_documentos/DOC-07_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg
   original: 00_originais/importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (1).jpeg
@@ -343,7 +343,7 @@ pendencias:
   prioridade: alta
   bloqueia: []
 - id: PEN04
-  descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel)'
+  descricao: 'Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente'
   responsavel: advogado
   prioridade: critica
   bloqueia:
@@ -449,8 +449,8 @@ testemunhas:
   vinculo: funcionario da autora (contradita provavel; ouvir como informante se preciso)
   confirma: circulacao do story (P08) e autenticidade da propria conversa
 - nome: DAIANE RIBEIRO
-  vinculo: ex-funcionaria (a confirmar pelo titular que e ela a indicada)
+  vinculo: ex-funcionaria (CONFIRMADO pelo titular)
   confirma: recebimento/compartilhamento do story (P06) e autenticidade da propria conversa
 - nome: ANA CELIA
-  vinculo: A CONFIRMAR — se sem vinculo com a empresa, e a testemunha-chave da identificabilidade
-  confirma: '(definir: identificacao publica dos autores / repercussao)'
+  vinculo: auxiliar administrativa da empresa de Parauapebas (vinculo com o grupo — contradita possivel)
+  confirma: 'repercussao/identificacao (como informante, se contraditada)'

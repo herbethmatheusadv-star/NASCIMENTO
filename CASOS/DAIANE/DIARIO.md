@@ -79,3 +79,10 @@ G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 G2 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 Itens reprovados: Ratificacao em bloco registrada; Tier B com 'ok' expresso
 ---
+## #020 | 2026-07-07 11:31 | RATIFICACAO
+Origem: titular.
+RATIFICACAO EM BLOCO com veto pontual (manifestacao do titular): RATIFICADAS #012 (P07 fora da peca), #013 (preservacao Meta como pedido prioritario) e #015 (autenticacao dos prints sem ata). VETADA #014 (oficio a Stone IP S.A.): nas palavras do titular, seria inutil na pratica, atrasaria o processo e daria municao a outra parte e ao judiciario — o oficio fica apenas como CONTINGENCIA defensiva se a re negar a titularidade da chave Pix em contestacao. CRITERIO DE CONDUCAO do caso fixado pelo titular: TUDO QUE NAO TROUXER CELERIDADE SE ELIMINA. Testemunhas confirmadas: Daiane Ribeiro e a ex-funcionaria; ANA CELIA e auxiliar administrativa da empresa de Parauapebas — as TRES testemunhas tem vinculo: a perna independente da identificabilidade passa a ser exclusivamente o pacote objetivo da PEN04 (fotos, CNPJ, mapa). COLHEITA: criterio celeridade>exaustividade como diretriz da praxe do titular (proposta a ratificar na colheita).
+---
+## #021 | 2026-07-07 11:31 | GATE
+G2 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
+---
