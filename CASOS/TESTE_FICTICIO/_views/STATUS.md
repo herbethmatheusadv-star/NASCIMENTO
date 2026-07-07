@@ -18,7 +18,7 @@ atualizado: 2026-07-07 08:47
 
 **Cliente/pasta:** TESTE_FICTICIO · **Caso:** 2026-0001 · **Área:** familia · **Módulo:** familia/alimentos_guarda_convivencia
 **Fase interna:** E2_estrategia · **Fase processual:** pre_protocolo · **Complexidade:** simples · **Segredo de justiça:** sim
-**Gates:** G1 aprovado (2026-07-07) · G2 reprovado (2026-07-06) · G3 pendente
+**Gates:** G1 aprovado (2026-07-07) · G2 reprovado (2026-07-07) · G3 pendente
 
 ## Próximos prazos
 - PZ02 — **2026-06-30** (alta): TESTE DO VIGIA: prazo vencido de mentira
@@ -33,10 +33,10 @@ atualizado: 2026-07-07 08:47
 - Partes: 3 · Fatos: 5 (provados 3 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #062 | 2026-07-07 08:47 | GATE — G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 - #061 | 2026-07-07 08:47 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #060 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #059 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #058 | 2026-07-07 08:45 | DESTILACAO_AUTOS — Origem: sistema.
-- #057 | 2026-07-07 08:34 | AUTOS_ANEXADOS — Origem: sistema.
 
 _Gerado por gerar_views.py — não editar._
