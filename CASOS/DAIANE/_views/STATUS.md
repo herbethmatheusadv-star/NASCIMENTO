@@ -3,22 +3,22 @@ caso_id: 2026-0004
 cliente: DAIANE
 titulo: "NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados"
 area: civel
-fase: E3_minuta
+fase: E4_protocolo
 fase_processual: pre_protocolo
 complexidade: padrao
 g1: aprovado
 g2: aprovado
-g3: reprovado
+g3: aprovado
 proximo_prazo: ""
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-07 13:25
+atualizado: 2026-07-07 13:28
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
 
 **Cliente/pasta:** DAIANE · **Caso:** 2026-0004 · **Área:** civel · **Módulo:** civel/honra_reputacao (nasce deste caso)
-**Fase interna:** E3_minuta · **Fase processual:** pre_protocolo · **Complexidade:** padrao · **Segredo de justiça:** não
-**Gates:** G1 aprovado (2026-07-07) · G2 aprovado (2026-07-07) · G3 reprovado (2026-07-07)
+**Fase interna:** E4_protocolo · **Fase processual:** pre_protocolo · **Complexidade:** padrao · **Segredo de justiça:** não
+**Gates:** G1 aprovado (2026-07-07) · G2 aprovado (2026-07-07) · G3 aprovado (2026-07-07)
 
 ## Próximos prazos
 - Nenhum prazo registrado.
@@ -31,10 +31,10 @@ atualizado: 2026-07-07 13:25
 - Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 5
 
 ## Últimas entradas do diário
+- #034 | 2026-07-07 13:28 | GATE — G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
+- #033 | 2026-07-07 13:28 | DECISAO_ADVOGADO — Origem: titular.
 - #032 | 2026-07-07 13:25 | GATE — G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
 - #031 | 2026-07-07 13:25 | NOTA — Origem: sistema.
 - #030 | 2026-07-07 13:25 | NOTA — Origem: sistema.
-- #029 | 2026-07-07 13:25 | DECISAO_ADVOGADO — Origem: titular.
-- #028 | 2026-07-07 12:03 | MINUTA — Origem: sistema.
 
 _Gerado por gerar_views.py — não editar._

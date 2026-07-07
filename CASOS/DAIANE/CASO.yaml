@@ -11,7 +11,7 @@ caso:
   area: civel                # familia | consumidor | bancario | ...
   modulo: civel/honra_reputacao (nasce deste caso)            # ex.: familia/alimentos_guarda_convivencia
   complexidade: padrao  # simples | padrao | complexo (D9)
-  fase: E3_minuta               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase: E4_protocolo            # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
   comarca: "Canaa dos Carajas/PA"
   polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
@@ -26,9 +26,9 @@ caso:
       data: '2026-07-07'
       diario: '#021'
     G3:
-      status: reprovado
+      status: aprovado
       data: '2026-07-07'
-      diario: '#032'
+      diario: '#034'
   valor_causa: R$ 20.000,00
 
 partes:
@@ -503,6 +503,8 @@ declaracoes:
   conferencia_final:
     diario: '#031'
     cruzada_com_decisoes: true
+  revisao_humana_integral:
+    diario: '#033'
 testemunhas:
 - nome: RONIELSON
   vinculo: funcionario da autora (contradita provavel; ouvir como informante se preciso)

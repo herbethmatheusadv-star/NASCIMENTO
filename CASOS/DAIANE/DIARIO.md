@@ -130,3 +130,10 @@ CONFERENCIA FINAL CRUZADA peca x decisoes (G3 item 8): quantum 10k+10k e valor d
 G3 executado: REPROVADO. 8/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
 Itens reprovados: Advogado declarou revisao humana integral da peca (declaracoes.revisao_humana_integral)
 ---
+## #033 | 2026-07-07 13:28 | DECISAO_ADVOGADO
+Origem: titular.
+REVISAO HUMANA INTEGRAL declarada pelo titular: leitura completa da MINUTA_v04 com aprovacao expressa dos 5 pontos do relatorio de revisao — (a) negativa expressa nos termos da cliente; (b) texto da retratacao; (c) valores das multas; (d) endereco da 2a autora conferido; (e) explicacao da data do BO. APROVO A V04 (sic). v04 CONGELADA como versao de protocolo. Compromissos do ato de protocolo (decisao #029): juntar contrato social + pacote da exclusividade no PJe e preencher a data.
+---
+## #034 | 2026-07-07 13:28 | GATE
+G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
+---
