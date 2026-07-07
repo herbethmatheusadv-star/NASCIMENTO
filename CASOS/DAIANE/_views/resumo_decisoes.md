@@ -8,5 +8,6 @@ Decisões DECISAO_SISTEMA do DIARIO (D11). Para ratificar em bloco, registre uma
 | #013 | 2026-07-07 11:25 | Origem: sistema. | A | alta | ratificada (#020) |
 | #014 | 2026-07-07 11:25 | Origem: sistema. | A | alta | ratificada (#020) |
 | #015 | 2026-07-07 11:25 | Origem: sistema. | A | media | ratificada (#020) |
+| #022 | 2026-07-07 11:38 | Origem: sistema. | A | media | aguardando ratificação |
 
 _Gerado por gerar_views.py — não editar._

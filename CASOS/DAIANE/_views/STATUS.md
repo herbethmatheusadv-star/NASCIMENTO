@@ -11,7 +11,7 @@ g2: aprovado
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 3
-atualizado: 2026-07-07 11:31
+atualizado: 2026-07-07 11:38
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
@@ -32,10 +32,10 @@ atualizado: 2026-07-07 11:31
 - Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 7
 
 ## Últimas entradas do diário
+- #023 | 2026-07-07 11:38 | MINUTA — Origem: sistema.
+- #022 | 2026-07-07 11:38 | DECISAO_SISTEMA — Origem: sistema.
 - #021 | 2026-07-07 11:31 | GATE — G2 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 - #020 | 2026-07-07 11:31 | RATIFICACAO — Origem: titular.
 - #019 | 2026-07-07 11:26 | GATE — G2 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
-- #018 | 2026-07-07 11:26 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
-- #017 | 2026-07-07 11:26 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 
 _Gerado por gerar_views.py — não editar._

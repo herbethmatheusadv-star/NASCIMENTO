@@ -86,3 +86,11 @@ RATIFICACAO EM BLOCO com veto pontual (manifestacao do titular): RATIFICADAS #01
 ## #021 | 2026-07-07 11:31 | GATE
 G2 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 ---
+## #022 | 2026-07-07 11:38 | DECISAO_SISTEMA
+Origem: sistema.
+Astreinte proposta na tutela (item b): R\$ 500,00/dia com teto de R\$ 15.000,00. Fundamento: proporcional ao porte da re (perfil local que fatura R\$ 30-150 por story) e suficiente para dissuadir; teto evita discussao de enriquecimento. Alternativa descartada: deixar integralmente ao arbitrio judicial (sinaliza menos seriedade no pedido). Confianca: media — titular pode vetar/ajustar na revisao.
+---
+## #023 | 2026-07-07 11:38 | MINUTA
+Origem: sistema.
+MINUTA_v02 gerada pelo sistema (E3), implementando a estrategia ratificada: responsabilidade DIRETA da curadora remunerada (CC 186/927 + Tema 987 fechando a porta do art. 19), Bruna nomeada como re com diligencia de qualificacao (SIEL/INFOJUD), preservacao Meta como pedido liminar prioritario (MCI 15/22, requisitos do art. 22 espelhados um a um), transcricao SIC do story, vinculos das testemunhas declarados por lealdade processual, data do BO explicada como erro material, dano da PF com recorte de genero, Sumula 227 com repercussao documentada, retratacao em igual formato, valor da causa R\$ 20.000. SEM ata notarial, SEM notificacao, SEM oficio Stone (decisoes #011/#020). Tags SOJ por paragrafo. Citacoes STF/STJ em carater descritivo — teor literal a confirmar antes do G3 (PEN10). AGUARDA: revisao do titular (e do subscritor Dr. Carlos Eduardo).
+---
