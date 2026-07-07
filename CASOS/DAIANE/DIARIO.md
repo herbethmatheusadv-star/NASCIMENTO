@@ -137,3 +137,6 @@ REVISAO HUMANA INTEGRAL declarada pelo titular: leitura completa da MINUTA_v04 c
 ## #034 | 2026-07-07 13:28 | GATE
 G3 executado: APROVADO. 9/9 itens. Relatorio: _views/gate_G3_2026-07-07.md
 ---
+## #035 | 2026-07-07 13:29 | NOTA
+Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v04.md (12 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
+---
