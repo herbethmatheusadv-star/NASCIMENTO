@@ -155,3 +155,11 @@ CICLO DE COLHEITA executado (gatilho: colheita manual): proposta de aprendizado 
 Origem: sistema.
 AUDITORIA POS-CASO (pedido do titular): 4 falhas do sistema corrigidas em definitivo — (1) DOCX do protocolo REFEITO pela skill oficial formatacao-peticoes-nascimento (timbrado + Century Gothic 11 + espacamento simples 20/10 + titulos I)/2.1.; o DOCX anterior, feito a mao, violava o padrao e foi substituido; conteudo conferido identico a v04); (2) ESTRATEGIA.md T6 corrigida (art. 15 par.1 nao se aplica a Meta) + antitese gravada no verbete MCI:art15; (3) regra nova do kernel: jurisprudencia de segunda mao NUNCA entra em minuta antes do teor literal verificado; (4) preparar_protocolo.py agora exclui automaticamente provas categoria nao_juntar do pacote e do indice (testado). Colheita manual rodada: 16 candidatos em _views/PROPOSTA_DE_APRENDIZADO.md aguardando ratificacao — o modulo civel/honra_reputacao nasce dela.
 ---
+## #040 | 2026-07-07 18:16 | RATIFICACAO
+Origem: titular.
+PROPOSTA DE APRENDIZADO do caso 2026-0004 RATIFICADA EM BLOCO pelo titular, sem vetos (_views/PROPOSTA_DE_APRENDIZADO.md, colheita #038). Autorizada a promocao dos 16 candidatos: nasce o modulo ESCRITORIO/MODULOS/civel/ (honra e reputacao digital) com praxe decisoria, decisoes reservadas, anti-erro fatal, teses com antiteses, checklist documental e template extraido da MINUTA_v04 congelada. Praxe local: primeira anotacao (n=1, Vara Civel de Canaa dos Carajas — quantum pedido 10k+10k; resultado pendente de sentenca).
+---
+## #041 | 2026-07-07 18:19 | NOTA
+Origem: sistema.
+PROMOCAO EXECUTADA (ratificacao #040): modulo ESCRITORIO/MODULOS/civel/ criado com 7 arquivos — MODULO.md, praxe_decisoria (10 ramos Tier A/B + camada LOCAL com a anotacao n=1 de Canaa), decisoes_reservadas (10 reservas, incl. o criterio celeridade do titular), anti_erro_fatal (11 itens, todos pagos com erro real), teses (T1-T8 + 6 ANTITESES, incl. A4 ed. 130 e A5 art. 15 par.1), checklist_documental (+ 7 perguntas do atendimento digital) e template da inicial extraido da MINUTA_v04 aprovada. CLAUDE.md e kernel atualizados: civel agora e modulo PLENO. A catraca avancou um dente; anti-erro do modulo passa a valer no G3 dos proximos casos da area.
+---

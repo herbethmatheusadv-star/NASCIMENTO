@@ -34,7 +34,8 @@ importantes.
 - Comandos padrão do sistema: skill `soj-kernel` (.claude/skills/soj-kernel/).
 - Módulos PLENOS: `familia/` · `consumidor_aguas/` (negativação × Águas do
   Pará, JEC) · `bancario_ccb/` (defesa em execução de CCB × cooperativas —
-  **modo defesa nativo: novo caso da área nasce --polo passivo**). Cada um:
+  **modo defesa nativo: novo caso da área nasce --polo passivo**) ·
+  `civel/` (honra e reputação digital — nascido do caso 2026-0004). Cada um:
   praxe_decisoria (árvore Tier A/B + camada LOCAL), decisoes_reservadas,
   checklist_documental, anti_erro_fatal, teses (com antiteses) e templates.
   Esqueletos: `trabalhista/`, `previdenciario/` (módulo nasce do caso 1).

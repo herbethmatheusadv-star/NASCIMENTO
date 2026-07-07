@@ -128,6 +128,16 @@ Regras INEGOCIÁVEIS do modo:
 - Mídias dentro dos autos (.opus etc.): lacradas no mesmo manifesto;
   degravação sob demanda pelo transcritor local.
 
+## MÓDULO CÍVEL (honra/reputação digital — PLENO desde 07/07/2026)
+
+- `ESCRITORIO/MODULOS/civel/`: praxe com 10 ramos (identificação por
+  cadeia Pix; usuário-editor ≠ provedor; plataforma como TERCEIRA;
+  relógio de 6 meses; identificabilidade em duas pernas), 10 decisões
+  reservadas (quantum SEMPRE Tier B; critério celeridade do titular),
+  anti-erro fatal de 11 itens, teses T1-T8 + 6 antíteses (A4: a "tese de
+  identificabilidade da ed. 130" NÃO EXISTE), checklist com as 7 perguntas
+  do atendimento digital, template da inicial. Camada LOCAL: n=1 (Canaã).
+
 ## VALORAÇÃO DE PROVAS E REGRAS DA PEÇA (aprendizados do caso 2026-0004)
 
 - **Valoração de provas é ETAPA PADRÃO da E2**: antes do G2, cada prova

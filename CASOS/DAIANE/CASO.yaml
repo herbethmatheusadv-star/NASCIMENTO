@@ -9,7 +9,7 @@ caso:
   id: 2026-0004
   titulo: "NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados"
   area: civel                # familia | consumidor | bancario | ...
-  modulo: civel/honra_reputacao (nasce deste caso)            # ex.: familia/alimentos_guarda_convivencia
+  modulo: civel/honra_reputacao                               # ex.: familia/alimentos_guarda_convivencia
   complexidade: padrao  # simples | padrao | complexo (D9)
   fase: E4_protocolo            # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado

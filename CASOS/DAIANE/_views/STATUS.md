@@ -11,12 +11,12 @@ g2: aprovado
 g3: aprovado
 proximo_prazo: ""
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-07 18:13
+atualizado: 2026-07-07 18:19
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
 
-**Cliente/pasta:** DAIANE · **Caso:** 2026-0004 · **Área:** civel · **Módulo:** civel/honra_reputacao (nasce deste caso)
+**Cliente/pasta:** DAIANE · **Caso:** 2026-0004 · **Área:** civel · **Módulo:** civel/honra_reputacao
 **Fase interna:** E4_protocolo · **Fase processual:** pre_protocolo · **Complexidade:** padrao · **Segredo de justiça:** não
 **Gates:** G1 aprovado (2026-07-07) · G2 aprovado (2026-07-07) · G3 aprovado (2026-07-07)
 
@@ -31,10 +31,10 @@ atualizado: 2026-07-07 18:13
 - Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 5
 
 ## Últimas entradas do diário
+- #041 | 2026-07-07 18:19 | NOTA — Origem: sistema.
+- #040 | 2026-07-07 18:16 | RATIFICACAO — Origem: titular.
 - #039 | 2026-07-07 18:12 | NOTA — Origem: sistema.
 - #038 | 2026-07-07 18:12 | NOTA — CICLO DE COLHEITA executado (gatilho: colheita manual): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 16 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
 - #037 | 2026-07-07 13:31 | NOTA — Origem: sistema.
-- #036 | 2026-07-07 13:30 | NOTA — Origem: sistema.
-- #035 | 2026-07-07 13:29 | NOTA — Pacote de protocolo montado em PROTOCOLO/ a partir de MINUTA_v04.md (12 documento(s), tags SOJ removidas). Proximo passo: formatar em DOCX timbrado (skill formatacao-peticoes-nascimento), protocolar e registrar EVENTO_PROCESSUAL.
 
 _Gerado por gerar_views.py — não editar._

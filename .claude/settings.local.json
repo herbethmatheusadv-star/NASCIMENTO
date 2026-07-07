@@ -133,7 +133,9 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\colher_aprendizados.py\" DAIANE)",
       "PowerShell(python -c \"import sys; sys.path.insert\\(0, r'ESCRITORIO\\\\scripts'\\); import soj_lib as soj; e = soj.parse_diario\\(soj.CASOS / 'DAIANE'\\)[-1]; print\\('ultima entrada:', e['num'], e['tipo']\\)\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" DAIANE)",
-      "PowerShell(git commit -m \"views regeneradas apos trava transitoria do OneDrive no PAINEL\" --quiet)"
+      "PowerShell(git commit -m \"views regeneradas apos trava transitoria do OneDrive no PAINEL\" --quiet)",
+      "PowerShell(New-Item -ItemType Directory -Force \"ESCRITORIO\\\\MODULOS\\\\civel\\\\templates\")",
+      "PowerShell(\"pasta criada\")"
     ]
   }
 }
