@@ -144,7 +144,7 @@ está provada; arriscá-la enfraquece). A3 — afirmar prova que não existe
 | Ré sem patrimônio (execução frustrada) | Quantum moderado já ratificado; retratação pública (T8) tem valor reputacional independente de solvência |
 | Identificabilidade contestada | PEN04 CRÍTICA: exclusividade objetiva + testemunhas independentes; prints internos só como reforço declarado |
 | Contradita das testemunhas internas | Ronielson/Daiane Ribeiro ouvidos como informantes se preciso; o caso NÃO pode depender deles |
-| Unilateralidade dos prints (fonte única: aparelho de Carlos Eduardo) | Ata notarial das conversas NO aparelho (uma só ata cobre P02-P06/P08-P09) + ofício à Stone (chave Pix) + exibição Meta; jurisprudência: print vale salvo adulteração demonstrada, ata evita a discussão |
+| Unilateralidade dos prints (fonte única: aparelho de Carlos Eduardo) | Ata notarial DESCARTADA e ofício à Stone VETADO pelo titular (celeridade — #011/#020, aceite de risco #015): sustentação por custódia hash + reprodutibilidade da consulta Pix + exibição Meta + depoimento dos interlocutores; contingências (ata/ofício) reativáveis se a autenticidade for impugnada |
 
 **Aceites de risco:** nenhum pendente — todas as linhas acima têm
 contramedida ativa.
@@ -160,7 +160,7 @@ contramedida ativa.
 | P01 BO | Registro público contemporâneo pela vítima | relativa | útil | JUNTAR (com a explicação da data) |
 | P02 "as duas são minhas" | Os perfis têm um só dono | forte (indício) | **essencial** | JUNTAR + ata notarial |
 | P03 tabela de preços + Pix | Perfil é NEGÓCIO (curadoria paga) | forte (indício) | **essencial** (sustenta T1/T2) | JUNTAR + ata notarial |
-| P04/P05 chave Pix → Bruna | Identidade da ré | forte e **reproduzível** | **essencial** | JUNTAR + pedir ofício à Stone IP S.A. |
+| P04/P05 chave Pix → Bruna | Identidade da ré | forte e **reproduzível** | **essencial** | JUNTAR (ofício à Stone VETADO — #020: só como contingência se a ré negar a titularidade) |
 | P06 story compartilhado | TEOR integral da ofensa (única fonte do conteúdo) | indiciária | **essencial** | JUNTAR (vínculo da remetente declarado) |
 | P07 WhatsApp ex-funcionária | Quase nada (conversa pessoal, mensagens apagadas) | fraca | dispensável | **NÃO JUNTAR** |
 | P08 Ronielson + LINK do story | Circulação + URL específica do story | indiciária | útil (o link vale ouro p/ a exibição Meta) | JUNTAR (vínculo declarado) |
@@ -171,9 +171,10 @@ contramedida ativa.
 
 A procedência se apoia em **quatro pilares**, cada um com sua prova-rainha:
 
-1. **QUEM publicou** — FECHADO. P02-P05 + ofício à Stone (confirma a
-   titularidade da chave Pix em juízo) + exibição Meta (art. 22). É o
-   pilar mais forte; nenhuma providência externa pendente.
+1. **QUEM publicou** — FECHADO. P02-P05 + exibição Meta (art. 22). O
+   ofício à Stone foi VETADO por celeridade (#020) e fica na manga: só
+   entra se a ré negar a titularidade da chave em contestação (aí vira
+   requerimento de instrução, sem atrasar nada).
 2. **O QUE foi publicado** — BOM, com urgência. P06 (teor) + P08 (o LINK
    do story!) + preservação IMEDIATA na Meta (MCI:art15 — registros
    expiram em ~6 meses). A ata notarial das conversas sela o pilar.
@@ -188,7 +189,7 @@ A procedência se apoia em **quatro pilares**, cada um com sua prova-rainha:
    jun×jul/2026, se houver queda. Para a Daiane, dano in re ipsa com
    componente de gênero.
 
-**Sequência recomendada até o protocolo:** (1º) ata notarial das conversas
+**Sequência recomendada até o protocolo (revista em #020 — sem ata, sem ofício):** (1º) pacote da exclusividade objetiva + declarações das testemunhas (PEN04); (2º) contrato social (PEN02); (3º) teses literais STF/STJ (PEN10); (4º) minuta v02 → véspera → G3. [Trecho original mantido abaixo como histórico da recomendação vetada:] (1º) ata notarial das conversas
 no aparelho do Carlos Eduardo — uma ata cobre P02, P03, P04, P06, P08 e
 P09 de uma vez; (2º) pacote da exclusividade objetiva + testemunhas
 (PEN04); (3º) contrato social (PEN02); (4º) teses literais STF/STJ
