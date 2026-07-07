@@ -83,7 +83,10 @@
       "PowerShell(& \"C:\\\\Users\\\\nasci\\\\.soj\\\\transcritor\\\\venv\\\\Scripts\\\\python.exe\" -m pip install faster-whisper)",
       "PowerShell(Add-Type -AssemblyName System.Speech; $s = New-Object System.Speech.Synthesis.SpeechSynthesizer; $s.GetInstalledVoices\\(\\) | ForEach-Object { \"$\\($_.VoiceInfo.Name\\) | $\\($_.VoiceInfo.Culture\\)\" }; $s.Dispose\\(\\))",
       "PowerShell(& \"C:\\\\Users\\\\nasci\\\\.soj\\\\transcritor\\\\venv\\\\Scripts\\\\python.exe\" -c \"import faster_whisper, ctranslate2, av; print\\('faster-whisper', faster_whisper.__version__, '| ctranslate2', ctranslate2.__version__, '| av', av.__version__\\)\")",
-      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\eng_reversa_import.py\")"
+      "PowerShell(python \"C:\\\\Users\\\\nasci\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-nasci-OneDrive-Documentos-NASCIMENTO\\\\af54358e-a93a-4ef7-8b92-42e7f998944d\\\\scratchpad\\\\eng_reversa_import.py\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TESTE_IMPORTACAO G1)",
+      "PowerShell(\"=== G1 do caso importado apos ajustes ===\")",
+      "PowerShell(\"=== regressao final do laboratorio permanente ===\")"
     ]
   }
 }

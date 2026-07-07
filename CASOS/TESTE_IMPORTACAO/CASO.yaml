@@ -9,7 +9,7 @@ caso:
   id: 2026-0003
   titulo: "CLARA x CARLOS - Alimentos (LAB IMPORTACAO)"
   area: familia                # familia | consumidor | bancario | ...
-  modulo: a_definir            # ex.: familia/alimentos_guarda_convivencia
+  modulo: familia/alimentos_guarda_convivencia # ex.: familia/alimentos_guarda_convivencia
   complexidade: padrao  # simples | padrao | complexo (D9)
   fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
   fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
@@ -20,7 +20,7 @@ caso:
     G1:
       status: reprovado
       data: '2026-07-06'
-      diario: '#004'
+      diario: '#005'
     G2: {status: pendente}
     G3: {status: pendente}
 
@@ -28,7 +28,8 @@ partes:
 - id: PT01
   papel: autora_representante
   nome: CLARA FICTICIA DA SILVA
-  qualificacao: incompleta — minuta importada nao traz CPF/endereco (PEN04)
+  qualificacao: incompleta
+  pendencia: PEN04
 - id: PT02
   papel: reu
   nome: CARLOS FICTICIO DE SOUZA

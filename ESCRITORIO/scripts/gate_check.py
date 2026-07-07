@@ -83,11 +83,20 @@ def checar_g1(pasta, dados, entradas):
         if docs_dir.exists() else []
 
     # 1. originais preservados + todo doc registrado como P## com original
+    #    (ou como INSTRUMENTAL — classe propria da v1.10: prova representacao,
+    #    nao fato; entra pela porta de importacao)
     problemas = []
-    registrados = {str(p.get("doc", "")).replace("01_documentos/", "") for p in provas}
+    instrumentais = dados.get("instrumentais") or []
+    registrados = {str(p.get("doc", "")).replace("01_documentos/", "")
+                   for p in list(provas) + list(instrumentais)}
     for a in arquivos:
         if a not in registrados:
-            problemas.append(f"{a} esta em 01_documentos/ mas nao registrado como prova")
+            problemas.append(f"{a} esta em 01_documentos/ mas nao registrado "
+                             "como prova nem como instrumental")
+    for i in instrumentais:
+        orig = str(i.get("original", ""))
+        if orig and not (pasta / orig).exists():
+            problemas.append(f"{i.get('id')}: original nao encontrado ({orig})")
     for p in provas:
         orig = str(p.get("original", ""))
         if not orig:
@@ -394,7 +403,8 @@ def checar_g3(pasta, dados, entradas):
     arquivos = {a.name for a in docs_dir.iterdir() if a.is_file()} \
         if docs_dir.exists() else set()
     registrados = {str(p.get("doc", "")).replace("01_documentos/", "")
-                   for p in (dados.get("provas") or [])}
+                   for p in list(dados.get("provas") or [])
+                   + list(dados.get("instrumentais") or [])}
     for a in sorted(arquivos - registrados):
         problemas.append(f"arquivo sem registro: {a}")
     for r in sorted(registrados - arquivos):

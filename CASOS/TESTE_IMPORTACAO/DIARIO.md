@@ -20,3 +20,7 @@ Engenharia reversa da MINUTA_v01 importada (confianca zero): 3 fatos (F02 provad
 G1 executado: REPROVADO. 2/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
 Itens reprovados: Originais preservados e documentos registrados (P## com original); Toda parte com qualificacao completa OU pendencia aberta; Prazos identificados (PZ##) ou declaracoes.sem_prazos com referencia ao DIARIO; Complexidade classificada (D9) e modulo definido; Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
 ---
+## #005 | 2026-07-06 23:03 | GATE
+G1 executado: REPROVADO. 5/7 itens. Relatorio: _views/gate_G1_2026-07-06.md
+Itens reprovados: Prazos identificados (PZ##) ou declaracoes.sem_prazos com referencia ao DIARIO; Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
+---

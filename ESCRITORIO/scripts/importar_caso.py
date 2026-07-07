@@ -211,6 +211,7 @@ def main():
     ap.add_argument("--colaborador", required=True,
                     help='Quem trabalhou o caso (ex.: "DR. FULANO — estagiario")')
     ap.add_argument("--area", default="a_definir")
+    ap.add_argument("--modulo", default="a_definir")
     ap.add_argument("--titulo", default="")
     ap.add_argument("--comarca", default="a_definir")
     ap.add_argument("--polo", default="ativo", choices=["ativo", "passivo"])
@@ -272,8 +273,8 @@ def main():
     pasta = soj.CASOS / args.cliente.strip()
     if not pasta.exists():
         cmd = [sys.executable, str(Path(__file__).parent / "novo_caso.py"),
-               args.cliente, "--area", args.area, "--comarca", args.comarca,
-               "--polo", args.polo]
+               args.cliente, "--area", args.area, "--modulo", args.modulo,
+               "--comarca", args.comarca, "--polo", args.polo]
         if args.titulo:
             cmd += ["--titulo", args.titulo]
         if args.segredo:
