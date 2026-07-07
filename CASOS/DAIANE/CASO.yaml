@@ -20,7 +20,7 @@ caso:
     G1:
       status: reprovado
       data: '2026-07-07'
-      diario: '#005'
+      diario: '#006'
     G2: {status: pendente}
     G3: {status: pendente}
 
@@ -37,7 +37,8 @@ partes:
   nome: DAIANE COSTA ASSUNCAO
   cpf: 042.831.402-36
   rg: 7.936.461
-  qualificacao: completa — RG/CPF conferidos no BO (P01) e na procuracao (INS02)
+  qualificacao: completa
+  nota: RG/CPF conferidos no BO (P01) e na procuracao (INS02)
 - id: PT03
   papel: re
   nome: BRUNA AURORA DE ALMEIDA DOROTEIO (adm. dos perfis @babadosdecanaareserva / @babadosdecanaarsv / @babadosdecanaaoficial — identificada pela cadeia Pix P04/P05)
@@ -52,6 +53,8 @@ partes:
 # - { id: PT02, papel: reu, nome: "...",
 #     endereco: { status: nao_confirmado, pendencia: PEN01 } }
 
+  qualificacao: incompleta
+  pendencia: PEN09
 fatos:
 - id: F01
   descricao: "Story ofensivo publicado pelo perfil @babadosdecanaareserva em 05/07/2026 ~19h19 (teor integral no print P06; texto SIC: 'fica dano em cima do homem casado')"
@@ -305,6 +308,11 @@ pendencias:
   descricao: 'Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca'
   responsavel: advogado
   prioridade: alta
+  bloqueia: []
+- id: PEN09
+  descricao: 'Qualificacao da META p/ citacao: definir se cita META PLATFORMS INC (EUA) ou a representante brasileira (Facebook Servicos Online do Brasil Ltda) — endereco e CNPJ a levantar'
+  responsavel: advogado
+  prioridade: media
   bloqueia: []
 instrumentais:
 - id: INS01

@@ -11,7 +11,7 @@ g2: pendente
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 4
-atualizado: 2026-07-07 10:47
+atualizado: 2026-07-07 10:48
 ---
 
 # STATUS — NASCIMENTO FERRO E ACO + DAIANE x adm. perfil Babados de Canaa - Obrigacao de fazer c/c danos morais e exibicao de dados
@@ -30,13 +30,13 @@ atualizado: 2026-07-07 10:47
 - PEN07 (advogado): Criar BASE_LEGAL/civel.md com verbetes verificados NA FONTE: CC 186 e 927, MCI (L12965) arts. 19 e 22, CPC 300 e 85, Sumula 227 STJ (citada de memoria pela IA) — bloqueia G3
 
 ## Números do caso
-- Partes: 4 · Fatos: 9 (provados 6 / alegados 3 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 8
+- Partes: 4 · Fatos: 9 (provados 6 / alegados 3 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 9
 
 ## Últimas entradas do diário
+- #006 | 2026-07-07 10:48 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #005 | 2026-07-07 10:47 | GATE — G1 executado: REPROVADO. 5/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #004 | 2026-07-07 10:47 | NOTA — Origem: sistema.
 - #003 | 2026-07-07 10:47 | ENGENHARIA_REVERSA — Origem: sistema.
 - #002 | 2026-07-07 10:40 | IMPORTACAO — Origem: colaborador IA EXTERNA (ChatGPT ou similar) (importado pelo sistema).
-- #001 | 2026-07-07 10:40 | NOTA — Caso criado pelo novo_caso.py. Id: 2026-0004. Area: civel. Modulo: civel/honra_reputacao (nasce deste caso). Complexidade: padrao. Fase: E1_intake.
 
 _Gerado por gerar_views.py — não editar._

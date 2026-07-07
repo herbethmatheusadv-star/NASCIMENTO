@@ -24,3 +24,7 @@ SEM PRAZOS PROCESSUAIS nesta fase (pre-protocolo; nada ajuizado). Urgencia FATIC
 G1 executado: REPROVADO. 5/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 Itens reprovados: Toda parte com qualificacao completa OU pendencia aberta; Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
 ---
+## #006 | 2026-07-07 10:48 | GATE
+G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
+Itens reprovados: Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
+---

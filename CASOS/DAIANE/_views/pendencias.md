@@ -12,4 +12,7 @@
 - **PEN04** (advogado): Prova da identificabilidade: so duas lojas de ferro na via e so a autora gerida por mulher (testemunhas, fotos da via, pesquisa de mercado local) — bloqueia: nada
 - **PEN08** (advogado): Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca — bloqueia: nada
 
+## MEDIA
+- **PEN09** (advogado): Qualificacao da META p/ citacao: definir se cita META PLATFORMS INC (EUA) ou a representante brasileira (Facebook Servicos Online do Brasil Ltda) — endereco e CNPJ a levantar — bloqueia: nada
+
 _Gerado por gerar_views.py — não editar._
