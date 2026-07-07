@@ -128,6 +128,30 @@ Regras INEGOCIÁVEIS do modo:
 - Mídias dentro dos autos (.opus etc.): lacradas no mesmo manifesto;
   degravação sob demanda pelo transcritor local.
 
+## VALORAÇÃO DE PROVAS E REGRAS DA PEÇA (aprendizados do caso 2026-0004)
+
+- **Valoração de provas é ETAPA PADRÃO da E2**: antes do G2, cada prova
+  recebe força × o que realmente prova × fragilidade × **veredicto de
+  juntada** (tabela na ESTRATEGIA). Prova fraca nos autos é munição da
+  defesa: veredicto `nao_juntar` vira campo `categoria: nao_juntar` na
+  ficha — a prova fica no acervo e o `preparar_protocolo` a exclui do
+  pacote sozinho. Testemunhas SEMPRE com vínculo anotado (campo
+  `testemunhas:`); caso dependendo só de declarantes internos = alertar.
+- **Jurisprudência de segunda mão NUNCA entra em minuta**: tese/verbete
+  de tribunal só é citado na peça DEPOIS do teor literal conferido na
+  fonte oficial (a "tese da ed. 130" que a internet inteira repete NÃO
+  EXISTE no PDF do STJ — pego na véspera do 2026-0004). Legislação já
+  segue esta regra por extração; jurisprudência agora também, SEM exceção.
+- **Pasta bagunçada já dentro de CASOS/**: mover para `_ENTRADA/<NOME>/`
+  (fica preservada) e rodar a porta adequada (novo caso / importação) —
+  os scripts não criam caso sobre pasta existente, de propósito.
+- **DOCX final SEMPRE pela skill `formatacao-peticoes-nascimento`**
+  (timbrado + Century Gothic 11, espaçamento simples, antes 20pt/depois
+  10pt, títulos I) II) maiúscula+negrito). É skill de USUÁRIO — aparece
+  na lista de skills da sessão, NÃO em `.claude/skills/` deste repositório;
+  conferir a lista antes de concluir que "não existe" (erro cometido e
+  corrigido no 2026-0004). Nunca formatar peça à mão com python-docx.
+
 ## PORTA DE IMPORTAÇÃO (blueprint v1.10 §7 — caso pré-trabalhado)
 
 - **"importar caso trabalhado: [pasta]"** → `importar_caso.py CLIENTE PASTA

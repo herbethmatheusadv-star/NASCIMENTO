@@ -148,3 +148,10 @@ PROTOCOLO/ ajustado a DECISAO_SISTEMA #012 (ratificada #020): DOC-08 (P07, conve
 Origem: sistema.
 DOCX da peticao gerado no padrao da casa (Century Gothic 11, margens 3/2/2/2, corpo justificado — padrao aferido no DOCX da TANIA) em PROTOCOLO/. SEM timbrado do escritorio NASCIMENTO de proposito: o subscritor e o Dr. Carlos Eduardo (OAB/PA 32.708), que pode aplicar o timbrado DELE antes do protocolo. Ajustes de forma apenas; conteudo identico a v04 congelada. Pacote final: peca DOCX + peca limpa .md + 11 documentos (DOC-08 excluido por decisao) + indice.
 ---
+## #038 | 2026-07-07 18:12 | NOTA
+CICLO DE COLHEITA executado (gatilho: colheita manual): proposta de aprendizado gerada em _views/PROPOSTA_DE_APRENDIZADO.md com 16 candidato(s). Nenhum arquivo de modulo alterado — aguarda RATIFICACAO em bloco do advogado.
+---
+## #039 | 2026-07-07 18:12 | NOTA
+Origem: sistema.
+AUDITORIA POS-CASO (pedido do titular): 4 falhas do sistema corrigidas em definitivo — (1) DOCX do protocolo REFEITO pela skill oficial formatacao-peticoes-nascimento (timbrado + Century Gothic 11 + espacamento simples 20/10 + titulos I)/2.1.; o DOCX anterior, feito a mao, violava o padrao e foi substituido; conteudo conferido identico a v04); (2) ESTRATEGIA.md T6 corrigida (art. 15 par.1 nao se aplica a Meta) + antitese gravada no verbete MCI:art15; (3) regra nova do kernel: jurisprudencia de segunda mao NUNCA entra em minuta antes do teor literal verificado; (4) preparar_protocolo.py agora exclui automaticamente provas categoria nao_juntar do pacote e do indice (testado). Colheita manual rodada: 16 candidatos em _views/PROPOSTA_DE_APRENDIZADO.md aguardando ratificacao — o modulo civel/honra_reputacao nasce dela.
+---

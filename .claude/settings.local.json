@@ -118,7 +118,19 @@
       "PowerShell(\"=== G3 ===\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\preparar_protocolo.py\" DAIANE --minuta MINUTA_v04.md)",
       "PowerShell(\"=== conteudo do pacote ===\")",
-      "PowerShell(Remove-Item \"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\CASOS\\\\DAIANE\\\\PROTOCOLO\\\\DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg\" -Confirm:$false)"
+      "PowerShell(Remove-Item \"C:\\\\Users\\\\nasci\\\\OneDrive\\\\Documentos\\\\NASCIMENTO\\\\CASOS\\\\DAIANE\\\\PROTOCOLO\\\\DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg\" -Confirm:$false)",
+      "Bash(python ESCRITORIO/scripts/vigia_prazos.py)",
+      "Bash(python -c ' *)",
+      "Bash(python ESCRITORIO/scripts/novo_caso.py --help)",
+      "Bash(python ESCRITORIO/scripts/anexar_autos.py --help)",
+      "Bash(python ESCRITORIO/scripts/novo_caso.py GETULIO --titulo \"Weslley Macedo x Getulio — Obrigacao de Fazer \\(JEC Parauapebas\\)\" --area civel --comarca \"Parauapebas/PA\" --polo passivo --complexidade padrao)",
+      "Bash(python ESCRITORIO/scripts/anexar_autos.py GETULIO __TRACKED_VAR__/autos_getulio.pdf --descricao 'Autos completos JEC Parauapebas — obrigacao de fazer' --processo 0817105-93.2025.8.14.0040)",
+      "Bash(python ESCRITORIO/scripts/preparar_audiencia.py --help)",
+      "Bash(python ESCRITORIO/scripts/preparar_audiencia.py GETULIO --data 2026-07-08 --tipo instrucao --hora \"11:00\" --local \"Vara do JEC de Parauapebas \\(hibrida - Teams Sala 2\\)\")",
+      "Bash(python ESCRITORIO/scripts/anexar_autos.py GETULIO --marcar-lido \"2,9,13,16,23,24,27,28\" --diario \"#002\")",
+      "Bash(python -c \"import pytesseract; print\\('pytesseract OK'\\)\")",
+      "Bash(python -c \"import fitz; print\\('pymupdf', fitz.__doc__[:30]\\)\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\colher_aprendizados.py\" DAIANE)"
     ]
   }
 }

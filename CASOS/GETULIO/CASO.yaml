@@ -1,0 +1,296 @@
+# =====================================================================
+# CASO.yaml — FONTE DA VERDADE deste caso (SOJ, blueprint secao 3).
+# Modelo comentado completo: ESCRITORIO/MODELOS/CASO.schema.yaml
+# Regra de ouro: informacao vive AQUI, uma unica vez. Views sao geradas.
+# IDs estaveis: PT=parte, F=fato, P=prova, PED=pedido, PZ=prazo, PEN=pendencia.
+# =====================================================================
+
+caso:
+  id: 2026-0005
+  titulo: "Weslley Macedo x Getulio — Obrigacao de Fazer (JEC Parauapebas)"
+  area: civel                # familia | consumidor | bancario | ...
+  modulo: a_definir            # ex.: familia/alimentos_guarda_convivencia
+  complexidade: padrao  # simples | padrao | complexo (D9)
+  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
+  comarca: "Parauapebas/PA"
+  polo: passivo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
+  segredo_justica: false  # true quando ha menores / dados sensiveis
+  gates:
+    G1: {status: pendente}
+    G2: {status: pendente}
+    G3: {status: pendente}
+
+partes: []
+# - { id: PT01, papel: autora_representante, nome: "...", cpf: "...",
+#     renda_mensal: 0.00, qualificacao: completa }
+# - { id: PT02, papel: reu, nome: "...",
+#     endereco: { status: nao_confirmado, pendencia: PEN01 } }
+
+fatos: []
+# status: provado | alegado | controverso. Provado exige prova; sem prova,
+# abrir pendencia (ou campo justificativa: "...").
+# - { id: F01, descricao: "...", status: alegado, provas: [], pendencias: [PEN01] }
+
+provas: []
+# Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
+# - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
+#     o_que_prova: "...", forca: plena, fragilidade: null }
+
+pedidos: []
+# - { id: PED01, tipo: ..., parametro: "... — DECISAO_SISTEMA #NNN",
+#     fundamentos: [CC:art1694], fatos: [F01] }
+
+fundamentos_citados: []
+# Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
+# nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
+# - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
+#     validade_dias: 90, nucleo: true }
+
+financeiro:
+  contrato:
+    tipo: a_definir     # fixo | percentual | exito | misto | probono
+    valor: 0.00
+    parcelas: 0
+    doc_assinado: false         # true quando o contrato assinado for arquivado (DOC-NN)
+  custas: []
+  # - { data: 2026-01-01, descricao: "custas iniciais", valor: 0.00 }
+  recebimentos: []
+  # - { data: 2026-01-01, descricao: "parcela 1/N", valor: 0.00 }
+
+audiencias:
+- data: '2026-07-08'
+  hora: 11:00
+  tipo: instrucao
+  local: Vara do JEC de Parauapebas (hibrida - Teams Sala 2)
+  status: designada
+  pasta: AUDIENCIAS/2026-07-08_instrucao/
+# - { data: 2026-01-01, hora: "09:00", tipo: instrucao, local: "...", status: designada }
+
+prazos:
+- id: PZ01
+  descricao: AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))
+  data: '2026-07-08'
+  criticidade: alta
+# - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
+# Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
+
+pendencias:
+- id: PEN01
+  descricao: 'Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato'
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+  mensagem_cliente: o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
+# responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
+# critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
+# mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
+# - { id: PEN01, descricao: "...", responsavel: cliente, prioridade: critica,
+#     bloqueia: [G3], mensagem_cliente: "..." }
+autos:
+  descricao: Autos completos JEC Parauapebas — obrigacao de fazer
+  processo: 0817105-93.2025.8.14.0040
+  arquivo: 00_originais/autos_AUTOS_COMPLETOS_JEC_PARAUAPEBAS_OBRIGACA/autos_getulio.pdf
+  sha256: 8b93af204382c66290e56d7c2a85b8feaf44b88703f1152a1e259475a9d8345e
+  paginas: 66
+  anexado_em: 2026-07-07 15:41
+  ocr_local: []
+  ocr_pendente: []
+  midias: []
+  fatias:
+  - n: 1
+    fls: 1-2
+    tipo: documento
+    classe: sob_demanda
+    data: 07/07/2026
+    tokens_est: 749
+    lido:
+  - n: 2
+    fls: 3-7
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 4771
+    lido: 2026-07-07 (#002)
+  - n: 3
+    fls: 8-8
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 101
+    lido:
+  - n: 4
+    fls: 9-15
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 712
+    lido:
+  - n: 5
+    fls: 16-21
+    tipo: documento
+    classe: sob_demanda
+    data: 20/03/2025
+    tokens_est: 3054
+    lido:
+  - n: 6
+    fls: 22-22
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 258
+    lido:
+  - n: 7
+    fls: 23-23
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 258
+    lido:
+  - n: 8
+    fls: 24-24
+    tipo: documento
+    classe: sob_demanda
+    data: 07/10/2025
+    tokens_est: 258
+    lido:
+  - n: 9
+    fls: 25-26
+    tipo: documento
+    classe: sob_demanda
+    data: 09/10/2025
+    tokens_est: 1042
+    lido: 2026-07-07 (#002)
+  - n: 10
+    fls: 27-27
+    tipo: documento
+    classe: sob_demanda
+    data: 16/10/2025
+    tokens_est: 284
+    lido:
+  - n: 11
+    fls: 28-28
+    tipo: documento
+    classe: sob_demanda
+    data: 16/10/2025
+    tokens_est: 236
+    lido:
+  - n: 12
+    fls: 29-29
+    tipo: documento
+    classe: sob_demanda
+    data: 29/09/2025
+    tokens_est: 756
+    lido:
+  - n: 13
+    fls: 30-32
+    tipo: documento
+    classe: sob_demanda
+    data: 17/10/2025
+    tokens_est: 2078
+    lido: 2026-07-07 (#002)
+  - n: 14
+    fls: 33-34
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 1824
+    lido:
+  - n: 15
+    fls: 35-37
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 1899
+    lido:
+  - n: 16
+    fls: 38-47
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 5128
+    lido: 2026-07-07 (#002)
+  - n: 17
+    fls: 48-48
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 105
+    lido:
+  - n: 18
+    fls: 49-49
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 105
+    lido:
+  - n: 19
+    fls: 50-51
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 210
+    lido:
+  - n: 20
+    fls: 52-52
+    tipo: documento
+    classe: sob_demanda
+    data: 01/12/2025
+    tokens_est: 105
+    lido:
+  - n: 21
+    fls: 53-53
+    tipo: documento
+    classe: sob_demanda
+    data: 15/06/2018
+    tokens_est: 484
+    lido:
+  - n: 22
+    fls: 54-54
+    tipo: documento
+    classe: sob_demanda
+    data: 18/05/2019
+    tokens_est: 267
+    lido:
+  - n: 23
+    fls: 55-57
+    tipo: documento
+    classe: sob_demanda
+    data: 02/12/2025
+    tokens_est: 1198
+    lido: 2026-07-07 (#002)
+  - n: 24
+    fls: 58-60
+    tipo: documento
+    classe: sob_demanda
+    data: 18/12/2025
+    tokens_est: 1277
+    lido: 2026-07-07 (#002)
+  - n: 25
+    fls: 61-61
+    tipo: ar
+    classe: nunca_ler
+    data: 25/12/2025
+    tokens_est: 117
+    lido:
+  - n: 26
+    fls: 62-62
+    tipo: documento
+    classe: sob_demanda
+    data: 25/12/2025
+    tokens_est: 99
+    lido:
+  - n: 27
+    fls: 63-63
+    tipo: documento
+    classe: sob_demanda
+    data: 13/01/2026
+    tokens_est: 263
+    lido: 2026-07-07 (#002)
+  - n: 28
+    fls: 64-66
+    tipo: documento
+    classe: sob_demanda
+    data: 18/05/2026
+    tokens_est: 1247
+    lido: 2026-07-07 (#002)

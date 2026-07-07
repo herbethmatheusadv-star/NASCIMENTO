@@ -1,0 +1,102 @@
+Tribunal de Justiça do Estado do Pará - 1º Grau 
+PJe - Processo Judicial Eletrônico
+07/07/2026 
+Número: 0817105-93.2025.8.14.0040
+Data Autuação: 07/10/2025
+Classe: PROCEDIMENTO DO JUIZADO ESPECIAL CÍVEL 
+Órgão julgador: Vara do Juizado Especial Cível e Criminal de Parauapebas 
+Última distribuição : 07/10/2025 
+Valor da causa: R$ 2.000,00 
+Assuntos: Obrigação de Fazer / Não Fazer 
+Nível de Sigilo: 0 (Público) 
+Justiça gratuita? SIM 
+Pedido de liminar ou antecipação de tutela? NÃO
+Partes Advogados
+WESLLEY MACEDO DA COSTA (AUTOR) ENUYLSON DE OLIVEIRA BELEM (ADVOGADO) 
+GETULIO DALLAS PEDROSA DE SOUSA (REQUERIDO) HERBETH MATHEUS MENDONCA DO NASCIMENTO 
+(ADVOGADO) 
+Documentos
+Id. Data Documento Tipo
+158508081 07/10/2025 
+14:47
+Petição Inicial Petição Inicial
+158508082 07/10/2025 
+14:47
+Procuração Weslley Instrumento de Procuração
+158508084 07/10/2025 
+14:47
+Provas documentais e multas - Wesley Documento de Comprovação
+158508085 07/10/2025 
+14:47
+Comprovante de transferências Bancárias Documento de Comprovação
+158508087 07/10/2025 
+14:47
+Audios entre o Credor e Devedor 1 Documento de Comprovação
+158510789 07/10/2025 
+14:47
+Audios entre o Credor e Devedor 2 Documento de Comprovação
+158510790 07/10/2025 
+14:47
+Audios entre o Credor e Devedor 3 Documento de Comprovação
+158647038 09/10/2025 
+13:28
+Decisão Decisão
+159185235 16/10/2025 
+14:01
+Petição Petição
+159188015 16/10/2025 
+14:01
+CNH-e.pdf (3) Documento de Identificação
+159188016 16/10/2025 
+14:01
+Comprovante de residência - autor Documento de Comprovação
+Documentos
+Id. Data Documento Tipo
+159276411 17/10/2025 
+12:50
+Decisão Decisão
+159821388 24/10/2025 
+11:21
+Citação Citação
+159821389 24/10/2025 
+11:21
+Intimação Intimação
+162234205 01/12/2025 
+11:48
+Contestação Contestação
+162234210 01/12/2025 
+11:48
+PROCURAÇÃO_GETÚLIO Instrumento de Procuração
+162234211 01/12/2025 
+11:48
+DECLARAÇÃO_HIPOSSUFICIÊNCIA Documento de Comprovação
+162234216 01/12/2025 
+11:48
+CARNÊ_QUITADO Documento de Comprovação
+162234217 01/12/2025 
+11:48
+BOLETIM DE OCORRÊNCIA Documento de Comprovação
+162234219 01/12/2025 
+11:48
+CONSULTA AO SNG Documento de Comprovação
+162234222 01/12/2025 
+11:48
+CONSULTA INFRAÇÕES Documento de Comprovação
+162095327 02/12/2025 
+08:02
+Decisão Decisão
+163319739 18/12/2025 
+15:58
+Decisão Decisão
+165049194 25/12/2025 
+08:13
+AR Identificação de AR
+165049195 25/12/2025 
+08:13
+AR Identificação de AR
+165567236 13/01/2026 
+12:15
+Produção de provas Petição
+175712362 18/05/2026 
+12:27
+Decisão Decisão

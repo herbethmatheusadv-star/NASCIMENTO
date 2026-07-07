@@ -74,8 +74,10 @@ com componente de gênero; dano in re ipsa, agravado pela repercussão
 **T6 — Tutela de urgência com dupla face** (CPC:art300): (a) remoção de
 qualquer republicação + abstenção de nova publicação (o conteúdo saiu do
 ar por ato da ré, que mantém o controle e pode repostar); (b) **ordem de
-PRESERVAÇÃO de registros** à META desde já (MCI:art15 §1º c/c MCI:art22)
-— é o pedido com urgência mais objetiva do caso.
+PRESERVAÇÃO de registros** à META desde já (MCI:art15 *caput* c/c
+MCI:art22 e CPC:art381, I) — é o pedido com urgência mais objetiva do
+caso. [CORRIGIDO na revisão externa da v02: o §1º do art. 15 é para
+provedores NÃO sujeitos ao caput — nunca usar para a Meta.]
 
 **T7 — Exibição de dados contra a META** (MCI:art22): pedido redigido
 espelhando os 3 incisos do parágrafo único — indícios (BO P01 + prints

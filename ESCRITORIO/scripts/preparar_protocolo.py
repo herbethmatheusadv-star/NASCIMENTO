@@ -57,17 +57,23 @@ def main():
     peca = protocolo / "PETICAO_FINAL_para_timbrado.md"
     peca.write_text("\n".join(limpas) + "\n", encoding="utf-8", newline="\n")
 
-    # 2. copia dos documentos DOC-01..NN
+    # 2. copia dos documentos DOC-01..NN — RESPEITANDO a valoracao de provas
+    #    (aprendizado do caso 2026-0004): prova com categoria 'nao_juntar'
+    #    fica integra no acervo do caso, mas NAO entra no pacote de protocolo.
+    fora_do_rol = {str(p.get("doc", "")).replace("01_documentos/", "")
+                   for p in (dados.get("provas") or [])
+                   if soj.normaliza(str(p.get("categoria", ""))) == "nao_juntar"}
     docs_dir = pasta / "01_documentos"
     copiados = []
     if docs_dir.exists():
         for a in sorted(docs_dir.iterdir()):
-            if a.is_file():
+            if a.is_file() and a.name not in fora_do_rol:
                 shutil.copy2(a, protocolo / a.name)
                 copiados.append(a.name)
 
-    # 3. indice do pacote
-    provas = dados.get("provas") or []
+    # 3. indice do pacote (tambem sem as 'nao_juntar')
+    provas = [p for p in (dados.get("provas") or [])
+              if soj.normaliza(str(p.get("categoria", ""))) != "nao_juntar"]
     idx = [f"# ÍNDICE DO PROTOCOLO — {dados['caso'].get('titulo')}",
            f"Caso {dados['caso'].get('id')} · montado em {soj.agora()} "
            f"a partir de {minuta.name}", "",

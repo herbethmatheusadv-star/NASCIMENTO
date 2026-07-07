@@ -64,7 +64,10 @@ fatos:
 
 provas:
   # doc = cópia renomeada · original = como chegou (cadeia de custódia é um CAMPO)
-  # forca: plena | relativa | indiciaria
+  # forca: plena | relativa | forte_indiciaria | indiciaria (valoração da E2)
+  # categoria 'nao_juntar' (valoração de provas, caso 2026-0004): a prova fica
+  #   ÍNTEGRA no acervo mas NÃO entra no pacote de protocolo (preparar_protocolo
+  #   a exclui do rol automaticamente) — prova fraca nos autos é munição da defesa
   # categoria (roteador v1.7): peca_adversaria | decisao | sentenca_favoravel
   #   | conversa_whatsapp (Onda 4 — via receber_whatsapp.py) (ausente = prova comum)
   # Decisões judiciais (Onda 1/F6) ganham ainda: juizo, comarca, resultado
@@ -87,6 +90,13 @@ instrumentais: []
 # - { id: INS01, tipo: procuracao, doc: "01_documentos/DOC-02_....pdf",
 #     original: "00_originais/importacao_.../...", sha256: "...",
 #     origem: "colaborador FULANO" }
+
+testemunhas: []
+# Rol de trabalho (vira o rol formal na peça/audiência). SEMPRE anotar o
+# vínculo — testemunha com vínculo sofre contradita; o sistema avisa quando
+# o caso depende só de declarantes internos (caso 2026-0004).
+# - { nome: "...", vinculo: "cliente | funcionário | ex | sem vínculo",
+#     confirma: "o que ela prova" }
 
 propostas_colaborador: []
 # Decisões EMBUTIDAS na peça importada (quantum, foro, tutelas) — governança

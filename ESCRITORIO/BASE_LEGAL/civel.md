@@ -25,7 +25,7 @@
 **Texto literal (caput):** "O provedor de aplicações de internet constituído na forma de pessoa jurídica e que exerça essa atividade de forma organizada, profissionalmente e com fins econômicos deverá manter os respectivos registros de acesso a aplicações de internet, sob sigilo, em ambiente controlado e de segurança, pelo prazo de 6 (seis) meses, nos termos do regulamento." (§ 1º: ordem judicial pode estender a guarda para fatos específicos)
 **Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
 **Verificado em:** 2026-07-07 · **Situação:** vigente · **Validade:** 90 dias · **NÚCLEO**
-**Notas de uso:** é o RELÓGIO do caso: os registros que identificam o autor original expiram em ~6 meses (fato de 05/07/2026 → registros seguros só até ~05/01/2027). Fundamenta o pedido de PRESERVAÇÃO imediata (c/c art. 22) e a urgência objetiva da tutela.
+**Notas de uso:** é o RELÓGIO do caso: os registros que identificam o autor original expiram em ~6 meses (fato de 05/07/2026 → registros seguros só até ~05/01/2027). Fundamenta o pedido de PRESERVAÇÃO imediata (c/c art. 22) e a urgência objetiva da tutela. **ANTÍTESE (erro cometido e corrigido no 2026-0004): o §1º é para provedores NÃO sujeitos ao dever do caput — NUNCA citar o §1º contra provedor profissional (Meta); para estender/garantir a guarda, usar o caput c/c CPC 381, I e 297.**
 **Casos que citam:** 2026-0004
 
 ## MCI:art19 — Lei 12.965/2014, art. 19 (regime de provedores — ATENÇÃO: Tema 987/STF)
