@@ -18,11 +18,11 @@ Minuta lida: MINUTA_v01.md
 
 | Pedido | Tipo | Fatos | Fundamentos | Tags na minuta |
 |---|---|---|---|---|
-| PED01 | tutela_urgencia_remocao | F01, F03, F06 | — | 0 |
-| PED02 | exibicao_de_dados | F03, F04 | — | 0 |
-| PED03 | danos_morais_pj | F01, F02, F06 | — | 0 |
-| PED04 | danos_morais_pf | F01, F02, F06 | — | 0 |
-| PED05 | obrigacao_de_fazer_retratacao | F01, F06 | — | 0 |
+| PED01 | tutela_urgencia_remocao | F01, F03, F06 | CPC:art300, MCI:art15, MCI:art22 | 0 |
+| PED02 | exibicao_de_dados | F03, F04 | MCI:art22, MCI:art15, STF:tema987 | 0 |
+| PED03 | danos_morais_pj | F01, F02, F06 | CC:art186, CC:art927, SUM227:STJ, STJ:teses130 | 0 |
+| PED04 | danos_morais_pf | F01, F02, F06 | CC:art186, CC:art927, STJ:teses130 | 0 |
+| PED05 | obrigacao_de_fazer_retratacao | F01, F06 | CC:art927 | 0 |
 
 ## Alertas de cobertura
 

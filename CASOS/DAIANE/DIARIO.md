@@ -28,3 +28,11 @@ Itens reprovados: Toda parte com qualificacao completa OU pendencia aberta; Chec
 G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 Itens reprovados: Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
 ---
+## #007 | 2026-07-07 10:58 | DECISAO_ADVOGADO
+Origem: titular.
+Ratificacao das propostas da importacao (governanca de autoria): PC01 RATIFICADA (quantum R\$ 10.000 + R\$ 10.000; valor da causa R\$ 20.000). PC02 RATIFICADA (Vara Civel de Canaa dos Carajas, rito comum). PC03 RATIFICADA COM MODIFICACAO: como NAO houve notificacao extrajudicial, a responsabilidade da re sera fundada DIRETAMENTE nos arts. 186 e 927 do CC (curadoria editorial remunerada — F05/P03); o Marco Civil fica restrito ao pedido de exibicao de dados (art. 22) contra a META. PC04 RATIFICADA: nomear BRUNA AURORA DE ALMEIDA DOROTEIO como re desde a inicial (identificacao pela cadeia Pix, P02-P05). PEN08: divergencia de data do BO sera EXPLICADA na propria peca. Determinada ainda a construcao de estrategia juridica reforcada com teses adicionais e jurisprudencia ATUAL verificada na fonte (fase E2).
+---
+## #008 | 2026-07-07 11:09 | PESQUISA
+Origem: sistema.
+Pesquisa juridica da E2 concluida e VERIFICADA NA FONTE (2026-07-07): BASE_LEGAL/civel.md criada com CC 186/927, MCI 15/19/21/22, CPC 85 (textos literais extraidos por script do Planalto) + Sumula 227/STJ (PDF oficial STJ), STF Tema 987 (julgado 26/06/2025; EMBARGOS de 17/06/2026: responsabilidade solidaria pos-notificacao e presuncao relativa de culpa p/ conteudo pago/impulsionado) e STJ Jurisprudencia em Teses ed. 130 (identificacao inequivoca pelo contexto). ESTRATEGIA.md escrita: 8 teses (espinha dorsal = responsabilidade DIRETA da curadora REMUNERADA, CC 186/927, com Tema 987 usado para FECHAR a porta do art. 19 a re), 3 antiteses, simulacao adversaria com 6 ataques respondidos, juiz rigoroso, riscos com contramedidas. Achado estrategico: MCI art. 15 (registros guardados so 6 MESES) da urgencia OBJETIVA ao pedido de preservacao — relogios: registros ate ~05/01/2027. PEN07 resolvida; PEN10 aberta (teses literais STF/STJ antes do G3).
+---

@@ -32,7 +32,7 @@
 **Fonte:** https://www.planalto.gov.br/ccivil_03/leis/l5478.htm
 **Verificado em:** 2026-07-04 · **Situação:** vigente · **Validade:** 90 dias · **NÚCLEO**
 **Notas de uso:** norma ESPECIAL — presunção de urgência; dispensa demonstração autônoma dos requisitos do CPC art. 300 (citar o 300 só como reforço subsidiário). A página oficial grafa "As despachar" (erro material do sítio; o sentido é "Ao despachar") e contém "desde logo", omitido na pesquisa de 03/07.
-**Casos que citam:** 2026-0002, 2026-0001 (teste)
+**Casos que citam:** 2026-0002, 2026-0001 (teste), 2026-0004
 
 ## LEI5478:art5p4 — Lei 5.478/1968, art. 5º, § 4º (citação por edital — rito especial)
 **Texto literal:** "§ 4º. Impossibilitada a citação do réu por qualquer dos modos acima previstos, será ele citado por edital afixado na sede do juízo e publicado 3 (três) vezes consecutivas no órgão oficial do Estado, correndo a despesa por conta do vencido, a final, sendo previamente a conta juntada aos autos."
@@ -130,7 +130,7 @@
 **Fonte:** https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
 **Verificado em:** 2026-07-04 · **Situação:** vigente · **Validade:** 90 dias
 **Notas de uso:** em alimentos, citar apenas como reforço SUBSIDIÁRIO do L5478:art4 (norma especial). Confirmou o apurado de 03/07.
-**Casos que citam:** 2026-0002
+**Casos que citam:** 2026-0002, 2026-0004
 
 ## CPC:art319 — CPC/2015, art. 319 (requisitos da inicial; diligências para dados do réu)
 **Texto literal:** "A petição inicial indicará: [...] II - os nomes, os prenomes, o estado civil, a existência de união estável, a profissão, o número de inscrição no Cadastro de Pessoas Físicas ou no Cadastro Nacional da Pessoa Jurídica, o endereço eletrônico, o domicílio e a residência do autor e do réu; [...] § 1º Caso não disponha das informações previstas no inciso II, poderá o autor, na petição inicial, requerer ao juiz diligências necessárias a sua obtenção. § 2º A petição inicial não será indeferida se, a despeito da falta de informações a que se refere o inciso II, for possível a citação do réu. § 3º A petição inicial não será indeferida pelo não atendimento ao disposto no inciso II deste artigo se a obtenção de tais informações tornar impossível ou excessivamente oneroso o acesso à justiça."

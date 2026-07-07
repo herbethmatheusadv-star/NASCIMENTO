@@ -195,7 +195,10 @@ pedidos:
 - id: PED01
   tipo: tutela_urgencia_remocao
   parametro: remocao do conteudo de todos os perfis + astreinte (minuta nao sugere valor da multa — definir)
-  fundamentos: []
+  fundamentos:
+  - CPC:art300
+  - MCI:art15
+  - MCI:art22
   fatos:
   - F01
   - F03
@@ -203,14 +206,21 @@ pedidos:
 - id: PED02
   tipo: exibicao_de_dados
   parametro: oficio a META (dados cadastrais/IP dos 3 perfis e do autor da mensagem original)
-  fundamentos: []
+  fundamentos:
+  - MCI:art22
+  - MCI:art15
+  - STF:tema987
   fatos:
   - F03
   - F04
 - id: PED03
   tipo: danos_morais_pj
   parametro: R$ 10.000,00 p/ a empresa — PROPOSTA PC01 aguardando ratificacao
-  fundamentos: []
+  fundamentos:
+  - CC:art186
+  - CC:art927
+  - SUM227:STJ
+  - STJ:teses130
   fatos:
   - F01
   - F02
@@ -218,7 +228,10 @@ pedidos:
 - id: PED04
   tipo: danos_morais_pf
   parametro: R$ 10.000,00 p/ Daiane — PROPOSTA PC01 aguardando ratificacao
-  fundamentos: []
+  fundamentos:
+  - CC:art186
+  - CC:art927
+  - STJ:teses130
   fatos:
   - F01
   - F02
@@ -226,14 +239,56 @@ pedidos:
 - id: PED05
   tipo: obrigacao_de_fazer_retratacao
   parametro: retratacao publica em igual formato e visibilidade
-  fundamentos: []
+  fundamentos:
+  - CC:art927
   fatos:
   - F01
   - F06
 # - { id: PED01, tipo: ..., parametro: "... — DECISAO_SISTEMA #NNN",
 #     fundamentos: [CC:art1694], fatos: [F01] }
 
-fundamentos_citados: []
+fundamentos_citados:
+- ref: CC:art186
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: CC:art927
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: MCI:art15
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: MCI:art22
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: CPC:art300
+  verificado_em: '2026-07-04'
+  status: vigente
+  validade_dias: 90
+  nucleo: true
+- ref: CPC:art85
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: SUM227:STJ
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 180
+- ref: STF:tema987
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 90
+- ref: STJ:teses130
+  verificado_em: '2026-07-07'
+  status: vigente
+  validade_dias: 180
 # Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
 # nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
 # - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
@@ -292,6 +347,8 @@ pendencias:
   prioridade: critica
   bloqueia:
   - G3
+  status: resolvida
+  resolucao: 'DECISAO_ADVOGADO: nao houve notificacao e nao se notificara — fundamento reancorado na responsabilidade DIRETA (curadoria remunerada); art. 19 MCI abandonado como base contra a re'
 - id: PEN06
   descricao: Ata notarial afirmada na minuta NAO existe; story ja indisponivel — avaliar ata notarial das CONVERSAS e PERFIS (ainda acessiveis) e preservacao via pedido judicial
   responsavel: advogado
@@ -304,8 +361,10 @@ pendencias:
   prioridade: critica
   bloqueia:
   - G3
+  status: resolvida
+  resolucao: 'BASE_LEGAL/civel.md criada em 2026-07-07: 7 verbetes de legislacao (texto literal extraido das fontes oficiais) + 3 de jurisprudencia'
 - id: PEN08
-  descricao: 'Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca'
+  descricao: 'Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca — DECIDIDO: EXPLICAR a divergencia na peca (nao retificar na delegacia)'
   responsavel: advogado
   prioridade: alta
   bloqueia: []
@@ -314,6 +373,12 @@ pendencias:
   responsavel: advogado
   prioridade: media
   bloqueia: []
+- id: PEN10
+  descricao: 'Antes do G3: extrair do portal do STF a tese LITERAL do Tema 987 (inteiro teor/ata) e da ed. 130 das Jurisprudencias em Teses do STJ a tese literal + REsp que a lastreiam (sinteses de fonte secundaria nao entram em peca)'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia:
+  - G3
 instrumentais:
 - id: INS01
   tipo: identidade
@@ -339,28 +404,28 @@ propostas_colaborador:
   proposta: R$ 10.000 p/ empresa + R$ 10.000 p/ Daiane; valor da causa R$ 20.000 (soma coerente)
   observacao: modulo civel nasce deste caso — sem praxe propria ainda; parametro a validar na E2
   origem: colaborador IA EXTERNA (ChatGPT ou similar)
-  status: aguardando_ratificacao
+  status: ratificada
   diario: '#003'
 - id: PC02
   tema: competencia_e_rito
   proposta: Vara Civel de Canaa dos Carajas/PA (rito comum)
   observacao: 'alternativa nao discutida pela minuta: JEC (Lei 9.099) se a PJ for ME/EPP — avaliar custas x agilidade'
   origem: colaborador IA EXTERNA (ChatGPT ou similar)
-  status: aguardando_ratificacao
+  status: ratificada
   diario: '#003'
 - id: PC03
   tema: estrategia_marco_civil
   proposta: Fundar a responsabilidade TAMBEM no art. 19 do MCI (notificacao previa + inercia)
   observacao: 'SEM LASTRO HOJE: a notificacao nao existe (F09). Alternativa do sistema: responsabilidade DIRETA por curadoria remunerada (F05 — tabela de precos) via CC 186/927, com o MCI apenas p/ exibicao de dados (art. 22)'
   origem: colaborador IA EXTERNA (ChatGPT ou similar)
-  status: aguardando_ratificacao
+  status: ratificada_com_modificacao
   diario: '#003'
 - id: PC04
   tema: polo_passivo
   proposta: Peca 1 mantem reu como '[NOME DO ADMINISTRADOR]' a diligenciar
   observacao: "as provas P04/P05 JA identificam Bruna Aurora de Almeida Doroteio (cadeia Pix) — recomendacao do sistema: nomear a re desde a inicial (como fazia a versao preterida 'Pela 2')"
   origem: colaborador IA EXTERNA (ChatGPT ou similar)
-  status: aguardando_ratificacao
+  status: ratificada
   diario: '#003'
 declaracoes:
   sem_prazos:
