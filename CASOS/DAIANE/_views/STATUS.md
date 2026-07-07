@@ -7,7 +7,7 @@ fase: E2_estrategia
 fase_processual: pre_protocolo
 complexidade: padrao
 g1: aprovado
-g2: pendente
+g2: reprovado
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 3
@@ -18,7 +18,7 @@ atualizado: 2026-07-07 11:26
 
 **Cliente/pasta:** DAIANE · **Caso:** 2026-0004 · **Área:** civel · **Módulo:** civel/honra_reputacao (nasce deste caso)
 **Fase interna:** E2_estrategia · **Fase processual:** pre_protocolo · **Complexidade:** padrao · **Segredo de justiça:** não
-**Gates:** G1 aprovado (2026-07-07) · G2 pendente · G3 pendente
+**Gates:** G1 aprovado (2026-07-07) · G2 reprovado (2026-07-07) · G3 pendente
 
 ## Próximos prazos
 - Nenhum prazo registrado.
@@ -32,10 +32,10 @@ atualizado: 2026-07-07 11:26
 - Partes: 4 · Fatos: 9 (provados 5 / alegados 4 / controversos 0) · Provas: 9 · Pedidos: 5 · Pendências abertas: 7
 
 ## Últimas entradas do diário
+- #019 | 2026-07-07 11:26 | GATE — G2 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 - #018 | 2026-07-07 11:26 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #017 | 2026-07-07 11:26 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #016 | 2026-07-07 11:25 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 - #015 | 2026-07-07 11:25 | DECISAO_SISTEMA — Origem: sistema.
-- #014 | 2026-07-07 11:25 | DECISAO_SISTEMA — Origem: sistema.
 
 _Gerado por gerar_views.py — não editar._
