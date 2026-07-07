@@ -95,8 +95,15 @@ Regras INEGOCIÁVEIS do modo:
   = **entrada obrigatória no DIARIO ANTES** do áudio entrar; áudio de
   atendimento entra LACRADO em 00_originais; transcrição pronta do celular
   é aceita como RELATO (contrato de entrada).
-- **Transcritor local (faster-whisper): NÃO INSTALADO** — avaliação
-  reportada ao advogado (Onda 4); instalar só com o "ok" dele.
+- **Transcritor local INSTALADO (ok do advogado em 06/07/2026):**
+  faster-whisper, modelo `small`, 100% nesta máquina (nenhum áudio sai do
+  computador). Comandos: **"degravar a pasta do export"** (ANTES do
+  receber_whatsapp — cria os sidecars `<audio>.txt`, nunca sobrescreve) e
+  **"degravar o áudio X"** (avulso → `DEGRAVACAO_<nome>.md` com rótulo).
+  Script: `degravar.py CAMINHO [--modelo small|medium|large-v3-turbo]
+  [--sidecar]` — roda com o Python normal (se relança sozinho no ambiente
+  próprio em `~/.soj/transcritor/`). Se a qualidade do `small` não bastar
+  num áudio real, propor upgrade de modelo ANTES de baixar (download novo).
 
 ## ACERVO DE MODELOS (ESCRITORIO/ACERVO/ — blueprint §9)
 

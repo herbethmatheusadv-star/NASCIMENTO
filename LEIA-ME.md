@@ -76,6 +76,7 @@ Mas é bom saber o que existe:
 | `preparar_audiencia.py` | Cria a pasta da audiência com roteiro (perguntas, ataques, provas, logística) para a SUA revisão + prazo no vigia | Comando "preparar audiência" |
 | `relatorio_mensal.py` | Retrato do mês: casos, prazos, reprovações de gate e motivos, decisões, verbetes, pendências, horas (estimativa) | Fim do mês |
 | `receber_whatsapp.py` | Export de conversa do WhatsApp: lacra tudo com hash SHA-256, monta a cronologia unificada (mensagens + falas), registra como prova | Chegou conversa como prova |
+| `degravar.py` | Transcritor 100% local (nenhum áudio sai do computador): degrava os áudios de uma pasta de export (antes do receber_whatsapp) ou um áudio avulso de atendimento | Antes de receber conversa com áudios; atendimento gravado |
 
 Exemplo de uso direto (numa janela do PowerShell, dentro desta pasta):
 
