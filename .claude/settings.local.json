@@ -135,7 +135,9 @@
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gerar_views.py\" DAIANE)",
       "PowerShell(git commit -m \"views regeneradas apos trava transitoria do OneDrive no PAINEL\" --quiet)",
       "PowerShell(New-Item -ItemType Directory -Force \"ESCRITORIO\\\\MODULOS\\\\civel\\\\templates\")",
-      "PowerShell(\"pasta criada\")"
+      "PowerShell(\"pasta criada\")",
+      "PowerShell(\"=== LAB: G2 com o item 8 novo ===\")",
+      "PowerShell(\"=== DRY RUN \\(sem efeitos\\): item 8 contra a ESTRATEGIA da DAIANE ===\")"
     ]
   }
 }

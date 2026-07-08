@@ -1,10 +1,10 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-07 18:19 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-08 15:24 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
-- 🔴 **GETULIO** · PZ01 · 2026-07-08 · vence em **1 dia(s)** (alta): AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))
+- 🔴 **GETULIO** · PZ01 · 2026-07-08 · vence em **0 dia(s)** (alta): AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))
 
 ## 📚 VERBETES A VENCER (validade ≤ 15 dias)
 

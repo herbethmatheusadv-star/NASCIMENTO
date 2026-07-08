@@ -128,6 +128,20 @@ Regras INEGOCIÁVEIS do modo:
 - Mídias dentro dos autos (.opus etc.): lacradas no mesmo manifesto;
   degravação sob demanda pelo transcritor local.
 
+## DOUTRINA DE ANÁLISE (kernel — LEITURA OBRIGATÓRIA antes de analisar)
+
+Antes de qualquer tarefa ANALÍTICA (diagnóstico, estratégia, simulação
+adversária, juiz rigoroso, Tier B, revisão de peça/colaborador, destilação
+de autos, preparação de audiência): **ler `ESCRITORIO/DOUTRINA_ANALISE.md`**.
+A fronteira: mecânico = economia máxima; analítico = profundidade é o
+produto (PROIBIDO economizar). Quatro passadas obrigatórias (P1 mapear →
+P2 aprofundar → P3 adversariar a si mesmo → P4 sintetizar). Anti-superficialidade:
+âncora concreta (F##/P##/verbete/fls.) em toda afirmação; teste do "e daí?";
+veredito só com faixa+base+gatilhos; caminho rival em toda recomendação.
+Modelo rápido na sessão? AVISAR e esperar o ok. O G2 mede profundidade
+(item 8). Contexto analítico lê MAIS: ficha + INTAKE integral + provas +
+teses/antíteses do módulo + verbetes + Acervo.
+
 ## MÓDULO CÍVEL (honra/reputação digital — PLENO desde 07/07/2026)
 
 - `ESCRITORIO/MODULOS/civel/`: praxe com 10 ramos (identificação por

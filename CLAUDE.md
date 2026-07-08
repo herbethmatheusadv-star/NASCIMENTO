@@ -16,6 +16,18 @@ importantes.
 2. Se for trabalhar um caso: leia `CASOS/<CLIENTE>/CASO.yaml` +
    `_views/STATUS.md` + cauda do `DIARIO.md`. NÃO releia a pasta inteira.
 
+## Doutrina de Análise (kernel — 07/07/2026)
+
+Antes de QUALQUER tarefa analítica (diagnóstico, estratégia, simulação
+adversária, juiz rigoroso, Tier B, revisão de peça/colaborador, destilação
+de autos, preparação de audiência): **ler `ESCRITORIO/DOUTRINA_ANALISE.md`
+e obedecê-la**. Resumo inegociável: mecânico = economia máxima; analítico =
+PROFUNDIDADE É O PRODUTO (proibido economizar); quatro passadas
+(mapear → aprofundar → adversariar a si mesmo → sintetizar); toda afirmação
+ancorada em elemento concreto do caso e com consequência declarada; veredito
+só com base e faixa; tarefa analítica LÊ MAIS (ficha + INTAKE integral +
+provas + teses do módulo), nunca menos.
+
 ## Regras duras (blueprint)
 
 - `00_originais/` é imutável. `DIARIO.md` é append-only (corrigir = nova

@@ -23,8 +23,8 @@ caso:
       diario: '#061'
     G2:
       status: reprovado
-      data: '2026-07-07'
-      diario: '#062'
+      data: '2026-07-08'
+      diario: '#064'
     G3: {status: pendente}
 
 partes:

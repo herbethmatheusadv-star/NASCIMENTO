@@ -283,6 +283,48 @@ def checar_g2(pasta, dados, entradas):
     itens.append(("Nenhuma proposta de colaborador aguardando ratificacao do "
                   "titular (governanca de autoria)", not pendentes,
                   ", ".join(pendentes)))
+
+    # 8. PROFUNDIDADE da analise (DOUTRINA DE ANALISE v1, item 6): o gate
+    #    mede profundidade, nao existencia — por checagens ESTRUTURAIS
+    #    (nunca interpretacao de merito): (a) 3 afirmacoes analiticas
+    #    SORTEADAS devem ancorar em elemento concreto do caso (teste 4a:
+    #    F##/P##/PED##/verbete/fls./#NNN); (b) TODA tese enumerada da
+    #    simulacao adversaria deve trazer contramedida/resposta especifica.
+    import random
+    problemas = []
+    arq_estr = pasta / "ESTRATEGIA.md"
+    texto_estr = arq_estr.read_text(encoding="utf-8") if arq_estr.exists() else ""
+    corpo_linhas = [l.strip() for l in texto_estr.splitlines()
+                    if len(l.strip()) >= 100
+                    and not l.strip().startswith(("#", "|", ">"))]
+    CONCRETO_RE = re.compile(
+        r"\b(?:F|P|PED|PEN|PZ|INS|PC|T|DOC-?)\d{1,2}\b|[A-Z]{2,5}:art\w+|"
+        r"SUM\d+|STJ:|STF:|S[uú]mula\s*\d|fls\.\s*\d|#\d{3}")
+    if len(corpo_linhas) < 3:
+        problemas.append("ESTRATEGIA sem massa analitica amostravel "
+                         "(Doutrina P2: aprofundar no concreto do caso)")
+    else:
+        for l in random.sample(corpo_linhas, 3):
+            if not CONCRETO_RE.search(l):
+                problemas.append("afirmacao sem ancora concreta do caso "
+                                 "(teste 4a): '" + l[:70] + "...'")
+    m_sim = re.search(r"(?ms)^##[^\n]*[Ss]imula[cç][aã]o[^\n]*$(.*?)(?=^## |\Z)",
+                      texto_estr)
+    if not m_sim:
+        problemas.append("secao de simulacao adversaria nao encontrada")
+    else:
+        itens_sim = re.split(r"(?m)^\s*(?:\d+\.|\*\*D\d+)", m_sim.group(1))[1:]
+        if not itens_sim:
+            problemas.append("simulacao sem teses enumeradas")
+        for i, it in enumerate(itens_sim, 1):
+            low = soj.normaliza(it)
+            if ("contramedida" not in low and "resposta" not in low
+                    and "→" not in it):
+                problemas.append(f"tese {i} da simulacao SEM contramedida "
+                                 "especifica (Doutrina item 5)")
+    itens.append(("Profundidade da analise (Doutrina item 6: afirmacoes "
+                  "sorteadas com ancora concreta; toda tese adversaria com "
+                  "contramedida)", not problemas, "; ".join(problemas[:6])))
     return itens
 
 
