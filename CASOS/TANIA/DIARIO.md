@@ -448,3 +448,11 @@ regularizar o contrato da cliente, SEM bloquear nada; (3) bloco financeiro
 deste caso segue vazio ate o advogado informar os dados reais do contrato
 (tipo/valor/parcelas) — nada sera inventado.
 ---
+## #042 | 2026-07-08 15:44 | ANALISE
+Origem: sistema.
+TESTE DE ACEITACAO DA DOUTRINA DE ANALISE v1: secoes 1, 3 e 4 da ESTRATEGIA regeneradas sob o protocolo das quatro passadas, com leitura integral (CASO.yaml + INTAKE + teses do modulo + verbetes). ANTES: simulacao em 1 paragrafo (2 eixos + 3 pontos), 2 contramedidas explicitas, 0 forcas graduadas; juiz rigoroso em bloco unico; diagnostico sem cenarios. DEPOIS: 12 teses defensivas enumeradas, cada uma com fundamento + forca + prova exigida + contramedida apontando o dispositivo da peca; juiz rigoroso capitulo a capitulo com TEOR PROVAVEL do primeiro despacho; diagnostico com 3 cenarios em faixas (20-30 / 50-60 / 15-25 por cento) e gatilhos, e a resposta honesta ao cliente. Consequencias NOVAS extraidas: PEN01 elevada a prioridade n.1 pre-audiencia (neutraliza D2); R-16 (leilao de convivencia) e R-17 (acordo baixo vira referencia) com reguas; tese nova D3 (novos dependentes no RJ) antecipada. Versao anterior no git.
+---
+## #043 | 2026-07-08 15:44 | GATE
+G2 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
+Itens reprovados: Profundidade da analise (Doutrina item 6: afirmacoes sorteadas com ancora concreta; toda tese adversaria com contramedida)
+---

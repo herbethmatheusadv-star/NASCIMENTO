@@ -294,9 +294,20 @@ def checar_g2(pasta, dados, entradas):
     problemas = []
     arq_estr = pasta / "ESTRATEGIA.md"
     texto_estr = arq_estr.read_text(encoding="utf-8") if arq_estr.exists() else ""
-    corpo_linhas = [l.strip() for l in texto_estr.splitlines()
-                    if len(l.strip()) >= 100
-                    and not l.strip().startswith(("#", "|", ">"))]
+    # afirmacoes = PARAGRAFOS (a prosa e quebrada em ~75 colunas; linha
+    # isolada nunca teria 100 chars — pego pelo laboratorio em 08/07)
+    paragrafos, atual = [], []
+    for l in texto_estr.splitlines():
+        s = l.strip()
+        if not s or s.startswith(("#", "|", ">")):
+            if atual:
+                paragrafos.append(" ".join(atual))
+                atual = []
+            continue
+        atual.append(s)
+    if atual:
+        paragrafos.append(" ".join(atual))
+    corpo_linhas = [p for p in paragrafos if len(p) >= 120]
     CONCRETO_RE = re.compile(
         r"\b(?:F|P|PED|PEN|PZ|INS|PC|T|DOC-?)\d{1,2}\b|[A-Z]{2,5}:art\w+|"
         r"SUM\d+|STJ:|STF:|S[uú]mula\s*\d|fls\.\s*\d|#\d{3}")
