@@ -11,7 +11,7 @@ g2: reprovado
 g3: pendente
 proximo_prazo: "2026-06-30 — TESTE DO VIGIA: prazo vencido de mentira"
 pendencias_criticas_abertas: 2
-atualizado: 2026-07-08 15:24
+atualizado: 2026-07-08 15:50
 ---
 
 # STATUS — Maria Ficticia x Joao Ficticio — Alimentos c/c Guarda (CASO DE TESTE)
@@ -33,10 +33,10 @@ atualizado: 2026-07-08 15:24
 - Partes: 3 · Fatos: 5 (provados 3 / alegados 1 / controversos 0) · Provas: 5 · Pedidos: 1 · Pendências abertas: 2
 
 ## Últimas entradas do diário
+- #065 | 2026-07-08 15:50 | GATE — G2 executado: REPROVADO. 4/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
 - #064 | 2026-07-08 15:24 | GATE — G2 executado: REPROVADO. 4/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
 - #063 | 2026-07-07 08:47 | NOTA — Origem: sistema.
 - #062 | 2026-07-07 08:47 | GATE — G2 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G2_2026-07-07.md
 - #061 | 2026-07-07 08:47 | GATE — G1 executado: APROVADO. 7/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
-- #060 | 2026-07-07 08:45 | GATE — G1 executado: REPROVADO. 6/7 itens. Relatorio: _views/gate_G1_2026-07-07.md
 
 _Gerado por gerar_views.py — não editar._

@@ -293,3 +293,7 @@ PZ05 (fixture Onda 5) marcado prejudicado apos a demonstracao: prazo sintetico, 
 G2 executado: REPROVADO. 4/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
 Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso; Profundidade da analise (Doutrina item 6: afirmacoes sorteadas com ancora concreta; toda tese adversaria com contramedida)
 ---
+## #065 | 2026-07-08 15:50 | GATE
+G2 executado: REPROVADO. 4/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
+Itens reprovados: ESTRATEGIA.md completo (diagnostico, estrategia, simulacao adversaria, juiz rigoroso); Decisoes da arvore tomadas com fundamento, alternativa descartada e confianca (D11); Ratificacao em bloco registrada; Tier B com 'ok' expresso; Profundidade da analise (Doutrina item 6: afirmacoes sorteadas com ancora concreta; toda tese adversaria com contramedida)
+---

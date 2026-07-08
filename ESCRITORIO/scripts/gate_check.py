@@ -324,7 +324,9 @@ def checar_g2(pasta, dados, entradas):
     if not m_sim:
         problemas.append("secao de simulacao adversaria nao encontrada")
     else:
-        itens_sim = re.split(r"(?m)^\s*(?:\d+\.|\*\*D\d+)", m_sim.group(1))[1:]
+        # \d+\.\s (espaco obrigatorio): sem ele, '2.000 km' no inicio de
+        # linha partia uma tese ao meio (bug pego no proprio teste de aceitacao)
+        itens_sim = re.split(r"(?m)^\s*(?:\d+\.\s|\*\*D\d+)", m_sim.group(1))[1:]
         if not itens_sim:
             problemas.append("simulacao sem teses enumeradas")
         for i, it in enumerate(itens_sim, 1):
@@ -575,7 +577,15 @@ def main():
     gates[args.gate] = {"status": "aprovado" if aprovado else "reprovado",
                         "data": data, "diario": f"#{num:03d}"}
     if aprovado:
-        dados["caso"]["fase"] = FASE_APOS[args.gate]
+        # fase SO AVANCA, nunca regride: re-rodar um gate anterior num caso
+        # adiantado (ex.: G2 re-aprovado com o caso em E4) nao pode devolver
+        # o caso para tras (falha exposta pelo teste da Doutrina, 08/07/2026)
+        ordem = ["E1_intake", "E2_estrategia", "E3_minuta", "E4_protocolo",
+                 "ativo", "encerrado"]
+        atual = str(dados["caso"].get("fase", ""))
+        nova = FASE_APOS[args.gate]
+        if atual not in ordem or ordem.index(nova) > ordem.index(atual):
+            dados["caso"]["fase"] = nova
     soj.save_caso(pasta, dados)
 
     # regenera views e commita (D2: commit automatico a cada gate)

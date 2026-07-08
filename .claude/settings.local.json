@@ -137,7 +137,10 @@
       "PowerShell(New-Item -ItemType Directory -Force \"ESCRITORIO\\\\MODULOS\\\\civel\\\\templates\")",
       "PowerShell(\"pasta criada\")",
       "PowerShell(\"=== LAB: G2 com o item 8 novo ===\")",
-      "PowerShell(\"=== DRY RUN \\(sem efeitos\\): item 8 contra a ESTRATEGIA da DAIANE ===\")"
+      "PowerShell(\"=== DRY RUN \\(sem efeitos\\): item 8 contra a ESTRATEGIA da DAIANE ===\")",
+      "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2)",
+      "PowerShell(\"=== LAB primeiro ===\")",
+      "PowerShell(\"=== TANIA G2 \\(reaprovacao\\) ===\")"
     ]
   }
 }
