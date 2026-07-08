@@ -456,3 +456,7 @@ TESTE DE ACEITACAO DA DOUTRINA DE ANALISE v1: secoes 1, 3 e 4 da ESTRATEGIA rege
 G2 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
 Itens reprovados: Profundidade da analise (Doutrina item 6: afirmacoes sorteadas com ancora concreta; toda tese adversaria com contramedida)
 ---
+## #044 | 2026-07-08 15:49 | GATE
+G2 executado: REPROVADO. 7/8 itens. Relatorio: _views/gate_G2_2026-07-08.md
+Itens reprovados: Profundidade da analise (Doutrina item 6: afirmacoes sorteadas com ancora concreta; toda tese adversaria com contramedida)
+---
