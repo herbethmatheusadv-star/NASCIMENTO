@@ -31,11 +31,14 @@ import argparse
 import shutil
 import sys
 import tempfile
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
 import regras
+
+RAIZ = Path(__file__).resolve().parents[1]
 
 URL_LOGIN_TJPA = "https://pje.tjpa.jus.br/pje/login.seam"
 
@@ -160,12 +163,91 @@ class SessaoEfemera:
         return True
 
 
+def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
+    """
+    Spike, item 2 — na forma mais segura que existe: O ROBO NAO CLICA EM NADA.
+
+    O titular navega (Expedientes, Acervo); o robo so escuta o trafego e salva
+    o que a pagina pediu ao servidor. Zero risco de ciencia acidental: nao ha
+    clique automatico para dar errado.
+
+    Salva em _efemeros/mapeamento_pje/ (fora do git — tem dado de cliente).
+    """
+    destino = RAIZ / "_efemeros" / "mapeamento_pje"
+    destino.mkdir(parents=True, exist_ok=True)
+    carimbo = datetime.now().strftime("%Y-%m-%d_%H%M")
+
+    chamadas: list[dict] = []
+
+    def anotar_resposta(resp):
+        try:
+            req = resp.request
+            if req.resource_type not in ("xhr", "fetch", "document"):
+                return
+            chamadas.append({
+                "quando": datetime.now().strftime("%H:%M:%S"),
+                "metodo": req.method,
+                "url": resp.url,
+                "status": resp.status,
+                "tipo": req.resource_type,
+                "content_type": (resp.header_value("content-type") or "")[:60],
+            })
+        except Exception:  # noqa: BLE001
+            pass
+
+    s.pagina.on("response", anotar_resposta)
+
+    print()
+    print("=" * 70)
+    print("  MODO MAPEAMENTO — VOCE DIRIGE, EU ANOTO")
+    print("=" * 70)
+    print("  O robo NAO vai clicar em nada. Ele so escuta o que a pagina pede")
+    print("  ao servidor enquanto VOCE navega.")
+    print()
+    print("  Por favor, navegue com calma ate:")
+    print("    1. EXPEDIENTES  (a lista — NAO abra nenhum expediente!)")
+    print("    2. ACERVO       (a lista de processos)")
+    print()
+    print("  Se um expediente estiver 'pendente de ciencia', NAO clique nele.")
+    print("  A lista basta — e dela que o censo precisa.")
+    print()
+    print("  Quando terminar, volte aqui e aperte ENTER.")
+    print("=" * 70)
+    try:
+        input()
+    except (EOFError, KeyboardInterrupt):
+        print("\n[mapeamento] interrompido.")
+
+    # HTML da ultima pagina que ele deixou aberta (para eu ver a estrutura)
+    try:
+        html = s.pagina.content()
+        (destino / f"pagina_final_{carimbo}.html").write_text(html,
+                                                              encoding="utf-8")
+    except Exception as e:  # noqa: BLE001
+        print(f"[mapeamento] nao consegui salvar o HTML: {e}")
+
+    relatorio = destino / f"chamadas_{carimbo}.md"
+    with relatorio.open("w", encoding="utf-8") as f:
+        f.write(f"# Mapeamento do painel PJe/TJPA — {carimbo}\n\n")
+        f.write(f"{len(chamadas)} chamada(s) observada(s). "
+                f"O robo nao clicou em nada.\n\n")
+        f.write("| hora | metodo | status | tipo | content-type | url |\n")
+        f.write("|---|---|---|---|---|---|\n")
+        for c in chamadas:
+            f.write(f"| {c['quando']} | {c['metodo']} | {c['status']} | "
+                    f"{c['tipo']} | {c['content_type']} | `{c['url'][:150]}` |\n")
+    print(f"\n[mapeamento] {len(chamadas)} chamadas salvas em {relatorio}")
+    return relatorio
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Sessao efemera do Conector PJe")
     ap.add_argument("--checar", action="store_true",
                     help="so verifica o ambiente e sai")
     ap.add_argument("--login", action="store_true",
                     help="abre o navegador e espera o login do titular")
+    ap.add_argument("--mapear", action="store_true",
+                    help="apos o login, anota o trafego enquanto VOCE navega")
     args = ap.parse_args()
 
     ok, faltas = ambiente_ok()
@@ -175,11 +257,15 @@ def main() -> None:
     if args.checar or not ok:
         sys.exit(0 if ok else 1)
 
-    if args.login:
+    if args.login or args.mapear:
         with SessaoEfemera() as s:
-            if s.esperar_login_humano():
-                print("[sessao] (Parte 1 ainda nao implementada — nada foi "
-                      "lido. Encerrando e apagando o perfil.)")
+            if not s.esperar_login_humano():
+                return
+            if args.mapear:
+                mapear_enquanto_voce_navega(s)
+            else:
+                print("[sessao] portao validado. Nada foi lido (era so o "
+                      "teste do login). Encerrando e apagando o perfil.")
 
 
 if __name__ == "__main__":

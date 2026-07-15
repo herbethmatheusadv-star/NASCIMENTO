@@ -20,3 +20,18 @@ _SISTEMA/browser_profile/
 # perfis de navegador nunca entram no git (e nao devem nem existir: sao efemeros)
 CONECTOR/**/browser_profile/
 _SISTEMA/quarentena.md.bak
+
+# ===== CERTIFICADO DIGITAL — NUNCA no git, NUNCA no OneDrive =====
+# O .pfx do A1 e a assinatura de advogado do titular: com ele e a senha,
+# assina-se e peticiona-se em nome dele. Estes padroes existem para que um
+# "copiei so um minuto para ca" nao vire um commit publico.
+*.pfx
+*.p12
+*.pem
+*.key
+*.jks
+*.keystore
+certificado*
+
+# mapeamento do painel (HTML e trafego — dado de cliente)
+_efemeros/
