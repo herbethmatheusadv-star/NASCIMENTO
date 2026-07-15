@@ -12,3 +12,7 @@ __pycache__/
 AUTOS/
 RADAR/relatorios/
 RADAR/.cache_datajud.json
+
+# fixtures de teste do radar (teor real de intimacoes — dados de cliente)
+RADAR/fixtures/
+_SISTEMA/browser_profile/

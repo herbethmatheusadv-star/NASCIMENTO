@@ -110,6 +110,97 @@ check("texto sem prazo devolve None",
 check("numero absurdo (999 dias) e ignorado",
       detectar_prazo("prazo de 999 dias"), None)
 
+print("\n=== 10.1 BUG-01: prazo do cliente x prazo que a decisao so menciona ===")
+# Estes casos travam o bug de 15/07/2026: numa sentenca de JEC o radar leu o
+# "prazo de 15 dias ... arquive-se" como se fosse o prazo do recurso (10 dias)
+# e anunciou o vencimento SETE DIAS depois do real - com o rotulo "detectado no
+# texto", que passa confianca alta. Erro para MAIS e o que faz perder prazo.
+from monitor_prazos import detectar_prazos, eh_meramente_informativo
+
+check("prazo de arquivamento NAO e prazo do cliente",
+      detectar_prazo("Decorrido o prazo de 15 dias sem manifestacao das partes, "
+                     "arquive-se."), None)
+check("prazo de cumprimento voluntario NAO e prazo do cliente",
+      detectar_prazo("Com o transito em julgado, aguarde-se o prazo de 15 "
+                     "(quinze) dias para cumprimento voluntario."), None)
+# COM ACENTO: os padroes rodam sobre texto normalizado. A 1a versao da correcao
+# escrevia "voluntario" sem acento e o texto real trazia "voluntário" - dois
+# prazos alheios passaram. Este teste existe para isso nao voltar.
+check("[acento] 'cumprimento voluntário' tambem e descartado",
+      detectar_prazo("Aguarde-se o prazo de 15 (quinze) dias para cumprimento "
+                     "voluntário e, findo o prazo, deverá o credor apresentar "
+                     "requerimento."), None)
+check("[acento] prazo do exequente apos cumprimento voluntário nao e nosso",
+      detectar_prazo("Por outro lado, havendo cumprimento voluntário da "
+                     "obrigação, intime-se a exequente para, no prazo de 05 "
+                     "(cinco) dias, se manifestar, sob pena de concordância "
+                     "tácita."), None)
+check("[acento] 'sem manifestação das partes, arquive-se' e descartado",
+      detectar_prazo("Por fim, decorrido o prazo de 15 dias sem manifestação "
+                     "das partes, arquive-se."), None)
+check("'prazo legal (10 dias)' do recurso e capturado (forma sem 'de')",
+      detectar_prazo("Em caso de interposicao de recurso inominado no prazo "
+                     "legal (10 dias) e recolhido o preparo, determino que a "
+                     "Secretaria o receba."), 10)
+
+_amb = detectar_prazos(
+    "Em caso de interposicao de recurso inominado no prazo legal (10 dias), "
+    "receba-se. Em caso de embargos de declaracao no prazo legal (05 dias), "
+    "intime-se o recorrido. Decorrido o prazo de 15 dias sem manifestacao das "
+    "partes, arquive-se.")
+check("texto com varios prazos: escolhe o MENOR", _amb["escolhido"], 5)
+check("texto com varios prazos: marca ambiguo", _amb["ambiguo"], True)
+check("texto com varios prazos: lista os candidatos", _amb["candidatos"], [5, 10])
+check("texto com varios prazos: descarta o do arquivamento",
+      15 in _amb["descartados"], True)
+
+# --- teor REAL da sentenca que causou o bug (fixture) ---
+from pathlib import Path
+_fx = Path(__file__).parent / "fixtures" / "sentenca_jec_bug01.txt"
+if _fx.exists():
+    _real = _fx.read_text(encoding="utf-8")
+    _d = detectar_prazos(_real)
+    # A assercao que importa: o 15 nao pode sobrar NENHUMA vez. A sentenca traz
+    # dois "15" alheios (arquivamento e cumprimento voluntario) - checar so o
+    # "escolhido != 15" ou "15 in descartados" deixava um deles passar, que foi
+    # exatamente o que aconteceu na 1a versao desta correcao.
+    check("[REAL] sentenca do JEC: 15 NAO sobra entre os candidatos",
+          15 in _d["candidatos"], False)
+    check("[REAL] sentenca do JEC: 15 e 5-do-exequente foram descartados",
+          _d["descartados"], [5, 15])
+    check("[REAL] sentenca do JEC: candidatos sao exatamente 5 (ED) e 10 (RI)",
+          _d["candidatos"], [5, 10])
+    check("[REAL] sentenca do JEC: escolhe o MENOR (5 = embargos)",
+          _d["escolhido"], 5)
+    check("[REAL] sentenca do JEC: marca ambiguo (5 e 10 sao ambos do cliente)",
+          _d["ambiguo"], True)
+else:
+    print("  [aviso] fixture sentenca_jec_bug01.txt ausente - teste real pulado")
+
+print("\n=== 10.2 BUG-02: termo de audiencia nao inventa prazo ===")
+check("termo de audiencia sem ordem = informativo",
+      eh_meramente_informativo("Intimacao",
+                               "TERMO DE AUDIENCIA DE CONCILIACAO. Aberta a "
+                               "audiencia: SEM ACORDO, a tentativa foi "
+                               "infrutifera. Nada mais."), True)
+check("termo de audiencia COM ordem e prazo NAO e informativo",
+      eh_meramente_informativo("Intimacao",
+                               "TERMO DE AUDIENCIA. Intime-se a parte autora "
+                               "para juntar documentos no prazo de 5 dias, sob "
+                               "pena de extincao."), False)
+check("sentenca nunca e informativa",
+      eh_meramente_informativo("Intimacao", "SENTENCA. Julgo procedente."), False)
+check("lista de distribuicao continua informativa",
+      eh_meramente_informativo("Lista de distribuicao", "Processo distribuido."), True)
+
+_fx2 = Path(__file__).parent / "fixtures" / "termo_audiencia_bug02.txt"
+if _fx2.exists():
+    check("[REAL] termo de conciliacao sem acordo = informativo",
+          eh_meramente_informativo("Intimacao", _fx2.read_text(encoding="utf-8")),
+          True)
+else:
+    print("  [aviso] fixture termo_audiencia_bug02.txt ausente - teste real pulado")
+
 print("\n=== 11. Agrupamento das comunicacoes do mesmo ato ===")
 from monitor_prazos import processar
 

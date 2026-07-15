@@ -390,10 +390,75 @@ def consultar_djen(oab: str, uf: str, inicio: date, fim: date,
 # Texto
 # --------------------------------------------------------------------------
 
+# Pega "prazo de 15 dias", "prazo de 05 (cinco) dias", "prazo comum de 15 dias"
+# e tambem "prazo legal (10 dias)" - esta ultima forma, sem o "de", e como as
+# sentencas de JEC anunciam o prazo do recurso. Ela escapava e custou caro:
+# ver BUG-01 em _SISTEMA/logs/bugs_radar.md.
 RE_PRAZO = re.compile(
-    r"prazo\s+(?:\w+\s+){0,3}?de\s+(\d{1,3})\s*(?:\([^)]{0,40}\)\s*)?dias?\b",
+    r"prazo\s+(?:\w+\s+){0,3}?(?:de\s+)?\(?\s*(\d{1,3})\s*\)?\s*"
+    r"(?:\([^)]{0,40}\)\s*)?dias?\b",
     re.IGNORECASE,
 )
+
+# Contextos onde um prazo NAO e do cliente: sao prazos que a decisao apenas
+# menciona (arquivamento, cumprimento voluntario do adversario, decurso).
+# Confundi-los com o prazo da parte foi o BUG-01: numa sentenca de JEC, o
+# "prazo de 15 dias ... arquive-se" virou o prazo do recurso, que era de 10 -
+# sete dias a MAIS do que o advogado tinha.
+#
+# ATENCAO: estes padroes rodam sobre classificador.normalizar() - texto SEM
+# acento. Escreva-os sem acento. Na primeira versao desta correcao o padrao
+# dizia "voluntario" e o texto real trazia "voluntario" com acento agudo: dois
+# prazos alheios passaram batido. E o mesmo motivo pelo qual todo o resto do
+# classificador normaliza antes de casar.
+RE_CONTEXTO_ALHEIO = re.compile(
+    r"arquive-se|arquivamento|"
+    r"cumprimento\s+voluntario|"
+    r"sem\s+manifesta\w+\s+d[ao]s?\s+partes?|"
+    r"decorrid[oa]\s+o\s+prazo|"
+    r"sobrestamento|suspens\w+\s+do\s+processo",
+    re.IGNORECASE,
+)
+
+# Contextos que confirmam: este prazo e uma providencia da parte.
+RE_CONTEXTO_PROPRIO = re.compile(
+    r"interpos\w+|interpor|recorrer|recurso|contrarraz\w+|"
+    r"contestar|contesta\w+|impugna\w+|embargos|"
+    r"emend\w+|especific\w+\s+(?:as\s+)?provas|"
+    r"apresent\w+|junt\w+|comprov\w+|recolh\w+|"
+    r"sob\s+pena\s+de|manifestar-se|manifestem-se",
+    re.IGNORECASE,
+)
+
+# Um termo/ata de audiencia se anuncia no proprio texto. Nao da para usar o
+# tipo_de_ato() aqui: o termo real de 22/06/2026 traz "conclusos para decisao"
+# no fim e e classificado como "decisao", porque essa entrada vem antes na lista
+# de prioridade do classificador.
+RE_TERMO_AUDIENCIA = re.compile(
+    r"\btermo\s+de\s+audiencia\b|\bata\s+de\s+audiencia\b", re.IGNORECASE)
+
+LIMITE_CLAUSULA = 400  # teto de seguranca para a busca de fronteira
+
+
+def _clausula(texto: str, ini: int, fim: int) -> str:
+    """
+    Devolve a clausula (frase) que contem o trecho [ini:fim].
+
+    Por que nao uma janela de N caracteres: numa sentenca densa, o "arquive-se"
+    de uma frase fica a poucos caracteres do prazo da frase SEGUINTE e
+    contamina o julgamento. A unidade de sentido e a frase, delimitada por
+    ponto, ponto-e-virgula ou quebra de linha.
+    """
+    piso = max(0, ini - LIMITE_CLAUSULA)
+    inicio = max(texto.rfind(". ", piso, ini), texto.rfind("; ", piso, ini),
+                 texto.rfind("\n", piso, ini))
+    inicio = piso if inicio < 0 else inicio + 1
+
+    teto = min(len(texto), fim + LIMITE_CLAUSULA)
+    cortes = [c for c in (texto.find(". ", fim, teto), texto.find("; ", fim, teto),
+                          texto.find("\n", fim, teto)) if c >= 0]
+    final = min(cortes) if cortes else teto
+    return texto[inicio:final]
 
 
 def limpar_html(texto: str) -> str:
@@ -408,20 +473,79 @@ def limpar_html(texto: str) -> str:
     return t.strip()
 
 
-def detectar_prazo(texto: str) -> int | None:
-    """Heuristica: procura 'prazo de N dias' no corpo da intimacao."""
-    m = RE_PRAZO.search(texto)
-    if m:
+def detectar_prazos(texto: str) -> dict:
+    """
+    Acha os prazos do texto e diz QUAIS sao do cliente.
+
+    Devolve {"escolhido": int|None, "candidatos": [int], "descartados": [int],
+             "ambiguo": bool}.
+
+    Por que nao basta pegar o primeiro "prazo de N dias" (BUG-01, 15/07/2026):
+    uma sentenca de JEC diz, em clausulas diferentes, "recurso inominado no
+    prazo legal (10 dias)" - o prazo do cliente - e tambem "decorrido o prazo
+    de 15 dias sem manifestacao das partes, arquive-se" e "aguarde-se o prazo
+    de 15 (quinze) dias para cumprimento voluntario" - que nao sao dele. O
+    primeiro match era o 15, e o relatorio anunciava vencimento SETE DIAS
+    depois do real, com o rotulo "detectado no texto" (confianca alta).
+
+    Regras, na ordem:
+      1. prazo em contexto alheio (arquivamento, cumprimento voluntario,
+         decurso) e DESCARTADO;
+      2. sobra mais de um valor distinto -> escolhe o MENOR e marca ambiguo:
+         errar para menos antecipa a data (chato); errar para mais perde o
+         prazo (fatal). Ambiguo vai para a fila vermelha do briefing.
+    """
+    candidatos: list[int] = []
+    descartados: list[int] = []
+    t = texto or ""
+    for m in RE_PRAZO.finditer(t):
         n = int(m.group(1))
-        if 1 <= n <= 60:
-            return n
-    return None
+        if not (1 <= n <= 60):
+            continue
+        clausula = classificador.normalizar(_clausula(t, m.start(), m.end()))
+        if RE_CONTEXTO_ALHEIO.search(clausula):
+            descartados.append(n)
+        else:
+            candidatos.append(n)
+
+    unicos = sorted(set(candidatos))
+    return {
+        "escolhido": unicos[0] if unicos else None,
+        "candidatos": unicos,
+        "descartados": sorted(set(descartados)),
+        "ambiguo": len(unicos) > 1,
+    }
 
 
-def eh_meramente_informativo(tipo: str) -> bool:
-    """Comunicacoes que normalmente nao abrem prazo para a parte."""
+def detectar_prazo(texto: str) -> int | None:
+    """Compatibilidade: so o prazo escolhido. Ver detectar_prazos()."""
+    return detectar_prazos(texto)["escolhido"]
+
+
+# Atos que so comunicam: nao abrem prazo por si. "Termo/ata de audiencia" entrou
+# aqui no BUG-02 (15/07/2026): um termo de conciliacao SEM ACORDO virou alerta
+# [ATENCAO] de 15 dias "padrao assumido" - prazo que nao existe - competindo com
+# o prazo verdadeiro do mesmo processo. Alerta falso e o comeco do fim: quem
+# recebe alarme sem motivo para de ler o relatorio.
+def eh_meramente_informativo(tipo: str, texto: str = "") -> bool:
+    """
+    Comunicacoes que normalmente nao abrem prazo para a parte.
+
+    `texto` e opcional so por compatibilidade com chamadas antigas; passe-o
+    sempre que tiver, porque o tipo do DJEN diz "Intimacao" ate para um termo
+    de audiencia.
+    """
     t = (tipo or "").lower()
-    return "distribui" in t or "pauta" in t
+    if "distribui" in t or "pauta" in t:
+        return True
+    if texto and RE_TERMO_AUDIENCIA.search(classificador.normalizar(texto)):
+        # ... a menos que o proprio termo traga ORDEM COM PRAZO a parte.
+        # O gatilho e o prazo, nao o "sob pena de": o termo real de 22/06/2026
+        # transcreve um pedido do advogado ADVERSO ("intimacao exclusiva ...
+        # sob pena de nulidade") - pedido de terceiro nao e ordem ao cliente.
+        ordem = classificador.trechos_de_ordem(texto)
+        return detectar_prazos(ordem)["escolhido"] is None
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -445,8 +569,9 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
         # chave e so os digitos
         num_digitos = re.sub(r"\D", "", it.get("numero_processo")
                              or it.get("numeroprocessocommascara") or "")
-        detectado = detectar_prazo(texto)
-        informativo = eh_meramente_informativo(tipo)
+        deteccao = detectar_prazos(texto)
+        detectado = deteccao["escolhido"]
+        informativo = eh_meramente_informativo(tipo, texto)
         dias = detectado or prazo_padrao
 
         # o tribunal entra na conta: feriado estadual vale so no seu estado
@@ -492,6 +617,8 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
             "vencimento": vencimento,
             "dias": dias,
             "prazo_detectado": detectado is not None,
+            "prazo_ambiguo": deteccao["ambiguo"],
+            "prazo_candidatos": deteccao["candidatos"],
             "informativo": informativo,
             "restantes": restantes,
             "nivel": nivel,
@@ -699,6 +826,10 @@ def imprimir_console(linhas: list[dict], hoje: date, oab: str, uf: str,
         origem = "detectado no texto" if l["prazo_detectado"] else "padrao assumido"
         print(f"    VENCIMENTO    : {br(l['vencimento'])}"
               f"   ({l['dias']} dias uteis, {origem})")
+        if l.get("prazo_ambiguo"):
+            outros = ", ".join(f"{n}" for n in l["prazo_candidatos"])
+            print(f"    !! PRAZO AMBIGUO: o texto traz {outros} dias. Assumi o "
+                  f"MENOR ({l['dias']}). CONFIRA NOS AUTOS qual e o seu.")
         if l["nivel"] == 0:
             print(f"    Situacao      : VENCIDO ha {abs(l['restantes'])} dia(s) util(eis)")
         elif l["nivel"] == 1:
@@ -839,6 +970,13 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
         if l["de_quem"] == classificador.INCERTO:
             dono = (f'<p class="incerto">Não deu para confirmar se o prazo é seu: '
                     f'{e(l["de_quem_motivo"])}. <b>Confira nos autos.</b></p>')
+        ambiguo = ""
+        if l.get("prazo_ambiguo"):
+            outros = ", ".join(str(n) for n in l["prazo_candidatos"])
+            ambiguo = (f'<p class="incerto"><b>Prazo ambíguo:</b> o texto traz '
+                       f'{outros} dias. Assumi o <b>menor ({l["dias"]})</b> — '
+                       f'errar para menos antecipa a data; errar para mais perde '
+                       f'o prazo. <b>Confira nos autos qual é o seu.</b></p>')
         cnj = ""
         if l["cumprimento"]:
             classe_cnj = ("cnj-alerta" if l["cumprimento"] == datajud.DECURSO_REGISTRADO
@@ -864,6 +1002,7 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
         </div>
         {cnj}
         {dono}
+        {ambiguo}
         <dl>
           <div><dt>Órgão</dt><dd>{e(l['orgao'])}</dd></div>
           <div><dt>Disponibilizado</dt><dd>{br(l['disponibilizacao'])}</dd></div>
