@@ -5,6 +5,20 @@ que manda em tudo é `SOJ_BLUEPRINT_v1.md` (v1.3 + adendos). O dono é advogado
 e NÃO programa: explique tudo em português simples e pergunte antes de decisões
 importantes.
 
+## SOJ Operacional — Fase 0 (desde 15/07/2026)
+
+- A expansão (clientes, processos, INBOX, prazos v2, briefing, financeiro) é
+  regida por `PROMPT_MESTRE_SOJ_OPERACIONAL.md` (raiz). Complementa o
+  blueprint; em conflito entre os dois, pergunte ao advogado.
+- Radar DJEN: `RADAR/` (ex-monitor-prazos; tarefa agendada "SOJ Radar DJEN
+  (07h)" no Task Scheduler, diária, hora local = America/Belem).
+- Entidades novas: `CLIENTES/` (CLI-####), `PROCESSOS/` (PROC-####), `INBOX/`,
+  `FINANCEIRO/`, `BRIEFINGS/`, `AUTOS/` (fora do git), `_SISTEMA/`.
+- Numeração: `_SISTEMA/config/numeracao.yaml`. Propriedade de cada campo:
+  `_SISTEMA/config/fonte_da_verdade.md`.
+- **REGRA DA CASA (OneDrive): toda sessão termina com `git commit` + `git
+  push`** — ver `_SISTEMA/config/repositorio.md`.
+
 ## Início de TODA sessão (ordem obrigatória)
 
 1. **Vigia de prazos** (blueprint, seção 7): `python ESCRITORIO/scripts/vigia_prazos.py`

@@ -1,0 +1,18 @@
+# Intimacoes que voce JA TRATOU.
+#
+# Formato:  NUMERO_PROCESSO  AAAA-MM-DD  # nota opcional
+#
+# A data e a de DISPONIBILIZACAO da intimacao - a mesma que aparece no
+# relatorio na linha "Disponibilizado". O numero pode vir com ou sem mascara.
+#
+# Para que serve: sem isto, um prazo que voce ja resolveu continua no topo do
+# relatorio ate sair da janela (54 dias). Alerta que voce ja tratou e continua
+# piscando faz voce parar de ler o relatorio - e ai a ferramenta nao serve mais
+# para nada. Marque aqui o que ja foi.
+#
+# O que ele NAO faz: sumir. O item marcado sai do topo e vai para uma secao
+# propria no fim, com a sua nota. Continua visivel e conferivel. Esconder de
+# vez seria trocar um risco (esquecer o prazo) por outro (achar que tratou algo
+# que nao tratou).
+
+0807884-75.2026.8.14.0000  2026-06-19  # preparo recursal resolvido - confirmado em 15/07/2026

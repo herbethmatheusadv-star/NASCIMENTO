@@ -1,0 +1,19 @@
+# Esquemas de numeração reconhecidos pelo Auditor (aprovado pelo advogado em 15/07/2026 — Q7)
+# Regra de ouro: id nunca é reutilizado nem renumerado.
+esquemas:
+  caso:
+    formato: "AAAA-NNNN"          # herdado do SOJ v1 — ex.: 2026-0004
+    fonte: "CASOS/<NOME>/CASO.yaml (campo caso.id)"
+    nota: "casos legados mantêm este esquema; não migrar"
+  cliente:
+    formato: "CLI-NNNN"           # entidade nova (SOJ Operacional)
+    fonte: "CLIENTES/CLI-NNNN.md"
+  processo:
+    formato: "PROC-NNNN"          # entidade nova (SOJ Operacional)
+    fonte: "PROCESSOS/PROC-NNNN.md"
+  contrato:
+    formato: "CTR-NNNN"
+    fonte: "FINANCEIRO/contratos/CTR-NNNN.md"
+  prazo:
+    formato: "PZ##"               # herdado do SOJ v1, vive no CASO.yaml
+    nota: "memória de cálculo (Motor v2) referencia o PZ## correspondente"

@@ -7,3 +7,8 @@ desktop.ini
 # Lixo do Python
 __pycache__/
 *.pyc
+
+# SOJ Operacional (Etapa 1, 2026-07-15)
+AUTOS/
+RADAR/relatorios/
+RADAR/.cache_datajud.json

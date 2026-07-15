@@ -1,0 +1,74 @@
+# Feriados locais e suspensoes de expediente
+#
+# Formato:  YYYY-MM-DD  [ESCOPO]  Descricao
+#
+# ESCOPO e a sigla do tribunal como vem do DJEN (TJPA, TJMA, TRT8, TRF1...)
+# ou * para valer em todos. Se voce omitir, vale para todos.
+#
+# Por que o escopo existe: feriado estadual nao e nacional. 28/07 e feriado no
+# Maranhao e dia util no Para. Sem escopo, um feriado do MA empurraria errado
+# os prazos dos seus processos paraenses.
+#
+# Os feriados NACIONAIS ja estao no script (Carnaval, Sexta-feira Santa e
+# Corpus Christi sao calculados pela Pascoa de cada ano) e o recesso de 20/12
+# a 20/01 tambem. Nao precisa cadastrar nada disso.
+#
+# ATENCAO A DIRECAO DO ERRO: um feriado a MAIS aqui empurra o vencimento para
+# frente e te da a impressao de ter MAIS tempo do que voce tem. Um feriado a
+# MENOS antecipa a data - chato, mas seguro. So mantenha o que voce confirmou
+# no calendario oficial do tribunal.
+#
+# ---------------------------------------------------------------------------
+# PRE-CADASTRADOS - CONFIRA ANTES DE CONFIAR
+# ---------------------------------------------------------------------------
+# Onde voce atua (levantado do seu proprio historico no DJEN, 12 meses):
+#   TRT8  - 2a e 3a Vara do Trabalho de Parauapebas, CEJUSC Parauapebas  (PA)
+#   TJPA  - Parauapebas, Canaa dos Carajas, Turmas em Belem              (PA)
+#   TJMA  - Imperatriz, Acailandia, 3a Camara Criminal                   (MA)
+#
+# Sao datas consolidadas, mas quem responde pelo prazo e voce: confirme no
+# calendario oficial de cada tribunal e apague o que nao proceder.
+
+# Para - Adesao do Para a Independencia do Brasil (15 de agosto)
+# Vale para TODO tribunal que julga no Para - inclusive o TRT8, cujas varas
+# (Parauapebas) sao paraenses. O TRT8 abrange PA e AP; se um dia entrar
+# processo do Amapa, este feriado NAO se aplica a ele.
+2026-08-15  TJPA  Adesao do Para a Independencia
+2027-08-15  TJPA  Adesao do Para a Independencia
+2026-08-15  TRT8  Adesao do Para a Independencia (varas de Parauapebas/PA)
+2027-08-15  TRT8  Adesao do Para a Independencia (varas de Parauapebas/PA)
+
+# Maranhao - Adesao do Maranhao a Independencia do Brasil (28 de julho)
+2026-07-28  TJMA  Adesao do Maranhao a Independencia
+2027-07-28  TJMA  Adesao do Maranhao a Independencia
+
+# ---------------------------------------------------------------------------
+# A CONFERIR NO SEU FORO (descomente o que se aplicar)
+# ---------------------------------------------------------------------------
+# Circio de Nazare cai no 2o domingo de outubro - domingo ja nao e dia util,
+# mas o TJPA costuma suspender expediente na segunda seguinte por portaria.
+# Confirme a portaria do ano e descomente:
+# 2026-10-12  TJPA  Segunda pos-Circio (conferir portaria)
+# 2026-10-12  TRT8  Segunda pos-Circio (conferir portaria)
+
+# Feriados MUNICIPAIS das suas comarcas. Nao cadastrei porque nao confirmei as
+# datas - preencha com o calendario da comarca e descomente. Lembre que feriado
+# municipal so vale nos processos daquela comarca, e o escopo aqui e por
+# TRIBUNAL: se Parauapebas parar mas Belem nao, cadastrar como TJPA vai
+# empurrar errado os prazos das Turmas de Belem. Nesse caso, prefira deixar de
+# fora (a data sai mais cedo, o que e seguro) e conferir na mao.
+# 2026-__-__  TJPA  Aniversario de Parauapebas
+# 2026-__-__  TJPA  Aniversario de Canaa dos Carajas
+# 2026-__-__  TJMA  Aniversario de Imperatriz
+# 2026-__-__  TJMA  Aniversario de Acailandia
+
+# Belem - Nossa Senhora da Conceicao, padroeira (8 de dezembro):
+# 2026-12-08  TJPA  N. Sra. da Conceicao - Belem
+
+# Dia do Advogado (11/08) e Dia da Justica (08/12) sao feriados forenses na
+# Justica Federal (Lei 5.010/66). Na Justica Estadual e Trabalhista varia:
+# 2026-08-11  TRF1  Dia do Advogado
+# 2026-12-08  TRF1  Dia da Justica
+
+# Suspensoes por portaria vao aqui conforme sairem, por exemplo:
+# 2026-11-20  TJPA  Suspensao de expediente - Portaria XXX/2026
