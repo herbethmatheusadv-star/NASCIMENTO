@@ -65,3 +65,28 @@ Honorários R$ 900 recebidos · comunicação feita · aprendizado ratificado
   Belém) e **TJMA** (~9: Imperatriz, Açailândia) — mesma triagem.
 - Casos não protocolados (com `data_interna` e `prescricao_ou_limite`) e
   clientes sem processo.
+
+---
+
+## PROC-0006 · Daniel × Santander (JEC) — ✅ DECIDIDO: REAJUIZAR (15/07)
+
+- ✅ Decisão do titular: **reajuizar**, não recorrer. PZ do recurso (21/07)
+  cancelado conscientemente, com a data conferida.
+- ✅ **Vício identificado** (art. 486, §1º, CPC): foro. Autor mora em **Canaã
+  dos Carajás**; ajuizou-se em **Parauapebas**. Extinção de ofício pelo art.
+  51, III, Lei 9.099 + Enunciado 89 FONAJE. Sem custas → art. 486, §2º não
+  incide (nada a pagar para repropor).
+- ⬜ **Canaã dos Carajás tem JEC próprio ou juizado adjunto à Vara Cível?**
+  (você atua em 3 processos na comarca — .0136)
+- ⬜ Comunicar o cliente (ele não sabe que perdeu) e confirmar endereço atual.
+- ⬜ Comprovante de residência atual e idôneo — é a peça da competência.
+- ⬜ Decidir: nova ação contra o **Santander apenas** ou **+ Zurich Santander
+  Brasil Seguros S.A.** (a contestação anterior alegou ilegitimidade passiva
+  quanto ao seguro e pediu a inclusão da seguradora — a defesa deles já está
+  nos autos e é ouro para a nova inicial).
+- ⬜ Ratificar [[APR-0002]] (competência territorial no JEC) — status: bruto.
+
+## PROC-0007 · Alimentos Imperatriz (cliente réu) — 🔴 24h
+
+- ⬜ **Conferir no PJe o teor do despacho de 16/06** (não publicado). Audiência
+  de instrução 12/08 10:20 confirmada.
