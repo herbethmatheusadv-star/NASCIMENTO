@@ -16,3 +16,7 @@ RADAR/.cache_datajud.json
 # fixtures de teste do radar (teor real de intimacoes — dados de cliente)
 RADAR/fixtures/
 _SISTEMA/browser_profile/
+
+# perfis de navegador nunca entram no git (e nao devem nem existir: sao efemeros)
+CONECTOR/**/browser_profile/
+_SISTEMA/quarentena.md.bak

@@ -90,12 +90,73 @@ da Ressalva 2 evapora — o que sobra é só a questão de onde mora a credencia
 
 ---
 
-## Pendências de decisão do titular (15/07/2026)
+## EMENDA 02 · 15/07/2026 · Revogação parcial e explícita — login por certificado
 
-- [ ] Confirmar a antecipação do conector ciente do §11 (Ressalva 1).
-- [ ] Revogar, manter ou **restringir** a regra de credenciais (Ressalva 2).
-      Sugestão de meio-termo: manter o veto a certificado/gov.br e a perfil
-      persistente; permitir **MNI com CPF+senha no Windows Credential
-      Manager**, se o MNI atender — é credencial de consulta, não de
-      assinatura.
-- [ ] Confirmar ciência da Ressalva 3.
+**Autoria: o titular**, por mensagem no chat, **ciente da coincidência com a
+injeção reportada** (Ressalva 3 da Emenda 01) e declarando expressamente que
+*"a instrução válida é esta, por este canal"*. As três ressalvas da Emenda 01
+ficam **respondidas**; a Emenda 01 passa de ⏸️ para ✅ **em vigor**.
+
+### REVOGADO
+
+- O veto ao **login por certificado digital** no PJe.
+
+### MANTIDO INTEGRALMENTE (o titular reafirmou)
+
+- (a) nada de **perfil de navegador persistente**;
+- (b) nada de **cookie/token/sessão salvos em arquivo**;
+- (c) **nenhuma credencial, senha ou PIN** em disco, código ou variável de
+  ambiente;
+- (d) nada de **gov.br automatizado**.
+
+### Desenho aprovado — "certificado com humano no portão"
+
+Playwright + Chromium com **perfil efêmero** · PJeOffice rodando · o robô abre
+o login e **para**; o titular digita o PIN/senha na janela · o robô nunca vê
+nem armazena · a sessão morre com o processo · amanhã, PIN de novo.
+
+**Por que este desenho dissolve as ressalvas 2 e 3:** os três vetores que a
+regra original protegia — cookie persistido, sessão medida para não
+reautenticar, credencial no robô — **deixam de existir**. Não são bloqueados:
+não são possíveis. É a "inversão legítima" que a própria regra apontava como
+alternativa ("ele autentica; o script processa"), agora com o navegador no
+meio.
+
+### R7 INEGOCIÁVEL — implementada e testada ANTES do primeiro login
+
+`CONECTOR/regras.py` + `CONECTOR/teste_regras.py` (**49 casos, exit 1 quebra o
+build**):
+1. **Ausência, não bloqueio:** o teste varre o fonte do pacote e falha se
+   aparecer capacidade de assinar/peticionar/tomar ciência/responder, operação
+   MNI de escrita, credencial em código ou persistência de sessão.
+   **Provado em 15/07:** um arquivo com `responder_expediente()` chamando
+   `confirmarRecebimento` foi detectado (arquivo e linha) e derrubou o build.
+2. **Allowlist MNI de exatamente 3 operações** (avisos pendentes, processo,
+   alteração). As duas de escrita não estão lá e não podem entrar.
+   `consultarTeorComunicacao` fica **em estudo** — pode ser o próprio ato de
+   ciência; só o titular libera, e só após provar num aviso já ciente.
+3. **Guarda de clique e de URL:** o robô se recusa a tocar em "Tomar
+   ciência/Responder/Peticionar/Assinar…" e a navegar para telas de ato.
+4. **Quarentena:** ciência pendente → não abre o processo **nem os autos** →
+   linha vermelha no briefing.
+5. **Watchdog:** fonte que não rodou / voltou vazia / veio abaixo do mínimo =
+   alerta. Silêncio não é "tudo bem": é "não sabemos".
+
+**O teste já cobrou o próprio autor:** a 1ª versão do `sessao.py` passava a
+flag de perfil fixo no launch do Chromium — reflexo de quem escreve automação
+de navegador todo dia, e exatamente o que a letra (a) veta. O build quebrou; a
+flag saiu (era desnecessária: `launch()` puro já é efêmero).
+
+### Pendências desta emenda
+
+- [ ] **Tipo do certificado: A1 ou A3?** Ficou `[A1 / A3]` no pedido, sem
+      marcar. Muda a blindagem: **A3** (token/smartcard) é o cenário ideal —
+      a chave não sai do hardware e o PIN é por uso. **A1** é arquivo `.pfx`
+      com senha: o desenho continua valendo, mas convém que o `.pfx` **não**
+      esteja em pasta sincronizada (OneDrive/Drive) e que a senha nunca seja
+      salva no navegador.
+- [ ] MNI com CPF+senha: se responder, o titular quer trocar de porta. Note
+      que a letra (c) proíbe a senha em disco/código/env — então a rota MNI
+      exigiria digitá-la a cada execução (prompt em memória), o que é
+      compatível, mas retira o "roda sozinho às 07h". Decisão dele quando o
+      caso surgir.
