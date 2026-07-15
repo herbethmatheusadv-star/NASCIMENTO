@@ -1,8 +1,17 @@
 # Fonte da verdade por campo — CASO.yaml × fichas markdown
 
-> **STATUS: PROPOSTA — aguardando aprovação do advogado** (adendo 8, 15/07/2026).
-> Princípio: **uma verdade por campo**. Quem duplica, deriva por script; o
-> Auditor confere a derivação e acusa divergência. Sem isto o R1 não é confiável.
+> **STATUS: APROVADA pelo advogado em 15/07/2026**, com duas condições
+> incorporadas abaixo (marcadas ★). Princípio: **uma verdade por campo**. Quem
+> duplica, deriva por script; o Auditor confere a derivação e acusa divergência.
+
+## Condições da aprovação (15/07/2026)
+
+- **★(a)** Todo `PZ##` no CASO.yaml referencia **obrigatoriamente** o número
+  do processo a que pertence (campo `processo:`) — casos com múltiplos
+  processos exigem isso. Já aplicado no PZ02 do caso 2026-0005 (GETULIO).
+- **★(b)** A partir da **Etapa 2**, o `PZ##` carrega os campos completos da
+  memória de cálculo do §4.2 do prompt-mestre, incluindo o **estado**
+  (`sugerido | confirmado | cumprido | perdido | cancelado`).
 
 ## Mapa de propriedade
 
@@ -26,9 +35,10 @@
    (cadastro em andamento), a ficha PROC pode carregar prazos *provisórios* em
    estado `sugerido`; ao criar o caso, migram para PZ## e a ficha passa a
    espelhar.
-2. **PT## é snapshot, não referência viva**: mudança de contato/endereço se faz
+2. **PT## é snapshot, não referência viva** — e **CASO.yaml é o canônico**
+   (determinação do advogado, 15/07/2026): mudança de contato/endereço se faz
    no CLI; se afetar peça em curso, a atualização do PT## é decisão registrada
-   no DIARIO. O Auditor compara nome/CPF entre CLI e PT## e acusa divergência
-   (aviso amarelo, nunca correção automática).
+   no DIARIO. **Auditor R2: snapshot PT## divergente na ficha PROC = ALERTA
+   VERMELHO no briefing** (nunca correção automática).
 3. **Views e bases nunca são fonte** (D5 do blueprint, mantida).
 4. Conflito não previsto neste mapa → perguntar ao advogado e registrar aqui.

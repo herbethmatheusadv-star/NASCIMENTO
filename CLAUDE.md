@@ -21,6 +21,9 @@ importantes.
 
 ## Início de TODA sessão (ordem obrigatória)
 
+0. **Git health check** (diretiva 15/07/2026): `python ESCRITORIO/scripts/git_health.py`
+   — acusa index.lock órfão (>30min sem git ativo), mudanças sem commit >24h e
+   commits sem push >24h. Log em `_SISTEMA/logs/git_health.md`.
 1. **Vigia de prazos** (blueprint, seção 7): `python ESCRITORIO/scripts/vigia_prazos.py`
    — antes de qualquer outra coisa, sobre qualquer caso. Depois, espelhar
    prazos ativos novos na agenda Google "SOJ — Prazos" (eventos anonimizados:

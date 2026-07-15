@@ -1,40 +1,51 @@
 # Entrevista do cadastro assistido — Etapa 1 (aberta em 15/07/2026)
 
-> Roteiro vivo: as respostas do advogado alimentam fichas de caso/cliente e o
-> financeiro. Perguntas respondidas devem ser marcadas e levadas às fichas.
+> Roteiro vivo. ✅ = respondido em 15/07 e levado às fichas; ⬜ = aberto.
 
-## PROC-0001 · Sindicato × F A Comércio (encerrado — piloto R6)
+## PROC-0001 · F A Comércio (cliente, RÉ) × Sindicato — encerrado, piloto R6
 
-1. Contrato de honorários do sindicato: existe por escrito? Percentual/base?
-2. Os R$ 2.513,57 recebidos geraram repasse de honorários? Recebido? Valor e data
-   (→ 1º lançamento real em FINANCEIRO/lancamentos.md).
-3. Comunicação do encerramento ao cliente: feita? Por qual canal?
-4. Qual o aprendizado do caso (≥1, para APRENDIZADOS — proponho e você ratifica)?
-5. O sindicato tem outros casos ativos com o escritório?
+- ✅ Polo: escritório representa a **RÉ** (corrigido — rascunho inicial invertia).
+- ✅ Honorários combinados: R$ 900,00 (ledger: a-confirmar recebimento).
+- ✅ Processo arquivado; cliente pagou R$ 2.513,57 ao sindicato.
+- ⬜ Os R$ 900,00 foram **recebidos**? Data? (fecha o item financeiro do R6)
+- ⬜ Contrato por escrito existe? Procuração arquivada?
+- ⬜ Comunicação de encerramento ao cliente: feita?
+- ⬜ Ratificar o aprendizado proposto (PROC-0001 §2) para APRENDIZADOS.
+- ⬜ "O sindicato tem outra ação com o escritório, também arquivada" — em que
+  condição? (cliente noutro caso × adversário de outro cliente) — cadastrar.
 
-## PROC-0002 · André × Odilon (PRECISO-DECIDIR até 22/07)
+## PROC-0002 · André (cliente, AUTOR) × Odilon — PRECISO-DECIDIR até 22/07
 
-1. Motivo da ausência do André na audiência de 08/04 (você disse que informará).
-2. Conferência no PJe (tarefa sua de hoje): houve condenação em custas? Valor?
-3. Data do fim da prestação de serviços (marco da prescrição bienal).
-4. Lista exata dos pedidos da inicial (análise Súmula 268/TST — o que a
-   interrupção aproveita).
-5. O cliente quer reajuizar? Contrato/procuração vigentes cobrem nova ação?
+- ✅ Polo: AUTOR. Extinção pela ausência em 08/04; **sem condenação em custas**
+  (sem barreira do art. 844 §§2º-3º CLT). Trânsito 08/04 (fls. 79-80).
+- ✅ Pedidos da inicial extraídos dos autos (Súmula 268: ver PROC-0002 §2).
+- ⬜ **Motivo da ausência do André** na audiência de 08/04.
+- ⬜ Data do fim da prestação de serviços (marco da prescrição bienal).
+- ⬜ O cliente quer reajuizar? Procuração de 06/03 cobre nova ação (poderes
+  gerais — fls. 17-18); confirmar contato atual do cliente.
 
-## PROC-0003 · Beatryz × Lemonbras (vigilância de calendário)
+## PROC-0003 · Beatryz (cliente, AUTORA) × Lemonbras — acordo em cumprimento
 
-1. Confirma: cliente é a Beatryz (reclamante/credora)?
-2. Termo homologado (você traz do PJe hoje): nº de parcelas, valores, datas,
-   multa, vencimento antecipado, responsável pelo INSS, forma de comprovação.
-3. Contrato de honorários: % e forma de repasse por parcela.
+- ✅ Termo homologado extraído (fls. 217-221): 7 parcelas, multa 30% +
+  vencimento antecipado, janela de 5 dias por parcela (silêncio = quitação),
+  honorários líquidos R$ 2.728,19, INSS R$ 4.810,39 pela reclamada.
+- 🔴 **HOJE: 6ª parcela (R$ 3.052,97, venc. 10/07) caiu na conta do Dr.
+  Fernando?** Não caiu → peticionar inadimplemento ainda hoje.
+- ⬜ Parcelas 2ª-5ª: confirmar recebimentos (datas/valores) para o ledger.
+- ⬜ Divergência de custas na ata (fls. 217 × fls. 219): conferir no PJe.
+- ⬜ Aritmética da ata (R$ 31.370,79 × soma das parcelas): conferir cálculo.
+- ⬜ Repasse de honorários por parcela: como é feito na prática?
 
-## Fora do TRT-8 (apareceu no vigia desta sessão)
+## GETULIO (2026-0005) · Weslley × Getulio (cliente, RÉU) — SENTENÇA HOJE
 
-1. **GETULIO · PZ01 — audiência de instrução vencida há 7 dias** (JEC
-   Parauapebas): foi realizada? Se sim, dar baixa no PZ01 e entrar com a ata
-   pela porta única ("chegou a ata"). Se não, o que houve?
+- ✅ Audiência de 08/07 realizada (PZ01 baixado); autos pós-audiência anexados.
+- ✅ **Sentença assinada 15/07 14:02** (parcial procedência — DIARIO #007);
+  PZ02 SUGERIDO: recurso inominado, pior caso vence 30/07 (DIARIO #008).
+- ⬜ **Tier B: recorrer?** (IPVA principal 100% cliente + contraposto
+  improcedente × multas do autor + encargos 50/50 + gratuidade concedida).
+- ⬜ Confirmar o PZ02 quando a publicação sair no DJEN (radar captura).
+- ⬜ PEN01: contrato de honorários do GETULIO segue pendente.
 
-## Próxima leva do cadastro (após os 3 TRT-8)
+## Próxima leva do cadastro
 
-- Processos TJPA/TJMA do radar de hoje; casos não protocolados; clientes sem
-  processo (prompt-mestre, Etapa 1).
+- Processos TJPA/TJMA do radar; casos não protocolados; clientes sem processo.

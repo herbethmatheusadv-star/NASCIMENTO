@@ -1,6 +1,6 @@
 Tribunal de Justiça do Estado do Pará - 1º Grau 
 PJe - Processo Judicial Eletrônico
-07/07/2026 
+15/07/2026 
 Número: 0817105-93.2025.8.14.0040
 Data Autuação: 07/10/2025
 Classe: PROCEDIMENTO DO JUIZADO ESPECIAL CÍVEL 
@@ -100,3 +100,18 @@ Produção de provas Petição
 175712362 18/05/2026 
 12:27
 Decisão Decisão
+183192963 15/07/2026 
+13:51
+Certidão Certidão
+183192978 15/07/2026 
+13:51
+dep pessoal requerido - aud 11h_001 Mídia de audiência
+183192983 15/07/2026 
+13:51
+dep pessoal requerido - aud 11h_002 Mídia de audiência
+183192987 15/07/2026 
+13:51
+dep pessoal requerido - aud 11h_003 Mídia de audiência
+182402245 15/07/2026 
+14:02
+Sentença Sentença
