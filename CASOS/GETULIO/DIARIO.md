@@ -50,3 +50,13 @@ MEMORIA DE CALCULO — PZ02 · RECURSO INOMINADO · status: SUGERIDO (aguarda co
 - Peca cabivel: recurso inominado (art. 41 ss., Lei 9.099/95). Decisao de recorrer = TIER B do titular.
 - Confirmado por: ______ em ______ (PENDENTE — so o advogado confirma).
 ---
+## #009 | 2026-07-15 15:40 | DECISAO_ADVOGADO
+Origem: titular. NAO RECORRER da sentenca de 15/07/2026 — fundamento do titular: "a sentenca foi favoravel". PZ02 (recurso inominado, sugerido, pior caso 30/07) passa a estado CANCELADO; a memoria de calculo fica preservada no #008 para auditoria. Nenhum recurso sera interposto pelo escritorio.
+LEITURA DO SISTEMA (registro, nao objecao): o resultado e liquido favoravel — as ~15 multas alegadas cairam para 2 e ambas foram declaradas do AUTOR; danos morais do autor improcedentes; a transferencia do veiculo, travada ha 6 anos, ganhou rito com prazos. Custos assumidos: IPVA principal 2020-2025 integral do cliente (mas ele e o proprietario de fato desde set/2019 — imposto que ja seria dele), metade dos encargos moratorios e a improcedencia do contraposto de R$ 5.000.
+ALERTA DE SIMETRIA: o prazo recursal do AUTOR corre igual. Se ELE recorrer, o cliente sera intimado para contrarrazoes (10 dias uteis) — o radar diario captura a publicacao; nao ha nada a fazer agora alem de vigiar.
+---
+## #010 | 2026-07-15 15:41 | NOTA
+Origem: sistema. PZ03 criado (SUGERIDO, confianca baixa): vigilancia do cumprimento coordenado do item a.4 da sentenca. Ordem das etapas: E1 AUTOR (30 dias — pagar multas E010483207/SA00034173 de 2019 + disponibilizar ATPV-e) -> E2 CLIENTE (30 dias — demonstrativo oficial DETRAN/SEFAZ discriminando IPVA principal 2020-2025 e encargos) -> E3 AUTOR (15 dias — depositar 50% dos encargos) -> E4 CLIENTE (30 dias — pagar IPVA integral e concluir a transferencia).
+CONSEQUENCIA PRATICA: o relogio do cliente (E2) so dispara APOS o cumprimento da E1 pelo autor. Nada a fazer ate o transito e ate o autor agir; a vigilancia existe para que a inercia do autor nao vire, mais tarde, alegacao de mora do cliente. Data provisoria 31/08/2026 — recalcular quando a publicacao definir o termo inicial.
+APRENDIZADO CANDIDATO (aguarda ratificacao do titular): "especificacao de provas e porta que fecha" — a sentenca julgou o pedido contraposto (R$ 5.000, danos morais) improcedente com fundamento expresso na PRECLUSAO da prova testemunhal/depoimento pessoal na fase de especificacao (BO sozinho = declaracao unilateral, presuncao relativa). Regra proposta: em caso com pedido contraposto/reconvencional, a fase de especificacao de provas entra no calendario como marco proprio, com decisao registrada sobre CADA meio de prova (arrolar ou dispensar com motivo).
+---

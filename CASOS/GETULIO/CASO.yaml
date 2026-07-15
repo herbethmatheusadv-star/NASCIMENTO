@@ -74,12 +74,19 @@ prazos:
   criticidade: alta
   status: cumprido           # audiencia REALIZADA em 08/07 (ata fls. 71, DIARIO #007); baixa em 15/07/2026
 - id: PZ02
-  descricao: 'RECURSO INOMINADO contra a sentenca de 15/07/2026 (parcial procedencia; Num. 182402245, fls. 71-75) — 10 dias uteis (art. 42 c/c 12-A, Lei 9.099/95). VENCIMENTO ESTIMADO (pior caso): termo inicial ainda NAO disparado — sentenca assinada 15/07 14:02, aguardando disponibilizacao no DJEN (radar diario captura). Memoria de calculo completa: DIARIO #008.'
+  descricao: 'RECURSO INOMINADO contra a sentenca de 15/07/2026 (parcial procedencia; Num. 182402245, fls. 71-75) — 10 dias uteis (art. 42 c/c 12-A, Lei 9.099/95). DECISAO DO TITULAR 15/07/2026: NAO RECORRER (sentenca favoravel ao cliente) — prazo CANCELADO. Memoria de calculo preservada no DIARIO #008; decisao no DIARIO #009.'
   data: '2026-07-30'
   criticidade: alta
   processo: 0817105-93.2025.8.14.0040
-  estado: sugerido           # NAO confirmar sem o advogado (ordem de 15/07/2026)
+  estado: cancelado          # DECISAO_ADVOGADO 15/07/2026 — nao recorrer
   confianca: media
+- id: PZ03
+  descricao: 'VIGILANCIA DO CUMPRIMENTO (sentenca de 15/07/2026, item a.4): Etapa 1 e do AUTOR (30 dias para pagar as multas de 2019 e disponibilizar a ATPV-e); a Etapa 2 do CLIENTE (demonstrativo DETRAN/SEFAZ em 30 dias) so comeca DEPOIS que a Etapa 1 for cumprida. Verificar se o autor cumpriu — sem cumprimento dele, o relogio do cliente nao corre.'
+  data: '2026-08-31'
+  criticidade: media
+  processo: 0817105-93.2025.8.14.0040
+  estado: sugerido           # confirmar quando a publicacao definir o termo inicial
+  confianca: baixa           # depende do transito e do ato do autor
 # - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
 # Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
 

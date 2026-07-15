@@ -1,59 +1,67 @@
 # Entrevista do cadastro assistido — Etapa 1 (aberta em 15/07/2026)
 
-> Roteiro vivo. ✅ = respondido e levado às fichas; ⬜ = aberto.
-> Rodada 2 registrada em 15/07 (fim do dia).
+> ✅ = respondido e levado às fichas · ⬜ = aberto. Rodada 3 em 15/07 (fim do dia).
+> **Universo TRT-8 fechado: 5 processos, todos triados.**
 
 ## PROC-0001 · F A Comércio (ré) × Sindicato — ✅ R6 CONCLUÍDO
 
-- ✅ Honorários R$ 900,00 **recebidos** (ledger) · ✅ comunicação de
-  encerramento **feita** · ✅ aprendizado **ratificado** → APR-0001 ·
-  ✅ ficha arquivada. Primeira R6 completa do sistema.
-- ⬜ (residual, sem urgência) contrato por escrito e procuração arquivados
-  onde? — anexar quando o caso v1 for criado.
+Honorários R$ 900 recebidos · comunicação feita · aprendizado ratificado
+(APR-0001) · ficha arquivada. Primeira R6 completa do sistema.
 
 ## PROC-0002 · André (autor) × Odilon — DECIDIDO: REAJUIZAR
 
-- ✅ Decisão do advogado (15/07): **reajuizar**. Sem custas (sem barreira).
-- ✅ Contrato de trabalho **ainda em vigor** → bienal não corre; quinquenal
-  corroendo mês a mês (pressa moderada e permanente).
-- ✅ Motivo da ausência: desconhecido — **cliente não atende o celular**.
-- ⬜ **IMPEDIMENTO: restabelecer contato com André** (WhatsApp? endereço da
-  procuração?). Sem contato não sai a nova inicial.
-- ⬜ Quando houver contato: abrir caso v1 (novo_caso.py, polo ativo), nova
-  procuração/ratificação, atualizar provas (áudios seguem válidos).
+- ✅ Reajuizar; sem custas; contrato de trabalho **ainda em vigor** (bienal não
+  corre; quinquenal corroendo mês a mês); ausência sem motivo conhecido.
+- ⬜ **IMPEDIMENTO: André não atende o celular.** Sem contato não sai a nova
+  inicial. Tentar WhatsApp / endereço da procuração (Av. A, Qd. 13, Lt. 14,
+  Alto do Boa Vista, Parauapebas).
+- ⬜ Ao restabelecer contato: abrir caso v1 (polo ativo), nova
+  procuração/ratificação, revisar provas (áudios seguem).
 
-## PROC-0003 · Beatryz (autora) × Lemonbras — acordo em cumprimento
+## PROC-0003 · Beatryz (autora) × Lemonbras — ✅ sob controle do sócio
 
-- ✅ Parcelas **2ª–5ª confirmadas recebidas** (ledger, R$ 12.211,88).
-- 🔴 **PERGUNTA PONTUAL ABERTA: a sua confirmação inclui a 6ª parcela
-  (R$ 3.052,97, venc. 10/07)?** A janela de comunicar inadimplemento (5 dias,
-  silêncio = quitação) fecha por volta de HOJE. Se a 6ª NÃO caiu: peticionar
-  ainda hoje (multa 30% + vencimento antecipado).
-- ⬜ 7ª parcela: verificação agendada 12/08 (data_interna na ficha).
-- ⬜ Divergência de custas na ata (fls. 217 × 219) — conferir no PJe.
-- ⬜ Aritmética da ata — conferir cálculo no PJe.
+- ✅ **Todas as parcelas em dia, inclusive a 6ª**; **monitoramento é do sócio**.
+  Sistema mantém só a verificação de retaguarda da 7ª (12/08).
+- ⬜ Divergência de custas na ata (fls. 217 × 219) — conferir no PJe quando
+  chegar a hora (30 dias após a última parcela).
+- ⬜ Repasse dos honorários (R$ 2.728,19): confirmar como é feito na prática.
 
-## PROC-0004 · Perfil Comércio e Engenharia (ré?) × Sindicato — NOVO (varredura ampliada)
+## PROC-0004 · Perfil Comércio e Engenharia (ré) × Sindicato — ✅ PRO BONO
 
-- ✅ Localizado; encerrado FAVORÁVEL (deserção do RO adverso; trânsito
-  05/07/2025).
-- ⬜ Confirmar: a Perfil é cliente do escritório? Honorários (valor/recebido)?
-  Comunicação do desfecho feita? → fecha o R6 deste também.
+- ✅ Cliente confirmado; **pro bono** (empresa do pai do advogado) → sem
+  conferência financeira no R6.
+- ⬜ Comunicação do desfecho (deserção do RO adverso, trânsito 05/07/2025) ao
+  cliente: feita?
+- ⬜ Ratificar aprendizado candidato: *deserção adversária é desfecho
+  monitorável — cadastrar o prazo de preparo do adversário quando ele recorre*.
 
-## ⬜ 2º PROCESSO TRT-8 FALTANTE
+## PROC-0005 · C E S Nascimento Serviços (ré) × Gustavo Palhano — NOVO ✅ triado
 
-- Você indicou **2 processos além dos 3 triados**; a varredura 2025–2026
-  achou 1 (o PROC-0004). O outro não publica no DJEN nessa janela — ou está
-  na lacuna 28/09–11/11/2025 (DJEN fora do ar na consulta), ou é anterior à
-  integração do TRT8 ao DJEN, ou o advogado cadastrado é outro.
-  **→ Me passe o NÚMERO do processo** que eu completo a triagem por ele.
+- ✅ 2º processo faltante; autos integrais lidos. Acordo de R$ 4.500,00
+  (valor da causa: R$ 53.537,28) pago em 2 parcelas; extinto e arquivado em
+  27/10/2025. **Desfecho muito favorável (~8,4%).**
+- ⬜ **Honorários: valor / recebido / pro bono?** (é o último buraco do ledger)
+- ⬜ **Vínculo societário:** os PIX saíram da **Nascimento Ferro e Aço**
+  (CNPJ 56.001.353/0001-60 — a mesma do caso DAIANE). C E S Nascimento, Perfil
+  (pai) e Nascimento Ferro e Aço são o mesmo grupo familiar? Isso decide se o
+  cadastro trata como clientes distintos ou grupo.
+- ⬜ Comunicação do encerramento ao cliente: feita?
+- ⬜ Ratificar aprendizado candidato: *contestação documental robusta antes da
+  audiência derruba o valor do acordo*.
 
-## GETULIO (2026-0005) · Weslley × Getulio (réu) — SENTENÇA 15/07
+## GETULIO (2026-0005) · Weslley × Getulio (réu) — ✅ NÃO RECORRER
 
-- ⬜ **Tier B: recorrer?** (recurso inominado; PZ02 sugerido, pior caso 30/07).
-- ⬜ Confirmar PZ02 quando a publicação sair (radar captura às 07h).
-- ⬜ PEN01: contrato de honorários pendente.
+- ✅ Decisão registrada (DIARIO #009); **PZ02 cancelado**.
+- ⬜ Ratificar aprendizado candidato (DIARIO #010): *especificação de provas é
+  porta que fecha* — a preclusão derrubou o contraposto de R$ 5.000.
+- ⬜ PEN01: contrato de honorários do GETULIO segue pendente.
+- Vigilância automática: PZ03 (cumprimento coordenado — a Etapa 2 do cliente
+  só dispara depois que o autor cumprir a Etapa 1) + eventual recurso do autor
+  (radar captura; contrarrazões seriam 10 dias úteis).
 
-## Próxima leva do cadastro
+## Próxima leva do cadastro (TRT-8 encerrado)
 
-- Processos TJPA/TJMA do radar; casos não protocolados; clientes sem processo.
+- Processos **TJPA** (~38 comunicações/12 meses: Parauapebas, Canaã, Turmas em
+  Belém) e **TJMA** (~9: Imperatriz, Açailândia) — mesma triagem.
+- Casos não protocolados (com `data_interna` e `prescricao_ou_limite`) e
+  clientes sem processo.
