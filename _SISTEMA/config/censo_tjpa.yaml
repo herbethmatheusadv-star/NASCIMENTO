@@ -1,0 +1,297 @@
+# Censo do acervo PJe/TJPA 1o grau — colhido do painel em 15/07/2026.
+# Fonte da verdade do CADASTRO (o DJEN e a fonte do MOVIMENTO).
+#
+# polo_cliente: inferido cruzando as partes com a pasta Clientes-2026 do
+# advogado. Onde a inferencia nao foi segura, o campo vem como 'a-confirmar' —
+# nao se inventa polo (§1.4 do prompt-mestre).
+#
+# Regenerar as fichas: python CONECTOR/gerar_fichas.py
+
+meta:
+  tribunal: TJPA
+  grau: 1
+  colhido_em: 2026-07-15
+  fonte: "Painel do Advogado — sessao autenticada pelo titular (certificado A1 + 2FA)"
+  total: 19
+
+processos:
+  - numero: "0806709-57.2025.8.14.0040"
+    classe: "ProceComCiv — Cartão de Crédito"
+    partes_adversas: "COOPVALE (Cooperativa de Economia e Crédito Mútuo dos Empregados do Grupo CVRD)"
+    cliente_nome: "PERFIL COMERCIO E SERVICOS LTDA"
+    cliente_id: ""            # possivelmente do grupo da Perfil Engenharia (CLI-0004) — confirmar
+    polo_cliente: passivo
+    confianca_polo: media     # COOPVALE e a exequente; o escritorio defende o executado (padrao do modulo bancario_ccb)
+    orgao: "3ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2025-04-22
+    ultimo_movimento: "2026-07-15 14:26 — Baixa Definitiva"
+    fase: arquivado
+    situacao: encerrado
+    modulo: bancario_ccb
+    nota: "ENCERRADO HOJE (baixa definitiva as 14:26). R6: conferir resultado, honorarios e comunicacao."
+
+  - numero: "0809362-95.2026.8.14.0040"
+    classe: "ProceComCiv — Exoneração ou Demissão"
+    partes_adversas: "MUNICÍPIO DE PARAUAPEBAS"
+    cliente_nome: "KATIA APARECIDA MENDES VIANA"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta      # Katia consta em Clientes-2026 e figura como autora
+    orgao: "Vara de Fazenda Pública e Execução Fiscal de Parauapebas"
+    distribuido: 2026-05-31
+    ultimo_movimento: "2026-07-15 14:14 — Decorrido prazo de KATIA APARECIDA MENDES VIANA em 14/07/2026 23:59"
+    fase: conhecimento
+    situacao: ativo
+    risco: alto
+    modulo: ""
+    nota: "PRAZO DA CLIENTE DECORREU EM 14/07/2026 — descobrir o que era e o que se perdeu. PRIORIDADE."
+
+  - numero: "0817105-93.2025.8.14.0040"
+    classe: "PJEC — Obrigação de Fazer / Não Fazer"
+    partes_adversas: "WESLLEY MACEDO DA COSTA"
+    cliente_nome: "GETULIO DALLAS PEDROSA DE SOUSA"
+    cliente_id: ""
+    caso_v1: "2026-0005"      # ja existe como CASO no SOJ v1 (pasta CASOS/GETULIO)
+    polo_cliente: passivo
+    confianca_polo: alta
+    orgao: "Vara do Juizado Especial Cível e Criminal de Parauapebas"
+    distribuido: 2025-10-07
+    ultimo_movimento: "2026-07-15 14:02 — Julgado procedente o pedido"
+    fase: sentenciado
+    situacao: ativo
+    modulo: civel
+    nota: "Sentenca de 15/07 (parcial procedencia). Titular decidiu NAO recorrer (DIARIO #009). PZ03 vigia o cumprimento coordenado."
+
+  - numero: "0805257-12.2025.8.14.0040"
+    classe: "APSum — Violência Contra a Mulher"
+    partes_adversas: "DEAM — Delegacia Especializada no Atendimento à Mulher de Parauapebas e outros (1)"
+    cliente_nome: "JOAO BATISTA ITALO DE MOURA SOUSA"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: media     # nao consta em Clientes-2026 (lista de 26) — confirmar quem e o cliente
+    orgao: "2ª Vara Criminal de Parauapebas"
+    distribuido: 2025-03-30
+    ultimo_movimento: "2026-07-10 11:47 — Expedição de outros documentos"
+    fase: conhecimento
+    situacao: ativo
+    risco: alto
+    modulo: ""
+    nota: "CRIMINAL (Maria da Penha). Materia sensivel: confirmar cliente e situacao. Modulo criminal nao existe no SOJ."
+
+  - numero: "0000223-65.2020.8.14.0040"
+    classe: "IP — Crimes de Trânsito"
+    partes_adversas: "A POLÍCIA CIVIL e outros (1)"
+    cliente_nome: "FRANCISCO GONZAGA DA CONCEICAO"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: alta      # consta em Clientes-2026 como "Francisco Gonzaga da Conceição [HERCULANO]"
+    orgao: "2ª Vara Criminal de Parauapebas"
+    distribuido: 2021-11-30
+    ultimo_movimento: "2026-07-08 08:36 — Conclusos para decisão"
+    fase: conhecimento
+    situacao: ativo
+    risco: alto
+    modulo: ""
+    nota: "INVISIVEL AO DJEN 2025-2026. Inquerito de 2020, conclusos para decisao ha 7 dias. Origem: parceiro HERCULANO."
+
+  - numero: "0808637-09.2026.8.14.0040"
+    ficha_existente: "PROC-0006"
+    cliente_nome: "DANIEL AUGUSTO PINHEIRO PINHEIRO"
+
+  - numero: "0808548-83.2026.8.14.0040"
+    classe: "PJEC — Inclusão Indevida em Cadastro de Inadimplentes"
+    partes_adversas: "AGUAS DO PARA D SPE S.A."
+    cliente_nome: "LUCIANA GOMES ALMEIDA"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta      # "Luciana" consta em Clientes-2026
+    orgao: "Vara do Juizado Especial Cível e Criminal de Parauapebas"
+    distribuido: 2026-05-19
+    ultimo_movimento: "2026-06-30 21:22 — Juntada de Petição de diligência"
+    fase: conhecimento
+    situacao: ativo
+    modulo: consumidor_aguas
+    nota: "Modulo consumidor_aguas e PLENO (negativacao x Aguas do Para, JEC) — usar teses/templates."
+
+  - numero: "0010130-69.2017.8.14.0040"
+    classe: "ExTiJu — Alimentos"
+    partes_adversas: "EMANUELY FREITAS SILVA"
+    cliente_nome: "THIAGO FREITAS SILVA"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: media     # "Thiago" consta em Clientes-2026; confirmar que e este
+    orgao: "Vara de Família e Sucessões de Parauapebas"
+    distribuido: 2026-01-31
+    ultimo_movimento: "2026-06-28 01:09 — Decorrido prazo de THIAGO FREITAS SILVA em 26/06/2026 23:59"
+    fase: execucao
+    situacao: ativo
+    risco: alto
+    sigiloso: true
+    modulo: familia
+    nota: "EXECUCAO DE ALIMENTOS — prazo do CLIENTE decorreu em 26/06/2026. Risco de prisao civil. Conferir com urgencia. Modulo familia e PLENO."
+
+  - numero: "0809135-08.2026.8.14.0040"
+    classe: "PJEC — Inclusão Indevida em Cadastro de Inadimplentes"
+    partes_adversas: "AGUAS DO PARA D SPE S.A."
+    cliente_nome: "EDIO SOUZA NUNES"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta      # "EDIO" consta em Clientes-2026
+    orgao: "Vara do Juizado Especial Cível e Criminal de Parauapebas"
+    distribuido: 2026-05-27
+    ultimo_movimento: "2026-06-23 14:55 — Decorrido prazo de EDIO SOUZA NUNES em 19/06/2026 23:59"
+    fase: conhecimento
+    situacao: ativo
+    modulo: consumidor_aguas
+    nota: "Prazo do cliente decorreu em 19/06 — conferir o que era."
+
+  - numero: "0805910-48.2024.8.14.0040"
+    classe: "ProceComCiv — Rescisão / Resolução"
+    partes_adversas: "NOVA CARAJAS - CONSTRUCOES & INCORPORACOES LTDA"
+    cliente_nome: "WILSON SOUSA MILHOMEM"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: alta      # "Wilson Sousa Milhomem" consta em Clientes-2026
+    orgao: "1ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2024-04-17
+    ultimo_movimento: "2026-06-01 08:32 — Proferidas outras decisões não especificadas"
+    fase: conhecimento
+    situacao: ativo
+    modulo: civel
+    nota: "INVISIVEL AO DJEN 2025-2026."
+
+  - numero: "0817011-48.2025.8.14.0040"
+    classe: "PJEC — Repetição do Indébito"
+    partes_adversas: "FACEBOOK SERVICOS ONLINE DO BRASIL LTDA."
+    cliente_nome: "CARLOS EDUARDO DE SOUSA DO NASCIMENTO"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta
+    orgao: "Vara do Juizado Especial Cível e Criminal de Parauapebas"
+    distribuido: 2025-10-06
+    ultimo_movimento: "2026-05-29 18:37 — Remetidos os Autos (em grau de recurso) para Instância Superior"
+    fase: recurso
+    situacao: ativo
+    modulo: civel
+    nota: "Em 2o grau — provavel correspondencia com um dos processos das Turmas de Belem no DJEN."
+
+  - numero: "0815033-36.2025.8.14.0040"
+    classe: "EE — Embargos à Execução"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "MARLENE CARVALHO DE AZEVEDO e outros (2)"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta      # embargante = cliente
+    orgao: "1ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2025-09-05
+    ultimo_movimento: "2026-05-29 13:24 — Conclusos para decisão"
+    fase: conhecimento
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "Embargos do lado do cliente. Identificar os 'outros (2)'."
+
+  - numero: "0805058-87.2025.8.14.0040"
+    classe: "ExTiEx — Cédula de Crédito Bancário"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "NASCIMENTO ENGENHARIA E SERVICOS LTDA e outros (2)"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: alta      # execucao de CCB: escritorio defende o executado (modulo nasce --polo passivo)
+    orgao: "2ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2025-03-26
+    ultimo_movimento: "2026-05-29 12:54 — Decorrido prazo da COOPVALE em 28/05/2026 23:59"
+    fase: execucao
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "Grupo familiar? (Nascimento Engenharia). Prazo decorrido e da ADVERSA — favoravel."
+
+  - numero: "0816520-75.2024.8.14.0040"
+    classe: "ExTiEx — Cédula de Crédito Bancário"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "EDUCACAO INFANTIL REI DAVI LTDA e outros (2)"
+    cliente_id: ""
+    polo_cliente: passivo
+    confianca_polo: media
+    orgao: "1ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2024-10-09
+    ultimo_movimento: "2026-04-07 15:27 — Conclusos para decisão"
+    fase: execucao
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "INVISIVEL AO DJEN 2025-2026. Confirmar que a Rei Davi e cliente."
+
+  - numero: "0810883-12.2025.8.14.0040"
+    classe: "EE — Embargos à Execução"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "CARLOS EDUARDO DE SOUSA DO NASCIMENTO e outros (2)"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta
+    orgao: "2ª Vara Cível e Empresarial de Parauapebas"
+    distribuido: 2025-06-27
+    ultimo_movimento: "2026-04-01 14:20 — Remetidos os Autos (em grau de recurso) para Instância Superior"
+    fase: recurso
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "Em 2o grau. Provavel par do 0805058-87 (execucao) — mesmo caso, processos distintos."
+
+  - numero: "0813544-61.2025.8.14.0040"
+    classe: "PJEC — Indenização por Dano Material"
+    partes_adversas: "BANCO BRADESCO S.A"
+    cliente_nome: "ISABEL DA CONCEICAO MENDONCA"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta
+    orgao: "Vara do Juizado Especial Cível e Criminal de Parauapebas"
+    distribuido: 2025-08-15
+    ultimo_movimento: "2026-03-19 13:32 — Remetidos os Autos (em grau de recurso) para Instância Superior"
+    fase: recurso
+    situacao: ativo
+    modulo: civel
+    nota: "Em 2o grau."
+
+  # ---- Canaa dos Carajas (3) ----
+  - numero: "0801671-67.2025.8.14.0136"
+    classe: "ExTiEx — Cédula de Crédito Bancário"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "PERFIL COMERCIO E ENGENHARIA LTDA e outros (2)"
+    cliente_id: "CLI-0004"
+    polo_cliente: passivo
+    confianca_polo: alta      # Perfil e cliente PRO BONO (empresa do pai) — ja confirmado
+    orgao: "1ª Vara Cível e Empresarial de Canaã dos Carajás"
+    distribuido: 2025-04-23
+    ultimo_movimento: "2026-06-11 13:06 — Conclusos para despacho"
+    fase: execucao
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "PRO BONO (CLI-0004). O radar ja marcava este como 'prazo da parte contraria'."
+
+  - numero: "0802967-27.2025.8.14.0136"
+    classe: "EE — Embargos à Execução"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "EDUARDA MENDONCA DO NASCIMENTO e outros (2)"
+    cliente_id: ""
+    polo_cliente: ativo
+    confianca_polo: alta
+    orgao: "1ª Vara Cível e Empresarial de Canaã dos Carajás"
+    distribuido: 2025-06-27
+    ultimo_movimento: "2026-04-23 12:45 — Conclusos para despacho"
+    fase: conhecimento
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "Grupo familiar? (Mendonca do Nascimento). Provavel par do 0801671-67."
+
+  - numero: "0801672-52.2025.8.14.0136"
+    classe: "ProceComCiv — Cartão de Crédito"
+    partes_adversas: "COOPVALE"
+    cliente_nome: "PERFIL COMERCIO E ENGENHARIA LTDA"
+    cliente_id: "CLI-0004"
+    polo_cliente: passivo
+    confianca_polo: alta
+    orgao: "1ª Vara Cível e Empresarial de Canaã dos Carajás"
+    distribuido: 2025-04-23
+    ultimo_movimento: "2026-04-09 13:03 — Conclusos para despacho"
+    fase: conhecimento
+    situacao: ativo
+    modulo: bancario_ccb
+    nota: "PRO BONO (CLI-0004)."
