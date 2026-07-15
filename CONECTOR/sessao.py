@@ -59,14 +59,23 @@ def ambiente_ok() -> tuple[bool, list[str]]:
             "        pip install playwright\n"
             "        python -m playwright install chromium")
     else:
-        from playwright.sync_api import sync_playwright
-        try:
-            with sync_playwright() as p:
-                if not Path(p.chromium.executable_path).exists():
-                    faltas.append("Chromium do Playwright ausente: "
-                                  "python -m playwright install chromium")
-        except Exception as e:  # noqa: BLE001
-            faltas.append(f"Playwright presente mas nao inicializa: {e}")
+        # Nao checamos o Chromium empacotado de proposito: ele existe nesta
+        # maquina mas NAO SOBE (falta o Visual C++ Redistributable). Quem vale
+        # e o Chrome do sistema, via channel="chrome".
+        chrome = Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
+        chrome_x86 = Path(
+            r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+        if not (chrome.exists() or chrome_x86.exists()):
+            faltas.append("Chrome do sistema nao encontrado — o conector usa "
+                          "channel='chrome' (o Chromium do Playwright nao sobe "
+                          "nesta maquina).")
+    # PJeOffice precisa estar rodando para o certificado A1 funcionar
+    import socket
+    with socket.socket() as s:
+        s.settimeout(1.5)
+        if s.connect_ex(("127.0.0.1", 8800)) != 0:
+            faltas.append("PJeOffice nao esta escutando na porta 8800. "
+                          "Abra o PJeOffice Pro antes de logar.")
     return (not faltas), faltas
 
 
@@ -93,14 +102,23 @@ class SessaoEfemera:
         # sozinho num temporario proprio.
         self._tmp = tempfile.mkdtemp(prefix="soj_pje_efemero_")
         self._pw = sync_playwright().start()
-        # launch() puro = perfil efemero por padrao. Nao passamos flag de
-        # perfil: ela seria justamente o que o titular vetou, e e desnecessaria.
-        self._navegador = self._pw.chromium.launch(headless=self.headless)
-        # contexto novo = isolado, nada herdado, nada exportado ao fechar
-        self.contexto = self._navegador.new_context(
-            accept_downloads=True,
-            downloads_path=self._tmp,
+        # channel="chrome" = usa o Chrome JA INSTALADO na maquina, nao o
+        # Chromium empacotado pelo Playwright — que nesta maquina nao sobe
+        # ("configuracao lado a lado incorreta": falta o Visual C++
+        # Redistributable). Diagnosticado em 15/07/2026; o Chrome do sistema
+        # (v150) abre normal.
+        #
+        # IMPORTANTE: usar o Chrome do sistema NAO significa usar o PERFIL dele.
+        # launch() sobe um perfil temporario proprio, vazio, que o Playwright
+        # apaga ao fechar. As abas, cookies, senhas e sessoes pessoais do
+        # titular NAO sao tocados nem herdados — a janela nasce em branco.
+        self._navegador = self._pw.chromium.launch(
+            headless=self.headless,
+            channel="chrome",
+            downloads_path=self._tmp,   # autos baixados vao para o temporario
         )
+        # contexto novo = isolado, nada herdado, nada exportado ao fechar
+        self.contexto = self._navegador.new_context(accept_downloads=True)
         self.pagina = self.contexto.new_page()
         return self
 
@@ -130,36 +148,59 @@ class SessaoEfemera:
         alvo.first.click()
 
     # -- o portao ----------------------------------------------------------
-    def esperar_login_humano(self, timeout_min: int = 10) -> bool:
+    def esperar_login_humano(self, timeout_min: int = 12) -> bool:
         """
         Abre a tela de login e ESPERA o titular. Nao digita nada.
 
-        Volta True quando a pagina mostrar sinal de sessao ativa.
+        SAO DOIS PASSOS (informado pelo titular em 15/07/2026):
+          1. certificado A1 via PJeOffice (dialogo Java, fora do navegador)
+          2. autenticador / 2FA
+
+        Por isso a espera e generosa e a deteccao e ESTRITA: exigir apenas as
+        palavras do painel no texto era falso positivo esperando para acontecer
+        — o menu da propria tela de login pode conter "Painel"/"Sair", e o robo
+        declararia sessao ativa no meio do 2FA. Agora sao tres condicoes
+        simultaneas: saiu da URL de login + tem marca de painel + nao ha mais
+        campo de senha na tela.
+
+        O 2FA e o controle que protege o titular: o robo espera, nunca ajuda a
+        contorna-lo, e a sessao morre com o processo — amanha, os dois passos
+        de novo.
         """
         self.ir_para(URL_LOGIN_TJPA)
         print()
         print("=" * 70)
-        print("  O ROBO PAROU NO PORTAO — E A SUA VEZ")
+        print("  O ROBO PAROU NO PORTAO — E A SUA VEZ (2 PASSOS)")
         print("=" * 70)
-        print("  1. A janela do Chromium esta aberta no login do PJe/TJPA.")
-        print("  2. Faca login com o SEU certificado (PJeOffice ativo).")
-        print("  3. O PIN e digitado por VOCE, na janela. O robo nao le esse")
-        print("     campo, nao preenche e nao guarda nada.")
-        print("  4. Assim que o painel abrir, o robo segue sozinho — so lendo.")
+        print("  A janela do Chrome esta aberta no login do PJe/TJPA.")
         print()
-        print(f"  Aguardando ate {timeout_min} min. Ctrl+C cancela tudo.")
+        print("    PASSO 1 — certificado A1 (PJeOffice pede o PIN numa janela")
+        print("              Java, FORA do navegador: o robo nao alcanca).")
+        print("    PASSO 2 — autenticador / 2FA.")
+        print()
+        print("  Os dois sao seus. O robo nao digita, nao le e nao guarda nada")
+        print("  — e nao existe codigo aqui para contornar o 2FA.")
+        print()
+        print(f"  Aguardando ate {timeout_min} min. Sem pressa. Ctrl+C cancela.")
         print("=" * 70)
+        js = """
+        () => {
+          const fora_do_login = !location.href.toLowerCase().includes('login');
+          const txt = document.body ? document.body.innerText : '';
+          const tem_painel = %s.some(m => txt.includes(m));
+          const sem_campo_senha =
+            document.querySelectorAll('input[type=password]').length === 0;
+          return fora_do_login && tem_painel && sem_campo_senha;
+        }
+        """ % list(MARCAS_LOGADO)
         try:
-            self.pagina.wait_for_function(
-                "() => %s.some(m => document.body.innerText.includes(m))"
-                % list(MARCAS_LOGADO),
-                timeout=timeout_min * 60_000,
-            )
+            self.pagina.wait_for_function(js, timeout=timeout_min * 60_000)
         except Exception:  # noqa: BLE001
-            print("\n[sessao] nao identifiquei o painel. Sessao encerrada sem "
-                  "ler nada — perfil apagado.")
+            print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
+                  "concluido). Sessao encerrada sem ler nada — perfil apagado.")
             return False
-        print("\n[sessao] painel detectado. Sessao ativa (so leitura).")
+        print(f"\n[sessao] painel detectado em {self.pagina.url[:70]}")
+        print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
         return True
 
 
@@ -211,12 +252,36 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
     print("  Se um expediente estiver 'pendente de ciencia', NAO clique nele.")
     print("  A lista basta — e dela que o censo precisa.")
     print()
-    print("  Quando terminar, volte aqui e aperte ENTER.")
+    print("  Nao precisa avisar: eu percebo sozinho quando voce passar pelas")
+    print("  duas telas, e encerro. (Ou paro sozinho no tempo limite.)")
     print("=" * 70)
-    try:
-        input()
-    except (EOFError, KeyboardInterrupt):
-        print("\n[mapeamento] interrompido.")
+
+    # Sem input(): o terminal que roda isto pode nao ser interativo. Espera
+    # ativa, olhando o que VOCE visitou. Nenhum clique do robo.
+    import time
+    limite = time.time() + 8 * 60
+    viu = {"expediente": False, "acervo": False}
+    while time.time() < limite:
+        for c in chamadas:
+            u = c["url"].lower()
+            if "expediente" in u or "aviso" in u or "painel" in u:
+                viu["expediente"] = True
+            if "acervo" in u or "consultaprocesso" in u or "processo" in u:
+                viu["acervo"] = True
+        if all(viu.values()):
+            print("\n[mapeamento] vi as duas telas (expedientes e acervo). "
+                  "Encerrando em 20s — pode continuar navegando se quiser.")
+            time.sleep(20)
+            break
+        try:
+            if s.pagina.is_closed():
+                print("\n[mapeamento] voce fechou a janela. Encerrando.")
+                break
+        except Exception:  # noqa: BLE001
+            break
+        time.sleep(3)
+    else:
+        print("\n[mapeamento] tempo limite. Salvando o que vi ate aqui.")
 
     # HTML da ultima pagina que ele deixou aberta (para eu ver a estrutura)
     try:
