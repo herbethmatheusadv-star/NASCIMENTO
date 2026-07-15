@@ -13,3 +13,16 @@
 - **Lição:** a defasagem do DataJud pode ser de meses, não de dias. Conciliação
   é sinal, nunca baixa automática — e a ausência de movimento novo no DataJud
   jamais prova que nada aconteceu.
+
+## 2026-07-15 · Cobertura DJEN — lacunas conhecidas da varredura TRT8
+
+- Janela **28/09/2025 → 11/11/2025**: o DJEN respondeu HTTP 500 em todas as
+  tentativas (2 rodadas de retry) — período **não coberto** pela varredura
+  ampliada. Repetir em dia de API saudável.
+- Ano de 2024: a consulta respondeu `count=0` para a OAB no TRT8 (integração
+  do tribunal ao DJEN possivelmente posterior). Publicações de 2024 podem
+  existir só no diário antigo.
+- Consequência prática: o advogado informa **2 processos TRT8 além dos 3
+  triados**; a varredura achou 1 (0000017-16.2025.5.08.0130). O 2º não tem
+  publicação no DJEN 2025–2026 fora da lacuna acima — pedido o número ao
+  advogado.
