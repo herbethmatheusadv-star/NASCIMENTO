@@ -6,7 +6,23 @@
 
 ---
 
-## BUG-01 · 🔴 CRÍTICO · prazo do recurso confundido com prazo de arquivamento
+## BUG-01 · ✅ CORRIGIDO em 15/07/2026 (commit 39f7cf8) · era CRÍTICO
+
+> **Correção aplicada:** `detectar_prazos()` lê contexto por cláusula, descarta
+> prazo de arquivamento/cumprimento voluntário/decurso, captura a forma
+> "prazo legal (10 dias)" e, havendo mais de um prazo do cliente, **adota o
+> menor e marca ambíguo** (console e HTML mostram os candidatos e mandam
+> conferir). Testes: `teste_calendario.py` §10.1, com fixture do teor real.
+> **Verificado no dado real:** o mesmo processo que dizia "NO PRAZO, vence
+> 28/07" passou a dizer "VENCIDO GRAVE, venceu 14/07, ambíguo 5 ou 10".
+>
+> *Percalço registrado:* a 1ª versão da correção escrevia os padrões sem acento
+> (`voluntario`) e o texto real trazia `voluntário` — dois prazos alheios
+> passaram batido. Pego pelos próprios testes ao conferir `candidatos`. Lição:
+> os padrões rodam sobre `classificador.normalizar()`; escrevê-los com acento é
+> escrevê-los para nunca casar.
+
+### O problema original (histórico)
 
 **Descoberto:** 15/07/2026, na triagem TJPA do PROC-0006
 (0808637-09.2026.8.14.0040).
@@ -43,7 +59,18 @@ perder prazo; e o rótulo "detectado no texto" desarma a desconfiança do leitor
 
 ---
 
-## BUG-02 · 🟡 falso positivo: termo de audiência vira prazo de 15 dias
+## BUG-02 · ✅ CORRIGIDO em 15/07/2026 (commit 39f7cf8)
+
+> **Correção aplicada:** termo/ata de audiência é informativo salvo se a
+> **ordem** trouxer prazo. A detecção é pelo próprio texto
+> (`RE_TERMO_AUDIENCIA`), não por `tipo_de_ato()` — o termo real traz
+> "conclusos para decisão" e era classificado como decisão. O gatilho é o
+> **prazo na ordem**, não "sob pena de": o termo transcreve pedido do advogado
+> **adverso** ("intimação exclusiva… sob pena de nulidade"), e pedido de
+> terceiro não é ordem ao cliente. Testes: `teste_calendario.py` §10.2.
+> **Verificado no dado real:** o alerta falso `[ATENÇÃO] 20/07` sumiu.
+
+### O problema original (histórico)
 
 **Descoberto:** mesma triagem, mesmo processo.
 
