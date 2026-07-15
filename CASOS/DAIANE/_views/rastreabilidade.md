@@ -1,17 +1,17 @@
 # RASTREABILIDADE — fato × prova × pedido × parágrafo × fundamento
 
-Minuta lida: MINUTA_v04.md
+Minuta lida: MINUTA_v06.md
 
 | Fato | Status | Provas | Pedidos | Minuta (linhas) |
 |---|---|---|---|---|
-| F01 | provado | P06, P08, P09, P01 | PED01, PED03, PED04, PED05 | 19, 23, 27, 65, 69, 73, 103, 123, 127 |
-| F02 | alegado | P08, P09 | PED03, PED04 | 31, 35, 61, 123, 143 |
-| F03 | provado | P02, P03, P04, P05 | PED01, PED02 | 39, 65, 79, 83, 131 |
-| F04 | provado | P04, P05 | PED02 | 13, 39, 115 |
-| F05 | provado | P03 | — | 43, 65, 83, 87, 103 |
-| F06 | alegado | P06, P08, P09 | PED01, PED03, PED04, PED05 | 35, 69, 73, 123, 143 |
+| F01 | provado | P06, P08, P09, P01 | PED01, PED03, PED04, PED05 | 19, 23, 27, 61, 65, 69, 99, 119, 123 |
+| F02 | alegado | P08, P09 | PED03, PED04 | 31, 35, 57, 119, 139 |
+| F03 | provado | P02, P03, P04, P05 | PED01, PED02 | 39, 61, 75, 79, 127 |
+| F04 | provado | P04, P05 | PED02 | 13, 39, 111 |
+| F05 | provado | P03 | — | 43, 61, 79, 83, 99 |
+| F06 | alegado | P06, P08, P09 | PED01, PED03, PED04, PED05 | 35, 65, 69, 119, 139 |
 | F07 | provado | P01 | — | 47 |
-| F08 | alegado | — | — | 51, 79, 87, 95, 99 |
+| F08 | alegado | — | — | 51, 75, 83, 91, 95 |
 | F09 | alegado | — | — | — |
 
 ## Pedidos

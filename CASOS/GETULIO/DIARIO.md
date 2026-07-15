@@ -18,3 +18,6 @@ Audiencia de INSTRUCAO designada para 2026-07-08 11:00 (Vara do JEC de Parauapeb
 ## #004 | 2026-07-07 15:46 | ALERTA
 VIGIA-PRAZO PZ01 [PROXIMO]: 'AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))' vence em 2026-07-08 (em 1 dia(s), criticidade alta).
 ---
+## #005 | 2026-07-09 11:44 | ALERTA
+VIGIA-PRAZO PZ01 [VENCIDO]: 'AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))' VENCEU em 2026-07-08 (ha 1 dia(s)). Providenciar imediatamente ou registrar no CASO.yaml o status cumprido/prejudicado com justificativa.
+---

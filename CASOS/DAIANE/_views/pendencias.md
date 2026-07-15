@@ -1,7 +1,6 @@
 # PENDÊNCIAS
 
 ## CRITICA
-- **PEN02** (cliente): Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3) — bloqueia: nada
 - **PEN04** (advogado): Prova INDEPENDENTE da identificabilidade e repercussao: (a) exclusividade objetiva — fotos da via, cartoes CNPJ/CNAE das duas lojas, print de mapa; (b) 2-3 testemunhas SEM vinculo com a empresa (clientes, comerciantes vizinhos); (c) comparativo simples de faturamento (jun x jul/2026) se houver queda. Sem isso, a tese da identificacao fica em declarantes internos (contradita provavel) | ATUALIZADO #020: as 3 testemunhas sao da casa — o pacote objetivo e a UNICA perna independente | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3) — bloqueia: nada
 
 ## ALTA
@@ -10,6 +9,7 @@
 - **PEN08** (advogado): Divergencia de data no BO (fato consta 05/06/2026; correto e 05/07/2026): retificar na delegacia OU explicar a divergencia na peca — DECIDIDO: EXPLICAR a divergencia na peca (nao retificar na delegacia) — bloqueia: nada
 
 ## Resolvidas
+- PEN02: Contrato social / atos constitutivos da NASCIMENTO FERRO E ACO LTDA (prova da representacao pelo socio-adm; a pasta so tem CNH do socio) | #029: JUNTADA NO ATO DO PROTOCOLO pelo titular (nao bloqueia mais o G3) (resolvida em 2026-07-09)
 - PEN05: DECISAO ESTRATEGICA + providencia: notificacao extrajudicial previa (a minuta a afirma mas ela NAO existe) — notificar antes de protocolar OU reancorar o fundamento na responsabilidade direta (CC 186/927 por curadoria remunerada — F05) (resolvida em ?)
 - PEN06: Ata notarial afirmada na minuta NAO existe; story ja indisponivel — avaliar ata notarial das CONVERSAS e PERFIS (ainda acessiveis) e preservacao via pedido judicial (resolvida em ?)
 - PEN07: Criar BASE_LEGAL/civel.md com verbetes verificados NA FONTE: CC 186 e 927, MCI (L12965) arts. 19 e 22, CPC 300 e 85, Sumula 227 STJ (citada de memoria pela IA) (resolvida em ?)

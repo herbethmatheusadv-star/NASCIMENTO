@@ -27,8 +27,8 @@ caso:
       diario: '#021'
     G3:
       status: aprovado
-      data: '2026-07-07'
-      diario: '#034'
+      data: '2026-07-09'
+      diario: '#047'
   valor_causa: R$ 20.000,00
 
 partes:
@@ -201,6 +201,20 @@ provas:
 # - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
 #     o_que_prova: "...", forca: plena, fragilidade: null }
 
+- id: P10
+  doc: 01_documentos/DOC-13_CONTRATO_SOCIAL_NASCIMENTO_FERRO_E_ACO_LTDA.pdf
+  original: 00_originais/CONTRATO_20SOCIAL_20LTDA.pdf
+  o_que_prova: Atos constitutivos consolidados; comprova os poderes de representacao do socio-administrador Herbeth Matheus Mendonca do Nascimento
+  forca: plena
+  fragilidade:
+  sha256: a3d2a02a234314593f4faa315d21a808b8e10c1e40bc71de2842d37470294bd7
+- id: P11
+  doc: 01_documentos/DOC-14_CARTAO_CNPJ_NASCIMENTO_FERRO_E_ACO_LTDA.pdf
+  original: 00_originais/CNPJ (3).pdf
+  o_que_prova: Comprovante de inscricao e situacao cadastral da primeira autora perante a Receita Federal (qualificacao da PJ)
+  forca: plena
+  fragilidade:
+  sha256: 3c6f3e12fda2b861146b597946c1814f85eb6afdeda274ceb8418b2ddbda395f
 pedidos:
 - id: PED01
   tipo: tutela_urgencia_remocao
@@ -312,10 +326,6 @@ fundamentos_citados:
   verificado_em: '2026-07-07'
   status: vigente
   validade_dias: 90
-- ref: CPC:art53
-  verificado_em: '2026-07-07'
-  status: vigente
-  validade_dias: 90
 - ref: CPC:art297
   verificado_em: '2026-07-07'
   status: vigente
@@ -388,6 +398,8 @@ pendencias:
   prioridade: critica
   bloqueia: []
   mensagem_cliente: o contrato social da empresa (ultima alteracao consolidada)
+  status: resolvida
+  resolvida_em: '2026-07-09'
 - id: PEN03
   descricao: Qualificacao da re Bruna Aurora (CPF, endereco) — diligenciar ou requerer em juizo
   responsavel: advogado
@@ -505,6 +517,10 @@ declaracoes:
     cruzada_com_decisoes: true
   revisao_humana_integral:
     diario: '#033'
+  revisao_v05_doc13_doc14:
+    descricao: 'Correcao pontual da qualificacao da 1a autora (DOC-02 -> DOC-13/DOC-14) apos recebimento do contrato social e CNPJ; titular confirmou a v05 e autorizou a geracao do DOCX final'
+    diario: '#046'
+    minuta_protocolo: MINUTA_v05.md
 testemunhas:
 - nome: RONIELSON
   vinculo: funcionario da autora (contradita provavel; ouvir como informante se preciso)

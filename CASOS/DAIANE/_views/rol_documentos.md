@@ -11,5 +11,7 @@
 | P07 | DOC-08_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg | Conversa WhatsApp com a ex-funcionaria (mensagens apagadas) | indiciaria | importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (2).jpeg |
 | P08 | DOC-09_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg | Ronielson (funcionario) encaminha o story + LINK instagram.com do story + comenta identificando | indiciaria | importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (3).jpeg |
 | P09 | DOC-10_MENSAGENS_DE_TERCEIROS_SOBRE_A_POSTAGEM_.jpeg | Carlos Eduardo repassa o story a Daiane (ciencia da vitima no dia) | indiciaria | importacao_IA_EXTERNA_CHATGPT_OU_SIMILAR/Mensagens de terceiros_sobre a postagem (4).jpeg |
+| P10 | DOC-13_CONTRATO_SOCIAL_NASCIMENTO_FERRO_E_ACO_LTDA.pdf | Atos constitutivos consolidados; comprova os poderes de representacao do socio-administrador Herbeth Matheus Mendonca do Nascimento | plena | CONTRATO_20SOCIAL_20LTDA.pdf |
+| P11 | DOC-14_CARTAO_CNPJ_NASCIMENTO_FERRO_E_ACO_LTDA.pdf | Comprovante de inscricao e situacao cadastral da primeira autora perante a Receita Federal (qualificacao da PJ) | plena | CNPJ (3).pdf |
 
 _Gerado por gerar_views.py — não editar._

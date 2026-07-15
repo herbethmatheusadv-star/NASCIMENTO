@@ -11,7 +11,7 @@ g2: pendente
 g3: pendente
 proximo_prazo: "2026-07-08 — AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))"
 pendencias_criticas_abertas: 0
-atualizado: 2026-07-07 15:46
+atualizado: 2026-07-09 11:44
 ---
 
 # STATUS — Weslley Macedo x Getulio — Obrigacao de Fazer (JEC Parauapebas)
@@ -30,6 +30,7 @@ atualizado: 2026-07-07 15:46
 - Partes: 0 · Fatos: 0 (provados 0 / alegados 0 / controversos 0) · Provas: 0 · Pedidos: 0 · Pendências abertas: 1
 
 ## Últimas entradas do diário
+- #005 | 2026-07-09 11:44 | ALERTA — VIGIA-PRAZO PZ01 [VENCIDO]: 'AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))' VENCEU em 2026-07-08 (ha 1 dia(s)). Providenciar imediatamente ou registrar no CASO.yaml o status cumprido/prejudicado com justificativa.
 - #004 | 2026-07-07 15:46 | ALERTA — VIGIA-PRAZO PZ01 [PROXIMO]: 'AUDIENCIA de instrucao (11:00, Vara do JEC de Parauapebas (hibrida - Teams Sala 2))' vence em 2026-07-08 (em 1 dia(s), criticidade alta).
 - #003 | 2026-07-07 15:43 | EVENTO_PROCESSUAL — Audiencia de INSTRUCAO designada para 2026-07-08 11:00 (Vara do JEC de Parauapebas (hibrida - Teams Sala 2)). Roteiro para revisao do advogado em AUDIENCIAS/2026-07-08_instrucao/ROTEIRO.md. Prazo PZ01 no vigia. Proximos passos: sessao completa o roteiro (perguntas, ataques, riscos), advogado revisa, espelhar no Calendar (anonimizado). Apos a audiencia: 'chegou a ata' pela porta unica.
 - #002 | 2026-07-07 15:41 | AUTOS_ANEXADOS — Origem: sistema.
