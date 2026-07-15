@@ -160,3 +160,43 @@ flag saiu (era desnecessária: `launch()` puro já é efêmero).
       exigiria digitá-la a cada execução (prompt em memória), o que é
       compatível, mas retira o "roda sozinho às 07h". Decisão dele quando o
       caso surgir.
+
+---
+
+## EMENDA 03 · 15/07/2026 · Nova arquitetura — eliminar a dualidade v1 × Operacional
+
+**Ordem do titular** (canal legítimo): *"quero que o sistema seja auditado
+novamente e as novas modificações sejam feitas (uma nova arquitetura eliminando
+o SOJ original)"*.
+
+**O que já foi executado no mesmo dia:**
+1. **Auditoria completa** — `ESCRITORIO/scripts/auditor.py` criado (o Auditor
+   R1–R6 do §6 do prompt-mestre, que era DoD faltante da Etapa 1) e rodado:
+   **7 vermelhos, 21 amarelos, 2 informativos** →
+   `_SISTEMA/logs/AUDITORIA_2026-07-15.md`. Veredito: os achados estruturais
+   nascem da DUALIDADE de modelos, não de um modelo ruim.
+2. **Arquitetura v2 desenhada** — `ARQUITETURA_V2.md` na raiz: modelo único
+   (markdown+frontmatter, prompt-mestre §3 canônico), mapa de destino peça a
+   peça do v1, migração em 5 ondas com paridade do vigia, DoD objetivo
+   (auditor com zero vermelho).
+
+**Status: ⏸️ MIGRAÇÃO REGISTRADA, NÃO EXECUTADA.** Motivos, nomeados:
+- Reverte decisão formal do titular na Etapa 0 ("o SOJ Operacional completa o
+  v1, não o substitui") — reversão é direito dele, mas segue o rito das
+  emendas: explícita, datada, ciente.
+- A constituição (§0) manda: "estender o que existe antes de reescrever" e
+  "ambiguidade ou conflito → pergunte; nunca decida sozinho em zona vermelha".
+- **Casos reais com trabalho vivo moram no v1**: GETULIO (PZ03 sugerido;
+  sentença DE HOJE), DAIANE (protocolo em curso — R4), TANIA. Quebrar o vigia
+  no meio disso é fabricar o dano que o sistema existe para evitar.
+- "Eliminar" foi interpretado como **aposentar para `_ARQUIVO/` + git**, nunca
+  apagar registro de caso (dever profissional). Se o titular quis apagar de
+  verdade, precisa dizer com todas as letras — e ainda assim os DIARIOs e
+  originais não se apagam.
+
+### Pendências que destravam a execução (decisões do titular)
+
+- [ ] **GO da migração** nos termos da ARQUITETURA_V2 (eliminar = aposentar).
+- [ ] **DAIANE**: congelar até protocolar (recomendado) ou migrar por último?
+- [ ] **Numeração única** `CASO-####` com `id_legado` (recomendado)?
+- [ ] **Gates G1–G3 e DIARIO ficam** (recomendado)?
