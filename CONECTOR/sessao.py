@@ -167,6 +167,7 @@ class SessaoEfemera:
         contorna-lo, e a sessao morre com o processo — amanha, os dois passos
         de novo.
         """
+        import time
         self.ir_para(URL_LOGIN_TJPA)
         print()
         print("=" * 70)
@@ -183,25 +184,34 @@ class SessaoEfemera:
         print()
         print(f"  Aguardando ate {timeout_min} min. Sem pressa. Ctrl+C cancela.")
         print("=" * 70)
-        js = """
-        () => {
-          const fora_do_login = !location.href.toLowerCase().includes('login');
-          const txt = document.body ? document.body.innerText : '';
-          const tem_painel = %s.some(m => txt.includes(m));
-          const sem_campo_senha =
-            document.querySelectorAll('input[type=password]').length === 0;
-          return fora_do_login && tem_painel && sem_campo_senha;
-        }
-        """ % list(MARCAS_LOGADO)
-        try:
-            self.pagina.wait_for_function(js, timeout=timeout_min * 60_000)
-        except Exception:  # noqa: BLE001
-            print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
-                  "concluido). Sessao encerrada sem ler nada — perfil apagado.")
-            return False
-        print(f"\n[sessao] painel detectado em {self.pagina.url[:70]}")
-        print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
-        return True
+
+        # VARRE TODAS AS ABAS, nao so a inicial. O login por certificado + SSO
+        # (Keycloak) reorganiza abas: o painel pode nascer numa aba nova, e a
+        # aba inicial fica em about:blank. Vigiar so a inicial era o bug que
+        # travava a sessao (16/07/2026). Deteccao pela URL do painel
+        # (`painel_usuario/advogado.seam`) — e a prova de travamento: nao chama
+        # evaluate (uma aba pausada em `debugger;` nao pode ser lida), so olha a
+        # URL. about:blank e abas de login sao ignoradas.
+        alvo = time.time() + timeout_min * 60
+        while time.time() < alvo:
+            for pag in list(self.contexto.pages):
+                try:
+                    if pag.is_closed():
+                        continue
+                    u = (pag.url or "").lower()
+                except Exception:  # noqa: BLE001
+                    continue
+                if not u or u == "about:blank" or "login" in u:
+                    continue
+                if "painel" in u and "tjpa.jus.br" in u:
+                    self.pagina = pag   # o robo passa a olhar a aba CERTA
+                    print(f"\n[sessao] painel detectado em {pag.url[:70]}")
+                    print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
+                    return True
+            time.sleep(2)
+        print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
+              "concluido). Sessao encerrada sem ler nada — perfil apagado.")
+        return False
 
 
 def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:

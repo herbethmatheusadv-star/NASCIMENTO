@@ -163,31 +163,38 @@ def coletar(s: "sessao.SessaoEfemera", limite: int, pausa: float) -> Path | None
     print("  leitura — pode.")
     print("=" * 70)
 
-    autos = {"pagina": None}
+    def _achar_autos():
+        # varre TODAS as abas — os autos podem abrir em aba nova (window.open),
+        # e o login por SSO ja reorganiza as abas (ver esperar_login_humano).
+        for pag in list(s.contexto.pages):
+            try:
+                if not pag.is_closed() and \
+                        "listProcessoCompletoAdvogado" in (pag.url or ""):
+                    return pag
+            except Exception:  # noqa: BLE001
+                continue
+        return None
 
-    def viu_pagina(pag):
-        try:
-            if "listProcessoCompletoAdvogado" in (pag.url or ""):
-                autos["pagina"] = pag
-        except Exception:  # noqa: BLE001
-            pass
+    def _todas_fechadas():
+        for p in s.contexto.pages:
+            try:
+                if not p.is_closed():
+                    return False
+            except Exception:  # noqa: BLE001
+                continue
+        return True
 
-    s.contexto.on("page", viu_pagina)
-
+    pag = None
     limite_espera = time.time() + 8 * 60
-    while time.time() < limite_espera and autos["pagina"] is None:
-        # tambem olha a aba principal, caso ele navegue nela mesma
-        try:
-            if "listProcessoCompletoAdvogado" in (s.pagina.url or ""):
-                autos["pagina"] = s.pagina
-        except Exception:  # noqa: BLE001
-            pass
-        if s.pagina.is_closed():
+    while time.time() < limite_espera:
+        pag = _achar_autos()
+        if pag is not None:
+            break
+        if _todas_fechadas():
             print("[baixar] janela fechada antes de abrir um processo. Nada baixado.")
             return None
         time.sleep(2)
 
-    pag = autos["pagina"]
     if pag is None:
         print("[baixar] nao vi nenhum processo aberto no tempo limite.")
         return None
