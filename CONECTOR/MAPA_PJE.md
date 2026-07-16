@@ -542,5 +542,70 @@ o SOJ é indiferente: essa é a metade que o titular executa, nunca o robô.
 ### 10.3 Estado da leitura
 
 **Manual do Advogado: lido por inteiro** (§7, §8, §10). **Arquitetura + API + auth:
-fechados** (§9). O que resta não está em documento nenhum — é o **catálogo de
-endpoints REST**, que só a captura de rede na sessão autenticada entrega (§9.7).
+fechados** (§9). **Fluxo de leitura de autos: FECHADO** (§11, captura de 16/07).
+
+---
+
+## 11. FLUXO DE LEITURA DE AUTOS — fechado na captura de 16/07/2026 (14h41)
+
+> 2ª sessão de mapeamento. Capturou os autos (`listProcessoCompletoAdvogado`) e
+> **3 chamadas REST**. Fecha o que faltava: como listar as peças, como baixar
+> cada uma, e a autenticação exata.
+
+### 11.1 As três descobertas que fecham o desenho
+
+**1. O download de peça — endpoint REAL e confirmado (retornou PDF):**
+```
+GET /pje/seam/resource/rest/pje-legacy/documento/download/{idProcessoDocumento}
+    → 200  application/pdf
+```
+
+**2. A autenticação é COOKIE DE SESSÃO (JSESSIONID), não Bearer.** Confirmado nos
+headers das 3 chamadas: `cookie de sessão (valor omitido)`. É o legado Seam
+RESTEasy — resolve a nuance do §9.6: o robô usa **o cookie que o navegador do
+titular já tem**, dentro da sessão viva. **Nunca** extrai nem persiste o cookie
+(guardrail do §9.6).
+
+**3. A lista de peças vem no HTML dos autos.** A página
+`listProcessoCompletoAdvogado.seam?idProcesso={idProcesso}` traz **toda a árvore
+de documentos**, cada um com seu **`idProcessoDocumento`** (uma sequência:
+…838, …861, …862, …). O id que baixei bate com um da lista → **a lista dá os
+ids, o endpoint REST baixa cada um.**
+
+### 11.2 O fluxo completo do `baixar_autos.py` (sem raspar botão, sem `j_idNNN`)
+
+```
+[titular no portão: certificado + 2FA → cookie de sessão no navegador]
+   ↓
+Acervo  →  idProcesso do caso  (window.open .../listProcessoCompletoAdvogado)
+   ↓
+GET listProcessoCompletoAdvogado.seam?idProcesso={idProcesso}   (o HTML dos autos)
+   ↓  parse → lista de idProcessoDocumento (todas as peças, na ordem)
+para cada peça:
+   GET /pje/seam/resource/rest/pje-legacy/documento/download/{idProcessoDocumento}
+        (dentro da sessão = cookie automático)  → PDF
+   ↓
+salva em AUTOS/{cnj}/{ordem}_{tipo}_{hash8}.pdf   (§3 do PLANO_SOJ)
+```
+
+**Robusto por quê:** o download é um **GET REST estável** (não JSF, não `cid` de
+conversação, não AJAX). A lista sai do HTML dos autos (JSF), que muda pouco. Não
+depende de `j_idNNN`. E baixar **peça a peça** com o id é até melhor que o
+"download integral": cada PDF já vem com o seu `idProcessoDocumento`, o que serve
+direto ao requisito de **citação por documento + página** (§4 do PLANO_SOJ).
+
+### 11.3 R7 no leitor — allowlist de UM endpoint de leitura
+
+O leitor chama **exatamente uma** rota: `…/rest/pje-legacy/documento/download/{id}`
+(GET, leitura). Como no MNI, é **allowlist**, não blocklist: qualquer outra rota
+do `rest/pje-legacy/` (que possa ser escrita) simplesmente **não é chamada** — não
+há função para ela. `guarda_de_url` libera o `documento/download` (não casa padrão
+proibido) e barra peticionar/assinar (§8.1). O leitor roda em sessão de **leitura**,
+nunca com autonomia de escrita.
+
+### 11.4 O que sobra (pequeno)
+
+- O **download integral** (ação 14 → AreaDownload) não foi capturado — mas **não é
+  necessário**: o loop peça-a-peça acima já baixa tudo, com mais granularidade.
+- O `baixar_autos.py` em si (o código) — próximo passo, agora com todas as peças
+  do desenho na mão.
