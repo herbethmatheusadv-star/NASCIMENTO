@@ -225,18 +225,37 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
     telas: list[dict] = []
     paginas = [s.pagina]     # inclui novas abas: os autos abrem em nova janela
 
+    def _esquema_auth(req):
+        """SO o esquema, NUNCA o valor. Saber SE e Bearer ou cookie de sessao,
+        sem jamais registrar o segredo — logar o token seria capturar
+        credencial, que o titular vetou. Ver recusa-automacao-credenciais."""
+        try:
+            h = req.all_headers()
+        except Exception:  # noqa: BLE001
+            return "-"
+        a = (h.get("authorization") or "").strip()
+        if a:
+            return a.split(" ", 1)[0] + " (valor omitido)"
+        if h.get("cookie"):
+            return "cookie de sessao (valor omitido)"
+        return "-"
+
     def anotar_resposta(resp):
         try:
             req = resp.request
             if req.resource_type not in ("xhr", "fetch", "document"):
                 return
+            url = resp.url
+            eh_rest = ("/rest/" in url) or ("/api/" in url)
             chamadas.append({
                 "quando": datetime.now().strftime("%H:%M:%S"),
                 "metodo": req.method,
-                "url": resp.url,
+                "url": url,
                 "status": resp.status,
                 "tipo": req.resource_type,
                 "content_type": (resp.header_value("content-type") or "")[:60],
+                "rest": eh_rest,
+                "auth": _esquema_auth(req) if eh_rest else "",
             })
         except Exception:  # noqa: BLE001
             pass
@@ -307,18 +326,20 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
     print("=" * 70)
     print("  O robo NAO clica em nada. Ele so retrata cada tela que VOCE abre.")
     print()
-    print("  Roteiro (com calma, na ordem que preferir):")
-    print("    1. ACERVO       — a lista dos seus processos")
-    print("    2. EXPEDIENTES  — a lista (NAO abra expediente pendente!)")
-    print("    3. Pela ACERVO, clique no NUMERO de um processo qualquer para")
-    print("       abrir os AUTOS digitais (isso e leitura, e seguro).")
+    print("  ALVO DE HOJE: capturar a API REST dos autos (nao os seletores).")
+    print()
+    print("  Roteiro (com calma):")
+    print("    1. ACERVO — abra a lista dos seus processos.")
+    print("    2. Clique no NUMERO de UM processo para abrir os AUTOS digitais")
+    print("       (nova janela). Isso e leitura, e seguro.")
+    print("    3. DENTRO dos autos: clique numa PECA para visualizar (a inicial,")
+    print("       uma decisao) — e ESPERE uns 20 SEGUNDOS antes de fechar.")
+    print("       E nesse tempo que o backend faz as chamadas REST que eu quero.")
     print()
     print("  A regra de ouro: NAO abra expediente marcado 'pendente de ciencia'.")
-    print("  Abrir os autos pela ACERVO e leitura — pode. Expediente pendente,")
-    print("  nao — porque o proprio ato de abrir pode disparar o prazo.")
+    print("  Abrir os autos pela ACERVO e ler pecas e leitura — pode.")
     print()
-    print("  Eu percebo sozinho quando voce passar pelas telas e encerro.")
-    print("  Terminou antes? Feche a janela do Chrome que eu paro.")
+    print("  Terminou? Feche a janela do Chrome que eu paro e apago o perfil.")
     print("=" * 70)
 
     limite = time.time() + 10 * 60
@@ -365,14 +386,26 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
             for e in t["elems"]:
                 f.write(f"| {e['tag']} | `{e['id']}` | {e['name']} | {e['role']}"
                         f" | {e['txt']} | {e['href']} |\n")
-        f.write("\n\n## Chamadas de rede (endpoints do painel)\n\n")
+        # A ESTRELA de hoje: as chamadas REST (/rest/ ou /api/) — a API do
+        # backend, com o esquema de auth (valor sempre omitido).
+        rest = [c for c in chamadas if c.get("rest")]
+        f.write(f"\n\n## API REST capturada ({len(rest)}) — o alvo\n\n")
+        f.write("| hora | metodo | status | content-type | auth | url |\n")
+        f.write("|---|---|---|---|---|---|\n")
+        for c in rest:
+            f.write(f"| {c['quando']} | {c['metodo']} | {c['status']} | "
+                    f"{c['content_type']} | {c.get('auth','')} | "
+                    f"`{c['url'][:150]}` |\n")
+
+        f.write("\n\n## Todas as chamadas de rede\n\n")
         f.write("| hora | metodo | status | tipo | content-type | url |\n")
         f.write("|---|---|---|---|---|---|\n")
         for c in chamadas:
             f.write(f"| {c['quando']} | {c['metodo']} | {c['status']} | "
                     f"{c['tipo']} | {c['content_type']} | `{c['url'][:150]}` |\n")
+    rest_n = sum(1 for c in chamadas if c.get("rest"))
     print(f"\n[mapeamento] {len(telas)} telas + {len(chamadas)} chamadas "
-          f"salvas em {relatorio}")
+          f"({rest_n} REST) salvas em {relatorio}")
     return relatorio
 
 
