@@ -321,3 +321,46 @@ dia apressado.
   responde se a conta do titular tem MNI habilitado no TJPA. Muitos tribunais
   exigem habilitação prévia; se vier fault de credencial, é isso que se
   investiga antes de qualquer outra coisa.
+
+### ❌ EMENDA 05 — RESOLVIDA EM 15/07/2026, SEM EFEITO PRÁTICO: o MNI está DESLIGADO
+
+**O teste decisivo foi feito pelo titular e a resposta é definitiva:**
+
+```
+faultstring = "O MNI está desabilitado nesta instância."   (faultcode: soap:Server)
+```
+
+**Nos DOIS graus**, e — o que fecha a questão — **a recusa vem sem credencial
+nenhuma**: repetimos a chamada com campos vazios e a mensagem é idêntica. Não é
+senha errada. Não é falta de habilitação da conta. **O TJPA publica o WSDL e
+mantém a implementação desativada.**
+
+| Tribunal | Porta oficial | Veredito final |
+|---|---|---|
+| TJPA 1º e 2º | MNI | ❌ **desabilitado na instância** (WSDL no ar, serviço off) |
+| TRT-8 | MNI | ❌ 21 caminhos; `/pjekz/` = SPA devolvendo index.html |
+| TJMA | MNI | ❌ 403 de origem (4 combinações de cabeçalho testadas) |
+| PDPJ | REST | ❌ exige token |
+
+**Consequência: não existe porta oficial de leitura para este escritório.** O
+`consultarProcesso`/`incluirDocumentos` — que seria a via limpa para os autos —
+não é alcançável.
+
+**A autorização da Emenda 05 fica sem uso, e isso é uma boa notícia:** a senha
+do titular **nunca foi validada por canal nenhum**; o serviço recusou antes de
+olhar para ela. E o corolário de segurança é favorável — **não existe porta que
+leia o acervo dele só com CPF+senha**. O 2FA continua sendo o controle que o
+protege, exatamente como ele exigiu. A regra "nunca contornar o 2FA" segue
+íntegra por construção do tribunal, não por disciplina nossa.
+
+**O que sobra, e volta a ser o caminho:** a **Emenda 02** — navegador efêmero
+com **humano no portão**, leitura por DOM. Isso exige a **descoberta assistida
+de seletores** (`sessao.py --mapear`), com ele ao teclado — que é a regra §10.4
+do PLANO_SOJ ("não inventar seletores; descobrir na página real, com o advogado
+presente"). O `_efemeros/mapeamento_pje/` está **vazio**: nunca rodou.
+
+**`CONECTOR/mni.py` fica no repo, e não é código morto:**
+- o **desembrulhador MTOM/XOP** é necessário em qualquer cliente do CXF (o TJPA
+  responde multipart; foi o que escondeu o motivo da recusa no 1º teste real);
+- o desenho **R7-como-ausência sem `zeep`** está provado e testado (49+22 casos);
+- se o TJPA religar o MNI, está pronto — o contrato já foi lido do WSDL real.

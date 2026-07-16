@@ -151,6 +151,46 @@ def _envelope(operacao: str, campos: list[tuple[str, object]]) -> bytes:
     return xml.encode("utf-8")
 
 
+def desembrulhar_mtom(bruto: bytes) -> bytes:
+    """
+    O TJPA roda CXF com MTOM/XOP: a resposta vem multipart, e o envelope SOAP e
+    o primeiro bloco (`application/xop+xml`). Os anexos binarios — no
+    consultarProcesso com documentos, as PECAS — vem nos blocos seguintes.
+
+    Sem isto, ET.fromstring engasga no `--uuid:...` e a mensagem de erro do
+    tribunal fica invisivel: foi o que aconteceu no 1o teste real, em
+    15/07/2026, e escondeu justamente o motivo da recusa.
+    """
+    if not bruto.lstrip()[:2] == b"--":
+        return bruto
+    i = bruto.find(b"<soap")
+    if i < 0:
+        i = bruto.find(b"<?xml")
+    if i < 0:
+        i = bruto.find(b"<S:")
+    if i < 0:
+        return bruto
+    j = bruto.find(b"\r\n--", i)
+    if j < 0:
+        j = bruto.find(b"\n--", i)
+    return bruto[i:j] if j > i else bruto[i:]
+
+
+def _motivo_da_falha(bruto: bytes) -> str:
+    """Extrai faultstring/faultcode de um corpo SOAP (ja desembrulhado ou nao)."""
+    try:
+        raiz = ET.fromstring(desembrulhar_mtom(bruto))
+    except ET.ParseError:
+        return ""
+    partes = []
+    for nome in ("faultstring", "faultcode", "mensagem", "Text", "Reason"):
+        for el in raiz.iter():
+            if el.tag.rsplit("}", 1)[-1] == nome and el.text and el.text.strip():
+                partes.append(f"{nome}={el.text.strip()}")
+                break
+    return " | ".join(partes)
+
+
 def _chamar(operacao: str, campos: list[tuple[str, object]], grau: int = 1):
     """POST no endpoint. Devolve (ok, raiz_xml, erro)."""
     url = ENDPOINTS[grau]
@@ -162,19 +202,14 @@ def _chamar(operacao: str, campos: list[tuple[str, object]], grau: int = 1):
     req.add_header("User-Agent", "SOJ-Conector/1.0 (leitura; OAB 39261/PA)")
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-            return True, ET.fromstring(r.read()), ""
+            return True, ET.fromstring(desembrulhar_mtom(r.read())), ""
     except urllib.error.HTTPError as e:
         bruto = e.read()
-        # a falha SOAP vem em 500 com o motivo dentro
-        try:
-            raiz = ET.fromstring(bruto)
-            fs = raiz.iter("{http://schemas.xmlsoap.org/soap/envelope/}faultstring")
-            motivo = next((f.text for f in fs if f.text), "")
-            if motivo:
-                return False, None, f"HTTP {e.code} — falha SOAP: {motivo}"
-        except ET.ParseError:
-            pass
-        return False, None, f"HTTP {e.code} — {bruto[:200].decode('utf-8', 'ignore')}"
+        motivo = _motivo_da_falha(bruto)
+        if motivo:
+            return False, None, f"HTTP {e.code} — {motivo}"
+        limpo = desembrulhar_mtom(bruto)[:400].decode("utf-8", "ignore")
+        return False, None, f"HTTP {e.code} — (sem faultstring) {limpo}"
     except Exception as e:
         return False, None, f"{type(e).__name__}: {e}"
 
