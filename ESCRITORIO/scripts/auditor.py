@@ -57,6 +57,13 @@ def auditar_processos() -> dict[str, dict]:
         fm = frontmatter(p)
         if fm is None:
             continue
+        # O glob acha o nome; quem diz o que o arquivo E e o frontmatter. Sem
+        # isto, qualquer documento SOBRE um processo (roteiro de audiencia,
+        # analise, minuta) que caia aqui com nome PROC-* e cobrado como se
+        # fosse ficha - e vira vermelho de "sem proxima_acao" que nao existe.
+        # Aconteceu em 15/07/2026 com PROC-0015_audiencia_2026-07-16.md.
+        if str(fm.get("tipo") or "") != "processo":
+            continue
         fichas[p.stem] = fm
         situacao = str(fm.get("situacao") or "")
         # R1: status + proxima_acao + data_interna (arquivado dispensa data)
@@ -239,8 +246,11 @@ def main() -> None:
 
     print(f"[AUDITOR] {len(vermelhos)} VERMELHOS, {len(amarelos)} amarelos, "
           f"{len(infos)} infos -> {rel.relative_to(RAIZ)}")
+    # O console do Windows e cp1252 e nao aceita emoji: o 🔴 daqui derrubava o
+    # auditor com UnicodeEncodeError DEPOIS de gravar o relatorio - e o exit
+    # virava 1 por traceback, nao por vermelho. O arquivo (utf-8) mantem o emoji.
     for _, r, t in vermelhos:
-        print(f"  🔴 [{r}] {t}")
+        print(f"  [VERMELHO] [{r}] {t}")
     sys.exit(1 if vermelhos else 0)
 
 

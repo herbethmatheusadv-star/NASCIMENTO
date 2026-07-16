@@ -200,3 +200,66 @@ o SOJ original)"*.
 - [ ] **DAIANE**: congelar até protocolar (recomendado) ou migrar por último?
 - [ ] **Numeração única** `CASO-####` com `id_legado` (recomendado)?
 - [ ] **Gates G1–G3 e DIARIO ficam** (recomendado)?
+
+---
+
+## EMENDA 04 · 15/07/2026 · O PLANO_SOJ vira a especificação técnica da Onda 1
+
+**Origem:** o titular trouxe o `PLANO_SOJ.md` (síntese do *SOJ PJe Intelligence*
+com o *Repositório Jurídico Executável*) e mandou executá-lo. O documento manda,
+na Fase 0, inventariar o que existe antes de criar qualquer arquivo — e foi
+justamente a Fase 0 que impediu a execução literal.
+
+**O conflito que a Fase 0 encontrou:** o plano descreve construir uma árvore
+`SOJ/` do zero, com esquema próprio de ficha (`prazo_confirmado_por/_em`,
+`sigilo` em 3 camadas, `ia_autorizada`, `PROCESSOS/{numero}/ficha.md`). Executado
+ao pé da letra, criaria um **terceiro modelo** ao lado do v1 e do Operacional —
+exatamente a dualidade que a AUDITORIA_2026-07-15 apontou como causa dos 7
+vermelhos ("o problema não é o SOJ v1 nem o Operacional: é existirem os dois").
+Além disso, o plano manda cadastrar "~20 processos" (já são 25, fichados) e trata
+DataJud/DJEN como expansão futura sob gatilho (o radar roda às 07h desde 14/07).
+
+**Decisão do titular (15/07/2026):** o `PLANO_SOJ.md` **não** será executado como
+árvore nova. Ele passa a ser a **especificação técnica da Onda 1** do
+`ARQUITETURA_V2.md` (o laboratório: `soj_lib` v2). Mesmo alvo — modelo único em
+markdown+frontmatter — e a V2 já traz a disciplina de migração (paridade provada
+antes de desligar, DoD por onda, `_ARQUIVO/` em vez de apagar).
+
+**O que o plano acrescenta, e que hoje não existe** (é por isto que ele importa):
+
+| Órgão | Estado hoje |
+|---|---|
+| `wrapper.py` — conteúdo de autos é dado, nunca instrução | **não existe**; petição da parte contrária é conteúdo adversarial por definição |
+| Hooks determinísticos (`validar_ficha.py`) | **não existem** — o `settings.local.json` só tem permissões. Regra sem mecanismo não é regra |
+| CNJ por dígito verificador (módulo 97) | validação hoje é por formato |
+| SHA-256 + dedup + originais imutáveis + manifest | parcial (v1 tem `00_originais/`) |
+| Texto com `===[p.N]===` → **citar página** | não existe |
+| `prazo_confirmado_por` / `_em` | o modelo tem `prazo_em_curso`, sem quem/quando confirmou |
+| `ia_autorizada` + sigilo em 3 camadas (LGPD) | hoje `sigiloso: bool` |
+| Fixtures adversariais | não existem |
+
+**Onde o plano precisa ceder à realidade encontrada:**
+1. **Fase 2 (cadastrar ~20 processos)** — já feita: 25 fichas do censo.
+2. **Fase 6 (DataJud/DJEN sob gatilho)** — já construído: `RADAR/` é o braço de
+   captura, com ~130 testes e tarefa agendada.
+3. **Fase 6 (Playwright)** — `CONECTOR/` é sprint ativo, com R7 testada (49 casos)
+   e o desenho "certificado com humano no portão". As regras do plano (nunca
+   automatizar login/2FA/certificado) **coincidem** com a Emenda 02 e com
+   `recusa-automacao-credenciais` — não há conflito, há confirmação.
+4. **Topologia `PROCESSOS/{numero}/ficha.md`** — cede para `PROC-####.md` +
+   `CASO-####` da V2 (§3), que já é o que as 25 fichas usam.
+
+**Campo que o incidente do dia provou faltar:** nenhuma ficha tem `audiencia`.
+O PROC-0015 tinha audiência marcada para o dia seguinte e o modelo só sabia
+representar *prazo* — a agenda virou um "prazo decorrido" e afundou. **A Onda 1
+deve tratar audiência como entidade de primeira classe** (data, hora, formato,
+link, comparecimento obrigatório), não como um prazo com nome diferente. Ver
+BUG-05 em `_SISTEMA/logs/bugs_radar.md`.
+
+**Status:** ✅ **APROVADA E EM VIGOR** quanto ao papel do documento. A execução
+da Onda 1 continua atrás do **GO da Emenda 03** e das 3 decisões abertas do
+titular (DAIANE congela?; numeração `CASO-####`?; gates/DIARIO ficam?).
+
+**O documento:** `PLANO_SOJ.md` movido da pasta de marca
+(`Desktop/Brand Nascimento/`) para a raiz deste repositório — é documento do SOJ,
+não de marketing, e fora do repo não tem histórico nem auditoria.

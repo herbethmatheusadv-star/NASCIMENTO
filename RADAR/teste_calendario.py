@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from monitor_prazos import (Calendario, calcular_pascoa, calcular_prazo,
-                            detectar_prazo, prioridade)
+                            detectar_prazo, prioridade, tem_audiencia_futura)
 
 falhas = []
 def check(nome, obtido, esperado):
@@ -472,6 +472,67 @@ if ARQ_RESOLVIDOS.exists():
     check("o agravo esta marcado como resolvido",
           ("08078847520268140000", "2026-06-19") in reais_r, True)
     print(f"        -> {len(reais_r)} marcado(s)")
+
+print("\n=== 18. BUG-05: audiencia nao e prazo, e nao pode ir para o rodape ===")
+# 15/07/2026: a audiencia de conciliacao do EDIO (PROC-0015) era no dia
+# seguinte, 16/07 11:15. O relatorio da manha listou o processo como "Nao
+# identificado", com um prazo assumido de 15 dias que ja tinha "vencido" -
+# rodape, junto do que nao importa mais. Duas audiencias estavam escondidas
+# assim (a outra, da Luciana, em 21/07).
+#
+# Tres coisas tinham de mudar juntas, e cada uma e testada aqui:
+#   1. reconhecer a convocacao (classificador §11);
+#   2. nao inventar prazo em cima dela (informativo);
+#   3. dar secao propria a ela - senao "informativo" a esconde de novo.
+_fx3 = Path(__file__).parent / "fixtures" / "intimacao_audiencia_edio.txt"
+if _fx3.exists():
+    _teor = _fx3.read_text(encoding="utf-8")
+
+    check("convocacao nao abre prazo (nao vira alerta falso)",
+          eh_meramente_informativo("Intimação", _teor), True)
+
+    # o radar rodou em 15/07; a audiencia e em 16/07 11:15
+    r_aud = processar([com("0809135-08.2026.8.14.0040", "2026-06-02", _teor,
+                           parte="EDIO SOUZA NUNES")],
+                      cal, 15, date(2026, 7, 15))
+    check("uma linha", len(r_aud), 1)
+    l_aud = r_aud[0]
+    check("a data da audiencia chega na linha",
+          l_aud["audiencia_data"], date(2026, 7, 16))
+    check("faltam 1 dia", l_aud["audiencia_dias"], 1)
+    check("o rotulo avisa que e amanha", l_aud["rotulo"], "AUDIENCIA AMANHA")
+    check("o ato e reconhecido", l_aud["ato_rotulo"], "Intimação para audiência")
+    check("informativa (nao fabrica prazo)", l_aud["informativo"], True)
+    # a regressao que importa: informativo NAO pode mais rebaixar a audiencia
+    check("prioridade poe a audiencia no TOPO, apesar de informativa",
+          prioridade(l_aud), (0, date(2026, 7, 16)))
+    check("tem_audiencia_futura reconhece", tem_audiencia_futura(l_aud), True)
+
+    # depois do ato, silencio: o termo vira depois e nao ha o que avisar
+    r_pas = processar([com("0809135-08.2026.8.14.0040", "2026-06-02", _teor,
+                           parte="EDIO SOUZA NUNES")],
+                      cal, 15, date(2026, 7, 17))
+    check("audiencia passada nao ocupa mais o topo",
+          tem_audiencia_futura(r_pas[0]), False)
+
+    # audiencia no proprio dia ainda conta: a hora pode nao ter chegado
+    r_hoje = processar([com("0809135-08.2026.8.14.0040", "2026-06-02", _teor,
+                            parte="EDIO SOUZA NUNES")],
+                       cal, 15, date(2026, 7, 16))
+    check("audiencia HOJE ainda aparece", r_hoje[0]["rotulo"], "AUDIENCIA HOJE")
+else:
+    print("  [aviso] fixture intimacao_audiencia_edio.txt ausente - teste pulado")
+
+print("\n=== 18.1 O que NAO pode virar audiencia (regressao do BUG-02) ===")
+check("termo de audiencia (ato ja realizado) nao tem data futura",
+      processar([com("0009", "2026-07-10",
+                     "TERMO DE AUDIENCIA DE CONCILIACAO. Aberta a audiencia: "
+                     "SEM ACORDO. Nada mais.")],
+                cal, 15, hoje_t)[0]["audiencia_dias"], None)
+check("data solta no texto nao vira audiencia",
+      processar([com("0010", "2026-07-10",
+                     "Intime-se no prazo de 15 dias. O contrato e de 14/02/2025.")],
+                cal, 15, hoje_t)[0]["audiencia_dias"], None)
 
 print("\n" + "=" * 60)
 if falhas:

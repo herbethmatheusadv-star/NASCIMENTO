@@ -2,7 +2,7 @@
 
 Universo: **25 processos** (fichas) · **5 casos v1** (CASO.yaml, 2 de laboratório) · **7 clientes**.
 
-**7 VERMELHOS · 21 amarelos · 2 informativos**
+**7 VERMELHOS · 21 amarelos · 1 informativos**
 
 ## 🔴 VERMELHOS (violacao de regra — briefing)
 
@@ -41,7 +41,6 @@ Universo: **25 processos** (fichas) · **5 casos v1** (CASO.yaml, 2 de laborató
 ## ℹ️ Informativos
 
 - [ETAPA2] INBOX/ vazio — fluxo DJEN->INBOX ainda nao liga radar ao sistema (Etapa 2)
-- [ETAPA4] BRIEFINGS/ vazio — briefing diario 07h ainda nao existe (Etapa 4)
 
 ---
 R4 (protocolo) ainda nao e verificavel mecanicamente neste modelo — entra com a migracao v2 (checklist de protocolo como campos).

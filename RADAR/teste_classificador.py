@@ -2,17 +2,20 @@
 """
 Testa o classificador contra trechos REAIS das intimacoes da OAB 39261/PA.
 
-Os dois casos que motivaram este modulo:
+Os tres casos que motivaram este modulo:
   - o agravo com preparo sob pena de desercao (era grave, foi enterrado)
   - as contrarrazoes do Municipio (nao era dele, virou "VENCE HOJE")
+  - a intimacao para audiencia do EDIO (era "Nao identificado" - e o ato era
+    no dia seguinte; §11)
 """
 import sys
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from classificador import (DA_OUTRA_PARTE, INCERTO, MEU, analisar,
-                           de_quem_e_o_prazo, gravidade, providencias,
-                           sancoes, tipo_de_ato, trechos_de_ordem)
+                           data_da_audiencia, de_quem_e_o_prazo, gravidade,
+                           providencias, sancoes, tipo_de_ato, trechos_de_ordem)
 
 falhas = []
 def check(nome, obtido, esperado):
@@ -198,6 +201,71 @@ for nome, txt, peso, rotulo in casos:
 print("\n=== 10. Termo de audiencia nao vira ordem falsa ===")
 check("termo sem comando: sem providencia", providencias(TERMO_AUDIENCIA), [])
 check("termo sem comando: sem sancao", gravidade(TERMO_AUDIENCIA), 0)
+
+# --------------------------------------------------------------------------
+print("\n=== 11. BUG-05: INTIMACAO PARA audiencia != TERMO de audiencia ===")
+# Descoberto em 15/07/2026, com dado real, a 14h do ato.
+#
+# O PROC-0015 (EDIO x Aguas do Para) tinha audiencia de conciliacao marcada
+# para 16/07 11:15. O radar rodou na manha do dia 15 e listou o processo como
+# "Nao identificado": o regex exigia "termo de audiencia" ou "audiencia de
+# conciliacao", e o texto real diz "INTIMACAO PARA AUDIENCIA" e "Data da
+# Audiencia: 16/07/2026 11:15, Tipo: Conciliacao". Nao casou nada.
+#
+# O buraco e conceitual, nao ortografico: TERMO de audiencia e o registro do
+# que ja aconteceu (informativo, sem prazo - o BUG-02 ja garante isso).
+# INTIMACAO PARA audiencia e um ato FUTURO, com data e hora, de comparecimento
+# obrigatorio: faltar extingue o processo do autor (art. 51, I, Lei 9.099/95).
+# Sao opostos, e o modulo tratava os dois como a mesma palavra.
+_fx_aud = Path(__file__).parent / "fixtures" / "intimacao_audiencia_edio.txt"
+if _fx_aud.exists():
+    INTIMACAO_AUDIENCIA = _fx_aud.read_text(encoding="utf-8")
+
+    check("intimacao para audiencia nao cai em 'indefinido'",
+          tipo_de_ato(INTIMACAO_AUDIENCIA), "intimacao_audiencia")
+    check("termo continua sendo termo (nao vira intimacao)",
+          tipo_de_ato(TERMO_AUDIENCIA), "audiencia")
+
+    # a data e a razao de existir deste tipo: sem ela o alerta nao escala
+    check("extrai data e hora da audiencia",
+          data_da_audiencia(INTIMACAO_AUDIENCIA), datetime(2026, 7, 16, 11, 15))
+    check("termo de audiencia nao tem data futura a extrair",
+          data_da_audiencia(TERMO_AUDIENCIA), None)
+
+    # continua valendo o BUG-02: convocacao nao e ordem com prazo
+    check("intimacao de audiencia nao inventa providencia",
+          providencias(INTIMACAO_AUDIENCIA), [])
+    check("intimacao de audiencia nao inventa sancao",
+          gravidade(INTIMACAO_AUDIENCIA), 0)
+
+    a = analisar(INTIMACAO_AUDIENCIA, [{"nome": "EDIO SOUZA NUNES", "polo": "A"}])
+    check("analisar() expoe a audiencia", a.get("audiencia_em"),
+          datetime(2026, 7, 16, 11, 15))
+    check("analisar() rotula o ato", a.get("ato_rotulo"),
+          "Intimação para audiência")
+else:
+    print("  [aviso] fixture intimacao_audiencia_edio.txt ausente - teste pulado")
+
+print("\n=== 11.1 Outras formas de designar audiencia (mesma familia) ===")
+for _nome, _txt, _esperado in [
+    ("designo para o dia",
+     "Designo audiência de conciliação para o dia 05/08/2026, às 09h30.",
+     datetime(2026, 8, 5, 9, 30)),
+    ("audiencia designada para",
+     "Fica a parte ciente de que a audiência de instrução foi designada "
+     "para 12/09/2026 às 14:00.",
+     datetime(2026, 9, 12, 14, 0)),
+    ("redesignada",
+     "A audiência anteriormente marcada fica redesignada para 03/10/2026, 08h.",
+     datetime(2026, 10, 3, 8, 0)),
+    ("data sem hora vem a meia-noite",
+     "Data da Audiência: 20/11/2026, Tipo: Instrução.",
+     datetime(2026, 11, 20, 0, 0)),
+    ("data solta, sem audiencia por perto, nao conta",
+     "O contrato foi firmado em 14/02/2025 e juntado aos autos.",
+     None),
+]:
+    check(_nome, data_da_audiencia(_txt), _esperado)
 
 print("\n" + "=" * 62)
 if falhas:

@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from datetime import datetime
 
 # --------------------------------------------------------------------------
 
@@ -37,6 +38,12 @@ TIPOS_ATO = [
                  r"\bhomologo\b.{0,80}\bacordo\b"),
     ("decisao", r"\bdecisao\s+interlocutoria\b|\bdecisao\b|\bdecido\b|\bdefiro\b|"
                 r"\bindefiro\b|\bdetermino\b"),
+    # CONVOCACAO para um ato FUTURO - vem antes de "audiencia" (o termo, que e
+    # o registro do que ja passou). Ver BUG-05 em teste_classificador.py §11.
+    ("intimacao_audiencia",
+     r"\bintimacao\s+para\s+audiencia\b"
+     r"|\bdata\s+da\s+audiencia\s*:"
+     r"|\bconvocad[oa]\b[^.]{0,80}?\bcomparecer\b[^.]{0,60}?\baudiencia\b"),
     ("audiencia", r"\btermo\s+de\s+audiencia\b|\baudiencia\s+de\s+(?:concilia|"
                   r"instru|mediac)"),
     ("ato_ordinatorio", r"\bato\s+ordinatorio\b"),
@@ -49,6 +56,7 @@ ROTULO_ATO = {
     "acordao": "Acórdão",
     "sentenca": "Sentença",
     "decisao": "Decisão",
+    "intimacao_audiencia": "Intimação para audiência",
     "audiencia": "Audiência",
     "ato_ordinatorio": "Ato ordinatório",
     "despacho": "Despacho",
@@ -64,6 +72,50 @@ def tipo_de_ato(texto: str) -> str:
         if re.search(pat, t):
             return nome
     return "indefinido"
+
+
+# --------------------------------------------------------------------------
+# 1.2. QUANDO e a audiencia
+# --------------------------------------------------------------------------
+#
+# Isto e deliberadamente INDEPENDENTE de tipo_de_ato(): uma decisao que defere
+# a tutela E designa audiencia e classificada como "decisao" (e esta certo),
+# mas a data da audiencia nao pode se perder por causa do rotulo. Quem procura
+# a data pergunta pela data.
+
+_D = r"(\d{1,2})/(\d{1,2})/(\d{4})"
+# hora opcional: "11:15", "09h30", "08h" - so conta se vier logo apos a data
+_H = r"(?:[^\d]{0,15}?(\d{1,2})\s*(?:h|:)\s*(\d{2})?)?"
+
+RE_AUDIENCIA_QUANDO = re.compile(
+    r"(?:"
+    r"data\s+da\s+audiencia\s*:?"                       # forma do PJe/TJPA
+    r"|audiencia\b[^.]{0,120}?(?:designad|marcad|redesignad)[ao]?\b"
+    r"[^.]{0,30}?(?:para|em)(?:\s+o\s+dia)?"            # "...designada para..."
+    r"|designo\b[^.]{0,80}?audiencia\b[^.]{0,60}?(?:para|em)(?:\s+o\s+dia)?"
+    r")"
+    r"[^\d]{0,25}" + _D + _H
+)
+
+
+def data_da_audiencia(texto: str):
+    """
+    Quando e a audiencia, ou None.
+
+    Exige uma data DD/MM/AAAA na vizinhanca de um gatilho de audiencia - data
+    solta no texto (contrato, distribuicao, numero de lei) nao conta. Hora e
+    opcional: sem ela, devolve meia-noite, e quem exibe mostra so o dia.
+    """
+    m = RE_AUDIENCIA_QUANDO.search(normalizar(texto))
+    if not m:
+        return None
+    dia, mes, ano, hora, minuto = m.groups()
+    try:
+        return datetime(int(ano), int(mes), int(dia),
+                        int(hora or 0), int(minuto or 0))
+    except ValueError:
+        # 31/02, hora 99 - texto malformado nao vira data inventada
+        return None
 
 
 # --------------------------------------------------------------------------
@@ -302,9 +354,14 @@ def analisar(texto: str, destinatarios: list[dict]) -> dict:
     veredito, motivo = de_quem_e_o_prazo(texto, destinatarios)
     sanc = sancoes(texto)
     provs = providencias(texto)
+    ato = tipo_de_ato(texto)
     return {
-        "ato": tipo_de_ato(texto),
-        "ato_rotulo": ROTULO_ATO[tipo_de_ato(texto)],
+        "ato": ato,
+        "ato_rotulo": ROTULO_ATO[ato],
+        # data/hora do ato futuro, quando o texto convoca (None na maioria).
+        # Nao e prazo: e comparecimento. Faltar custa o processo do autor
+        # (art. 51, I, Lei 9.099/95), e nenhum "prazo" avisa isso.
+        "audiencia_em": data_da_audiencia(texto),
         "providencias": provs,
         "providencias_rotulo": [ROTULO_PROVIDENCIA[p] for p in provs],
         "sancoes": sanc,

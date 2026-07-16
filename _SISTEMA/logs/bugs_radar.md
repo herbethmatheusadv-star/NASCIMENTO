@@ -129,3 +129,63 @@ Mendonça do Nascimento, OAB/PA 39.261" — o dado necessário estava no texto.
 (agora existem), o polo do cliente vem da **ficha**, não da adivinhação
 textual. O `INCERTO` deve ser exceção, não regra. Enquanto isso: usar o nome
 do próprio advogado no texto como pista do polo.
+
+---
+
+## BUG-05 · ✅ CORRIGIDO em 15/07/2026 · era CRÍTICO — **escondia audiência**
+
+> **Correção aplicada:** o radar passou a distinguir **INTIMAÇÃO PARA
+> audiência** (ato futuro, com data e hora, comparecimento obrigatório) de
+> **TERMO de audiência** (registro do que já ocorreu — o do BUG-02). Três peças,
+> porque corrigir só uma não resolvia:
+> 1. `classificador.tipo_de_ato()` ganhou o tipo `intimacao_audiencia`;
+> 2. `classificador.data_da_audiencia()` extrai dia/hora — **de propósito
+>    independente do tipo do ato**, para que uma decisão que defere tutela *e*
+>    designa audiência não perca a data por causa do rótulo;
+> 3. o relatório ganhou **seção própria de audiências**, retirada da fila
+>    **antes** de `de_quem` e de `informativo`.
+> A peça 3 é a que faltava e a mais importante: sem ela, marcar a convocação
+> como informativa (peça 2) apenas **trocava** um esconderijo por outro.
+> Testes: `teste_classificador.py` §11 e §11.1, `teste_calendario.py` §18 e
+> §18.1, com o teor real em `fixtures/intimacao_audiencia_edio.txt`.
+> **Verificado no dado real:** o relatório passou de "EM ABERTO: nenhum prazo
+> correndo", com o processo no rodapé como "Não identificado", para
+> "**AUDIÊNCIA AMANHÃ**" no topo e no chip do cabeçalho.
+
+### O problema
+
+**Descoberto:** 15/07/2026, à noite, na triagem dos 3 "prazos decorridos" do
+censo — **a 14 horas do ato**.
+
+O PROC-0015 (EDIO × Águas do Pará) tinha audiência de conciliação em **16/07
+às 11:15**. O radar rodou às 07h do dia 15 e listou o processo como **"Não
+identificado"**, no rodapé, com prazo assumido de 15 dias já "vencido".
+
+Cadeia do erro:
+1. o regex de audiência exigia `termo de audiencia` ou `audiencia de
+   conciliacao`. O texto real diz **"INTIMAÇÃO PARA AUDIÊNCIA"** e **"Data da
+   Audiência: 16/07/2026 11:15, Tipo: Conciliação"** — não casava nenhum;
+2. caindo em `indefinido`, não era informativo → ganhou o prazo padrão de 15
+   dias sobre a disponibilização (02/06) → "venceu" em ~24/06;
+3. vencido sem sanção grave → `prioridade()` = rodapé, junto do que não
+   importa mais. **Quanto mais perto do ato, mais fundo o item afundava.**
+
+**Por que é grave:** audiência não é prazo — não se cumpre antes nem se
+compensa depois. Faltar leva à extinção do processo do autor (art. 51, I, da
+Lei 9.099/95) e à perda da liminar. O radar existe para que isso não dependa de
+memória, e era justamente aqui que ele calava.
+
+**Não era um caso isolado:** a mesma correção revelou **duas** audiências
+escondidas — EDIO (16/07 11:15) e **Luciana (0808548-83, 21/07 08:30)** — mais
+uma terceira no TJMA (12/08) que já aparecia, mas como prazo, não como agenda.
+
+**Relação com o BUG-04:** o censo do painel atribuiu o "decurso" ao cliente e a
+ficha mandou "descobrir o que se perdeu". Não havia o que descobrir: era a
+janela de ciência da convocação. O BUG-04 (de quem é o prazo) e o BUG-05
+(o que é o ato) se somaram para transformar uma agenda em falso luto.
+
+**Lição:** o BUG-02 ensinou que termo de audiência não abre prazo. A conclusão
+foi correta e a generalização, não: virou "audiência = informativo". Mas as
+duas coisas se chamam "audiência" e são **opostas** — uma é passado sem ação, a
+outra é futuro com hora marcada. Silenciar pela palavra, e não pelo que o ato
+faz, silencia o lado errado.

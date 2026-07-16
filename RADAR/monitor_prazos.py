@@ -538,6 +538,13 @@ def eh_meramente_informativo(tipo: str, texto: str = "") -> bool:
     t = (tipo or "").lower()
     if "distribui" in t or "pauta" in t:
         return True
+    # INTIMACAO PARA audiencia tambem nao abre prazo: convoca. Sem isto, o
+    # padrao assumido de 15 dias transforma a convocacao num prazo ficticio que
+    # "vence" e desce para o rodape - foi o que escondeu a audiencia do EDIO
+    # (BUG-05). Nao vira informativo se o texto trouxer ordem com prazo junto.
+    if texto and classificador.tipo_de_ato(texto) == "intimacao_audiencia":
+        ordem = classificador.trechos_de_ordem(texto)
+        return detectar_prazos(ordem)["escolhido"] is None
     if texto and RE_TERMO_AUDIENCIA.search(classificador.normalizar(texto)):
         # ... a menos que o proprio termo traga ORDEM COM PRAZO a parte.
         # O gatilho e o prazo, nao o "sob pena de": o termo real de 22/06/2026
@@ -596,6 +603,19 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
         if nivel == 0 and analise["gravidade"] >= 3:
             rotulo = "VENCIDO GRAVE"
 
+        # Audiencia: dia do compromisso, nao de vencimento de prazo. Guardado
+        # como date (e nao datetime) para poder ordenar junto com vencimento.
+        aud_dt = analise.get("audiencia_em")
+        aud_data = aud_dt.date() if aud_dt else None
+        aud_dias = (aud_data - hoje).days if aud_data else None
+        if aud_data and aud_dias is not None and aud_dias >= 0:
+            if aud_dias == 0:
+                rotulo = "AUDIENCIA HOJE"
+            elif aud_dias == 1:
+                rotulo = "AUDIENCIA AMANHA"
+            else:
+                rotulo = f"AUDIENCIA EM {aud_dias} DIAS"
+
         advs = [
             (a.get("advogado") or {}).get("nome", "")
             for a in (it.get("destinatarioadvogados") or [])
@@ -620,6 +640,8 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
             "prazo_ambiguo": deteccao["ambiguo"],
             "prazo_candidatos": deteccao["candidatos"],
             "informativo": informativo,
+            "audiencia_data": aud_data,
+            "audiencia_dias": aud_dias,
             "restantes": restantes,
             "nivel": nivel,
             "rotulo": rotulo,
@@ -679,6 +701,13 @@ def cruzar_com_datajud(linhas: list[dict]) -> None:
                 print(f"      >> DECURSO DE PRAZO: {det}")
 
 
+def tem_audiencia_futura(l: dict) -> bool:
+    """Audiencia marcada e ainda nao realizada (hoje conta: a hora pode nao ter
+    chegado). Passada, ja nao ha o que avisar - o termo virá depois."""
+    ad = l.get("audiencia_dias")
+    return ad is not None and ad >= 0
+
+
 def prioridade(l: dict) -> tuple:
     """
     Ordem de leitura do relatorio. Menor = mais acima.
@@ -694,6 +723,19 @@ def prioridade(l: dict) -> tuple:
     """
     if l["resolvido"]:
         return (10, l["vencimento"])
+
+    # Audiencia designada e COMPROMISSO, nao prazo: nao se cumpre antes, nao se
+    # perde por decurso - ou voce esta la, ou o processo do autor e extinto
+    # (art. 51, I, Lei 9.099/95). Por isso tem faixa propria e sobe sozinha
+    # conforme a data chega, ANTES de qualquer regra que rebaixe:
+    #   - "de_quem" nao vale aqui: a intimacao convoca quem foi intimado, ainda
+    #     que o mesmo ato mande a outra parte fazer algo;
+    #   - "informativo" tambem nao: nao abre prazo, mas nao e dispensavel.
+    # BUG-05 (15/07/2026): a audiencia do EDIO era no dia seguinte e o
+    # relatorio a listava no rodape, como "Nao identificado" e prazo vencido.
+    if tem_audiencia_futura(l):
+        return (0, l["audiencia_data"])
+
     if l["de_quem"] == classificador.DA_OUTRA_PARTE:
         return (9, l["vencimento"])
     if l["informativo"]:
@@ -728,10 +770,15 @@ def agrupar(linhas: list[dict]) -> list[dict]:
         if l["link"] and l["link"] not in g["links"]:
             g["links"].append(l["link"])
         if len(l["texto"]) > len(g["texto"]):
-            # o texto mais completo manda: reclassifica o grupo por ele
+            # o texto mais completo manda: reclassifica o grupo por ele.
+            # Os campos de audiencia entram aqui junto com "ato": esquecer um
+            # deles deixa o grupo dizendo "Intimacao para audiencia" com a data
+            # do texto curto (ou sem data nenhuma) - rotulo certo, agenda errada.
             g["texto"] = l["texto"]
             for campo in ("ato", "ato_rotulo", "providencias", "providencias_rotulo",
-                          "sancoes", "gravidade", "sancao_principal"):
+                          "sancoes", "gravidade", "sancao_principal",
+                          "audiencia_em", "audiencia_data", "audiencia_dias",
+                          "rotulo"):
                 g[campo] = l[campo]
         for nome in l["partes"]:
             if nome not in g["partes"]:
@@ -786,8 +833,14 @@ def imprimir_console(linhas: list[dict], hoje: date, oab: str, uf: str,
 
     resolvidos_l = [l for l in linhas if l["resolvido"]]
     abertos = [l for l in linhas if not l["resolvido"]]
-    outra_parte = [l for l in abertos if l["de_quem"] == classificador.DA_OUTRA_PARTE]
-    restantes_l = [l for l in abertos if l["de_quem"] != classificador.DA_OUTRA_PARTE]
+    # A audiencia sai da fila ANTES de tudo: nao e prazo (nao entra em vivos/
+    # vencidos) e nao e informativa (nao pode ir para a lista silenciosa). Era
+    # exatamente esse o buraco do BUG-05 - a convocacao do EDIO nao tinha
+    # secao onde caber e foi parar no rodape, na vespera do ato.
+    audiencias = [l for l in abertos if tem_audiencia_futura(l)]
+    demais = [l for l in abertos if not tem_audiencia_futura(l)]
+    outra_parte = [l for l in demais if l["de_quem"] == classificador.DA_OUTRA_PARTE]
+    restantes_l = [l for l in demais if l["de_quem"] != classificador.DA_OUTRA_PARTE]
     informativos = [l for l in restantes_l if l["informativo"]]
     acionaveis = [l for l in restantes_l if not l["informativo"]]
     graves = [l for l in acionaveis if l["nivel"] == 0 and l["gravidade"] >= 3]
@@ -799,6 +852,12 @@ def imprimir_console(linhas: list[dict], hoje: date, oab: str, uf: str,
         resumo[l["rotulo"]] = resumo.get(l["rotulo"], 0) + 1
     print("\n  EM ABERTO: " + ("   ".join(f"{k}: {v}" for k, v in resumo.items())
                                if resumo else "nenhum prazo correndo"))
+    if audiencias:
+        prox = min(l["audiencia_dias"] for l in audiencias)
+        quando = ("HOJE" if prox == 0 else "AMANHA" if prox == 1
+                  else f"em {prox} dias")
+        print(f"  ** {len(audiencias)} AUDIENCIA(S) MARCADA(S) - a proxima e "
+              f"{quando} - veja no topo **")
     if graves:
         print(f"  ** {len(graves)} VENCIDO(S) COM SANCAO GRAVE - veja no topo **")
     if vencidos:
@@ -847,6 +906,34 @@ def imprimir_console(linhas: list[dict], hoje: date, oab: str, uf: str,
             print(f"    Trecho        : {trecho}{'...' if len(l['texto']) > 220 else ''}")
         for i, link in enumerate(l["links"]):
             print(f"    {'Autos         :' if i == 0 else '                '} {link}")
+
+    if audiencias:
+        print("\n" + "!" * 78)
+        print("  AUDIENCIAS MARCADAS - compromisso com dia e hora, nao prazo.")
+        print("  Nao se cumpre antes nem se compensa depois: ou voce esta la,")
+        print("  ou o processo do seu cliente autor e extinto (art. 51, I, da")
+        print("  Lei 9.099/95 no JEC; no rito comum, arquiva ou segue a revelia).")
+        print("!" * 78)
+        for l in audiencias:
+            quando = l["audiencia_data"]
+            hora = l["audiencia_em"].strftime("%H:%M") if l.get("audiencia_em") else ""
+            marca = "!!!" if l["audiencia_dias"] <= 2 else "   "
+            print("\n" + "-" * 78)
+            print(f"{marca} [{l['rotulo']}]  {l['processo']}  ({l['tribunal']})")
+            print(f"    {l['ato_rotulo']} - {l['classe']}")
+            print(f"    QUANDO        : {br(quando)}"
+                  f"{' as ' + hora if hora and hora != '00:00' else ' (hora nao informada no texto)'}"
+                  f"   -> faltam {l['audiencia_dias']} dia(s) corrido(s)")
+            print(f"    Orgao         : {l['orgao']}")
+            if l["partes"]:
+                print(f"    Partes        : {', '.join(l['partes'][:3])}")
+            print(f"    Disponibilizado {br(l['disponibilizacao'])}")
+            trecho = l["texto"][:220].replace("\n", " ")
+            if trecho:
+                print(f"    Trecho        : {trecho}"
+                      f"{'...' if len(l['texto']) > 220 else ''}")
+            for i, link in enumerate(l["links"]):
+                print(f"    {'Autos         :' if i == 0 else '                '} {link}")
 
     if graves:
         print("\n" + "!" * 78)
@@ -919,8 +1006,12 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
 
     resolvidos_l = [l for l in linhas if l["resolvido"]]
     abertos = [l for l in linhas if not l["resolvido"]]
-    outra_parte = [l for l in abertos if l["de_quem"] == classificador.DA_OUTRA_PARTE]
-    meus = [l for l in abertos if l["de_quem"] != classificador.DA_OUTRA_PARTE]
+    # mesma regra do console: a audiencia sai da fila antes de "de_quem" e de
+    # "informativo" (BUG-05)
+    audiencias = [l for l in abertos if tem_audiencia_futura(l)]
+    demais = [l for l in abertos if not tem_audiencia_futura(l)]
+    outra_parte = [l for l in demais if l["de_quem"] == classificador.DA_OUTRA_PARTE]
+    meus = [l for l in demais if l["de_quem"] != classificador.DA_OUTRA_PARTE]
     informativos = [l for l in meus if l["informativo"]]
     acionaveis = [l for l in meus if not l["informativo"]]
     graves = [l for l in acionaveis if l["nivel"] == 0 and l["gravidade"] >= 3]
@@ -1015,6 +1106,59 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
         {link}
       </article>"""
 
+    def montar_card_audiencia(l):
+        # card proprio: o de prazo mostraria "vencimento estimado" e "vencido ha
+        # N dias" para uma audiencia que ainda vai acontecer.
+        d = l["audiencia_dias"]
+        fundo, borda = (CORES[0] if d <= 2 else CORES[2] if d <= 7 else CORES[3])
+        hora = l["audiencia_em"].strftime("%H:%M") if l.get("audiencia_em") else ""
+        quando = (f"{br(l['audiencia_data'])}"
+                  + (f" às {hora}" if hora and hora != "00:00" else ""))
+        falta = ("é hoje" if d == 0 else "é amanhã" if d == 1
+                 else f"faltam {d} dias corridos")
+        sem_hora = ("" if hora and hora != "00:00" else
+                    '<p class="ambiguo">O texto não trouxe o horário &mdash; '
+                    'confira nos autos antes de se programar.</p>')
+        link = "".join(
+            f'<a class="autos" href="{e(u)}" target="_blank" rel="noopener">'
+            f'abrir os autos &rarr;</a>' for u in l["links"])
+        partes = (f'<div><dt>Partes</dt><dd>{e(", ".join(l["partes"][:3]))}</dd></div>'
+                  if l["partes"] else "")
+        return f"""
+      <article class="card" style="--fundo:{fundo};--borda:{borda}">
+        <header>
+          <span class="tag">{e(l['rotulo'])}</span>
+          <h2>{e(l['processo'])}</h2>
+          <p class="sub">{e(l['ato_rotulo'])} &middot; {e(l['tribunal'])}
+             &middot; {e(l['classe'])}</p>
+        </header>
+        <div class="venc">
+          <span class="venc-label">Audiência</span>
+          <strong>{quando}</strong>
+          <span class="venc-sit">{falta}</span>
+        </div>
+        {sem_hora}
+        <dl>
+          <div><dt>Órgão</dt><dd>{e(l['orgao'])}</dd></div>
+          {partes}
+          <div><dt>Disponibilizado</dt><dd>{br(l['disponibilizacao'])}</dd></div>
+        </dl>
+        <details><summary>Ver a intimação na íntegra</summary>
+          <pre>{e(l['texto'])}</pre></details>
+        {link}
+      </article>"""
+
+    bloco_audiencias = ""
+    if audiencias:
+        bloco_audiencias = f"""
+      <section class="graves">
+        <h2>Audiências marcadas &mdash; dia e hora, não prazo</h2>
+        <p>Audiência não se cumpre antes nem se compensa depois: <strong>ou você
+        está lá, ou o processo do seu cliente autor é extinto</strong> (art. 51,
+        I, da Lei 9.099/95, no JEC). Por isso fica no topo e sobe conforme a data
+        chega &mdash; nenhum &ldquo;prazo&rdquo; avisa sobre isto.</p>
+      </section>{''.join(montar_card_audiencia(l) for l in audiencias)}"""
+
     bloco_graves = ""
     if graves:
         bloco_graves = f"""
@@ -1088,7 +1232,19 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
     for l in vivos:
         resumo[l["rotulo"]] = resumo.get(l["rotulo"], 0) + 1
     chips = "".join(f'<span class="chip">{e(k)}: <b>{v}</b></span>'
-                    for k, v in resumo.items()) or '<span class="chip">nenhum prazo correndo</span>'
+                    for k, v in resumo.items())
+    # a audiencia tem chip proprio, e vem primeiro: sem isto o cabecalho dizia
+    # "nenhum prazo correndo" no dia anterior a uma audiencia (BUG-05) - e,
+    # tecnicamente, estava certo. Prazo nao era o que faltava.
+    if audiencias:
+        prox = min(l["audiencia_dias"] for l in audiencias)
+        quando = ("HOJE" if prox == 0 else "AMANHÃ" if prox == 1
+                  else f"em {prox} dias")
+        chips = (f'<span class="chip chip-aud">AUDIÊNCIA {quando}'
+                 + (f' (+{len(audiencias) - 1})' if len(audiencias) > 1 else "")
+                 + '</span>') + chips
+    if not chips:
+        chips = '<span class="chip">nenhum prazo correndo</span>'
 
     corpo = "".join(cards) or '<p class="vazio">Nenhum prazo em aberto nesta janela.</p>'
 
@@ -1110,6 +1266,7 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
   .chip{{background:#0c1e33;border:1px solid #102743;border-radius:99px;
         padding:5px 14px;font-size:.78rem;color:#a6b2be;letter-spacing:.04em}}
   .chip b{{color:#e2b256}}
+  .chip-aud{{background:#e06a6a;border-color:#e06a6a;color:#071120;font-weight:700}}
   .card{{background:var(--fundo);border-left:4px solid var(--borda);
         border-radius:8px;padding:22px;margin-bottom:18px}}
   .tag{{display:inline-block;background:var(--borda);color:#071120;
@@ -1196,6 +1353,7 @@ def gerar_html(linhas: list[dict], hoje: date, oab: str, uf: str,
     <div class="chips">{chips}</div>
   </header>
   {alerta}
+  {bloco_audiencias}
   {bloco_graves}
   {corpo}
   {bloco_venc}
