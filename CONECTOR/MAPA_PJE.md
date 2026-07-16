@@ -148,3 +148,129 @@ download traz `idBin=143053560`. A chave é auto-suficiente.
    que responde à crítica dele:** entender o que há DENTRO do processo. Vale para
    os PDFs vindos por qualquer das três portas — inclusive os 105 MB de autos do
    TRT-8 que já estão em `AUTOS/`, parados.
+
+---
+
+## 7. Leitura literal do Manual do Advogado (16/07/2026)
+
+> Transcrição fiel das seções operacionais do Manual do Advogado oficial
+> (docs.pje.jus.br/manuais-de-uso/Manual do advogado — **página única**, ~43
+> seções por âncora). Substitui as anotações de segunda mão dos §2–3. O que está
+> entre aspas é do manual; o resto é leitura. **Marcações de confiança:** ✅
+> literal do manual · 🧪 provado no TJPA real · ⚠️ o manual trunca / não diz.
+
+### 7.1 Autos digitais — as 15 ações (✅ literal)
+
+Abrir: *"clicar sobre o link do processo (que fica sobre o número), uma nova
+janela surgirá contendo os autos digitais"*. Cabeçalho recuperado: **classe
+judicial, assunto, autuação, última distribuição, valor da causa, segredo de
+justiça, prioridade, órgão colegiado, órgão julgador, relator, polo ativo, polo
+passivo, outros interessados**.
+
+| # | Ação (texto do manual) | Uso no SOJ |
+|---|---|---|
+| 1 | apresenta os autos digitais + cabeçalho | leitura |
+| 2 | ordenar e **filtrar só documentos ou só movimentos** | leitura |
+| 3 | pesquisar dentro da listagem | leitura |
+| 4 | atualizar a relação | leitura |
+| 5 | ocultar/expandir a cronologia | leitura |
+| 6 | navegar entre os documentos juntados | leitura |
+| 7 | adicionar documento aos favoritos | — |
+| 8 | visualizar certidão do documento | leitura |
+| 9 | imprimir documento atual | — |
+| **10** | **download do documento atual** | 🎯 baixar peça |
+| 11 | visualizar dados da assinatura | leitura |
+| 12 | ver favoritos + **download de todos os favoritos** | 🎯 lote |
+| 13 | imprimir a lista de documentos | — |
+| **14** | **"download por Id, Período ou todo o conteúdo"** | 🎯🎯 **autos integrais num passo** |
+| 15 | navegar entre as **abas do processo** | ⚠️ o manual não nomeia as abas |
+
+**A ação 14 é o coração da escala.** Não é peça a peça — é o processo inteiro (ou
+um período) de uma vez. Responde à objeção dos 150 processos.
+
+### 7.2 Acervo — enumerar os 150 (✅ literal)
+
+*"O advogado visualiza todos os processos nos quais consta como representante ou
+parte direta. Também tem acesso ao 'Acervo geral', que encerra todos os processos
+de que os entes por ele representados são parte."* Pesquisa pela barra "Pesquisar".
+10 controles: abrir todas as caixas · jurisdição · caixas · atualizar · ordenar
+por · mover selecionados · **autos digitais (clique no número abre os autos)** ·
+painel de ações (mover/selecionar/ver detalhes) · histórico de movimentações ·
+pesquisar. **É a fonte do censo** — foi daqui que saíram os 25 processos.
+
+### 7.3 Caixas — organização por filtro automático (✅ literal)
+
+Botão direito na jurisdição → **"Nova caixa"** ou **"Distribuir expedientes
+utilizando filtros"** → nomear → **"Criar caixa"**. Editar dá três abas:
+principal (nome/descrição), **períodos de inativação**, e **filtros da caixa** —
+*"processos distribuídos para a jurisdição redirecionam-se automaticamente"*.
+Nota para o SOJ: as **caixas do PJe são espelho natural das caixas do SOJ**
+(área, risco, comarca). Se um dia lermos a estrutura de caixas dele, ela já é uma
+classificação humana pronta.
+
+### 7.4 A FRONTEIRA DA R7 — agora com os rótulos exatos (✅ literal + 🧪)
+
+**Aba Expedientes, as 6 ações, texto do manual:**
+1. "Mover expediente para caixa"
+2. "Selecionar para mover vários expedientes"
+3. "Ver detalhes do processo"
+4. **"Visualizar expediente"**
+5. **"Responder"**
+6. **"Tomar ciência"**
+
+**Dois achados que afinam a guarda de clique:**
+
+- ✅ **"Visualizar expediente" (4) é ação SEPARADA de "Tomar ciência" (6).**
+  Visualizar o expediente **não** registra ciência. O robô pode ler; a lupa
+  vermelha da ciência é outro botão.
+- ✅ **"Responder" (5) leva à ciência.** O manual: responder *"leva à ciência e a
+  uma página em que a resposta pode ser elaborada"*. **Responder é tomar ciência
+  + peticionar num gesto só** — dupla proibição da R7. Confirma o achado do spike
+  (no MNI, `confirmarRecebimento` e `entregarManifestacaoProcessual` são a mesma
+  família): responder = ciência + resposta, e nenhum dos dois é do robô.
+
+**Os 6 agrupadores (✅ rótulos literais do CNJ — batem com o censo de 15/07):**
+1. **"Pendentes de ciência ou de seu registro"** → 🔴 quarentena: não abrir
+2. "Ciência dada pelo destinatário direto ou indireto e dentro do prazo" → ✅ ler
+3. "Ciência dada pelo PJe e dentro do prazo" (ficta, Lei 11.419/2006) → ✅ ler
+4. "Cujo prazo findou nos últimos 10 dias" → ✅ ler
+5. "Sem prazo" → ✅ ler
+6. "Respondidos nos últimos 10 dias" → ✅ ler
+
+Regra de ferro reconfirmada: **o robô lê o que está nos agrupadores 2–6; nunca
+toca no 1, nem nos botões "Responder"/"Tomar ciência".** É o que `regras.py`
+garante por ausência + guarda de clique + quarentena.
+
+### 7.5 A face de escrita — o que o robô NUNCA opera (✅ + ⚠️)
+
+O peticionamento segue: **"Tipo de documento"** (a inicial é "Petição inicial") →
+**"Descrição"** (título, preenchido automaticamente) → **"Número"** (referência
+opcional do usuário) → **"Sigiloso"** → **[assinatura e protocolo]**. ⚠️ **O
+manual trunca exatamente aqui** — não detalha as telas de assinar/protocolar.
+
+Para o SOJ isso é indiferente, e de propósito: **essa é a metade que o sistema
+não automatiza.** O robô lê os autos e **redige a minuta** (skills do escritório,
+`/soj-preparar-peca`); quem seleciona tipo, assina e protocola é **o titular**.
+A regra 2 do PLANO_SOJ ("nenhum ato processual autônomo: protocolar, assinar,
+dar/tomar/confirmar ciência, enviar, juntar, peticionar") e a divisão de trabalho
+da Emenda 05/02 mandam aqui. Ver `regras.VOCABULARIO_PROIBIDO`.
+
+### 7.6 Acesso e autenticação (✅ + ⚠️ versão do manual)
+
+O manual descreve o cadastro/login por **certificado digital**: *"inserir seu
+dispositivo criptográfico na leitora (smartcards) ou na porta USB (token), e
+acionar o botão 'Certificado digital'"*. ⚠️ **Este manual é a versão-base do CNJ
+e NÃO menciona gov.br, PJeOffice nem MFA** — mas o TJPA real, desde a Portaria CNJ
+140/2024 (18/05/2026), **exige MFA por aplicativo**. Ou seja, o login real do
+titular é certificado (A1 via PJeOffice) **+ autenticador** — os dois passos que
+ele descreveu, e que confirmam o desenho "humano no portão" (Emenda 02): o robô
+não faz nem o certificado nem o MFA; o titular autentica, o robô lê o que já está
+na tela.
+
+### 7.7 Intimação de pauta e Minhas petições (✅ literal)
+
+- **"Intimação de pauta"**: atos de intimação de **sessão de julgamento** (data,
+  horário, tipo). *"Detalhe da Intimação"* abre o inteiro teor. **Relevante para o
+  2º grau** — é aqui que aparece pauta de apelação (ex.: PROC-0021 no TJPA).
+- **"Minhas petições"**: *"acesso geral a todas as petições juntadas aos processos
+  por ele mesmo"* — histórico do que o titular protocolou. Fonte de auditoria útil.
