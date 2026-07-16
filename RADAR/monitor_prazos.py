@@ -31,6 +31,7 @@ from pathlib import Path
 
 import classificador
 import datajud
+import fichas
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -560,8 +561,10 @@ def eh_meramente_informativo(tipo: str, texto: str = "") -> bool:
 # --------------------------------------------------------------------------
 
 def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
-              resolvidos: dict[tuple[str, str], str] | None = None) -> list[dict]:
+              resolvidos: dict[tuple[str, str], str] | None = None,
+              idx_fichas: dict[str, dict] | None = None) -> list[dict]:
     resolvidos = resolvidos or {}
+    idx_fichas = idx_fichas or {}
     linhas = []
     for it in itens:
         try:
@@ -596,7 +599,11 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
         else:
             nivel, rotulo = 4, "NO PRAZO"
 
-        analise = classificador.analisar(texto, it.get("destinatarios") or [])
+        # o polo so vem da ficha se um humano a conferiu (fichas.py); senao e
+        # None e o classificador adivinha como sempre
+        polo_ficha = fichas.polo_confirmado(idx_fichas, num_digitos)
+        analise = classificador.analisar(texto, it.get("destinatarios") or [],
+                                         polo_ficha)
         # vencido + sancao grave nao pode ser tratado como agua passada: e
         # justamente o caso do agravo que virou desercao enquanto o relatorio
         # o listava como "provavelmente ja cumprido"
@@ -651,6 +658,8 @@ def processar(itens: list[dict], cal: Calendario, prazo_padrao: int, hoje: date,
             "partes": [p for p in partes if p],
             "destinatarios_raw": it.get("destinatarios") or [],
             "numero_limpo": num_digitos,
+            "polo_ficha": polo_ficha,
+            "ficha_id": fichas.id_do_processo(idx_fichas, num_digitos),
             "cumprimento": None,
             "cumprimento_detalhe": "",
             "resolvido": resolvidos.get((num_digitos, disp.isoformat())),
@@ -789,8 +798,10 @@ def agrupar(linhas: list[dict]) -> list[dict]:
         for d in l["destinatarios_raw"]:
             if (d.get("nome"), d.get("polo")) not in vistos:
                 g["destinatarios_raw"].append(d)
+        # a ficha vale para o grupo inteiro (e o mesmo processo): sem passa-la
+        # aqui, juntar as comunicacoes DESFARIA o veredito bom vindo da ficha
         g["de_quem"], g["de_quem_motivo"] = classificador.de_quem_e_o_prazo(
-            g["texto"], g["destinatarios_raw"])
+            g["texto"], g["destinatarios_raw"], g.get("polo_ficha"))
     return list(grupos.values())
 
 
@@ -871,7 +882,8 @@ def imprimir_console(linhas: list[dict], hoje: date, oab: str, uf: str,
 
     def detalhar(l, marca):
         print("\n" + "-" * 78)
-        print(f"{marca} [{l['rotulo']}]  {l['processo']}  ({l['tribunal']})")
+        ficha = f"  [{l['ficha_id']}]" if l.get("ficha_id") else ""
+        print(f"{marca} [{l['rotulo']}]  {l['processo']}  ({l['tribunal']}){ficha}")
         print(f"    {l['ato_rotulo']} - {l['classe']}")
         if l["providencias_rotulo"]:
             print(f"    O QUE PEDE    : {', '.join(l['providencias_rotulo'])}")
@@ -1489,7 +1501,14 @@ def main() -> None:
     print(f"  {len(itens)} comunicacao(oes) recebida(s).")
 
     resolvidos = ler_resolvidos(ARQ_RESOLVIDOS)
-    linhas = processar(itens, cal, int(cfg["prazo_padrao"]), hoje, resolvidos)
+    idx_fichas = fichas.carregar()
+    if idx_fichas:
+        n_conf = sum(1 for n in idx_fichas if fichas.polo_confirmado(idx_fichas, n))
+        print(f"  Fichas de PROCESSOS/: {len(idx_fichas)} indexada(s), "
+              f"{n_conf} com polo conferido por voce (as demais o radar ainda "
+              f"adivinha).")
+    linhas = processar(itens, cal, int(cfg["prazo_padrao"]), hoje, resolvidos,
+                       idx_fichas)
 
     if args.datajud:
         cruzar_com_datajud(linhas)

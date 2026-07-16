@@ -117,7 +117,33 @@ assim).
 
 ---
 
-## BUG-04 · 🟢 "De quem é" fica INCERTO em processo do próprio cliente
+## BUG-04 · ✅ CORRIGIDO em 15/07/2026 · "De quem é" ficava INCERTO em processo do próprio cliente
+
+> **Correção aplicada:** o radar passou a **ler as fichas** (`RADAR/fichas.py`) e
+> a tirar o polo de `polo_cliente` — **mas só de ficha que um humano conferiu**
+> (`ultima_revisao_humana` preenchida). O portão não é detalhe: o censo de 15/07
+> inferiu polo a partir da *lista* do painel, que traz as partes e não quem
+> contratou — a ficha do PROC-0014 avisa "confiança MÉDIA, confirmar antes de
+> agir". Tratar palpite do censo como autoridade trocaria um erro visível
+> (INCERTO) por um invisível (`DA_OUTRA_PARTE` errado), e errar para "não é seu"
+> faz perder prazo. Sem ficha, sem revisão ou sem `PROCESSOS/`, tudo volta a
+> adivinhar: **a ficha só melhora o veredito, nunca piora**.
+> `fichas.py` é stdlib pura (lê pares `chave: valor` planos, não é parser YAML) —
+> o radar roda em tarefa agendada, sem venv.
+> Testes: `teste_classificador.py` §12, §12.1 e §12.2 (contra as 25 fichas reais).
+> **Verificado no dado real:** o VENCIDO GRAVE do topo (0808637-09) passou de
+> *"INCERTO — a comunicação lista as duas partes"* para *"**MEU** — o ato intima
+> os dois polos e a ficha (conferida por você) diz que seu cliente é do polo
+> ativo"*, e o relatório agora aponta `[PROC-0006]`. Hoje: 25 fichas indexadas,
+> 7 com polo conferido.
+>
+> **O que isto abre:** era a primeira vez que o radar e as fichas se falaram.
+> É a direção da ARQUITETURA_V2 ("um modelo que o Obsidian, o Auditor, o radar e
+> o conector já leem") — e o caminho para o campo `audiencia` da Onda 1.
+> **Efeito colateral bom:** conferir uma ficha agora torna o radar mais preciso
+> naquele processo. Revisar passou a pagar juros.
+
+### O problema (histórico)
 
 **Descoberto:** mesma triagem (PROC-0006 e TJMA 0805885-75).
 

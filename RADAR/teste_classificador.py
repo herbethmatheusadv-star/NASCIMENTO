@@ -8,6 +8,7 @@ Os tres casos que motivaram este modulo:
   - a intimacao para audiencia do EDIO (era "Nao identificado" - e o ato era
     no dia seguinte; §11)
 """
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -266,6 +267,75 @@ for _nome, _txt, _esperado in [
      None),
 ]:
     check(_nome, data_da_audiencia(_txt), _esperado)
+
+# --------------------------------------------------------------------------
+print("\n=== 12. BUG-04: o polo vem da FICHA conferida, nao do palpite ===")
+import fichas  # noqa: E402
+
+# A comunicacao lista as duas partes -> o DJEN nao diz qual e a nossa -> hoje
+# vira INCERTO mesmo em processo que e do escritorio ha meses.
+check("sem ficha: as duas partes = INCERTO (comportamento de hoje)",
+      de_quem_e_o_prazo(AGRAVO, AMBOS)[0], INCERTO)
+
+# Com a ficha conferida, o polo deixa de ser adivinhacao.
+# AGRAVO intima o AGRAVANTE (polo ativo).
+v, motivo = de_quem_e_o_prazo(AGRAVO, AMBOS, polo_ficha="A")
+check("ficha diz ativo + ato intima o ativo = MEU", v, MEU)
+check("o motivo diz que veio da ficha", "ficha" in motivo, True)
+
+v, motivo = de_quem_e_o_prazo(AGRAVO, AMBOS, polo_ficha="P")
+check("ficha diz passivo + ato intima o ativo = DA_OUTRA_PARTE", v, DA_OUTRA_PARTE)
+
+# A ficha nao pode ATROPELAR o texto: se o ato nao diz quem age, segue INCERTO.
+check("ficha nao inventa quem age quando o texto cala",
+      de_quem_e_o_prazo(TERMO_AUDIENCIA, AMBOS, polo_ficha="A")[0], INCERTO)
+
+# polo_ficha=None e exatamente o comportamento antigo (nao pode regredir)
+check("polo_ficha=None nao muda nada",
+      de_quem_e_o_prazo(CONTRARRAZOES_MUNICIPIO, A, polo_ficha=None),
+      de_quem_e_o_prazo(CONTRARRAZOES_MUNICIPIO, A))
+
+print("\n=== 12.1 O portao: so ficha CONFERIDA por humano manda ===")
+idx = {
+    "111": {"id": "PROC-0006", "polo": "A", "confirmado_em": "2026-07-15"},
+    "222": {"id": "PROC-0014", "polo": "P", "confirmado_em": None},   # censo, palpite
+    "333": {"id": "PROC-0099", "polo": None, "confirmado_em": "2026-07-15"},
+}
+check("ficha conferida entrega o polo", fichas.polo_confirmado(idx, "111"), "A")
+check("ficha do censo (sem revisao humana) NAO entrega",
+      fichas.polo_confirmado(idx, "222"), None)
+check("ficha conferida mas sem polo nao inventa",
+      fichas.polo_confirmado(idx, "333"), None)
+check("processo desconhecido nao quebra", fichas.polo_confirmado(idx, "999"), None)
+check("numero vazio nao quebra", fichas.polo_confirmado(idx, ""), None)
+check("id do processo para o relatorio apontar a ficha",
+      fichas.id_do_processo(idx, "222"), "PROC-0014")
+
+print("\n=== 12.2 Contra as fichas REAIS do escritorio ===")
+reais = fichas.carregar()
+if reais:
+    print(f"        -> {len(reais)} ficha(s) indexada(s)")
+    confirmadas = [n for n in reais if fichas.polo_confirmado(reais, n)]
+    print(f"        -> {len(confirmadas)} com polo confirmado por voce")
+    # PROC-0006 (0808637-09) e o VENCIDO GRAVE do topo: conferido em 15/07,
+    # polo ativo. E o caso que o radar mais precisa parar de chamar de INCERTO.
+    p6 = re.sub(r"\D", "", "0808637-09.2026.8.14.0040")
+    check("PROC-0006 esta indexado", fichas.id_do_processo(reais, p6), "PROC-0006")
+    check("PROC-0006 tem polo confirmado (ativo)",
+          fichas.polo_confirmado(reais, p6), "A")
+    # PROC-0014: a propria ficha avisa "polo inferido com confianca MEDIA".
+    # O portao tem de segurar este.
+    p14 = re.sub(r"\D", "", "0010130-69.2017.8.14.0040")
+    check("PROC-0014 (polo so inferido pelo censo) NAO passa pelo portao",
+          fichas.polo_confirmado(reais, p14), None)
+    # roteiro de audiencia mora em PROCESSOS/ com nome PROC-* e nao e ficha
+    check("roteiro de audiencia nao entra no indice",
+          any(v["id"].endswith("audiencia_2026-07-16") for v in reais.values()), False)
+else:
+    print("  [aviso] PROCESSOS/ nao encontrado - teste real pulado")
+
+check("sem PROCESSOS/ o modulo devolve vazio, nao quebra",
+      fichas.carregar(Path(__file__).parent / "nao-existe"), {})
 
 print("\n" + "=" * 62)
 if falhas:

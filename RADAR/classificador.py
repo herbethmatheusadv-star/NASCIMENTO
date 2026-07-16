@@ -317,41 +317,54 @@ def polos_do_cliente(destinatarios: list[dict]) -> set[str]:
     return {d.get("polo") for d in (destinatarios or []) if d.get("polo") in ("A", "P")}
 
 
-def de_quem_e_o_prazo(texto: str, destinatarios: list[dict]) -> tuple[str, str]:
+def de_quem_e_o_prazo(texto: str, destinatarios: list[dict],
+                      polo_ficha: str | None = None) -> tuple[str, str]:
     """
     Devolve (veredito, motivo).
 
     So diz DA_OUTRA_PARTE quando: o texto nomeia explicitamente UM polo, o
     cliente e de UM polo conhecido, e os dois sao opostos. Todo o resto e
     INCERTO ou MEU - porque errar para "nao e seu" faz perder prazo.
-    """
-    polos_cli = polos_do_cliente(destinatarios)
-    deve_agir = _quem_deve_agir(texto)
 
+    `polo_ficha` ('A'/'P') e o polo lido de uma ficha JA CONFERIDA por humano
+    (ver fichas.py). Quando vem, manda: e fato registrado, nao inferencia sobre
+    a lista de destinatarios do DJEN. Quando nao vem, nada muda — e o
+    comportamento de sempre. Ele **nao** dispensa o texto dizer quem deve agir:
+    saber de que lado o cliente esta nao diz que o ato e para ele.
+    """
+    deve_agir = _quem_deve_agir(texto)
     if not deve_agir:
         return INCERTO, "o texto não diz explicitamente quem deve agir"
-    if len(polos_cli) != 1:
-        if not polos_cli:
-            return INCERTO, "a comunicação não informa o polo do seu cliente"
-        return INCERTO, ("a comunicação lista as duas partes; não dá para saber "
-                         "qual delas é seu cliente")
+
+    if polo_ficha in ("A", "P"):
+        polos_cli = {polo_ficha}
+        fonte = "a ficha (conferida por você) diz que seu cliente é do"
+    else:
+        polos_cli = polos_do_cliente(destinatarios)
+        fonte = "seu cliente é do"
+        if len(polos_cli) != 1:
+            if not polos_cli:
+                return INCERTO, "a comunicação não informa o polo do seu cliente"
+            return INCERTO, ("a comunicação lista as duas partes; não dá para "
+                             "saber qual delas é seu cliente")
 
     cli = next(iter(polos_cli))
     nome = {"A": "polo ativo", "P": "polo passivo"}[cli]
 
     if len(deve_agir) > 1:
-        return MEU, f"o ato intima os dois polos e seu cliente é do {nome}"
+        return MEU, f"o ato intima os dois polos e {fonte} {nome}"
     alvo = next(iter(deve_agir))
     alvo_nome = {"A": "o polo ativo", "P": "o polo passivo"}[alvo]
     if alvo == cli:
-        return MEU, f"o ato intima {alvo_nome} e seu cliente é do {nome}"
-    return DA_OUTRA_PARTE, (f"o ato intima {alvo_nome}, mas seu cliente é do {nome}")
+        return MEU, f"o ato intima {alvo_nome} e {fonte} {nome}"
+    return DA_OUTRA_PARTE, (f"o ato intima {alvo_nome}, mas {fonte} {nome}")
 
 
 # --------------------------------------------------------------------------
 
-def analisar(texto: str, destinatarios: list[dict]) -> dict:
-    veredito, motivo = de_quem_e_o_prazo(texto, destinatarios)
+def analisar(texto: str, destinatarios: list[dict],
+             polo_ficha: str | None = None) -> dict:
+    veredito, motivo = de_quem_e_o_prazo(texto, destinatarios, polo_ficha)
     sanc = sancoes(texto)
     provs = providencias(texto)
     ato = tipo_de_ato(texto)
