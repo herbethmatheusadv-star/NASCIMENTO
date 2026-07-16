@@ -80,6 +80,13 @@ def main() -> None:
         fm, corpo = frontmatter_e_corpo(p)
         if not fm:
             continue
+        # O glob acha o nome; o frontmatter diz o que o arquivo E. Em PROCESSOS/
+        # tambem moram roteiros de audiencia e analises com nome PROC-*, e sem
+        # isto eles entram na conta como se fossem processos (em 15/07/2026 o
+        # acervo anunciou "27 processos" quando sao 25). Mesma correcao do
+        # auditor.py.
+        if str(fm.get("tipo") or "") != "processo":
+            continue
         total += 1
         tem_analise = destilada(corpo)
         if not tem_analise:
