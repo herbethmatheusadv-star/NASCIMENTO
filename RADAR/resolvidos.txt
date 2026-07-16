@@ -16,3 +16,4 @@
 # que nao tratou).
 
 0807884-75.2026.8.14.0000  2026-06-19  # preparo recursal resolvido - confirmado em 15/07/2026
+0808637-09.2026.8.14.0040  2026-07-06  # DECIDIDO 15/07 (ficha PROC-0006, revisao humana): REAJUIZAR no foro competente, nao recorrer - o prazo de 21/07 e deixado transcorrer conscientemente. Vicio: foro (autor mora em Canaa dos Carajas, acao ajuizada em Parauapebas). Desmarcar se a decisao mudar.
