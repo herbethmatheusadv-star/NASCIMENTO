@@ -467,10 +467,80 @@ documentos**, o que faz o **download integral**, e o padrão de auth (cookie/
 JSESSIONID ou Bearer). Com isso, `baixar_autos.py` fala REST com o backend, dentro
 da sessão que o titular abriu — limpo, estável, e sem `j_idNNN`.
 
-### 9.6 Fontes
+### 9.6 Autenticação — o desenho FECHADO (Keycloak SSO)
+
+Do `servico-sso-pje-kc`:
+- **Keycloak**, protocolos **OAuth2 + OpenID Connect** (+ SAML). **Realm: `pje`**.
+  **Client por tribunal/grau**: `pje-tj{uf}-{grau}g` → no TJPA 1º grau,
+  **`pje-tjpa-1g`**.
+- **JWT em três tokens:** Access (curto, para chamar a API), ID (identidade),
+  Refresh. Os microserviços autenticam por header **`Authorization: Bearer {access_token}`**.
+- **Certificado (PJeOffice) + 2FA** são o que gera os tokens: login → valida no
+  legado → authorization code → troca por JWT no backend.
+
+**A nuance que só a rede confirma:** o endpoint que capturei é do **legado Seam**
+(`/pje/seam/resource/rest/pje-legacy/…`). Legado Seam costuma autenticar por
+**cookie de sessão (JSESSIONID)**, não por Bearer — os microserviços *novos* é que
+usam Bearer. Qual dos dois o `documento/download` exige, os **headers da
+requisição** dizem (a mini-sessão de captura resolve).
+
+**🔒 Guardrail de segurança — inegociável (liga com `recusa-automacao-credenciais`):**
+o leitor roda **DENTRO** do navegador que o titular autenticou e usa o token/cookie
+**na sessão**, viva. **Nunca extrai o JWT nem persiste o cookie para fora** — isso
+seria "capturar token de sessão", exatamente o que o titular vetou. A sessão morre
+com o processo; amanhã, cert + 2FA de novo. O token é do navegador dele, não do robô.
+
+### 9.7 O teto honesto da documentação
+
+Os docs fecham **arquitetura + padrão de API + auth**. Mas **não publicam o
+catálogo de endpoints** — o doc do Autos Digitais é descrição de sprints, o do
+PJeLegacy está "em construção", e não há Swagger linkado. O contrato completo
+(listar documentos, download integral, e o header de auth exato) sai de **uma**
+via prática: a **captura de rede na sessão autenticada** (o mapeador já pegou o
+`documento/download`). Ou seja: o *desenho* está fechado; o *catálogo* se fecha na
+mini-sessão, não em mais leitura de doc.
+
+### 9.8 Fontes
 
 - Arquitetura PJe (CNJ): `docs.pje.jus.br/manuais-basicos/arquitetura-pje/`
 - Padrões de API: `docs.pje.jus.br/manuais-basicos/padroes-de-api-do-pje/`
-- Serviço Autos Digitais: `docs.pje.jus.br/servicos-negociais/servico-autos-digitais/`
+- SSO Keycloak: `docs.pje.jus.br/servicos-negociais/servico-sso-pje-kc/`
+- PJeLegacy: `docs.pje.jus.br/servicos-negociais/servico-pje-legacy/`
+- Autos Digitais: `docs.pje.jus.br/servicos-negociais/servico-autos-digitais/`
 - Código aberto: `git.cnj.jus.br/pje` (Resolução CNJ 185/2013)
-- Endpoint real: capturado em `_efemeros/mapeamento_pje/mapa_2026-07-16_1226.md`
+- Endpoint real: `_efemeros/mapeamento_pje/mapa_2026-07-16_1226.md`
+
+---
+
+## 10. Manual do Advogado — leitura completa (as seções restantes)
+
+Percorridas as ~30 seções finais (fluxo "Novo processo"). Quase tudo é a face de
+**criar/ajuizar** processo — território da R7 (o robô nunca ajuíza), lido aqui
+só para completude. **Um achado importa direto ao SOJ:**
+
+### 10.1 Segredo de justiça (RN443) — mapeia a nossa classificação de sigilo
+
+Ao ajuizar, o segredo de justiça é "Sim" + um **motivo** legal, e são só dois:
+- **Art. 155, I (CPC/73)** — *"exigência do interesse público"*. É o caso da
+  **ação penal de violência doméstica** (PROC-0011): corre em segredo por interesse
+  público (Lei 11.340/2006).
+- **Art. 155, II** — *"casamento, filiação, separação, divórcio, **alimentos e
+  guarda de menores**"*. É o caso da **execução de alimentos** (PROC-0014).
+
+Isto **confirma pela raiz** por que aqueles dois são sigilosos, e casa com a regra
+6 do PLANO_SOJ (`segredo_justica: true ⇒ sigilo: sigiloso`). O DJEN, nesses, só
+devolve *"Processo sigiloso"* — coerente: o próprio ato de ajuizamento os marcou.
+
+### 10.2 Juntada de documento (a face de escrita, de novo truncada)
+
+O fluxo é: **Incluir petições e documentos → Tipo de documento** (a inicial é
+"Petição inicial") **→ Descrição → Número** (referência opcional) **→ Sigiloso →
+[assinar e protocolar]**. Pela terceira fonte independente, **o manual trunca em
+"assinar e protocolar"** — as telas finais de assinatura não são publicadas. Para
+o SOJ é indiferente: essa é a metade que o titular executa, nunca o robô.
+
+### 10.3 Estado da leitura
+
+**Manual do Advogado: lido por inteiro** (§7, §8, §10). **Arquitetura + API + auth:
+fechados** (§9). O que resta não está em documento nenhum — é o **catálogo de
+endpoints REST**, que só a captura de rede na sessão autenticada entrega (§9.7).
