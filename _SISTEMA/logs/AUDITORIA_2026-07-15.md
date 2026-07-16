@@ -2,7 +2,7 @@
 
 Universo: **25 processos** (fichas) · **5 casos v1** (CASO.yaml, 2 de laboratório) · **7 clientes**.
 
-**7 VERMELHOS · 21 amarelos · 1 informativos**
+**7 VERMELHOS · 20 amarelos · 1 informativos**
 
 ## 🔴 VERMELHOS (violacao de regra — briefing)
 
@@ -19,7 +19,6 @@ Universo: **25 processos** (fichas) · **5 casos v1** (CASO.yaml, 2 de laborató
 - [R6] PROC-0002: encerrado sem R6 concluido (financeiro/resultado/aprendizado/comunicacao/arquivo)
 - [R6] PROC-0004: encerrado sem R6 concluido (financeiro/resultado/aprendizado/comunicacao/arquivo)
 - [R6] PROC-0005: encerrado sem R6 concluido (financeiro/resultado/aprendizado/comunicacao/arquivo)
-- [R6] PROC-0008: encerrado sem R6 concluido (financeiro/resultado/aprendizado/comunicacao/arquivo)
 - [R3] CLI-0001 (F A COMERCIO LTDA): faltam procuracao, cpf/cnpj, telefone, forma_pagamento
 - [R3] CLI-0002 (ANDRE DE MOURA SOUSA): faltam contrato, procuracao, cpf/cnpj, telefone, forma_pagamento
 - [R3] CLI-0003 (BEATRYZ CORREA OLIVEIRA): faltam contrato, procuracao, cpf/cnpj, telefone, forma_pagamento
