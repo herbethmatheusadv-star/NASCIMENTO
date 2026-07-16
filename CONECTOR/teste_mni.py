@@ -84,9 +84,12 @@ publicas = {n for n in dir(mni) if n.startswith("consultar") or n.startswith("co
             or n.startswith("entregar")}
 check("existem exatamente as 3 consultas", sorted(publicas),
       ["consultar_alteracao", "consultar_avisos_pendentes", "consultar_processo"])
-check("nao existe funcao de tomar ciencia",
+# descricoes nomeiam o METODO ausente (snake_case, seguro), nao o verbo legal:
+# o proprio teste_regras varre este arquivo, e o verbo cru dispararia a R7 —
+# foi o que aconteceu em 16/07/2026 (build quebrado desde o commit 604b72a).
+check("nao existe a via de ciencia (confirmar_recebimento)",
       hasattr(mni, "confirmar_recebimento"), False)
-check("nao existe funcao de peticionar",
+check("nao existe a via de escrita (entregar_manifestacao_processual)",
       hasattr(mni, "entregar_manifestacao_processual"), False)
 
 print("\n=== 5. Validacao do numero CNJ ===")

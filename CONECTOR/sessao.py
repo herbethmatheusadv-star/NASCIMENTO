@@ -218,7 +218,12 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
     destino.mkdir(parents=True, exist_ok=True)
     carimbo = datetime.now().strftime("%Y-%m-%d_%H%M")
 
+    import re
+    import time
+
     chamadas: list[dict] = []
+    telas: list[dict] = []
+    paginas = [s.pagina]     # inclui novas abas: os autos abrem em nova janela
 
     def anotar_resposta(resp):
         try:
@@ -236,73 +241,146 @@ def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
         except Exception:  # noqa: BLE001
             pass
 
+    def _slug(url: str) -> str:
+        m = re.search(r"/([A-Za-z]+)\.seam", url)
+        return (m.group(1) if m else "tela")[:28]
+
+    # Leitura pura do DOM: nomes/ids/rotulos dos elementos clicaveis, para eu
+    # descobrir os seletores das abas e do download integral (acao 14 do §7.1).
+    # NAO interage — so lê. Por isso a query cobre a,button,input e [role=tab].
+    JS_ELEMENTOS = """
+    () => {
+      const out = [];
+      const sel = 'a,button,input,[role=tab],[role=button]';
+      for (const el of document.querySelectorAll(sel)) {
+        const t = (el.innerText || el.value || el.title ||
+                   el.getAttribute('aria-label') || '').trim().slice(0, 60);
+        const id = el.id || '';
+        if (!t && !id) continue;
+        out.push({tag: el.tagName, id: id, name: el.name || '',
+                  role: el.getAttribute('role') || '',
+                  href: (el.getAttribute('href') || '').slice(0, 90), txt: t});
+        if (out.length >= 140) break;
+      }
+      return out;
+    }"""
+
+    def capturar(pagina, motivo: str):
+        """Salva um retrato da tela quando ela muda. Observacao, nunca acao."""
+        try:
+            if pagina.is_closed():
+                return
+            url = pagina.url
+            html = pagina.content()
+        except Exception:  # noqa: BLE001
+            return
+        assinatura = (_slug(url), round(len(html), -3))  # dedupe grosso
+        if any(t["assinatura"] == assinatura for t in telas):
+            return
+        n = len(telas) + 1
+        arquivo = f"tela_{n:02d}_{_slug(url)}.html"
+        try:
+            (destino / arquivo).write_text(html, encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            return
+        try:
+            elems = pagina.evaluate(JS_ELEMENTOS)
+        except Exception:  # noqa: BLE001
+            elems = []
+        telas.append({"assinatura": assinatura, "n": n, "url": url,
+                      "arquivo": arquivo, "motivo": motivo, "elems": elems})
+        print(f"[mapeamento] tela {n}: {_slug(url)}  "
+              f"({len(elems)} elementos clicaveis catalogados)")
+
+    def nova_aba(pag):
+        # os autos digitais abrem em nova janela — capturo tambem, so leitura
+        paginas.append(pag)
+        pag.on("response", anotar_resposta)
+        print("[mapeamento] nova aba detectada (os autos?) — vou retratar tambem")
+
     s.pagina.on("response", anotar_resposta)
+    s.contexto.on("page", nova_aba)
 
     print()
     print("=" * 70)
     print("  MODO MAPEAMENTO — VOCE DIRIGE, EU ANOTO")
     print("=" * 70)
-    print("  O robo NAO vai clicar em nada. Ele so escuta o que a pagina pede")
-    print("  ao servidor enquanto VOCE navega.")
+    print("  O robo NAO clica em nada. Ele so retrata cada tela que VOCE abre.")
     print()
-    print("  Por favor, navegue com calma ate:")
-    print("    1. EXPEDIENTES  (a lista — NAO abra nenhum expediente!)")
-    print("    2. ACERVO       (a lista de processos)")
+    print("  Roteiro (com calma, na ordem que preferir):")
+    print("    1. ACERVO       — a lista dos seus processos")
+    print("    2. EXPEDIENTES  — a lista (NAO abra expediente pendente!)")
+    print("    3. Pela ACERVO, clique no NUMERO de um processo qualquer para")
+    print("       abrir os AUTOS digitais (isso e leitura, e seguro).")
     print()
-    print("  Se um expediente estiver 'pendente de ciencia', NAO clique nele.")
-    print("  A lista basta — e dela que o censo precisa.")
+    print("  A regra de ouro: NAO abra expediente marcado 'pendente de ciencia'.")
+    print("  Abrir os autos pela ACERVO e leitura — pode. Expediente pendente,")
+    print("  nao — porque o proprio ato de abrir pode disparar o prazo.")
     print()
-    print("  Nao precisa avisar: eu percebo sozinho quando voce passar pelas")
-    print("  duas telas, e encerro. (Ou paro sozinho no tempo limite.)")
+    print("  Eu percebo sozinho quando voce passar pelas telas e encerro.")
+    print("  Terminou antes? Feche a janela do Chrome que eu paro.")
     print("=" * 70)
 
-    # Sem input(): o terminal que roda isto pode nao ser interativo. Espera
-    # ativa, olhando o que VOCE visitou. Nenhum clique do robo.
-    import time
-    limite = time.time() + 8 * 60
-    viu = {"expediente": False, "acervo": False}
+    limite = time.time() + 10 * 60
+    viu = {"acervo": False, "expediente": False, "autos": False}
     while time.time() < limite:
+        for pag in list(paginas):
+            capturar(pag, "navegacao")
         for c in chamadas:
             u = c["url"].lower()
+            if "acervo" in u or "consultaprocesso" in u:
+                viu["acervo"] = True
             if "expediente" in u or "aviso" in u or "painel" in u:
                 viu["expediente"] = True
-            if "acervo" in u or "consultaprocesso" in u or "processo" in u:
-                viu["acervo"] = True
-        if all(viu.values()):
-            print("\n[mapeamento] vi as duas telas (expedientes e acervo). "
-                  "Encerrando em 20s — pode continuar navegando se quiser.")
-            time.sleep(20)
+            if "consultadocumento" in u or "autosdigitais" in u \
+                    or "detalheprocesso" in u:
+                viu["autos"] = True
+        vivas = [p for p in paginas if not _fechada(p)]
+        if not vivas:
+            print("\n[mapeamento] voce fechou a janela. Encerrando.")
             break
-        try:
-            if s.pagina.is_closed():
-                print("\n[mapeamento] voce fechou a janela. Encerrando.")
-                break
-        except Exception:  # noqa: BLE001
+        if all(viu.values()):
+            print("\n[mapeamento] retratei as tres telas (acervo, expedientes, "
+                  "autos). Encerro em 20s — pode seguir navegando se quiser.")
+            time.sleep(20)
+            for pag in list(paginas):
+                capturar(pag, "final")
             break
         time.sleep(3)
     else:
-        print("\n[mapeamento] tempo limite. Salvando o que vi ate aqui.")
+        print("\n[mapeamento] tempo limite. Salvo o que retratei ate aqui.")
 
-    # HTML da ultima pagina que ele deixou aberta (para eu ver a estrutura)
-    try:
-        html = s.pagina.content()
-        (destino / f"pagina_final_{carimbo}.html").write_text(html,
-                                                              encoding="utf-8")
-    except Exception as e:  # noqa: BLE001
-        print(f"[mapeamento] nao consegui salvar o HTML: {e}")
-
-    relatorio = destino / f"chamadas_{carimbo}.md"
+    relatorio = destino / f"mapa_{carimbo}.md"
     with relatorio.open("w", encoding="utf-8") as f:
         f.write(f"# Mapeamento do painel PJe/TJPA — {carimbo}\n\n")
-        f.write(f"{len(chamadas)} chamada(s) observada(s). "
-                f"O robo nao clicou em nada.\n\n")
+        f.write(f"{len(telas)} tela(s) retratada(s), {len(chamadas)} chamada(s) "
+                f"de rede. O robo nao clicou em nada — so leu.\n\n")
+        for t in telas:
+            f.write(f"\n## Tela {t['n']} · `{_slug(t['url'])}` "
+                    f"· [{t['motivo']}]\n\n")
+            f.write(f"- HTML: `{t['arquivo']}`\n- URL: `{t['url'][:150]}`\n")
+            f.write(f"- {len(t['elems'])} elementos clicaveis:\n\n")
+            f.write("| tag | id | name | role | texto | href |\n")
+            f.write("|---|---|---|---|---|---|\n")
+            for e in t["elems"]:
+                f.write(f"| {e['tag']} | `{e['id']}` | {e['name']} | {e['role']}"
+                        f" | {e['txt']} | {e['href']} |\n")
+        f.write("\n\n## Chamadas de rede (endpoints do painel)\n\n")
         f.write("| hora | metodo | status | tipo | content-type | url |\n")
         f.write("|---|---|---|---|---|---|\n")
         for c in chamadas:
             f.write(f"| {c['quando']} | {c['metodo']} | {c['status']} | "
                     f"{c['tipo']} | {c['content_type']} | `{c['url'][:150]}` |\n")
-    print(f"\n[mapeamento] {len(chamadas)} chamadas salvas em {relatorio}")
+    print(f"\n[mapeamento] {len(telas)} telas + {len(chamadas)} chamadas "
+          f"salvas em {relatorio}")
     return relatorio
+
+
+def _fechada(pag) -> bool:
+    try:
+        return pag.is_closed()
+    except Exception:  # noqa: BLE001
+        return True
 
 
 def main() -> None:
