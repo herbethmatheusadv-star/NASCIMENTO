@@ -346,3 +346,54 @@ capturado porque a janela fechou antes. Basta uma sessão de ~2 min: abrir os au
 de **um** processo pela Acervo e **deixar aberto ~15 segundos** antes de fechar,
 para o robô retratar a nova aba. Só então o `baixar_autos.py` terá o seletor do
 download integral.
+
+### 8.6 O modelo de interação REAL — engenharia reversa dos HTML (16/07/2026)
+
+Disseca dos 5 HTML capturados (não do manual — do sistema). Três verdades que
+mudam como o leitor de autos precisa ser escrito:
+
+**1. O painel é RichFaces / A4J (AJAX).** Uma só tela tinha **116
+`A4J.AJAX.Submit`**. Quase nenhum controle do painel é uma URL — a maioria é um
+`onclick` que dispara submit AJAX (ex.: a árvore do Acervo usa
+`filtrosFormAcervo:j_idNNN.component.eventCellOnClick`). **Consequência para a
+R7:** dentro do painel, a defesa principal **não** é a guarda de URL (não há URL
+a navegar) — é a **guarda de clique** sobre o *texto* do elemento ("Tomar
+ciência", "Responder"). A guarda de URL cobre o **menu** (Peticionar/Assinar/Novo
+processo, §8.1), que são `.seam` de verdade. As duas camadas se dividem o trabalho,
+e agora sabemos exatamente qual cobre o quê.
+
+**2. Os autos abrem por `window.open`, em nova janela** — era a "nova aba" que o
+mapeador detectou. A URL real:
+
+```
+/pje/Processo/ConsultaProcesso/Detalhe/listProcessoCompletoAdvogado.seam?id={ID}
+```
+
+O **`{ID}` é o id interno do processo (numérico), NÃO o CNJ.** Cada linha do Acervo
+carrega o seu `window.open(...id=NNN...)`. É **leitura** — a guarda de URL a libera
+(confirmado: não casa nenhum padrão proibido). É o ponto de entrada dos autos
+digitais (as 15 ações do §7.1) e, portanto, do download integral (ação 14).
+
+**3. O fluxo do leitor de autos, agora inteiro (do sistema real):**
+```
+[humano no portão: certificado + MFA]
+   ↓
+Acervo (árvore por comarca)  →  cada processo tem window.open(...id=NNN)
+   ↓  o robô LÊ a lista e extrai os pares  CNJ ↔ id interno
+listProcessoCompletoAdvogado.seam?id=NNN   (nova janela = autos digitais)
+   ↓  ação 14: download "todo o conteúdo"
+AreaDownload/listView.seam   (o pacote fica aqui para baixar)
+```
+Falta só o seletor do botão da ação 14 (interior dos autos) — a mini-sessão do §8.5.
+
+### 8.7 O que o manual dá e o sistema NÃO, e vice-versa (a lição da rota)
+
+- Só o **sistema** revelou: `peticaoavulsa.seam` (a R7 furada), o modelo A4J, e
+  `listProcessoCompletoAdvogado.seam?id=` (como os autos abrem). O manual jamais
+  diria isso — ele fala em "clicar no número do processo", sem a URL nem o `id`.
+- Só o **manual** dá: o *significado* (o que é ciência, por que o agrupador 1 é
+  perigoso, que a ação 14 baixa "todo o conteúdo"). O HTML mostra `j_id158` sem
+  dizer que ali mora a quarentena.
+- **Regra de trabalho:** manual para o *sentido*, engenharia reversa para a
+  *verdade*, sempre cruzados. Nenhum seletor entra em código sem os dois — e
+  nenhum seletor `j_idNNN` cru entra nunca (§8.4).
