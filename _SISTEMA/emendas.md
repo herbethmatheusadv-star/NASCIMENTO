@@ -263,3 +263,61 @@ titular (DAIANE congela?; numeração `CASO-####`?; gates/DIARIO ficam?).
 **O documento:** `PLANO_SOJ.md` movido da pasta de marca
 (`Desktop/Brand Nascimento/`) para a raiz deste repositório — é documento do SOJ,
 não de marketing, e fora do repo não tem histórico nem auditoria.
+
+---
+
+## EMENDA 05 · 15/07/2026 · MNI com senha digitada a cada execução
+
+**Decisão do titular:** autorizado o acesso ao PJe/TJPA pelo **MNI** com
+**CPF + senha digitada na hora**. A senha não vai para disco, `.env`, código nem
+log — vive na memória do processo e morre com ele (`getpass`).
+
+**O que muda em relação à Emenda 02 (e por que ele foi avisado):** o desenho
+aprovado até aqui era *"certificado com humano no portão"* — ele digita o PIN
+numa janela Java que o robô não alcança, e a credencial **nunca** passa pelo
+código. No MNI é diferente: `idConsultante`/`senhaConsultante` são parâmetros da
+chamada, então **a senha atravessa a memória do script**. Isso foi apresentado a
+ele como escalada real de confiança, com a alternativa (navegador + descoberta
+assistida de seletores) na mesa. Ele escolheu o MNI, ciente.
+
+**O que NÃO muda:** nada de credencial em disco/env/código; nada de sessão
+persistida; e a R7 continua sendo **ausência**.
+
+### A decisão técnica que sustenta a R7 aqui: envelope à mão, sem `zeep`
+
+Uma biblioteca SOAP gera o cliente **a partir do WSDL** — e criaria um método
+para **cada** operação anunciada pelo servidor, inclusive as duas proibidas.
+Tomar ciência viraria uma linha, existente e pronta. Montando o XML à mão, só
+existe o que está escrito: em `CONECTOR/mni.py` só há consulta. As operações de
+escrita não são bloqueadas — **não têm função, não têm envelope, não têm nome**.
+Chamá-las é `AttributeError`, não uma decisão de runtime que alguém inverta num
+dia apressado.
+
+### Contrato (lido do WSDL real, não inventado)
+
+- endpoints: `pje.tjpa.jus.br/pje/intercomunicacao` (1º) e `/pje-2g/` (2º)
+- document/literal, SOAP 1.1; wrapper em `servico-intercomunicacao-2.2.2/`
+- **filhos em `tipos-servico-intercomunicacao-2.2.2` com `form="qualified"` em
+  cada elemento** — sobrepõe o `elementFormDefault` do schema. Escrever os
+  filhos sem prefixo (o erro natural de quem chuta) renderia fault opaco.
+- `consultarProcesso` aceita **`incluirDocumentos`** — é a porta dos autos.
+
+### Alcance (diagnóstico de 15/07, sem credencial)
+
+| Tribunal | MNI | Situação |
+|---|---|---|
+| **TJPA 1º e 2º** | ✅ WSDL vivo | a porta — **18 dos 25 processos** |
+| TRT-8 | ❌ 21 caminhos testados | `/pjekz/` dá 200 mas é o SPA Angular devolvendo `index.html` para qualquer rota — falso positivo. Os 5 autos já estão em `AUTOS/` |
+| TJMA | ❌ 403 | não é filtro de user-agent/referer (testado com 4 combinações) — bloqueio de origem. 1 processo |
+
+### Estado
+
+- `CONECTOR/mni.py` — cliente, stdlib pura, 3 operações e nada mais.
+- `CONECTOR/teste_mni.py` — 22 casos, **sem rede e sem credencial**: envelope
+  contra o contrato, senha não vaza em repr/str, R7 no envelope, CNJ validado
+  antes da rede, escape de XML.
+- `teste_regras.py` varre `mni.py` e segue **49/49**.
+- **PENDENTE — o teste decisivo:** `python CONECTOR/mni.py --teste`. Só ele
+  responde se a conta do titular tem MNI habilitado no TJPA. Muitos tribunais
+  exigem habilitação prévia; se vier fault de credencial, é isso que se
+  investiga antes de qualquer outra coisa.
