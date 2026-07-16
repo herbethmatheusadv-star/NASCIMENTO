@@ -95,9 +95,22 @@ ACOES_PROIBIDAS_UI = (
 )
 
 # URL que o robo jamais navega.
+#
+# Os quatro primeiros grupos vieram da SESSAO DE MAPEAMENTO REAL (16/07/2026):
+# os padroes antigos ("peticion", "assinatur") foram CHUTADOS e NAO pegavam as
+# URLs verdadeiras do TJPA — "peticaoavulsa" nao contem "peticion" (petiCAO !=
+# petiCION), "consultaDocnaoAssinado" nao contem "assinatur". Regra da casa:
+# padrao vem do dado real, nao da adivinhacao. Ver teste_regras.py §4 [REAL].
 URLS_PROIBIDAS = (
-    r"peticion", r"protocol", r"assinatur", r"expediente/responder",
-    r"tomarCiencia", r"confirmarRecebimento", r"manifestacao",
+    # escrita/peticao — reais do painel TJPA
+    r"peticaoavulsa", r"cadastropeticao", r"peticion",
+    # assinatura — real: consultaDocnaoAssinado.seam
+    r"naoassinado", r"assinatur", r"assinado",
+    # ajuizar / criar processo — cadastrar.seam ("Novo processo")
+    r"cadastrar\.seam", r"processoincidente",
+    # ciencia / resposta / protocolo — o robo nunca age
+    r"protocol", r"expediente/responder", r"tomarciencia",
+    r"confirmarrecebimento", r"manifestacao",
 )
 
 

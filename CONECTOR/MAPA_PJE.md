@@ -274,3 +274,75 @@ na tela.
   2º grau** — é aqui que aparece pauta de apelação (ex.: PROC-0021 no TJPA).
 - **"Minhas petições"**: *"acesso geral a todas as petições juntadas aos processos
   por ele mesmo"* — histórico do que o titular protocolou. Fonte de auditoria útil.
+
+---
+
+## 8. Seletores REAIS do painel TJPA (sessão de mapeamento — 16/07/2026)
+
+> 🧪 Colhidos na primeira sessão real (`sessao.py --mapear`, titular no portão,
+> perfil efêmero apagado no fim). 5 telas do painel retratadas; o interior dos
+> autos **não** foi capturado (a janela foi fechada antes). Os HTML e o mapa
+> completo ficam em `_efemeros/mapeamento_pje/` — **fora do Git** (dado de
+> cliente). Aqui só a estrutura.
+
+**Painel:** `https://pje.tjpa.jus.br/pje/Painel/painel_usuario/advogado.seam`.
+As abas trocam por **AJAX** — a URL não muda, o conteúdo sim.
+
+### 8.1 Menu — URLs reais (o que a guarda precisava conhecer)
+
+| Função | URL | R7 |
+|---|---|---|
+| Consulta de processo | `/pje/Processo/ConsultaProcesso/listView.seam` | ✅ ler |
+| **Área de download** | `/pje/AreaDownload/listView.seam` | ✅ **onde cai o download integral** |
+| Pauta de audiência | `/pje/ProcessoAudiencia/PautaAudiencia/listView.seam` | ✅ ler |
+| Push (monitoramento) | `/pje/Push/listView.seam` | ✅ ler |
+| **Peticionar** | `/pje/Processo/CadastroPeticaoAvulsa/peticaoavulsa.seam` | 🔴 bloqueado |
+| **Assinar documentos** | `/pje/Painel/advogado/consultaDocnaoAssinado.seam` | 🔴 bloqueado |
+| Novo processo (ajuizar) | `/pje/Processo/cadastrar.seam` | 🔴 bloqueado |
+
+**O achado que valeu a sessão:** os padrões antigos de `URLS_PROIBIDAS` eram
+**chutados e furavam** — `peticion` não pega `peticaoavulsa` (petiCAO ≠ petiCION),
+`assinatur` não pega `naoAssinado`. **As três URLs de escrita passavam batido.**
+Provado e corrigido: `regras.URLS_PROIBIDAS` agora usa os tokens reais
+(`peticaoavulsa`, `naoassinado`, `cadastrar\.seam`…); `teste_regras.py §4 [REAL]`
+trava as 4 de escrita e libera as 4 de leitura. R7: 49 → **56 casos**.
+
+### 8.2 Aba Expedientes — os 6 agrupadores, com seletor
+
+Padrão: **`formAbaExpediente:listaAgrSitExp:{N}:j_id158`** (link `<a>`), texto real:
+
+| N | Texto (rótulo real do TJPA) | R7 |
+|---|---|---|
+| **0** | **"Pendentes de ciência ou de resposta"** | 🔴 **quarentena — não abrir** |
+| 2 | "Ciência dada pelo destinatário direto ou indireto - pendente" | ✅ |
+| 3 | "Ciência dada pelo Judiciário - pendente de resposta" | ✅ |
+| 4 | "Cujo prazo findou nos últimos 10 dias - sem resposta" | ✅ |
+| 5 | "Sem prazo" | ✅ |
+
+Botão "Mover expedientes": `frmMoverPara:btMvPr`. Form: `formAbaExpediente`.
+
+### 8.3 Aba Acervo — árvore por comarca
+
+Padrão dos nós: **`formAbaAcervo:trAc:{N}::jNd`** (o nó da comarca/jurisdição),
+com `formAbaAcervo:trAc:{N}::j_id814:handle` para expandir/recolher. Form:
+`formAbaAcervo`. É uma **árvore** (as comarcas do titular — Parauapebas, Canaã…),
+não uma lista plana; abrir um nó revela os processos daquela comarca.
+
+### 8.4 ⚠️ Fragilidade a respeitar
+
+Os sufixos **`j_id158` / `j_id814` são gerados pelo JSF** e **mudam** entre
+versões do PJe e, às vezes, entre sessões. O que é **estável**: os prefixos de
+form (`formAbaExpediente`, `formAbaAcervo`, `listaAgrSitExp`, `trAc`) e as URLs.
+**Regra para o leitor de autos:** ancorar por prefixo estável + texto do elemento
+(ex.: o `<a>` cujo texto casa "Pendentes de ciência"), **nunca** pelo `j_idNNN`
+cru. Se o seletor quebrar, é sinal de mudança de versão → parar e remapear com o
+titular, nunca clicar às cegas (regra do §10.4 do PLANO_SOJ).
+
+### 8.5 O que ainda falta mapear (uma próxima sessão curta)
+
+O **interior dos autos digitais** — as 15 ações do §7.1, em especial o **download
+"todo o conteúdo" (ação 14)** e as abas internas do processo (ação 15). Não foi
+capturado porque a janela fechou antes. Basta uma sessão de ~2 min: abrir os autos
+de **um** processo pela Acervo e **deixar aberto ~15 segundos** antes de fechar,
+para o robô retratar a nova aba. Só então o `baixar_autos.py` terá o seletor do
+download integral.

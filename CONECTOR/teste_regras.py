@@ -122,9 +122,39 @@ for url in ["https://pje.tjpa.jus.br/pje/Peticionamento/listView.seam",
             "https://pje.tjpa.jus.br/pje/tomarCiencia?id=9",
             "https://pje.tjpa.jus.br/pje/assinatura/assinar"]:
     check_levanta(f"recusa navegar para {url[-38:]!r}", guarda_de_url, url)
-guarda_de_url("https://pje.tjpa.jus.br/pje/Processo/ConsultaProcesso/listView.seam")
-PASSOU += 1
-print("  [ok ] permite navegar para consulta de processo (leitura)")
+
+# URLs REAIS do painel TJPA, colhidas na sessao de mapeamento de 16/07/2026.
+# Elas provaram que os padroes CHUTADOS nao pegavam a realidade: "peticion"
+# nao casa com "peticaoavulsa" (petiCAO != petiCION) e "assinatur" nao casa
+# com "naoAssinado". As tres passavam batido. Este bloco existe para que nunca
+# mais passem — teste vem do dado real, nao da adivinhacao.
+for rot, url in [
+    ("Peticionar (peticao avulsa)",
+     "https://pje.tjpa.jus.br/pje/Processo/CadastroPeticaoAvulsa/peticaoavulsa.seam"),
+    ("Assinar documentos (nao assinado)",
+     "https://pje.tjpa.jus.br/pje/Painel/advogado/consultaDocnaoAssinado.seam"),
+    ("Novo processo (cadastrar/ajuizar)",
+     "https://pje.tjpa.jus.br/pje/Processo/cadastrar.seam?newInstance=true"),
+    ("Solicitar habilitacao (peticao avulsa)",
+     "https://pje.tjpa.jus.br/pje/Processo/CadastroPeticaoAvulsa/listView.seam"),
+]:
+    check_levanta(f"[REAL] recusa navegar para {rot}", guarda_de_url, url)
+
+# As de LEITURA, tambem reais, NAO podem ser bloqueadas — a guarda protege,
+# nao atrapalha o trabalho legitimo.
+for rot, url in [
+    ("Consulta de processo",
+     "https://pje.tjpa.jus.br/pje/Processo/ConsultaProcesso/listView.seam"),
+    ("Area de download (onde cai o download integral)",
+     "https://pje.tjpa.jus.br/pje/AreaDownload/listView.seam"),
+    ("Pauta de audiencia",
+     "https://pje.tjpa.jus.br/pje/ProcessoAudiencia/PautaAudiencia/listView.seam"),
+    ("Painel do advogado",
+     "https://pje.tjpa.jus.br/pje/Painel/painel_usuario/advogado.seam"),
+]:
+    guarda_de_url(url)   # nao pode levantar
+    PASSOU += 1
+    print(f"  [ok ] [REAL] permite leitura: {rot}")
 
 print("\n=== 5. Quarentena: ciencia pendente = nao toca (nem os autos) ===")
 q = Quarentena()
