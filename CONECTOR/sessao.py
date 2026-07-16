@@ -63,8 +63,60 @@ def _achar_chrome() -> str | None:
     return None
 
 
-def ambiente_ok() -> tuple[bool, list[str]]:
-    """Diz se da para rodar, sem esconder o que falta."""
+# -- deteccao de sessao viva pela porta CDP --------------------------------
+# A AUTORIDADE e o /json do Chrome, nao o page.url do Playwright: numa conexao
+# mantida durante o redirect do login (Keycloak), o page.url fica VELHO e a
+# sessao nunca era detectada (bug de 16/07/2026). O /json e sempre fresco.
+def _cdp_no_ar() -> bool:
+    import urllib.request
+    try:
+        urllib.request.urlopen(
+            f"http://127.0.0.1:{PORTA_CDP}/json/version", timeout=2)
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _paginas_cdp() -> list[str]:
+    """URLs das abas, lidas do /json do Chrome (sempre fresco)."""
+    import json
+    import urllib.request
+    try:
+        raw = urllib.request.urlopen(
+            f"http://127.0.0.1:{PORTA_CDP}/json", timeout=3).read()
+        return [t.get("url", "") for t in json.loads(raw)
+                if t.get("type") == "page"]
+    except Exception:  # noqa: BLE001
+        return []
+
+
+def _url_e_painel(u: str) -> bool:
+    """True so para o PAINEL (painel_usuario/advogado.seam), nao para os autos.
+
+    Cuidado: a tela de autos e `listProcessoCompletoAdvogado.seam` — tambem
+    termina em 'advogado.seam'. Casar por 'advogado.seam' pegava a aba de autos
+    por engano (16/07/2026). Ancoramos em 'painel' e excluimos explicitamente as
+    telas de processo/autos."""
+    ul = (u or "").lower()
+    if not ul or ul == "about:blank" or "login" in ul or "tjpa" not in ul:
+        return False
+    if "listprocessocompleto" in ul or "consultaprocesso" in ul:
+        return False   # e a tela de AUTOS, nao o painel
+    return "painel" in ul or "acervo" in ul
+
+
+def sessao_viva_logada() -> bool:
+    """True se ja ha um Chrome na porta CDP com o painel aberto (login feito).
+    Permite REAPROVEITAR a sessao: um login serve para varias execucoes — o que
+    o titular pediu ('nao repetir o login varias vezes'), 16/07/2026."""
+    return _cdp_no_ar() and any(_url_e_painel(u) for u in _paginas_cdp())
+
+
+def ambiente_ok(reuso: bool = False) -> tuple[bool, list[str]]:
+    """Diz se da para rodar, sem esconder o que falta.
+
+    reuso=True (ha sessao viva ja logada): nao exige Chrome novo nem PJeOffice —
+    o certificado ja passou; so precisa do Playwright para anexar e ler."""
     faltas: list[str] = []
     try:
         import playwright  # noqa: F401
@@ -73,7 +125,9 @@ def ambiente_ok() -> tuple[bool, list[str]]:
             "playwright nao instalado. Instale com:\n"
             "        pip install playwright\n"
             "        python -m playwright install chromium")
-    else:
+    if reuso:
+        return (not faltas), faltas
+    if not faltas:
         # Nao checamos o Chromium empacotado de proposito: ele existe nesta
         # maquina mas NAO SOBE (falta o Visual C++ Redistributable). Quem vale
         # e o Chrome do sistema, via channel="chrome".
@@ -108,6 +162,7 @@ class SessaoEfemera:
         self._tmp: str | None = None
         self._pw = None
         self._proc = None
+        self._dono = False        # True = eu subi o Chrome (e o encerro na saida)
         self._navegador = None
         self.contexto = None
         self.pagina = None
@@ -115,19 +170,27 @@ class SessaoEfemera:
     def __enter__(self):
         import subprocess
         import time as _t
-        import urllib.request
-        from playwright.sync_api import sync_playwright
+
+        # Se JA existe um Chrome na porta de depuracao, ANEXO a ele (nao sou
+        # dono: nao encerro nem apago perfil na saida). E o reaproveitamento de
+        # sessao: o titular loga uma vez, o robo roda quantas vezes precisar sem
+        # novo login. So subo um Chrome novo se nao houver nenhum.
+        if _cdp_no_ar():
+            self._dono = False
+            print(f"[sessao] Chrome ja no ar na porta {PORTA_CDP} — vou anexar "
+                  f"(sessao reaproveitada).")
+            return self
 
         chrome = _achar_chrome()
         if not chrome:
             raise RuntimeError("Chrome do sistema nao encontrado.")
 
-        # Perfil temporario DEDICADO, apagado na saida (efemero, como antes) —
-        # so que agora o Chrome sobe SOZINHO, sem as flags de automacao do
-        # Playwright. O robo depois CONECTA na porta de depuracao (connect ->
-        # so leitura). Assim o PJe nao detecta robo e o login por certificado
-        # completa na janela; o robo enxerga o painel em vez de ele escapar.
-        # Nao herda perfil pessoal do titular: nasce em branco neste temporario.
+        # Perfil temporario DEDICADO, apagado na saida (efemero) — o Chrome sobe
+        # SOZINHO, sem as flags de automacao do Playwright. O robo depois CONECTA
+        # na porta de depuracao (connect -> so leitura). Assim o PJe nao detecta
+        # robo e o login por certificado completa na janela; o robo enxerga o
+        # painel em vez de ele escapar. Nao herda perfil pessoal: nasce em branco.
+        self._dono = True
         self._tmp = tempfile.mkdtemp(prefix="soj_pje_efemero_")
         self._proc = subprocess.Popen(
             [chrome, f"--remote-debugging-port={PORTA_CDP}",
@@ -140,22 +203,14 @@ class SessaoEfemera:
         # espera a porta de depuracao subir
         alvo = _t.time() + 30
         while _t.time() < alvo:
-            try:
-                urllib.request.urlopen(
-                    f"http://127.0.0.1:{PORTA_CDP}/json/version", timeout=2)
+            if _cdp_no_ar():
                 break
-            except Exception:  # noqa: BLE001
-                _t.sleep(0.5)
+            _t.sleep(0.5)
 
-        self._pw = sync_playwright().start()
-        # connect_over_cdp: ANEXA ao Chrome que ja esta rodando, so leitura.
-        # Nao lanca navegador novo, nao injeta automacao.
-        self._navegador = self._pw.chromium.connect_over_cdp(
-            f"http://127.0.0.1:{PORTA_CDP}")
-        ctxs = self._navegador.contexts
-        self.contexto = ctxs[0] if ctxs else self._navegador.new_context()
-        pgs = self.contexto.pages
-        self.pagina = pgs[0] if pgs else self.contexto.new_page()
+        # O Playwright NAO conecta aqui: conecta so DEPOIS que o painel aparecer
+        # (em esperar_login_humano). Conectar antes e manter a conexao durante o
+        # redirect do login deixava o page.url VELHO — a sessao nunca era
+        # detectada (bug de 16/07/2026). Conexao fresca pos-login = url correta.
         return self
 
     def __exit__(self, *exc):
@@ -164,6 +219,12 @@ class SessaoEfemera:
                 self._pw.stop()   # desconecta o CDP (nao mata o Chrome)
         except Exception:  # noqa: BLE001
             pass
+        if not self._dono:
+            # Sessao reaproveitada: o Chrome e do titular, nao encerro nem apago
+            # nada. Nenhum estado e exportado — so desanexei a leitura.
+            print("[sessao] sessao reaproveitada preservada (o Chrome que ja "
+                  "estava aberto continua seu).")
+            return False
         try:
             if getattr(self, "_proc", None):
                 self._proc.terminate()   # encerra o Chrome que subimos
@@ -210,65 +271,83 @@ class SessaoEfemera:
         de novo.
         """
         import time
-        # o Chrome ja subiu na tela de login (subprocess do __enter__); nao
-        # navegamos de novo. O robo so ESPERA e observa.
+        ja_logado = sessao_viva_logada()
         print()
         print("=" * 70)
-        print("  O ROBO PAROU NO PORTAO — E A SUA VEZ (2 PASSOS)")
-        print("=" * 70)
-        print("  A janela do Chrome esta aberta no login do PJe/TJPA.")
-        print()
-        print("    PASSO 1 — certificado A1 (PJeOffice pede o PIN numa janela")
-        print("              Java, FORA do navegador: o robo nao alcanca).")
-        print("    PASSO 2 — autenticador / 2FA.")
-        print()
-        print("  Os dois sao seus. O robo nao digita, nao le e nao guarda nada")
-        print("  — e nao existe codigo aqui para contornar o 2FA.")
-        print()
-        print(f"  Aguardando ate {timeout_min} min. Sem pressa. Ctrl+C cancela.")
+        if ja_logado:
+            print("  SESSAO ATIVA REAPROVEITADA — nao preciso que voce relogue")
+            print("=" * 70)
+            print("  Achei o painel ja aberto na porta de depuracao. Vou anexar")
+            print("  (so leitura) e seguir. Um login serve para varias execucoes.")
+        else:
+            print("  O ROBO PAROU NO PORTAO — E A SUA VEZ (2 PASSOS)")
+            print("=" * 70)
+            print("  A janela do Chrome esta aberta no login do PJe/TJPA.")
+            print()
+            print("    PASSO 1 — certificado A1 (PJeOffice pede o PIN numa janela")
+            print("              Java, FORA do navegador: o robo nao alcanca).")
+            print("    PASSO 2 — autenticador / 2FA.")
+            print()
+            print("  Os dois sao seus. O robo nao digita, nao le e nao guarda")
+            print("  nada — e nao existe codigo aqui para contornar o 2FA.")
+            print()
+            print(f"  Aguardando ate {timeout_min} min. Sem pressa. Ctrl+C cancela.")
         print("=" * 70)
 
-        # VARRE TODAS AS ABAS, nao so a inicial. O login por certificado + SSO
-        # (Keycloak) reorganiza abas: o painel pode nascer numa aba nova, e a
-        # aba inicial fica em about:blank. Vigiar so a inicial era o bug que
-        # travava a sessao (16/07/2026). Deteccao pela URL do painel
-        # (`painel_usuario/advogado.seam`) — e a prova de travamento: nao chama
-        # evaluate (uma aba pausada em `debugger;` nao pode ser lida), so olha a
-        # URL. about:blank e abas de login sao ignoradas.
+        # Deteccao pelo /json do Chrome (fresco), NAO pelo page.url do Playwright
+        # (que fica velho numa conexao mantida durante o redirect do login — bug
+        # de 16/07/2026). So depois que o painel aparece e que o Playwright
+        # conecta, ja com a url correta. about:blank e telas de login sao
+        # ignoradas por _url_e_painel.
         alvo = time.time() + timeout_min * 60
         ciclo = 0
+        url_painel = ""
         while time.time() < alvo:
             ciclo += 1
-            urls_vistas: list[str] = []
-            # varre TODOS os contextos do navegador, nao so o inicial: o login
-            # por certificado/SSO pode abrir o painel num contexto/janela que o
-            # contexto original nao enxerga.
-            for ctx in list(self._navegador.contexts):
-                for pag in list(ctx.pages):
-                    try:
-                        if pag.is_closed():
-                            continue
-                        u = pag.url or ""
-                    except Exception:  # noqa: BLE001
-                        continue
-                    urls_vistas.append(u)
-                    ul = u.lower()
-                    if not ul or ul == "about:blank" or "login" in ul:
-                        continue
-                    if ("painel" in ul or "advogado.seam" in ul
-                            or "acervo" in ul) and "tjpa" in ul:
-                        self.contexto = ctx   # o robo passa ao contexto CERTO
-                        self.pagina = pag     # e a aba certa
-                        print(f"\n[sessao] painel detectado em {u[:80]}")
-                        print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
-                        return True
+            urls = _paginas_cdp()
+            paineis = [u for u in urls if _url_e_painel(u)]
+            if paineis:
+                url_painel = paineis[0]
+                break
             if ciclo % 4 == 1:   # a cada ~8s, mostra o que estou vendo
-                vis = [x[:55] for x in urls_vistas] or ["(nenhuma aba)"]
+                vis = [x[:55] for x in urls] or ["(nenhuma aba)"]
                 print(f"[sessao] aguardando... abas que vejo: {vis}")
             time.sleep(2)
-        print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
-              "concluido). Sessao encerrada sem ler nada — perfil apagado.")
-        return False
+
+        if not url_painel:
+            print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
+                  "concluido). Encerro sem ler nada.")
+            return False
+
+        # painel no ar -> conecta o Playwright AGORA (fresco), so leitura.
+        from playwright.sync_api import sync_playwright
+        self._pw = sync_playwright().start()
+        self._navegador = self._pw.chromium.connect_over_cdp(
+            f"http://127.0.0.1:{PORTA_CDP}")
+        for ctx in self._navegador.contexts:
+            for pag in list(ctx.pages):
+                try:
+                    if pag.is_closed():
+                        continue
+                    u = pag.url or ""
+                except Exception:  # noqa: BLE001
+                    continue
+                if _url_e_painel(u):
+                    self.contexto = ctx
+                    self.pagina = pag
+                    print(f"\n[sessao] painel: {u[:80]}")
+                    print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
+                    return True
+
+        # painel visto no /json mas nao casado na enumeracao (raro): usa o 1o
+        # contexto/pagina e segue — a leitura do painel confirma adiante.
+        ctxs = self._navegador.contexts
+        self.contexto = ctxs[0] if ctxs else self._navegador.new_context()
+        pgs = self.contexto.pages
+        self.pagina = pgs[0] if pgs else self.contexto.new_page()
+        print(f"\n[sessao] painel visto em {url_painel[:70]} — anexado.")
+        print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
+        return True
 
 
 def mapear_enquanto_voce_navega(s: SessaoEfemera) -> Path:
@@ -493,8 +572,10 @@ def main() -> None:
                     help="apos o login, anota o trafego enquanto VOCE navega")
     args = ap.parse_args()
 
-    ok, faltas = ambiente_ok()
-    print("[ambiente]", "pronto" if ok else "INCOMPLETO")
+    reuso = sessao_viva_logada()
+    ok, faltas = ambiente_ok(reuso=reuso)
+    print("[ambiente]", "pronto" if ok else "INCOMPLETO",
+          "(sessao viva detectada)" if reuso else "")
     for f in faltas:
         print("  -", f)
     if args.checar or not ok:

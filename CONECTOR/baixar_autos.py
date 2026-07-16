@@ -1,38 +1,44 @@
 #!/usr/bin/env python3
 """
-baixar_autos.py — baixa os autos de UM processo pela API REST do PJe/TJPA.
+baixar_autos.py — baixa os autos dos processos do PJe/TJPA. UM login, todos.
 
 LEITURA, e so leitura. Roda DENTRO da sessao que o titular autenticou
 (`sessao.py`, certificado + 2FA). Fecha a Fase de coleta do PLANO_SOJ: entrega
 os PDFs em AUTOS/{cnj}/ para o importador (Fase 3) transformar em texto com
 marcador de pagina.
 
-  COMO FUNCIONA (desenho fechado em 16/07/2026 — ver CONECTOR/MAPA_PJE.md §11)
+  COMO FUNCIONA — metodo INTEGRAL (primario; execucao real de 16/07/2026)
 
-  1. O titular loga (o robo para no portao; ele digita cert + 2FA).
-  2. O titular ABRE os autos de UM processo pela Acervo (nova janela). Isso e
-     leitura; e ele quem clica.
-  3. O robo detecta a pagina `listProcessoCompletoAdvogado`, LE o HTML e extrai:
-       - o numero CNJ (do cabecalho);
-       - todos os `idProcessoDocumento` (cada peca dos autos).
-  4. Para cada peca, GET no UNICO endpoint de leitura:
-         /pje/seam/resource/rest/pje-legacy/documento/download/{id}
-     autenticado pelo COOKIE da sessao (JSESSIONID) que o navegador do titular
-     ja tem — o robo NUNCA extrai nem guarda esse cookie.
-  5. Salva em AUTOS/{cnj}/, com sha256, dedup e indice.
+  1. O titular loga UMA vez (o robo para no portao; ele digita cert + 2FA) e
+     deixa a aba ACERVO aberta, com as comarcas expandidas.
+  2. O robo LE o Acervo do painel e monta {cnj: url_dos_autos}.
+  3. Para CADA processo (todos, ou o --cnj pedido), o robo abre a tela de autos,
+     dispara "Download autos do processo" (o botao da navbar), o servidor
+     EMPACOTA os autos e devolve a URL de um PDF unico e completo, servido por
+     pje-docs.tjpa.jus.br (S3 assinado). O robo busca o PDF pela sessao (GET).
+  4. Salva em AUTOS/{cnj}/autos_integral_{sha8}.pdf. Idempotente por sha.
+
+  E assim que "um login" vira "N processos baixados" — 16 processos, 280 MB, em
+  ~100 s numa unica sessao (16/07/2026). Ver CONECTOR/MAPA_PJE.md §12.
+
+  Fallback (--pecas): metodo antigo, peca a peca pela REST de leitura
+  /pje/seam/resource/rest/pje-legacy/documento/download/{id} (GET, cookie da
+  sessao). Fica para quando so se quer uma peca especifica.
 
   R7 — POR QUE ISTO SO SABE LER
 
-  Existe UMA rota construida aqui: `documento/download/{id}` (GET). Qualquer
-  outra rota do `rest/pje-legacy/` — inclusive as de escrita — simplesmente NAO
-  tem funcao neste arquivo. E allowlist, como no MNI, nao blocklist. Toda URL
-  passa por `regras.guarda_de_url`. Nao ha clique em botao de acao: o robo so
-  faz GET de documento. `teste_regras.py` varre este arquivo e quebra o build se
-  aparecer capacidade de agir.
+  "Download autos do processo" entrega os autos em PDF: e leitura. O UNICO clique
+  e no botao rotulado "Download", e ele passa antes por `regras.guarda_de_clique`
+  — se o seletor um dia pegasse um botao de acao, o rotulo casaria com o
+  vocabulario proibido e a guarda recusaria. As URLs (autos, e o PDF empacotado)
+  passam por allowlist + `regras.guarda_de_url`. Nao existe, neste arquivo,
+  funcao que assine, protocole ou tome ciencia — e `teste_regras.py` varre o
+  fonte e quebra o build se aparecer capacidade de agir.
 
 Uso:
-    python CONECTOR/baixar_autos.py        # abre a sessao; voce loga e abre 1 processo
-    python CONECTOR/baixar_autos.py --limite 5 --pausa 2
+    python CONECTOR/baixar_autos.py --todos            # o acervo inteiro
+    python CONECTOR/baixar_autos.py --cnj 0809135-08.2026.8.14.0040
+    python CONECTOR/baixar_autos.py --cnj <n> --pecas  # fallback peca a peca
 """
 from __future__ import annotations
 
@@ -177,6 +183,221 @@ def extrair_acervo(html: str) -> dict[str, str]:
     return out
 
 
+# ---------------------------------------------------------------------------
+#  DOWNLOAD INTEGRAL — "Download autos do processo" (um clique = autos inteiros)
+# ---------------------------------------------------------------------------
+#
+# Descoberto na execucao real de 16/07/2026 (ver MAPA_PJE.md §12). A tela de
+# autos tem o botao "Download autos do processo" (dropdown na navbar). Ele
+# dispara um A4J.AJAX.Submit que EMPACOTA os autos no servidor; ao terminar, um
+# link oculto (`linkDownloadOculto`) chama window.open(URL) com o PDF pronto,
+# servido por pje-docs.tjpa.jus.br (S3, URL assinada, valida ~30 min).
+#
+# Um clique = autos inteiros num PDF unico. Na pratica: 16 processos, 280 MB, em
+# ~100 s, com UM login. E o que torna a escala viavel (100 processos ~ 10 min).
+#
+# Isto RENDERIZA a tela de autos — o que a 1a versao evitava por medo do
+# anti-debug. A execucao real provou que, sob connect_over_cdp (Chrome comum, sem
+# flags de automacao), o `debugger;` da pagina e inofensivo: os 16 processos
+# renderizaram sem travar. Continua sendo LEITURA: "Download autos do processo"
+# entrega os autos em PDF; nao ha, neste arquivo, qualquer capacidade de escrita
+# (R7). O unico clique e no botao rotulado "Download", que passa antes por
+# regras.guarda_de_clique — se um dia o seletor pegasse um botao de acao, o
+# rotulo casaria com o vocabulario proibido e a guarda recusaria.
+
+HOST_PACOTE = "pje-docs.tjpa.jus.br"
+
+# O botao vive num dropdown oculto (display:none); .click() no elemento dispara
+# o A4J mesmo sem visibilidade. O id do <input> e j_idNNN — auto-gerado pelo
+# JSF e INSTAVEL entre renders (16/07 vi j_id211 e depois j_id207 no MESMO
+# processo). Ancorar sempre pelo container de id ESTAVEL `navbar:botoesDownload`,
+# nunca pelo j_id. (Em raw-string, `\\:` vira `\:` na string JS = escape CSS do
+# ':' do id "navbar:botoesDownload".)
+_JS_ACHAR_BOTAO = r"""() => {
+  const b = document.querySelector('#navbar\\:botoesDownload input.btn-primary')
+        || document.querySelector('#navbar\\:botoesDownload input[value="Download"]')
+        || Array.from(document.querySelectorAll('input[type=button],input[type=submit]'))
+               .find(x => (x.value||'').trim().toLowerCase()==='download');
+  return b ? (b.value || 'Download') : '';
+}"""
+_JS_CLICAR_BOTAO = r"""() => {
+  const b = document.querySelector('#navbar\\:botoesDownload input.btn-primary')
+        || document.querySelector('#navbar\\:botoesDownload input[value="Download"]')
+        || Array.from(document.querySelectorAll('input[type=button],input[type=submit]'))
+               .find(x => (x.value||'').trim().toLowerCase()==='download');
+  if (!b) return false;
+  b.click();
+  return true;
+}"""
+# Sobrescreve window.open ANTES do clique: em vez de abrir popup, guarda a URL
+# do pacote. O oncomplete do A4J faz $('linkDownloadOculto').click() -> open(URL).
+_JS_CAPTURAR_OPEN = (r"() => { window.__cap = []; window.__oo = window.open;"
+                     r" window.open = function(u){ window.__cap.push(String(u));"
+                     r" return null; }; }")
+_JS_LER_CAP = "() => window.__cap || []"
+_JS_LER_LINK = ("() => { const e = document.getElementById('linkDownloadOculto');"
+                " return e ? (e.getAttribute('onclick') || '') : ''; }")
+
+RE_OPEN_URL = re.compile(r"window\.open\('([^']+)'\)")
+
+
+def _url_pacote_ok(url: str) -> str:
+    """Allowlist do PDF empacotado: so o host pje-docs e caminho .../...processo.pdf.
+    Como o _url_download da REST: uma rota de LEITURA conhecida; o resto e ausencia."""
+    if url.startswith("/"):
+        url = "https://" + HOST_PACOTE + url
+    limpo = url.split("?", 1)[0].lower()
+    if not (url.startswith(f"https://{HOST_PACOTE}/") and limpo.endswith("processo.pdf")):
+        raise regras.ViolacaoR7(
+            f"URL de pacote fora da allowlist de leitura: {url[:80]!r}")
+    regras.guarda_de_url(url)   # ainda barra qualquer verbo de acao que aparecesse
+    return url
+
+
+def _esperar_botao_download(pagina, seg: float = 20.0) -> str:
+    """Espera a navbar montar; devolve o rotulo do botao (ou '' se nao veio)."""
+    alvo = time.time() + seg
+    while time.time() < alvo:
+        rot = pagina.evaluate(_JS_ACHAR_BOTAO)
+        if rot:
+            return rot
+        time.sleep(0.5)
+    return ""
+
+
+def disparar_pacote(pagina, espera_max: float = 300.0) -> str | None:
+    """
+    Na tela de autos JA carregada: dispara 'Download autos do processo' e captura
+    a URL do PDF empacotado. So leitura — o unico clique passa pela guarda de R7
+    (o rotulo tem de ser 'Download', nunca um verbo de acao).
+    """
+    rotulo = _esperar_botao_download(pagina)
+    if not rotulo:
+        return None
+    regras.guarda_de_clique(rotulo)        # RAIL R7: recusa se nao for leitura
+    pagina.evaluate(_JS_CAPTURAR_OPEN)     # intercepta o window.open
+    if not pagina.evaluate(_JS_CLICAR_BOTAO):
+        return None
+    alvo = time.time() + espera_max
+    while time.time() < alvo:
+        cap = [u for u in (pagina.evaluate(_JS_LER_CAP) or [])
+               if u and u not in ("", "undefined", "null")]
+        if cap:
+            return cap[-1]
+        m = RE_OPEN_URL.search(pagina.evaluate(_JS_LER_LINK) or "")
+        if m and m.group(1).strip():
+            return m.group(1)
+        time.sleep(2)
+    return None
+
+
+def baixar_integral(contexto, cnj: str, url_autos: str,
+                    espera_max: float = 300.0) -> dict:
+    """
+    Autos INTEGRAIS de um processo: abre a tela de autos, dispara o empacotamento,
+    pega a URL assinada e busca o PDF pela sessao (GET). Salva em
+    AUTOS/{cnj}/autos_integral_{sha8}.pdf. Idempotente por sha (pula se ja existe).
+    """
+    destino = RAIZ / "AUTOS" / cnj
+    ja = sorted(destino.glob("autos_integral_*.pdf")) if destino.exists() else []
+    if ja:
+        return {"cnj": cnj, "status": "ja_existe",
+                "arquivo": str(ja[-1]), "bytes": ja[-1].stat().st_size}
+    regras.guarda_de_url(url_autos)
+    pagina = contexto.new_page()
+    try:
+        pagina.on("dialog", lambda d: d.accept())   # "confirma download?" -> sim
+        pagina.set_default_timeout(60_000)
+        pagina.goto(url_autos, wait_until="domcontentloaded")
+        url = disparar_pacote(pagina, espera_max)
+        if not url:
+            return {"cnj": cnj, "status": "sem_pacote"}
+        url = _url_pacote_ok(url)
+        r = contexto.request.get(url, timeout=180_000)
+        body = r.body() if r.status == 200 else b""
+        if r.status != 200 or body[:5] != b"%PDF-":
+            return {"cnj": cnj, "status": f"http_{r.status}", "bytes": len(body)}
+        sha = hashlib.sha256(body).hexdigest()
+        destino.mkdir(parents=True, exist_ok=True)
+        arq = destino / f"autos_integral_{sha[:8]}.pdf"
+        arq.write_bytes(body)
+        return {"cnj": cnj, "status": "ok", "arquivo": str(arq),
+                "bytes": len(body), "sha256": sha}
+    except Exception as e:  # noqa: BLE001
+        return {"cnj": cnj, "status": "erro", "detalhe": str(e)[:160]}
+    finally:
+        try:
+            pagina.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+def coletar_integral(s: "sessao.SessaoEfemera", cnj_alvo: str, todos: bool,
+                     espera_max: float, pausa: float) -> list[dict]:
+    """
+    UM login -> autos integrais de UM processo (--cnj) ou de TODO o acervo
+    (--todos). Le a aba Acervo do painel e baixa cada um. So leitura.
+
+    E aqui que "um login" vira "N processos baixados": o titular autentica uma
+    vez; o robo percorre o acervo sozinho. Escala sem reautenticar.
+    """
+    import json
+    print()
+    print("=" * 70)
+    print("  BAIXAR AUTOS INTEGRAIS — um login, o robo percorre o acervo")
+    print("=" * 70)
+    try:
+        html_painel = s.pagina.content()
+    except Exception as e:  # noqa: BLE001
+        print(f"[baixar] nao consegui ler o painel: {e}")
+        return []
+    acervo = extrair_acervo(html_painel)
+    if not acervo:
+        print("[baixar] nenhum processo no Acervo. Abra a aba ACERVO e expanda")
+        print("         as comarcas, depois rode de novo.")
+        return []
+    print(f"[baixar] {len(acervo)} processo(s) no Acervo.")
+
+    if todos:
+        alvos = sorted(acervo.items())
+    else:
+        chave = _norm_cnj(cnj_alvo)
+        alvos = [(c, u) for c, u in sorted(acervo.items()) if _norm_cnj(c) == chave]
+        if not alvos:
+            print(f"[baixar] {cnj_alvo} nao esta no Acervo. Vejo:")
+            for c in sorted(acervo):
+                print(f"           {c}")
+            return []
+
+    resultados: list[dict] = []
+    for i, (cnj, url) in enumerate(alvos, 1):
+        print(f"[{i:>2}/{len(alvos)}] {cnj} ... ", end="", flush=True)
+        r = baixar_integral(s.contexto, cnj, url, espera_max)
+        resultados.append(r)
+        if r["status"] == "ok":
+            print(f"OK  {r['bytes'] / 1024 / 1024:.1f} MB")
+        elif r["status"] == "ja_existe":
+            print(f"ja existe ({r['bytes'] / 1024 / 1024:.1f} MB) - pulado")
+        else:
+            print(f"** {r['status']} ** {r.get('detalhe', '')}")
+        time.sleep(pausa)
+
+    man = RAIZ / "AUTOS" / "_manifesto_integral.json"
+    man.parent.mkdir(parents=True, exist_ok=True)
+    man.write_text(json.dumps(
+        {"gerado_em": datetime.now().isoformat(timespec="seconds"),
+         "resultados": resultados}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    oks = [r for r in resultados if r["status"] in ("ok", "ja_existe")]
+    mb = sum(r.get("bytes", 0) for r in oks) / 1024 / 1024
+    falhas = [r for r in resultados if r["status"] not in ("ok", "ja_existe")]
+    print("=" * 70)
+    print(f">>> {len(oks)}/{len(resultados)} com autos ({mb:.1f} MB). Manifesto: {man}")
+    if falhas:
+        print(">>> pendencias: " + ", ".join(f"{r['cnj']}={r['status']}" for r in falhas))
+    return resultados
+
+
 def coletar(s: "sessao.SessaoEfemera", cnj_alvo: str,
             limite: int, pausa: float) -> Path | None:
     """
@@ -298,17 +519,25 @@ def coletar(s: "sessao.SessaoEfemera", cnj_alvo: str,
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Baixa os autos de um processo (leitura).")
+    ap = argparse.ArgumentParser(description="Baixa os autos de processos (leitura).")
     ap.add_argument("--cnj", default="",
-                    help="numero CNJ do processo (deixe a comarca dele aberta no Acervo)")
+                    help="CNJ de UM processo (deixe a comarca dele aberta no Acervo)")
+    ap.add_argument("--todos", action="store_true",
+                    help="autos INTEGRAIS de TODO o acervo — um login, todos os processos")
+    ap.add_argument("--pecas", action="store_true",
+                    help="metodo antigo: peca a peca pela REST documento/download (fallback)")
     ap.add_argument("--limite", type=int, default=0,
-                    help="baixar no maximo N pecas (0 = todas)")
-    ap.add_argument("--pausa", type=float, default=1.5,
-                    help="segundos entre downloads (rate limit; padrao 1.5)")
+                    help="[--pecas] baixar no maximo N pecas (0 = todas)")
+    ap.add_argument("--espera", type=float, default=300.0,
+                    help="segundos max p/ o servidor empacotar cada processo (integral)")
+    ap.add_argument("--pausa", type=float, default=2.0,
+                    help="segundos entre processos (rate limit; padrao 2.0)")
     args = ap.parse_args()
 
-    ok, faltas = sessao.ambiente_ok()
-    print("[ambiente]", "pronto" if ok else "INCOMPLETO")
+    reuso = sessao.sessao_viva_logada()
+    ok, faltas = sessao.ambiente_ok(reuso=reuso)
+    print("[ambiente]", "pronto" if ok else "INCOMPLETO",
+          "(sessao viva detectada)" if reuso else "")
     for f in faltas:
         print("  -", f)
     if not ok:
@@ -317,7 +546,13 @@ def main() -> None:
     with sessao.SessaoEfemera() as s:
         if not s.esperar_login_humano():
             return
-        coletar(s, args.cnj, args.limite, args.pausa)
+        if args.pecas:                       # fallback: peca a peca (REST)
+            coletar(s, args.cnj, args.limite, args.pausa)
+        elif args.todos or args.cnj:         # integral (padrao)
+            coletar_integral(s, args.cnj, args.todos, args.espera, args.pausa)
+        else:
+            print("[baixar] diga --todos (acervo inteiro) ou --cnj <numero>.")
+            print("         (--pecas usa o metodo antigo, peca a peca.)")
 
 
 if __name__ == "__main__":

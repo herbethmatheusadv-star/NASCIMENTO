@@ -546,8 +546,15 @@ fechados** (§9). **Fluxo de leitura de autos: FECHADO** (§11, captura de 16/07
 
 ---
 
-## 11. FLUXO DE LEITURA DE AUTOS — fechado na captura de 16/07/2026 (14h41)
+## 11. FLUXO DE LEITURA DE AUTOS — peça a peça (hoje é o FALLBACK; ver §12.4)
 
+> ⚠️ **Superado como método primário.** A execução real mostrou que a árvore de
+> autos é lazy e `documento/download/{idProcessoDocumento}` devolve 204 na
+> maioria das peças (§12.4). O método primário passou a ser o **download
+> integral** ("Download autos do processo" → um PDF por processo, §12.4). Este
+> §11 (peça a peça pela REST) permanece como **fallback** (`--pecas`), útil
+> quando se quer uma peça específica.
+>
 > 2ª sessão de mapeamento. Capturou os autos (`listProcessoCompletoAdvogado`) e
 > **3 chamadas REST**. Fecha o que faltava: como listar as peças, como baixar
 > cada uma, e a autenticação exata.
@@ -614,7 +621,8 @@ nunca com autonomia de escrita.
 
 ## 12. O que a execução REAL ensinou (16/07/2026, sessões de download)
 
-Rodar de verdade derrubou hipóteses e trouxe um avanço grande e uma pendência.
+Rodar de verdade derrubou hipóteses, trouxe dois avanços grandes (CDP contra o
+anti-bot; download integral = um login baixa tudo) e fechou a coleta.
 
 ### 12.1 🎯 O AVANÇO: conectar por CDP derrota o anti-bot
 
@@ -632,8 +640,9 @@ Numa conexão **longa**, o `page.url` do Playwright **congela** no valor antigo:
 a aba navegou de SSO → painel, mas o objeto seguia reportando o SSO. Foi o que
 travou o `esperar_login_humano` (esperava um "painel" na URL que nunca vinha).
 **Verdade veio do CDP cru:** `GET http://127.0.0.1:9222/json` lista as abas com a
-URL real. **Fix a fazer:** a deteccao de login deve consultar o `/json` do CDP
-(sempre fresco), não o `page.url` (que envelhece). Uma conexão NOVA lê certo.
+URL real. **✅ FIX FEITO (ver §12.5):** a detecção de login consulta o `/json` do
+CDP (sempre fresco) e só conecta o Playwright DEPOIS que o painel aparece — uma
+conexão nova lê a URL certa.
 
 ### 12.3 Correções que já entraram
 
@@ -642,24 +651,71 @@ URL real. **Fix a fazer:** a deteccao de login deve consultar o `/json` do CDP
 - **Encoding:** as páginas do legado são **ISO-8859-1**; `r.text()` (assume UTF-8)
   quebra. Decodificar com `errors="ignore"` (os ids são ASCII).
 
-### 12.4 ⚠️ A PENDÊNCIA REAL: a árvore de autos é lazy, e o download quer o idBin
+### 12.4 ✅ RESOLVIDO: o download INTEGRAL ("Download autos do processo")
 
-Aqui o desenho do §11 caiu: **`documento/download/{idProcessoDocumento}` devolve
-204** (sem conteúdo) para a maioria das peças, e um `<p>ANEXO</p>` de 76 bytes
-para outras. O que a execução mostrou:
-- A árvore dos autos é **lazy**: o `idProcessoDocumento` de todas as peças está no
-  HTML, mas o **`idBin`** (o id do *binário*) só carrega quando se **clica** na
-  peça (AJAX). O visualizador exibe o doc num `<iframe src="…/documento/download/
-  {idBin}">`. Ou seja: **o download quer o idBin, não o idProcessoDocumento** — e
-  o idBin é lazy. (No teste de 14:41 "funcionou" só porque, naquele doc, os dois
-  ids coincidiam e o usuário havia clicado.)
-- O caminho limpo é o botão **`title="Download autos do processo"`** (dropdown,
-  ação 14 do manual = "todo o conteúdo"). Ele existe na barra dos autos e gera o
-  pacote. Falta mapear os itens do menu (RichFaces) e o arquivo resultante.
+A pendência do idBin lazy foi **contornada pelo caminho limpo** — o botão
+**"Download autos do processo"** (dropdown na navbar dos autos). Ele não precisa
+do idBin de cada peça: empacota os autos INTEIROS no servidor e devolve **um PDF
+único e completo**. Rodado de verdade em 16/07/2026: **os 16 processos do acervo,
+280 MB, em ~100 s, com UM login** (4–12 s por processo). É o que torna a escala
+viável — 100 processos ≈ 10 min, um login só.
 
-**Conclusão honesta:** a camada de *acesso* (conectar, ler Acervo, abrir autos)
-está **resolvida**. A de *baixar os bytes* precisa de mais uma etapa — ou clicar
-peça a peça para colher o idBin, ou acionar o download integral. Como o titular
-**já baixa os autos manualmente** (clica esse mesmo botão), a via pragmática é:
-ele exporta, e o **importador** (Fase 3) processa. O download automático fica como
-refinamento, não como bloqueio do valor.
+**A fiação (engenharia reversa do HTML real dos autos):**
+```
+<li id="dropdownParametrosDownload">   ("Download autos do processo")
+  formulário com filtros (todos OPCIONAIS; default = autos integral):
+    navbar:cbTipoDocumento (todos)   navbar:idDe / idAte   (vazio)
+    navbar:dtInicio / dtFim (vazio)  navbar:cbCronologia   (ASC)
+    navbar:cbExpediente (Não)        navbar:cbMovimentos   (Não)
+  <div id="navbar:botoesDownload">
+    <input value="Download" onclick="A4J.AJAX.Submit('navbar', …,
+        {oncomplete: () => $('linkDownloadOculto').click()})">
+  <a id="linkDownloadOculto" onclick="window.open('URL_DO_PACOTE')">
+```
+Fluxo: **clica "Download" → A4J empacota no servidor → `oncomplete` clica o link
+oculto → `window.open(URL)`**. A URL é um **PDF assinado em `pje-docs.tjpa.jus.br`**
+(S3, `X-Amz-Signature`, validade ~30 min), com o CNJ no nome do arquivo.
+
+**Como o robô captura (sem abrir popup):** sobrescreve `window.open` ANTES do
+clique para guardar a URL em vez de abrir aba; dispara o botão; espera a URL
+aparecer (em `window.__cap` ou no `onclick` do `linkDownloadOculto`); busca os
+bytes por `context.request.get(url)` (GET, cookie da sessão). Salva
+`AUTOS/{cnj}/autos_integral_{sha8}.pdf`. É o que `baixar_autos.coletar_integral`
+faz para o acervo inteiro (`--todos`) ou um processo (`--cnj`).
+
+**Duas armadilhas que custaram tempo:**
+- O `<input>` do botão tem **id `j_idNNN` auto-gerado e INSTÁVEL** — no mesmo
+  processo vi `j_id211` e, no render seguinte, `j_id207`. **Nunca ancorar no
+  `j_id`.** O container `navbar:botoesDownload` é id estável; seletor:
+  `#navbar\:botoesDownload input.btn-primary`.
+- O botão vive num dropdown `display:none`; o Playwright `.click()` recusa
+  (invisível). Invocar via JS `el.click()` dispara o `A4J.AJAX.Submit` mesmo
+  oculto.
+
+### 12.5 Correções de sessão que entraram
+
+- **`page.url` velho (§12.2): FIX FEITO.** `esperar_login_humano` agora detecta o
+  painel pelo **`/json` do CDP** (sempre fresco) e só então conecta o Playwright —
+  url correta. Fim do travamento na detecção de login.
+- **Reaproveitar sessão:** se já há Chrome logado na porta CDP, o `SessaoEfemera`
+  **anexa** (não sobe outro navegador, não encerra na saída, não apaga nada). Um
+  login serve para N execuções — o que o titular pediu ("não repetir o login
+  várias vezes"). `sessao_viva_logada()` decide; `ambiente_ok(reuso=True)` dispensa
+  PJeOffice.
+- **Matcher do painel:** `listProcessoCompletoAdvogado.seam` (autos) também termina
+  em `advogado.seam`; casar por isso pegava a aba de autos. Agora ancora em
+  `painel`/`acervo` e exclui as telas de processo.
+
+### 12.6 R7 no download integral
+
+Continua sendo **leitura**: "Download autos do processo" entrega o PDF dos autos;
+não assina, não protocola, não toma ciência. O único clique é no botão rotulado
+**"Download"**, e passa por `regras.guarda_de_clique` (se o seletor pegasse um
+botão de ação, o rótulo casaria com o vocabulário proibido e a guarda recusaria).
+A URL do pacote tem allowlist própria (`_url_pacote_ok`: só
+`pje-docs…/…processo.pdf`) além do `guarda_de_url`.
+
+**Estado:** a coleta está **fechada** — conectar, ler o Acervo e baixar os autos
+integrais de **todos** os processos, com um login. Próximo: o **importador
+(Fase 3)** — PDF → texto com marcador de página (`===[p.N]===`), hash, dedup e
+citação por página.
