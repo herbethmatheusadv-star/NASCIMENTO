@@ -145,76 +145,107 @@ def _extensao(ct: str, dados: bytes) -> str:
     return "bin"
 
 
-def coletar(s: "sessao.SessaoEfemera", limite: int, pausa: float) -> Path | None:
+def _norm_cnj(texto: str) -> str:
+    return re.sub(r"\D", "", texto or "")
+
+
+# URL dos autos por processo, lida da aba Acervo do painel. Cada linha traz o
+# CNJ junto do link listProcessoCompletoAdvogado.seam?id=..&ca=.. — o `ca` e um
+# token por processo, valido so na sessao viva.
+RE_ACERVO = re.compile(
+    r'((?:/pje/[^"\']*)?listProcessoCompletoAdvogado\.seam\?id=\d+&(?:amp;)?ca=[a-f0-9]+)')
+
+
+def extrair_acervo(html: str) -> dict[str, str]:
+    """{cnj: url_dos_autos} a partir do HTML do painel (aba Acervo aberta)."""
+    out: dict[str, str] = {}
+    html = html or ""
+    for m in RE_ACERVO.finditer(html):
+        caminho = htmlmod.unescape(m.group(1))
+        if caminho.startswith("http"):
+            url = caminho
+        elif caminho.startswith("/pje"):
+            url = "https://pje.tjpa.jus.br" + caminho
+        else:
+            url = BASE + "/Processo/ConsultaProcesso/Detalhe/" + caminho
+        cm = RE_CNJ.search(html[m.end():m.end() + 400])
+        if cm:
+            out.setdefault(cm.group(0), url)
+    return out
+
+
+def coletar(s: "sessao.SessaoEfemera", cnj_alvo: str,
+            limite: int, pausa: float) -> Path | None:
     """
-    Espera o titular abrir UM processo, le os autos e baixa as pecas.
-    O robo nao clica em nada — o titular abre; o robo le e baixa (GET).
+    Le o Acervo do painel, acha os autos do processo alvo e baixa as pecas —
+    SEM abrir a tela de autos no navegador.
+
+    Por que assim: a tela de autos tem anti-debug (um `debugger;` que congela a
+    aba sob automacao — foi o "Debugger pausado" que travou o titular ao clicar
+    no processo, em 16/07/2026). A saida e NAO renderizar: pega-se a URL dos
+    autos no Acervo e busca-se o HTML por `context.request` (cookie da sessao,
+    SEM executar o JS da pagina). Anti-debug e client-side; num GET puro ele nao
+    roda. O titular so loga e deixa a comarca aberta — nao clica em nada.
     """
     print()
     print("=" * 70)
-    print("  BAIXAR AUTOS — VOCE ABRE O PROCESSO, EU BAIXO (so leitura)")
+    print("  BAIXAR AUTOS — VOCE SO LOGA; EU BUSCO (leitura, sem anti-debug)")
     print("=" * 70)
-    print("  1. Pela ACERVO, clique no NUMERO de UM processo para abrir os")
-    print("     AUTOS digitais (nova janela).")
-    print("  2. Pode fechar depois — assim que eu vir a pagina dos autos, leio")
-    print("     a lista de pecas e baixo cada uma pela API (GET).")
-    print()
-    print("  NAO abra expediente 'pendente de ciencia'. Autos pela Acervo e")
-    print("  leitura — pode.")
+    print("  NAO clique em processo (a tela de autos trava sob automacao).")
+    print("  Deixe a aba ACERVO aberta, com a COMARCA do processo EXPANDIDA")
+    print("  (para a linha dele aparecer). Eu leio o Acervo e busco os autos")
+    print("  do CNJ pedido pela API, sem renderizar a pagina.")
     print("=" * 70)
 
-    def _achar_autos():
-        # varre TODAS as abas — os autos podem abrir em aba nova (window.open),
-        # e o login por SSO ja reorganiza as abas (ver esperar_login_humano).
-        for pag in list(s.contexto.pages):
-            try:
-                if not pag.is_closed() and \
-                        "listProcessoCompletoAdvogado" in (pag.url or ""):
-                    return pag
-            except Exception:  # noqa: BLE001
-                continue
-        return None
-
-    def _todas_fechadas():
-        for p in s.contexto.pages:
-            try:
-                if not p.is_closed():
-                    return False
-            except Exception:  # noqa: BLE001
-                continue
-        return True
-
-    pag = None
-    limite_espera = time.time() + 8 * 60
-    while time.time() < limite_espera:
-        pag = _achar_autos()
-        if pag is not None:
-            break
-        if _todas_fechadas():
-            print("[baixar] janela fechada antes de abrir um processo. Nada baixado.")
-            return None
-        time.sleep(2)
-
-    if pag is None:
-        print("[baixar] nao vi nenhum processo aberto no tempo limite.")
-        return None
-
     try:
-        pag.wait_for_load_state("networkidle", timeout=30_000)
-    except Exception:  # noqa: BLE001
-        pass
-    try:
-        html = pag.content()
+        html_painel = s.pagina.content()
     except Exception as e:  # noqa: BLE001
-        print(f"[baixar] nao consegui ler a pagina dos autos: {e}")
+        print(f"[baixar] nao consegui ler o painel: {e}")
         return None
 
-    cnj = extrair_cnj(html)
-    docs = extrair_documentos(html)
-    if not cnj:
-        print("[baixar] nao achei o numero CNJ na pagina — abortando por seguranca.")
+    acervo = extrair_acervo(html_painel)
+    if not acervo:
+        print("[baixar] nao vi processos no Acervo. Abra a aba ACERVO e expanda")
+        print("         a comarca do processo, depois rode de novo.")
         return None
-    print(f"\n[baixar] processo {cnj} — {len(docs)} peca(s) na arvore dos autos.")
+    print(f"[baixar] {len(acervo)} processo(s) visiveis no Acervo.")
+
+    if not cnj_alvo:
+        print("[baixar] diga qual baixar: rode com --cnj <numero>. Vejo estes:")
+        for c in sorted(acervo):
+            print(f"           {c}")
+        return None
+
+    chave = _norm_cnj(cnj_alvo)
+    cnj = alvo_url = None
+    for c, u in acervo.items():
+        if _norm_cnj(c) == chave:
+            cnj, alvo_url = c, u
+            break
+    if not alvo_url:
+        print(f"[baixar] {cnj_alvo} nao esta visivel no Acervo. Expanda a comarca")
+        print("         dele no painel. Processos que vejo agora:")
+        for c in sorted(acervo):
+            print(f"           {c}")
+        return None
+
+    regras.guarda_de_url(alvo_url)
+    print(f"[baixar] {cnj}: buscando os autos pela API (sem renderizar)...")
+    try:
+        r = s.contexto.request.get(alvo_url, timeout=60_000)
+        html_autos = r.text() if r.status == 200 else ""
+    except Exception as e:  # noqa: BLE001
+        print(f"[baixar] falha ao buscar os autos: {e}")
+        return None
+    if not html_autos:
+        print(f"[baixar] os autos nao vieram (status={getattr(r, 'status', '?')}).")
+        return None
+
+    docs = extrair_documentos(html_autos)
+    if not docs:
+        print("[baixar] nao achei pecas na arvore dos autos — nada a baixar.")
+        return None
+    print(f"[baixar] {len(docs)} peca(s) na arvore.")
     if limite and len(docs) > limite:
         print(f"[baixar] baixando as {limite} primeiras (--limite).")
         docs = docs[:limite]
@@ -261,6 +292,8 @@ def coletar(s: "sessao.SessaoEfemera", limite: int, pausa: float) -> Path | None
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Baixa os autos de um processo (leitura).")
+    ap.add_argument("--cnj", default="",
+                    help="numero CNJ do processo (deixe a comarca dele aberta no Acervo)")
     ap.add_argument("--limite", type=int, default=0,
                     help="baixar no maximo N pecas (0 = todas)")
     ap.add_argument("--pausa", type=float, default=1.5,
@@ -277,7 +310,7 @@ def main() -> None:
     with sessao.SessaoEfemera() as s:
         if not s.esperar_login_humano():
             return
-        coletar(s, args.limite, args.pausa)
+        coletar(s, args.cnj, args.limite, args.pausa)
 
 
 if __name__ == "__main__":

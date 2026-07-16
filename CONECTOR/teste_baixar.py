@@ -61,6 +61,22 @@ check("a peca com nome traz o nome", dict(docs)["900000001"], "Peticao Inicial")
 check("peca sem nome fica com nome vazio (nao some)",
       dict(docs)["900000002"], "")
 
+print("\n=== 2b. Acervo: liga CNJ -> URL dos autos (id+ca) ===")
+# como aparece no painel real: link dos autos com id&amp;ca, e o CNJ logo apos.
+ACERVO = """
+<a href="/pje/Processo/ConsultaProcesso/Detalhe/listProcessoCompletoAdvogado.seam?id=8465436&amp;ca=da6365dd27bb74" title="Autos Digitais"><span class="text-bold">PJEC 0809135-08.2026.8.14.0040</span></a>
+<a href="/pje/Processo/ConsultaProcesso/Detalhe/listProcessoCompletoAdvogado.seam?id=7628422&amp;ca=acee94e15194" title="Autos Digitais"><span class="text-bold">PJEC 0808548-83.2026.8.14.0040</span></a>
+"""
+acervo = ba.extrair_acervo(ACERVO)
+check("acha os 2 processos", sorted(acervo), sorted([
+    "0809135-08.2026.8.14.0040", "0808548-83.2026.8.14.0040"]))
+check("monta a URL absoluta com id e ca (amp; desescapado)",
+      acervo["0809135-08.2026.8.14.0040"],
+      "https://pje.tjpa.jus.br/pje/Processo/ConsultaProcesso/Detalhe/"
+      "listProcessoCompletoAdvogado.seam?id=8465436&ca=da6365dd27bb74")
+check("normaliza CNJ (so digitos)", ba._norm_cnj("0809135-08.2026.8.14.0040"),
+      "08091350820268140040")
+
 print("\n=== 3. URL de download: allowlist de leitura ===")
 url = ba._url_download("900000001")
 check("monta a rota REST de leitura correta", url,
