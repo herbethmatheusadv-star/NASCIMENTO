@@ -35,3 +35,6 @@ certificado*
 
 # mapeamento do painel (HTML e trafego — dado de cliente)
 _efemeros/
+
+# index de busca FTS5 — GERADO, reconstruivel, fora do Git
+index/
