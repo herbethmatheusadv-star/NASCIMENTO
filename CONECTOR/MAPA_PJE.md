@@ -609,3 +609,57 @@ nunca com autonomia de escrita.
   necessário**: o loop peça-a-peça acima já baixa tudo, com mais granularidade.
 - O `baixar_autos.py` em si (o código) — próximo passo, agora com todas as peças
   do desenho na mão.
+
+---
+
+## 12. O que a execução REAL ensinou (16/07/2026, sessões de download)
+
+Rodar de verdade derrubou hipóteses e trouxe um avanço grande e uma pendência.
+
+### 12.1 🎯 O AVANÇO: conectar por CDP derrota o anti-bot
+
+O `launch()` do Playwright injeta flags de automação que o PJe detecta — daí o
+"Debugger pausado", o painel escapando, a sessão presa no Keycloak. **A saída
+que funcionou:** subir o Chrome **sozinho** (`subprocess`, só com
+`--remote-debugging-port` + `--user-data-dir` temporário, SEM flags de robô) e
+**conectar** por `connect_over_cdp`. Assim o PJe vê um navegador comum: o login
+por certificado completa, e o **painel e os autos renderizam sem travar**.
+Provado: li o Acervo (16 processos), abri os autos (26 peças) — tudo via CDP.
+
+### 12.2 A armadilha do `connect_over_cdp`: URL que envelhece
+
+Numa conexão **longa**, o `page.url` do Playwright **congela** no valor antigo:
+a aba navegou de SSO → painel, mas o objeto seguia reportando o SSO. Foi o que
+travou o `esperar_login_humano` (esperava um "painel" na URL que nunca vinha).
+**Verdade veio do CDP cru:** `GET http://127.0.0.1:9222/json` lista as abas com a
+URL real. **Fix a fazer:** a deteccao de login deve consultar o `/json` do CDP
+(sempre fresco), não o `page.url` (que envelhece). Uma conexão NOVA lê certo.
+
+### 12.3 Correções que já entraram
+
+- **Acervo:** o CNJ fica ~600 chars **depois** do link dos autos (não 400). Janela
+  de busca alargada para 1200. Sem isso, `extrair_acervo` achava 0 processos.
+- **Encoding:** as páginas do legado são **ISO-8859-1**; `r.text()` (assume UTF-8)
+  quebra. Decodificar com `errors="ignore"` (os ids são ASCII).
+
+### 12.4 ⚠️ A PENDÊNCIA REAL: a árvore de autos é lazy, e o download quer o idBin
+
+Aqui o desenho do §11 caiu: **`documento/download/{idProcessoDocumento}` devolve
+204** (sem conteúdo) para a maioria das peças, e um `<p>ANEXO</p>` de 76 bytes
+para outras. O que a execução mostrou:
+- A árvore dos autos é **lazy**: o `idProcessoDocumento` de todas as peças está no
+  HTML, mas o **`idBin`** (o id do *binário*) só carrega quando se **clica** na
+  peça (AJAX). O visualizador exibe o doc num `<iframe src="…/documento/download/
+  {idBin}">`. Ou seja: **o download quer o idBin, não o idProcessoDocumento** — e
+  o idBin é lazy. (No teste de 14:41 "funcionou" só porque, naquele doc, os dois
+  ids coincidiam e o usuário havia clicado.)
+- O caminho limpo é o botão **`title="Download autos do processo"`** (dropdown,
+  ação 14 do manual = "todo o conteúdo"). Ele existe na barra dos autos e gera o
+  pacote. Falta mapear os itens do menu (RichFaces) e o arquivo resultante.
+
+**Conclusão honesta:** a camada de *acesso* (conectar, ler Acervo, abrir autos)
+está **resolvida**. A de *baixar os bytes* precisa de mais uma etapa — ou clicar
+peça a peça para colher o idBin, ou acionar o download integral. Como o titular
+**já baixa os autos manualmente** (clica esse mesmo botão), a via pragmática é:
+ele exporta, e o **importador** (Fase 3) processa. O download automático fica como
+refinamento, não como bloqueio do valor.

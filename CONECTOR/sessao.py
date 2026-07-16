@@ -133,6 +133,7 @@ class SessaoEfemera:
             [chrome, f"--remote-debugging-port={PORTA_CDP}",
              f"--user-data-dir={self._tmp}",
              "--no-first-run", "--no-default-browser-check",
+             "--start-maximized", "--new-window",
              URL_LOGIN_TJPA],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 

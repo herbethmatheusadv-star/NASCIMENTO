@@ -168,7 +168,10 @@ def extrair_acervo(html: str) -> dict[str, str]:
             url = "https://pje.tjpa.jus.br" + caminho
         else:
             url = BASE + "/Processo/ConsultaProcesso/Detalhe/" + caminho
-        cm = RE_CNJ.search(html[m.end():m.end() + 400])
+        # o CNJ vem DEPOIS do link, no texto da linha, ~600 chars a frente
+        # (medido no HTML real 16/07/2026; 400 nao alcancava). Janela de 1200
+        # cobre com folga sem invadir a proxima linha (~1700 a frente).
+        cm = RE_CNJ.search(html[m.start():m.start() + 1200])
         if cm:
             out.setdefault(cm.group(0), url)
     return out
@@ -235,7 +238,9 @@ def coletar(s: "sessao.SessaoEfemera", cnj_alvo: str,
     print(f"[baixar] {cnj}: buscando os autos pela API (sem renderizar)...")
     try:
         r = s.contexto.request.get(alvo_url, timeout=60_000)
-        html_autos = r.text() if r.status == 200 else ""
+        # paginas do legado sao ISO-8859-1; r.text() assume utf-8 e quebra.
+        # os ids sao ASCII, entao decodificar com errors=ignore basta.
+        html_autos = r.body().decode("utf-8", "ignore") if r.status == 200 else ""
     except Exception as e:  # noqa: BLE001
         print(f"[baixar] falha ao buscar os autos: {e}")
         return None
