@@ -42,10 +42,25 @@ RAIZ = Path(__file__).resolve().parents[1]
 
 URL_LOGIN_TJPA = "https://pje.tjpa.jus.br/pje/login.seam"
 
+# Porta de depuracao do Chrome. O robo CONECTA nela (nao lanca com as flags de
+# automacao do Playwright): assim o PJe ve um navegador comum e o login por
+# certificado + SSO completa na propria janela — em vez de o painel escapar
+# para fora do alcance do robo (diagnosticado em 16/07/2026: o launch() do
+# Playwright dispara o anti-bot, e a sessao so via a tela do Keycloak).
+PORTA_CDP = 9222
+
 # Marcadores de que a sessao esta ativa (o titular passou do portao).
 # Sao trechos que so aparecem DEPOIS do login, em tela de leitura.
 MARCAS_LOGADO = ("Painel", "Acervo", "Expedientes", "Quadro de Avisos",
                  "Consulta Processual", "Sair")
+
+
+def _achar_chrome() -> str | None:
+    for p in (r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+              r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"):
+        if Path(p).exists():
+            return p
+    return None
 
 
 def ambiente_ok() -> tuple[bool, list[str]]:
@@ -92,48 +107,74 @@ class SessaoEfemera:
         self.headless = headless
         self._tmp: str | None = None
         self._pw = None
+        self._proc = None
+        self._navegador = None
         self.contexto = None
         self.pagina = None
 
     def __enter__(self):
+        import subprocess
+        import time as _t
+        import urllib.request
         from playwright.sync_api import sync_playwright
-        # Pasta so para downloads (autos). O PERFIL nao mora aqui: o navegador
-        # sobe sem flag de perfil nenhuma, e o Playwright o cria e destroi
-        # sozinho num temporario proprio.
+
+        chrome = _achar_chrome()
+        if not chrome:
+            raise RuntimeError("Chrome do sistema nao encontrado.")
+
+        # Perfil temporario DEDICADO, apagado na saida (efemero, como antes) —
+        # so que agora o Chrome sobe SOZINHO, sem as flags de automacao do
+        # Playwright. O robo depois CONECTA na porta de depuracao (connect ->
+        # so leitura). Assim o PJe nao detecta robo e o login por certificado
+        # completa na janela; o robo enxerga o painel em vez de ele escapar.
+        # Nao herda perfil pessoal do titular: nasce em branco neste temporario.
         self._tmp = tempfile.mkdtemp(prefix="soj_pje_efemero_")
+        self._proc = subprocess.Popen(
+            [chrome, f"--remote-debugging-port={PORTA_CDP}",
+             f"--user-data-dir={self._tmp}",
+             "--no-first-run", "--no-default-browser-check",
+             URL_LOGIN_TJPA],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+        # espera a porta de depuracao subir
+        alvo = _t.time() + 30
+        while _t.time() < alvo:
+            try:
+                urllib.request.urlopen(
+                    f"http://127.0.0.1:{PORTA_CDP}/json/version", timeout=2)
+                break
+            except Exception:  # noqa: BLE001
+                _t.sleep(0.5)
+
         self._pw = sync_playwright().start()
-        # channel="chrome" = usa o Chrome JA INSTALADO na maquina, nao o
-        # Chromium empacotado pelo Playwright — que nesta maquina nao sobe
-        # ("configuracao lado a lado incorreta": falta o Visual C++
-        # Redistributable). Diagnosticado em 15/07/2026; o Chrome do sistema
-        # (v150) abre normal.
-        #
-        # IMPORTANTE: usar o Chrome do sistema NAO significa usar o PERFIL dele.
-        # launch() sobe um perfil temporario proprio, vazio, que o Playwright
-        # apaga ao fechar. As abas, cookies, senhas e sessoes pessoais do
-        # titular NAO sao tocados nem herdados — a janela nasce em branco.
-        self._navegador = self._pw.chromium.launch(
-            headless=self.headless,
-            channel="chrome",
-            downloads_path=self._tmp,   # autos baixados vao para o temporario
-        )
-        # contexto novo = isolado, nada herdado, nada exportado ao fechar
-        self.contexto = self._navegador.new_context(accept_downloads=True)
-        self.pagina = self.contexto.new_page()
+        # connect_over_cdp: ANEXA ao Chrome que ja esta rodando, so leitura.
+        # Nao lanca navegador novo, nao injeta automacao.
+        self._navegador = self._pw.chromium.connect_over_cdp(
+            f"http://127.0.0.1:{PORTA_CDP}")
+        ctxs = self._navegador.contexts
+        self.contexto = ctxs[0] if ctxs else self._navegador.new_context()
+        pgs = self.contexto.pages
+        self.pagina = pgs[0] if pgs else self.contexto.new_page()
         return self
 
     def __exit__(self, *exc):
         try:
-            if self.contexto:
-                self.contexto.close()
-            if getattr(self, "_navegador", None):
-                self._navegador.close()
             if self._pw:
-                self._pw.stop()
-        finally:
-            if self._tmp:
-                shutil.rmtree(self._tmp, ignore_errors=True)
-                print(f"[sessao] perfil efemero apagado: {self._tmp}")
+                self._pw.stop()   # desconecta o CDP (nao mata o Chrome)
+        except Exception:  # noqa: BLE001
+            pass
+        try:
+            if getattr(self, "_proc", None):
+                self._proc.terminate()   # encerra o Chrome que subimos
+                try:
+                    self._proc.wait(timeout=5)
+                except Exception:  # noqa: BLE001
+                    self._proc.kill()
+        except Exception:  # noqa: BLE001
+            pass
+        if self._tmp:
+            shutil.rmtree(self._tmp, ignore_errors=True)
+            print(f"[sessao] perfil efemero apagado: {self._tmp}")
         return False
 
     # -- navegacao guardada ------------------------------------------------
@@ -168,7 +209,8 @@ class SessaoEfemera:
         de novo.
         """
         import time
-        self.ir_para(URL_LOGIN_TJPA)
+        # o Chrome ja subiu na tela de login (subprocess do __enter__); nao
+        # navegamos de novo. O robo so ESPERA e observa.
         print()
         print("=" * 70)
         print("  O ROBO PAROU NO PORTAO — E A SUA VEZ (2 PASSOS)")
@@ -193,21 +235,35 @@ class SessaoEfemera:
         # evaluate (uma aba pausada em `debugger;` nao pode ser lida), so olha a
         # URL. about:blank e abas de login sao ignoradas.
         alvo = time.time() + timeout_min * 60
+        ciclo = 0
         while time.time() < alvo:
-            for pag in list(self.contexto.pages):
-                try:
-                    if pag.is_closed():
+            ciclo += 1
+            urls_vistas: list[str] = []
+            # varre TODOS os contextos do navegador, nao so o inicial: o login
+            # por certificado/SSO pode abrir o painel num contexto/janela que o
+            # contexto original nao enxerga.
+            for ctx in list(self._navegador.contexts):
+                for pag in list(ctx.pages):
+                    try:
+                        if pag.is_closed():
+                            continue
+                        u = pag.url or ""
+                    except Exception:  # noqa: BLE001
                         continue
-                    u = (pag.url or "").lower()
-                except Exception:  # noqa: BLE001
-                    continue
-                if not u or u == "about:blank" or "login" in u:
-                    continue
-                if "painel" in u and "tjpa.jus.br" in u:
-                    self.pagina = pag   # o robo passa a olhar a aba CERTA
-                    print(f"\n[sessao] painel detectado em {pag.url[:70]}")
-                    print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
-                    return True
+                    urls_vistas.append(u)
+                    ul = u.lower()
+                    if not ul or ul == "about:blank" or "login" in ul:
+                        continue
+                    if ("painel" in ul or "advogado.seam" in ul
+                            or "acervo" in ul) and "tjpa" in ul:
+                        self.contexto = ctx   # o robo passa ao contexto CERTO
+                        self.pagina = pag     # e a aba certa
+                        print(f"\n[sessao] painel detectado em {u[:80]}")
+                        print("[sessao] sessao ativa — modo SOMENTE LEITURA.")
+                        return True
+            if ciclo % 4 == 1:   # a cada ~8s, mostra o que estou vendo
+                vis = [x[:55] for x in urls_vistas] or ["(nenhuma aba)"]
+                print(f"[sessao] aguardando... abas que vejo: {vis}")
             time.sleep(2)
         print("\n[sessao] nao identifiquei o painel (talvez o 2FA nao tenha "
               "concluido). Sessao encerrada sem ler nada — perfil apagado.")

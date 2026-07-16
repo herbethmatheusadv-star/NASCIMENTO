@@ -197,11 +197,13 @@ def coletar(s: "sessao.SessaoEfemera", cnj_alvo: str,
     print("  do CNJ pedido pela API, sem renderizar a pagina.")
     print("=" * 70)
 
+    print(f"[baixar] lendo o Acervo do painel ({(s.pagina.url or '')[:60]})...")
     try:
         html_painel = s.pagina.content()
     except Exception as e:  # noqa: BLE001
         print(f"[baixar] nao consegui ler o painel: {e}")
         return None
+    print(f"[baixar] painel lido ({len(html_painel)} bytes). Procurando processos...")
 
     acervo = extrair_acervo(html_painel)
     if not acervo:
