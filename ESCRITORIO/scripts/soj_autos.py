@@ -29,6 +29,7 @@ IMPORTAR = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_import.py"
 REINDEX = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_reindex.py"
 INTEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_inteligencia.py"
 RESUMO = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_resumo.py"
+PRAZOS = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_prazos.py"
 PAINEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_painel.py"
 
 
@@ -91,8 +92,11 @@ def main() -> None:
     passo(5, "PREPARAR resumos dos processos iminentes (audiencia/prazo)",
           [RESUMO, "--iminentes"])
 
-    # passo 6: gera e ABRE o painel do dia (o cockpit). Nao derruba a rotina.
-    passo(6, "PAINEL do dia (abre no navegador)", [PAINEL])
+    # passo 6: o motor de prazos varre as fichas e lista os vencimentos.
+    passo(6, "PRAZOS do acervo (motor de prazos — vencimentos)", [PRAZOS])
+
+    # passo 7: gera e ABRE o painel do dia (o cockpit). Nao derruba a rotina.
+    passo(7, "PAINEL do dia (abre no navegador)", [PAINEL])
 
     print("\n" + "=" * 68)
     print("  ROTINA COMPLETA — o painel do dia abriu no navegador.")

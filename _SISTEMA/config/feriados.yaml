@@ -1,0 +1,22 @@
+# FERIADOS FORENSES — configuração do motor de prazos (soj_prazos.py)
+#
+# O motor JÁ CALCULA sozinho:
+#   - feriados nacionais fixos (01/01, 21/04, 01/05, 07/09, 12/10, 02/11,
+#     15/11, 20/11 Consciência Negra, 25/12);
+#   - feriados móveis pela Páscoa (Sexta-feira Santa, Carnaval seg/ter,
+#     Corpus Christi);
+#   - o RECESSO FORENSE (20/12 a 20/01, art. 220 do CPC) — prazos suspensos.
+#
+# O que ELE NÃO SABE, e você precisa preencher da PORTARIA de cada tribunal:
+#   - feriados/pontos facultativos LOCAIS (municipais, estaduais, forenses),
+#     e as suspensões de expediente por portaria.
+#
+# ⚠️ Enquanto esta lista estiver incompleta, todo vencimento sai marcado
+# "a conferir" — o motor alerta, mas a folha exata é conferida no PJe.
+# Formato: datas ISO (AAAA-MM-DD) sob cada tribunal.
+
+local:
+  tjpa: []          # portaria de feriados do TJPA — preencher da fonte oficial
+  tjma: []          # portaria do TJMA
+  trt8: []          # calendário do TRT-8
+  parauapebas: []   # feriados municipais da comarca-base (não inventados aqui)

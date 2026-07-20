@@ -27,6 +27,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 import soj_lib as soj
+import soj_prazos as prazos
 
 try:
     import yaml
@@ -175,6 +176,22 @@ def carregar() -> dict:
                                "cliente": p["cliente"], "adverso": p["adverso"],
                                "quando": None, "dias": 999, "obs": p["acao"][:220],
                                "chave": 50})
+    # prazos ESTRUTURADOS (motor de prazos): vencimentos calculados das fichas
+    try:
+        for pz in prazos.prazos_do_acervo():
+            d = pz["dias"]
+            if d < -30 or d > 45:        # janela do "hoje": recentes + próximos
+                continue
+            tipo = "audiência" if "audi" in pz["tipo"].lower() else "prazo"
+            venc = _data(pz["vencimento"])
+            aviso = "⚠️ a conferir · " if not pz["conferido"] else ""
+            hoje_itens.append({
+                "tipo": tipo, "proc": pz["proc"], "numero": pz["numero"],
+                "cliente": _cliente(pz["cliente"], cmap), "adverso": pz["adverso"],
+                "quando": venc, "dias": d,
+                "obs": f"{aviso}{pz['tipo']}: {pz['obs']}"[:220], "chave": d})
+    except Exception:  # noqa: BLE001
+        pass
     hoje_itens.sort(key=lambda x: x["chave"])
 
     # preparado pelo robo (R7): resumos e minutas em rascunho
@@ -497,6 +514,12 @@ def main() -> None:
     args = ap.parse_args()
     if not PROCESSOS.exists():
         print("[painel] PROCESSOS/ nao existe."); sys.exit(1)
+    # blindagem: uma ficha com YAML ilegivel some do painel — nao em silencio.
+    quebradas = [f.name for f in sorted(PROCESSOS.glob("PROC-*.md"))
+                 if "_audiencia" not in f.stem and not _fm(f)[0].get("tipo")]
+    if quebradas:
+        print(f"[painel] ⚠️  {len(quebradas)} ficha(s) com YAML ilegivel — "
+              f"SOMEM do painel ate corrigir: {', '.join(quebradas)}")
     dados = carregar()
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     SAIDA.write_text(render(dados), encoding="utf-8")
