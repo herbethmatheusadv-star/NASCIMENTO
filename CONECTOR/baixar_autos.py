@@ -189,6 +189,71 @@ def extrair_acervo(html: str, inst=None) -> dict[str, str]:
     return out
 
 
+# --- Acervo em ÁRVORE por comarca (descoberto em 20/07/2026) -----------------
+# A aba Acervo do painel e uma arvore RichFaces agrupada por COMARCA, e ela e um
+# ACCORDION: expandir uma comarca RECOLHE a outra. Por isso o 1o download so viu
+# Parauapebas — Canaa estava recolhida. A saida e o robo PERCORRER comarca a
+# comarca sozinho: troca para a aba Acervo, e para cada no de comarca expande,
+# le os processos e junta. Tudo LEITURA — cada clique passa por guarda_de_clique
+# (o rotulo e "Acervo"/nome de comarca, nunca um verbo de acao).
+
+def _ir_para_acervo(pagina) -> bool:
+    """Troca para a aba Acervo (se ainda nao estiver). True se a arvore montou."""
+    ativo = pagina.evaluate(
+        "() => { const c=document.getElementById('tabAcervo_cell');"
+        " return !!(c && (c.className||'').includes('active')); }")
+    if not ativo:
+        lbl = (pagina.evaluate(
+            "() => (document.getElementById('tabAcervo_lbl')||{}).innerText||''")
+            or "").strip().split("\n")[0]
+        if not lbl:
+            return False
+        regras.guarda_de_clique(lbl)   # R7: "Acervo" e leitura
+        pagina.evaluate("() => { const e=document.getElementById('tabAcervo_lbl');"
+                        " if(e) e.click(); }")
+    for _ in range(20):
+        time.sleep(1)
+        if pagina.evaluate("() => document.querySelectorAll(\"a[id$='::jNd']\").length>0"):
+            return True
+    return False
+
+
+def acervo_completo(pagina) -> dict[str, str]:
+    """{cnj: url} de TODAS as comarcas do Acervo. Percorre a arvore accordion,
+    expandindo cada comarca. Devolve {} se nao houver a arvore (outro layout /
+    instancia) — ai o chamador usa extrair_acervo do que ja esta na tela."""
+    if not _ir_para_acervo(pagina):
+        return {}
+    comarcas = pagina.evaluate(
+        r"""() => [...document.querySelectorAll("a[id$='::jNd']")]
+              .map(a => [a.id, (a.innerText||'').replace(/\s+/g,' ').trim()])""")
+    if not comarcas:
+        return {}
+    todos: dict[str, str] = {}
+    for node_id, rot in comarcas:
+        regras.guarda_de_clique(rot or "comarca")   # R7 (nome de comarca = leitura)
+        antes = set(extrair_acervo(pagina.content()))
+        pagina.evaluate(f"() => {{ const e=document.getElementById({node_id!r});"
+                        f" if(e) e.click(); }}")
+        ac: dict[str, str] = {}
+        for _ in range(30):     # espera o conteudo MUDAR (accordion troca a lista)
+            time.sleep(1)
+            ac = extrair_acervo(pagina.content())
+            if set(ac) != antes:
+                break
+        if not ac:              # colapsou (ja estava aberta) -> reexpande
+            pagina.evaluate(f"() => {{ const e=document.getElementById({node_id!r});"
+                            f" if(e) e.click(); }}")
+            for _ in range(20):
+                time.sleep(1)
+                ac = extrair_acervo(pagina.content())
+                if ac:
+                    break
+        todos.update(ac)
+        print(f"[baixar]   comarca {rot!r}: {len(ac)} processo(s)")
+    return todos
+
+
 # ---------------------------------------------------------------------------
 #  DOWNLOAD INTEGRAL — "Download autos do processo" (um clique = autos inteiros)
 # ---------------------------------------------------------------------------
@@ -359,15 +424,21 @@ def coletar_integral(s: "sessao.SessaoEfemera", cnj_alvo: str, todos: bool,
     print("=" * 70)
     print("  BAIXAR AUTOS INTEGRAIS — um login, o robo percorre o acervo")
     print("=" * 70)
+    # percorre a arvore do Acervo comarca a comarca (o robo abre a aba e expande
+    # cada comarca sozinho — accordion); se nao houver arvore, le o que ja esta
+    # na tela.
     try:
-        html_painel = s.pagina.content()
+        acervo = acervo_completo(s.pagina)
+        if not acervo:
+            acervo = extrair_acervo(s.pagina.content())
+    except regras.ViolacaoR7:
+        raise
     except Exception as e:  # noqa: BLE001
-        print(f"[baixar] nao consegui ler o painel: {e}")
+        print(f"[baixar] nao consegui ler o Acervo: {e}")
         return []
-    acervo = extrair_acervo(html_painel)
     if not acervo:
-        print("[baixar] nenhum processo no Acervo. Abra a aba ACERVO e expanda")
-        print("         as comarcas, depois rode de novo.")
+        print("[baixar] nenhum processo no Acervo. Abra a aba ACERVO no painel")
+        print("         e rode de novo (ou confira se ha processos na conta).")
         return []
     print(f"[baixar] {len(acervo)} processo(s) no Acervo.")
 

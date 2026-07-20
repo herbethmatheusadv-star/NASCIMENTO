@@ -750,12 +750,20 @@ O fluxo de leitura (login por certificado → Acervo → "Download autos do proc
 `verificado=False` = endereço pelo padrão conhecido do PJe; **precisa de uma
 sessão real** para confirmar acervo, botão e o host do PDF do pacote.
 
-### 13.3 Canaã dos Carajás — NÃO é outra instância
+### 13.3 Canaã dos Carajás — NÃO é outra instância (e o robô expande sozinho)
 Canaã (8.14.**0136**) é a **mesma instância TJPA**. Só não veio no 1º download
-porque o Acervo agrupa por comarca e apenas Parauapebas estava expandida no HTML
-renderizado. **Correção:** na próxima sessão TJPA, expandir a jurisdição de Canaã
-no Acervo e rodar `baixar_autos.py --todos` — os processos de lá entram sozinhos.
-Sem código novo.
+porque a aba **Acervo é uma árvore RichFaces agrupada por comarca — e um
+ACCORDION**: expandir uma comarca **recolhe** a outra. Como só Parauapebas estava
+expandida, Canaã ficou invisível ao `content()`.
+
+**Corrigido em 20/07/2026 (código):** `acervo_completo()` no `baixar_autos.py`
+troca para a aba Acervo e **percorre cada comarca sozinho** — expande o nó, espera
+a lista trocar (accordion), lê e junta. Tudo **leitura**: cada clique passa pela
+`guarda_de_clique` (o rótulo é "Acervo" / nome de comarca, nunca um verbo de
+ação). Agora `--todos` traz **todas as comarcas** sem ninguém expandir nada.
+Provado no dia: `comarca 'Canaã dos Carajás 3'` + `comarca 'Parauapebas 16'` = 19
+processos, 334,7 MB. Os nós são `formAbaAcervo:trAc:N::jNd` (texto "Comarca\nN");
+a aba é `tabAcervo_lbl` (RichFaces).
 
 ### 13.4 O que falta (precisa de login real)
 - **TJMA** e **TRT-8/2º grau**: confirmar, numa sessão, que o acervo e o botão
