@@ -255,6 +255,13 @@ display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 padding:10px 18px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
 #toast.on{opacity:1}
 .note{font-size:11px;color:var(--tx3);margin-top:8px}
+.live{font-size:11px;color:#9fe6b8;margin-right:10px}
+#drawer{display:none;position:fixed;right:0;top:0;bottom:0;width:min(580px,94vw);background:var(--card);
+border-left:3px solid var(--suc);box-shadow:-8px 0 30px rgba(0,0,0,.18);padding:18px 20px;overflow:auto;z-index:50}
+#drawer.err{border-left-color:var(--dan)}
+#drawer h3{margin:0 22px 2px 0;font-size:15px}#drawer .x{float:right;cursor:pointer;color:var(--tx3);font-size:20px;line-height:1}
+#drawer pre{white-space:pre-wrap;word-break:break-word;font-size:12px;background:var(--bg);border:1px solid var(--ln);
+border-radius:8px;padding:12px;margin-top:10px;color:var(--tx);font-family:ui-monospace,Consolas,monospace}
 """
 
 JS = """
@@ -272,6 +279,23 @@ function setf(el){document.querySelectorAll('.fbtn').forEach(function(b){b.class
 function copiar(cmd){navigator.clipboard.writeText(cmd).then(function(){
   var t=document.getElementById('toast');t.textContent='Copiado: '+cmd;t.classList.add('on');
   setTimeout(function(){t.classList.remove('on')},2200);});}
+"""
+
+# So no MODO SERVIDOR (soj_servidor.py): os botoes RODAM os scripts de leitura
+# via /acao, e os links abrem os arquivos renderizados via /ver. Sem servidor,
+# nada disso existe — o HTML estatico so copia comandos.
+JS_SERVIDOR = """
+function drawer(t,c,ok){var d=document.getElementById('drawer');
+ document.getElementById('dtit').textContent=t;document.getElementById('dbody').textContent=c;
+ d.className=(ok===false?'err':'');d.style.display='block';}
+function fechard(){document.getElementById('drawer').style.display='none';}
+function rodar(a,cnj,termo){drawer('Rodando: '+a+' '+(cnj||''),'Um momento…',true);
+ fetch('/acao',{method:'POST',headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({acao:a,cnj:cnj||'',termo:termo||''})}).then(function(r){return r.json();})
+ .then(function(j){drawer(j.titulo||a,j.saida||'(sem saida)',j.ok);})
+ .catch(function(e){drawer('Erro de conexao',String(e),false);});}
+function buscar(cnj){var t=prompt('Buscar nos autos deste processo:');if(t)rodar('buscar',cnj,t);}
+function ver(p){window.open('/ver?p='+encodeURIComponent(p),'_blank');}
 """
 
 
@@ -301,7 +325,16 @@ def _jsq(s: str) -> str:
     return str(s).replace("\\", "").replace("'", "").replace("\n", " ")
 
 
-def bloco_hoje(itens):
+def _arq(num: str, arquivo: str, rotulo: str, servidor: bool) -> str:
+    """Link para um arquivo da inteligencia. No servidor abre renderizado (/ver);
+    no HTML estatico e um caminho de arquivo relativo."""
+    if servidor:
+        return (f"<a class='link' onclick=\"ver('AUTOS/{num}/inteligencia/{arquivo}')\">"
+                f"{rotulo}</a>")
+    return f"<a class='link' href='{_rel(num, arquivo)}'>{rotulo}</a>"
+
+
+def bloco_hoje(itens, servidor=False):
     if not itens:
         return "<div class='empty'>Nada urgente hoje. Bom trabalho.</div>"
     out = []
@@ -323,10 +356,10 @@ def bloco_hoje(itens):
             prompt = _jsq(f"Preparar o roteiro da audiencia de {quando} do {it['proc']} "
                           f"({it['cliente']} x {it['adverso'][:40]})")
             botoes = (f"<button class='btn' onclick=\"copiar('{prompt}')\">Preparar roteiro</button>"
-                      f"<a class='link' href='{_rel(num,'resumo_executivo.md')}'>Resumo</a>")
+                      + _arq(num, "resumo_executivo.md", "Resumo", servidor))
         else:
-            botoes = (f"<a class='link' href='{_rel(num,'resumo_executivo.md')}'>Resumo</a>"
-                      f"<a class='link' href='{_rel(num,'linha_do_tempo.md')}'>Linha do tempo</a>")
+            botoes = (_arq(num, "resumo_executivo.md", "Resumo", servidor)
+                      + _arq(num, "linha_do_tempo.md", "Linha do tempo", servidor))
         out.append(
             f"<div class='card'><div class='row'><span class='tt'>{partes}</span>{chip}</div>"
             f"<div class='mt'>{H.escape(it['proc'])} · {H.escape(num)}"
@@ -363,7 +396,7 @@ def bloco_robo(dados):
             f"— o sistema nunca age no PJe (R7).</div></div>")
 
 
-def bloco_proc(p):
+def bloco_proc(p, servidor=False):
     a = p["autos"]
     chips = [f"<span class='chip c-mut'>{H.escape(p['tribunal'])} · {H.escape(p['grau'])}º</span>"]
     sit = p["situacao"]
@@ -388,12 +421,18 @@ def bloco_proc(p):
     acao_limpa = re.sub(r"\s+", " ", p["acao"])
     cmd_res = f"python ESCRITORIO/scripts/soj_resumo.py --cnj {num}"
     cmd_busca = f"python ESCRITORIO/scripts/soj_search.py <termo> --processo {num}"
-    links = (f"<a class='link' href='{_rel(num,'resumo_executivo.md')}'>Abrir resumo</a>"
-             if a.get("resumo") else
-             f"<button class='btn' onclick=\"copiar('{cmd_res}')\">Gerar resumo</button>")
+    if a.get("resumo"):
+        links = _arq(num, "resumo_executivo.md", "Abrir resumo", servidor)
+    elif servidor:
+        links = f"<button class='btn' onclick=\"rodar('resumo','{num}')\">Gerar resumo</button>"
+    else:
+        links = f"<button class='btn' onclick=\"copiar('{cmd_res}')\">Gerar resumo</button>"
     if a["indexado"]:
-        links += f"<a class='link' href='{_rel(num,'linha_do_tempo.md')}'>Linha do tempo</a>"
-    links += f"<button class='btn' onclick=\"copiar('{cmd_busca}')\">Buscar nos autos</button>"
+        links += _arq(num, "linha_do_tempo.md", "Linha do tempo", servidor)
+    if servidor:
+        links += f"<button class='btn' onclick=\"buscar('{num}')\">Buscar nos autos</button>"
+    else:
+        links += f"<button class='btn' onclick=\"copiar('{cmd_busca}')\">Buscar nos autos</button>"
     return (f"<details class='proc' data-trib='{H.escape(p['tribunal'])}' "
             f"data-sit='{H.escape(sit)}' data-risco='{H.escape(p['risco'])}' data-busca='{busca}'>"
             f"<summary><span><span class='pid'>{H.escape(p['id'])}</span><br>"
@@ -406,7 +445,7 @@ def bloco_proc(p):
             f"<div class='btns'>{links}</div></div></details>")
 
 
-def render(dados) -> str:
+def render(dados, servidor=False) -> str:
     k = dados["kpi"]
     kpis = "".join(f"<div class='kpi'><div class='l'>{l}</div><div class='v'>{v}</div></div>"
                    for l, v in [("Processos", k["total"]),
@@ -418,8 +457,14 @@ def render(dados) -> str:
         filtros.append(f"<button class='fbtn' data-f='trib:{H.escape(t)}' onclick='setf(this)'>{H.escape(t)}</button>")
     filtros.append("<button class='fbtn' data-f='risco:alto' onclick='setf(this)'>risco alto</button>")
     filtros.append("<button class='fbtn' data-f='sit:ativo' onclick='setf(this)'>ativos</button>")
-    acervo = "".join(bloco_proc(p) for p in sorted(
+    acervo = "".join(bloco_proc(p, servidor) for p in sorted(
         dados["processos"], key=lambda x: ({"alto": 0, "medio": 1}.get(x["risco"], 2), x["id"])))
+    selo = ("<span class='live'>● ao vivo</span>"
+            "<button class='fbtn' onclick='location.reload()'>Atualizar</button> "
+            if servidor else "")
+    gaveta = ("<div id='drawer'><span class='x' onclick='fechard()'>✕</span>"
+              "<h3 id='dtit'></h3><pre id='dbody'></pre></div>" if servidor else "")
+    js = JS + (JS_SERVIDOR if servidor else "")
     cob = " ".join(
         f"<span class='chip {'c-suc' if v['autos']==v['total'] else 'c-war'}'>"
         f"{H.escape(t)} {v['autos']}/{v['total']}</span>"
@@ -428,11 +473,11 @@ def render(dados) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SOJ · Painel do dia</title><style>{CSS}</style></head><body>
 <header><div class="wrap"><h1>SOJ · <b>Painel do dia</b></h1>
-<span class="dt">{HOJE:%d/%m/%Y} · gerado {datetime.now():%H:%M}</span></div></header>
+<span class="dt">{selo}{HOJE:%d/%m/%Y} · gerado {datetime.now():%H:%M}</span></div></header>
 <div class="wrap">
 <div class="kpis">{kpis}</div>
 <h2><span class="dot" style="background:var(--dan)"></span>Precisa de você hoje</h2>
-{bloco_hoje(dados["hoje"])}
+{bloco_hoje(dados["hoje"], servidor)}
 <h2><span class="dot" style="background:var(--acc)"></span>Preparado pelo robô — você assina</h2>
 {bloco_robo(dados)}
 <h2 id="acervo"><span class="dot" style="background:var(--gold)"></span>Acervo · {k['total']} processos</h2>
@@ -442,7 +487,7 @@ def render(dados) -> str:
 <div class="foot"><span style="color:var(--tx3)">Cobertura:</span> {cob}
 <span class="chip c-mut">TRT-8 pendente</span></div>
 </div>
-<div id="toast"></div><script>{JS}</script></body></html>"""
+{gaveta}<div id="toast"></div><script>{js}</script></body></html>"""
 
 
 def main() -> None:
