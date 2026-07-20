@@ -27,6 +27,8 @@ import soj_lib as soj
 BAIXAR = soj.ROOT / "CONECTOR" / "baixar_autos.py"
 IMPORTAR = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_import.py"
 REINDEX = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_reindex.py"
+INTEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_inteligencia.py"
+RESUMO = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_resumo.py"
 
 
 def passo(n: int, titulo: str, args: list) -> int:
@@ -69,14 +71,29 @@ def main() -> None:
         print(f"\n[rotina] a importacao saiu com codigo {rc}. Nao reindexei.")
         sys.exit(rc)
 
-    rc = passo(3, "REINDEXAR (index FTS5)", [REINDEX])
+    intel = [INTEL]
+    if args.cnj:
+        intel += ["--cnj", args.cnj]
+    rc = passo(3, "LINHA DO TEMPO das pecas (inteligencia)", intel)
+    if rc != 0:
+        print(f"\n[rotina] a inteligencia saiu com codigo {rc}. Parei aqui.")
+        sys.exit(rc)
+
+    rc = passo(4, "REINDEXAR (index FTS5)", [REINDEX])
     if rc != 0:
         print(f"\n[rotina] a reindexacao saiu com codigo {rc}.")
         sys.exit(rc)
 
+    # passo 5: prepara os dossies/esqueletos dos processos com audiencia/prazo
+    # iminente (a IA preenche o resumo depois). Nao derruba a rotina se falhar —
+    # e preparacao, nao coleta.
+    passo(5, "PREPARAR resumos dos processos iminentes (audiencia/prazo)",
+          [RESUMO, "--iminentes"])
+
     print("\n" + "=" * 68)
     print("  ROTINA COMPLETA.")
     print('  Buscar:            python soj_search.py "termo"')
+    print("  Resumo de 1 proc:  python soj_resumo.py --cnj <n>   (IA preenche)")
     print("  Conferir citacoes: python soj_verificar_citacoes.py MINUTA.md")
     print("=" * 68)
 

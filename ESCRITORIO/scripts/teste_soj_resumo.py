@@ -39,8 +39,16 @@ check("trecho longo termina com o tail (B)", tr.rstrip().endswith("B"), True)
 check("trecho longo respeita o orcamento (< head+tail+folga)",
       len(tr) <= r.HEAD + r.TAIL + 40, True)
 
+print("\n=== frontmatter das fichas (--iminentes) ===")
+fm = r._frontmatter('---\nnumero: "0800000-00.2026.8.14.0040"\n'
+                    'prazo_em_curso: true\ndata_interna: 2026-07-22\n---\ncorpo')
+check("le numero da ficha", fm.get("numero"), "0800000-00.2026.8.14.0040")
+check("le prazo_em_curso (bool)", fm.get("prazo_em_curso"), True)
+check("le data_interna", str(fm.get("data_interna")), "2026-07-22")
+check("sem frontmatter -> vazio", r._frontmatter("sem yaml aqui"), {})
+
 print("=" * 60)
 if falhas:
     print(f"  {len(falhas)} FALHA(S): " + ", ".join(falhas)); sys.exit(1)
-print("  Tudo verde. Selecao e recorte do dossie OK.")
+print("  Tudo verde. Selecao, recorte e frontmatter OK.")
 print("=" * 60)

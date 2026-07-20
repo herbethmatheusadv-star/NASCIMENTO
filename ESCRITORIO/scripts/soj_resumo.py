@@ -22,13 +22,14 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import soj_lib as soj
 import soj_reindex as rdx
 
 AUTOS = soj.ROOT / "AUTOS"
+PROCESSOS = soj.ROOT / "PROCESSOS"
 DOSSIE_MAX = 55_000      # teto de caracteres do dossie (foco, nao despejo)
 HEAD, TAIL = 2600, 1300  # trecho de cada peca: abertura + fecho (dispositivo)
 
@@ -137,50 +138,143 @@ proc_id: {proc_id}
 """
 
 
-def main() -> None:
-    soj.console_utf8()
-    ap = argparse.ArgumentParser(description="Monta o dossie para o resumo executivo.")
-    ap.add_argument("--cnj", required=True, help="CNJ do processo")
-    ap.add_argument("--refazer", action="store_true",
-                    help="sobrescreve o esqueleto do resumo (perde o preenchido)")
-    args = ap.parse_args()
-
-    cnj = None
-    alvo = re.sub(r"\D", "", args.cnj)
+def cnj_em_autos(entrada: str) -> str | None:
+    """Resolve o CNJ (com/sem pontuacao) para o nome da pasta em AUTOS/."""
+    alvo = re.sub(r"\D", "", entrada or "")
     for d in (AUTOS.iterdir() if AUTOS.exists() else []):
         if d.is_dir() and re.sub(r"\D", "", d.name) == alvo:
-            cnj = d.name
-            break
-    if not cnj:
-        print(f"[resumo] {args.cnj} nao esta em AUTOS/. Rode soj_import.py antes.")
-        sys.exit(1)
+            return d.name
+    return None
 
+
+def preparar(cnj: str, refazer: bool = False) -> dict | None:
+    """Monta o dossie e (re)cria o esqueleto do resumo. None se faltar texto."""
     dossie, pecas, tl = montar_dossie(cnj)
     if not dossie:
-        print(f"[resumo] faltam texto/linha do tempo de {cnj}. Rode "
-              f"soj_import.py e soj_inteligencia.py antes.")
-        sys.exit(1)
-
+        return None
     intel = AUTOS / cnj / "inteligencia"
     intel.mkdir(parents=True, exist_ok=True)
     (intel / "_dossie.md").write_text(dossie, encoding="utf-8")
-
     resumo = intel / "resumo_executivo.md"
-    if resumo.exists() and not args.refazer:
-        print(f"[resumo] dossie atualizado. resumo_executivo.md JA existe "
-              f"(use --refazer para recomecar o esqueleto).")
-    else:
+    novo = refazer or not resumo.exists()
+    if novo:
         resumo.write_text(ESQUELETO.format(
             ts=datetime.now().strftime("%Y-%m-%d %H:%M"),
             pdf=(tl.get("pdf") or "autos_integral.pdf"),
             sha=(tl.get("pdf_sha256") or "")[:8],
             n=len(pecas), cnj=cnj, proc_id=tl.get("proc_id", "")),
             encoding="utf-8")
-        print(f"[resumo] esqueleto criado: {resumo}")
-    print(f"[resumo] dossie: {intel / '_dossie.md'}  ({len(dossie)} chars, "
-          f"{len(pecas)} pecas)")
-    print("[resumo] agora a IA preenche o resumo a partir do _dossie.md; "
-          "depois: soj_verificar_citacoes.py.")
+    return {"cnj": cnj, "chars": len(dossie), "pecas": len(pecas),
+            "novo": novo, "resumo": resumo}
+
+
+def _frontmatter(txt: str) -> dict:
+    try:
+        import yaml
+    except ImportError:
+        return {}
+    if not txt.startswith("---"):
+        return {}
+    fim = txt.find("\n---", 3)
+    if fim < 0:
+        return {}
+    try:
+        return yaml.safe_load(txt[3:fim]) or {}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def iminentes(dias: int = 14) -> list[dict]:
+    """Processos com AUDIENCIA (sub-ficha) ou PRAZO EM CURSO na janela. Fonte: as
+    fichas humanas de PROCESSOS/ — nao o HTML do monitor_prazos. data_interna
+    sozinha (data de revisao) NAO conta: so prazo_em_curso=true e audiencia."""
+    hoje = date.today()
+    limite = hoje + timedelta(days=dias)
+    achados: dict[str, dict] = {}
+    for f in sorted(PROCESSOS.glob("PROC-*.md")):
+        fm = _frontmatter(f.read_text(encoding="utf-8", errors="ignore"))
+        numero = str(fm.get("numero") or "").strip().strip('"')
+        if not numero or numero.startswith("("):
+            continue
+        sinais = []
+        m = re.search(r"_audiencia_(\d{4}-\d{2}-\d{2})", f.stem)
+        if m:
+            try:
+                sinais.append(("audiência", date.fromisoformat(m.group(1))))
+            except ValueError:
+                pass
+        if str(fm.get("prazo_em_curso")).lower() in ("true", "1"):
+            try:
+                sinais.append(("prazo", date.fromisoformat(str(fm.get("data_interna")))))
+            except (ValueError, TypeError):
+                pass
+        for motivo, d in sinais:
+            if hoje <= d <= limite:
+                key = re.sub(r"\D", "", numero)
+                if key not in achados or d < achados[key]["data"]:
+                    achados[key] = {"proc_id": fm.get("id") or f.stem,
+                                    "cnj": numero, "motivo": motivo, "data": d}
+    return sorted(achados.values(), key=lambda x: x["data"])
+
+
+def _um(cnj_pedido: str, refazer: bool) -> None:
+    cnj = cnj_em_autos(cnj_pedido)
+    if not cnj:
+        print(f"[resumo] {cnj_pedido} nao esta em AUTOS/. Rode soj_import.py antes.")
+        sys.exit(1)
+    r = preparar(cnj, refazer)
+    if not r:
+        print(f"[resumo] faltam texto/linha do tempo de {cnj}. Rode "
+              f"soj_import.py e soj_inteligencia.py antes.")
+        sys.exit(1)
+    estado = "esqueleto criado" if r["novo"] else "resumo JA existe (--refazer recomeca)"
+    print(f"[resumo] {cnj}: dossie {r['chars']} chars, {r['pecas']} pecas · {estado}")
+    print(f"[resumo] a IA preenche {r['resumo']} a partir do _dossie.md; "
+          f"depois: soj_verificar_citacoes.py.")
+
+
+def _iminentes(dias: int, refazer: bool) -> None:
+    lst = iminentes(dias)
+    if not lst:
+        print(f"[resumo] nada iminente ate {dias}d (audiencia ou prazo em curso).")
+        return
+    print(f"[resumo] {len(lst)} processo(s) iminente(s) ate {dias}d:")
+    pend = 0
+    for it in lst:
+        cnj = cnj_em_autos(it["cnj"])
+        rotulo = f"{it['proc_id']} · {it['cnj']} · {it['motivo']} {it['data']}"
+        if not cnj:
+            print(f"  - {rotulo} · autos NAO indexados — pulado")
+            continue
+        r = preparar(cnj, refazer)
+        if not r:
+            print(f"  - {rotulo} · sem texto — rode soj_import/soj_inteligencia")
+            continue
+        if r["novo"]:
+            pend += 1
+            print(f"  - {rotulo} · dossie pronto · ESQUELETO NOVO (IA preenche)")
+        else:
+            print(f"  - {rotulo} · dossie atualizado · resumo ja existe")
+    if pend:
+        print(f"[resumo] {pend} esqueleto(s) novo(s) — a IA preenche o resumo de "
+              f"cada um a partir do _dossie.md; depois soj_verificar_citacoes.py.")
+
+
+def main() -> None:
+    soj.console_utf8()
+    ap = argparse.ArgumentParser(description="Dossie/esqueleto do resumo executivo.")
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--cnj", help="um processo")
+    g.add_argument("--iminentes", action="store_true",
+                   help="todos com audiencia/prazo em curso na janela (--dias)")
+    ap.add_argument("--dias", type=int, default=14, help="janela p/ --iminentes (14)")
+    ap.add_argument("--refazer", action="store_true",
+                    help="recria o esqueleto do resumo (perde o preenchido)")
+    args = ap.parse_args()
+    if args.iminentes:
+        _iminentes(args.dias, args.refazer)
+    else:
+        _um(args.cnj, args.refazer)
 
 
 if __name__ == "__main__":
