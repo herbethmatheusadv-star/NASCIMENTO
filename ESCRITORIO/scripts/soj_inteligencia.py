@@ -83,6 +83,10 @@ def parse_tabela_documentos(texto: str) -> dict:
         linhas = [l.strip() for l in texto[m.end():fim].splitlines() if l.strip()]
         if linhas and HORA_RE.match(linhas[0]):
             linhas = linhas[1:]
+        # quando a tabela vira a pagina, o cabecalho "Id./Data/Documento/Tipo"
+        # se repete e contaminava a ultima peca (tipo virava "Tipo"). Descarta.
+        linhas = [l for l in linhas
+                  if soj.normaliza(l) not in ("id.", "id", "data", "documento", "tipo")]
         if not linhas:
             out[num] = {"data": data, "nome": "", "tipo": ""}
         elif len(linhas) == 1:
@@ -129,7 +133,9 @@ def gerar_um(cnj: str) -> dict:
         else:
             info = tabela.get(num, {})
             nome = info.get("nome", "")
-            tipo = info.get("tipo", "") or tipo_por_palavra(paginas.get(doc["p_ini"], ""))
+            tipo = info.get("tipo", "")
+            if soj.normaliza(tipo) in ("", "tipo", "documento", "data", "id.", "id"):
+                tipo = tipo_por_palavra(paginas.get(doc["p_ini"], ""))
             data = info.get("data", "")
             rel = relevancia(tipo, nome)
         itens.append({
@@ -139,14 +145,21 @@ def gerar_um(cnj: str) -> dict:
             "relevancia": rel,
         })
 
-    # escreve a linha do tempo
+    # escreve a linha do tempo: .md (humano) + .json (o briefing/RADAR consome)
     intel = AUTOS / cnj / "inteligencia"
     intel.mkdir(parents=True, exist_ok=True)
-    saida = intel / "linha_do_tempo.md"
-    _escrever(saida, cnj, manif, itens)
+    _escrever(intel / "linha_do_tempo.md", cnj, manif, itens)
     n_alta = sum(1 for i in itens if i["relevancia"] == "alta")
+    (intel / "linha_do_tempo.json").write_text(json.dumps({
+        "cnj": cnj, "proc_id": manif.get("proc_id", ""),
+        "pdf_sha256": manif.get("pdf_sha256", ""),
+        "paginas": manif.get("paginas", 0),
+        "pecas": len(itens), "alta": n_alta, "periodo": _periodo(itens),
+        "gerado_em": datetime.now().isoformat(timespec="seconds"),
+        "itens": itens,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
     return {"cnj": cnj, "status": "ok", "pecas": len(itens), "alta": n_alta,
-            "arquivo": str(saida)}
+            "arquivo": str(intel / "linha_do_tempo.md")}
 
 
 def _data_key(d: str):
@@ -158,12 +171,18 @@ def _data_key(d: str):
         return None
 
 
-def _escrever(saida: Path, cnj: str, manif: dict, itens: list) -> None:
-    sha = (manif.get("pdf_sha256") or "")[:8]
+def _periodo(itens: list) -> str:
     datados = [(i["data"], _data_key(i["data"])) for i in itens if i["data"]]
     datados = [x for x in datados if x[1]]
-    periodo = (f"{min(datados, key=lambda x: x[1])[0]} a "
-               f"{max(datados, key=lambda x: x[1])[0]}") if datados else "-"
+    if not datados:
+        return "-"
+    return (f"{min(datados, key=lambda x: x[1])[0]} a "
+            f"{max(datados, key=lambda x: x[1])[0]}")
+
+
+def _escrever(saida: Path, cnj: str, manif: dict, itens: list) -> None:
+    sha = (manif.get("pdf_sha256") or "")[:8]
+    periodo = _periodo(itens)
     L = [
         "---",
         "gerado_por: soj_inteligencia.py",

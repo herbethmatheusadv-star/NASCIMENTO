@@ -134,20 +134,33 @@ def importar_um(cnj: str, pdf: Path, proc_id: str, forcar: bool) -> dict:
     manifesto = texto_dir / "manifesto.json"
     sha = soj.sha256_arquivo(pdf)
 
-    if manifesto.exists() and not forcar:
+    antigo = {}
+    if manifesto.exists():
         try:
             antigo = json.loads(manifesto.read_text(encoding="utf-8"))
-            if antigo.get("pdf_sha256") == sha:
-                return {"cnj": cnj, "status": "cache",
-                        "paginas": antigo.get("paginas", 0)}
         except Exception:  # noqa: BLE001
-            pass
+            antigo = {}
+    if antigo.get("pdf_sha256") == sha and not forcar:
+        return {"cnj": cnj, "status": "cache",
+                "paginas": antigo.get("paginas", 0)}
 
     paginas, por_pagina = extrair(pdf)
     documentos = montar_documentos(por_pagina)
     texto_dir.mkdir(parents=True, exist_ok=True)
     (texto_dir / "autos_integral.txt").write_text(
         montar_texto(paginas), encoding="utf-8")
+
+    # NOVIDADES: pecas que nao existiam na importacao anterior. E o sinal de
+    # radar dos autos — autos que ganharam peca = movimento a levar ao briefing.
+    # So conta quando ja havia um manifesto (nao na 1a importacao) e algo mudou.
+    old_nums = {d.get("num") for d in antigo.get("docs", [])}
+    novos = sorted(n for n in ({d.get("num") for d in documentos} - old_nums) if n)
+    novidades = None
+    if antigo and (novos or antigo.get("paginas") != len(paginas)):
+        novidades = {"data": datetime.now().strftime("%Y-%m-%d"),
+                     "novos_nums": novos,
+                     "paginas_antes": antigo.get("paginas", 0),
+                     "paginas_agora": len(paginas)}
 
     dados = {
         "cnj": cnj,
@@ -159,6 +172,7 @@ def importar_um(cnj: str, pdf: Path, proc_id: str, forcar: bool) -> dict:
         "documentos": len(documentos),
         "extraido_em": datetime.now().isoformat(timespec="seconds"),
         "ferramenta": "PyMuPDF",
+        "novidades": novidades,
         "por_pagina": por_pagina,
         "docs": documentos,
     }

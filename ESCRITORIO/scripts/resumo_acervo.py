@@ -13,6 +13,7 @@ nao leu os autos", em vez de fingir resumo.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from datetime import date
@@ -24,6 +25,7 @@ except ImportError:
     sys.exit("[ERRO] falta pyyaml: pip install pyyaml")
 
 RAIZ = Path(__file__).resolve().parents[2]
+AUTOS = RAIZ / "AUTOS"
 HOJE = date.today()
 
 
@@ -72,9 +74,36 @@ ROTULO = {0: "🔴 AGIR AGORA", 1: "🟠 ATIVOS DE RISCO ALTO",
           2: "🟢 ATIVOS EM DIA", 9: "✅ ENCERRADOS (R6/arquivo)"}
 
 
+def status_autos(numero: str) -> dict | None:
+    """Le AUTOS/{cnj}/ (manifesto + linha do tempo) para o briefing: quantas
+    paginas/pecas, a ultima peca relevante e se ha novidade. None = nao baixados."""
+    if not numero or numero == "?":
+        return None
+    base = AUTOS / str(numero)
+    manif = base / "texto" / "manifesto.json"
+    if not manif.exists():
+        return None
+    try:
+        m = json.loads(manif.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+    info = {"paginas": m.get("paginas", 0), "pecas": m.get("documentos", 0),
+            "novidades": m.get("novidades"), "alta": 0, "ultima_alta": None}
+    intel = base / "inteligencia" / "linha_do_tempo.json"
+    if intel.exists():
+        try:
+            j = json.loads(intel.read_text(encoding="utf-8"))
+            info["alta"] = j.get("alta", 0)
+            altas = [it for it in j.get("itens", []) if it.get("relevancia") == "alta"]
+            info["ultima_alta"] = altas[-1] if altas else None
+        except Exception:  # noqa: BLE001
+            pass
+    return info
+
+
 def main() -> None:
     grupos: dict[int, list[str]] = {0: [], 1: [], 2: [], 9: []}
-    total, sem_destilacao = 0, 0
+    total, sem_destilacao, com_autos, com_novidades = 0, 0, 0, 0
 
     for p in sorted((RAIZ / "PROCESSOS").glob("PROC-*.md")):
         fm, corpo = frontmatter_e_corpo(p)
@@ -112,6 +141,29 @@ def main() -> None:
             bloco += ["", "⚪ **SEM DESTILAÇÃO** — cadastro do censo; o "
                           "Analista ainda não leu os autos. O resumo de "
                           "verdade nasce do backfill (ver rodapé)."]
+
+        # AUTOS (Fase 3): estado real dos autos indexados, para o dia a dia.
+        sa = status_autos(num)
+        if sa:
+            com_autos += 1
+            autos_l = f"📂 **Autos indexados:** {sa['paginas']} pgs · {sa['pecas']} peças"
+            if sa.get("alta"):
+                autos_l += f" ({sa['alta']} p/ leitura prioritária)"
+            ua = sa.get("ultima_alta")
+            if ua:
+                fls = (str(ua["p_ini"]) if ua["p_ini"] == ua["p_fim"]
+                       else f"{ua['p_ini']}–{ua['p_fim']}")
+                autos_l += (f" · última relevante: {ua['tipo']} "
+                            f"({ua.get('data') or '?'}, fls. {fls})")
+            bloco += ["", autos_l]
+            nv = sa.get("novidades")
+            if nv:
+                com_novidades += 1
+                bloco.append(f"🆕 **{len(nv['novos_nums'])} nova(s) peça(s)** nos "
+                             f"autos desde {nv['data']} "
+                             f"({nv['paginas_antes']}→{nv['paginas_agora']} pgs).")
+            bloco.append(f"↳ linha do tempo: `AUTOS/{num}/inteligencia/linha_do_tempo.md`")
+
         bloco += ["", f"**Próxima ação:** {acao}", f"**Até:** {quando}", ""]
         grupos[urgencia(fm)].append("\n".join(bloco))
 
@@ -119,7 +171,9 @@ def main() -> None:
         f"# ACERVO EM UMA PÁGINA — {HOJE}",
         "",
         f"**{total} processos** · {total - sem_destilacao} com análise real · "
-        f"{sem_destilacao} aguardando destilação dos autos",
+        f"{sem_destilacao} aguardando destilação · "
+        f"**{com_autos} com autos indexados**"
+        + (f" · 🆕 {com_novidades} com novidade nos autos" if com_novidades else ""),
         "",
         "> Gerado das FICHAS (mecânico, custo zero de leitura). A qualidade de",
         "> cada resumo é a qualidade da destilação que o alimentou — ficha sem",
@@ -133,9 +187,10 @@ def main() -> None:
 
     linhas += [
         "---",
-        "**Backfill pendente:** processos ⚪ precisam dos autos em "
-        "`AUTOS/<numero>/` (upload seu ou Conector Parte 2) + passada do "
-        "Analista (12 saídas, §5). Prioridade sugerida: os 🔴, depois 🟠.",
+        f"**Autos:** {com_autos}/{total} indexados (`soj_autos.py`). Resumo "
+        "executivo de um processo: `soj_resumo.py --cnj <n>` + geração pela IA "
+        "(rascunho até você conferir). Linha do tempo por processo em "
+        "`AUTOS/<n>/inteligencia/`.",
     ]
 
     destino = RAIZ / "BRIEFINGS" / f"ACERVO_{HOJE}.md"
