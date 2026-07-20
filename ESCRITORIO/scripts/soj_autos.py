@@ -29,6 +29,7 @@ IMPORTAR = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_import.py"
 REINDEX = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_reindex.py"
 INTEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_inteligencia.py"
 RESUMO = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_resumo.py"
+PAINEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_painel.py"
 
 
 def passo(n: int, titulo: str, args: list) -> int:
@@ -90,8 +91,11 @@ def main() -> None:
     passo(5, "PREPARAR resumos dos processos iminentes (audiencia/prazo)",
           [RESUMO, "--iminentes"])
 
+    # passo 6: gera e ABRE o painel do dia (o cockpit). Nao derruba a rotina.
+    passo(6, "PAINEL do dia (abre no navegador)", [PAINEL])
+
     print("\n" + "=" * 68)
-    print("  ROTINA COMPLETA.")
+    print("  ROTINA COMPLETA — o painel do dia abriu no navegador.")
     print('  Buscar:            python soj_search.py "termo"')
     print("  Resumo de 1 proc:  python soj_resumo.py --cnj <n>   (IA preenche)")
     print("  Conferir citacoes: python soj_verificar_citacoes.py MINUTA.md")
