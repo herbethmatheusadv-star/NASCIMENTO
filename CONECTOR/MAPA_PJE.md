@@ -798,3 +798,21 @@ do PJe** e diverge em dois pontos que já foram tratados/mapeados:
 **download integral** do TJMA precisa de um driver assíncrono próprio — é o
 próximo passo para essa instância. Volume baixo (1–2 processos), então dá para
 baixar manualmente enquanto o driver não vem.
+
+### 13.6 TJMA — download RESOLVIDO (20/07/2026): é um form POST
+
+O que parecia pendência (§13.5) caiu rápido ao ler o mecanismo: **não há
+callback** (`callbackTemporizadorDownload` é `null`) — o timer/cookie só serve
+para esconder o modal "carregando". O botão `navbar:downloadProcesso` é um
+`<input type=submit>` do form `navbar`, e o **servidor devolve o PDF NA RESPOSTA
+do POST** (`Content-Disposition: attachment; filename="<cnj>.pdf"`, ~11 s no
+teste). O form tem os MESMOS filtros do TJPA (cbTipoDocumento, idDe/idAte,
+período, cronologia) — todos default = integral.
+
+**Driver (`_pacote_via_submit`):** serializa o form `navbar` (todos os campos +
+`javax.faces.ViewState`), acrescenta **só** o submit `navbar:downloadProcesso` e
+faz `context.request.post(action, form=...)` pela sessão → recebe os bytes do PDF
+direto. `baixar_integral` detecta o fluxo: se há `<input type=submit>` de
+download → POST (TJMA); senão → `window.open`/S3 (TJPA). R7 intacto: envia apenas
+o submit de download (nenhum verbo de ação), e o rótulo passa por
+`guarda_de_clique`. Provado: os 2 processos do TJMA baixados (8,8 + 42,6 MB).

@@ -47,11 +47,10 @@ REGISTRO: dict[str, Instancia] = {
     "tjma": Instancia(
         "tjma", "TJMA — 1o grau", "pje.tjma.jus.br",
         "https://pje.tjma.jus.br/pje",
-        "https://pje.tjma.jus.br/pje/login.seam", False,
-        "20/07: login e LEITURA do acervo OK (autos via listAutosDigitais.seam). "
-        "Falta o DOWNLOAD: o TJMA empacota de forma ASSINCRONA (submit + timer que "
-        "faz polling do cookie 'cookieTemporizadorDownload' ate 'finalizado'), "
-        "diferente do S3/window.open do TJPA — precisa de driver proprio"),
+        "https://pje.tjma.jus.br/pje/login.seam", True,
+        "VERIFICADO 20/07: login, acervo (listAutosDigitais) e download OK. O "
+        "download e por form POST (submit navbar:downloadProcesso), nao o "
+        "window.open/S3 do TJPA — o conector detecta e escolhe o fluxo sozinho"),
     "trt8": Instancia(
         "trt8", "TRT-8 — 1o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/primeirograu",

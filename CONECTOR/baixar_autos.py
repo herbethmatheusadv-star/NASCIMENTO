@@ -374,6 +374,44 @@ def disparar_pacote(pagina, espera_max: float = 300.0) -> str | None:
     return None
 
 
+# TJMA (e outros deployments): o botao de download e um <input type=submit> e o
+# PDF vem NA RESPOSTA de um POST normal do form 'navbar' (nao ha window.open do
+# S3 nem linkDownloadOculto; o cookie so avisa o fim do empacotamento). Replicamos
+# o POST pela sessao e recebemos o PDF direto. Descoberto no TJMA em 20/07/2026.
+_JS_SERIALIZA_NAVBAR = r"""() => {
+  const f = document.getElementById('navbar');
+  if (!f) return null;
+  const sub = f.querySelector("input[type=submit][name*='downloadProcesso']")
+        || [...f.querySelectorAll("input[type=submit]")].find(b => /download/i.test(b.value||''));
+  if (!sub) return null;                    // sem submit de download -> outro fluxo
+  const d = {};
+  for (const el of f.querySelectorAll('input,select,textarea')) {
+    if (!el.name) continue;
+    if ((el.type==='checkbox'||el.type==='radio') && !el.checked) continue;
+    if (el.type==='submit') continue;       // exclui TODOS os submits
+    d[el.name] = el.value;
+  }
+  d[sub.name] = sub.value;                   // adiciona SO o submit de download
+  return {action: f.action, campos: d, rotulo: sub.value || 'Download'};
+}"""
+
+
+def _pacote_via_submit(pagina, contexto, espera_max: float):
+    """Fluxo TJMA: se o botao de download for <input type=submit>, replica o POST
+    do form 'navbar' pela sessao e devolve (body, content_type). Devolve
+    (None, '') quando NAO e este fluxo. So leitura: envia apenas o submit de
+    download (nenhum verbo de acao), e o rotulo passa pela guarda de R7."""
+    dados = pagina.evaluate(_JS_SERIALIZA_NAVBAR)
+    if not dados or not dados.get("campos"):
+        return None, ""
+    regras.guarda_de_clique(dados.get("rotulo") or "Download")   # RAIL R7
+    regras.guarda_de_url(dados["action"])
+    r = contexto.request.post(dados["action"], form=dados["campos"],
+                              timeout=int(espera_max * 1000))
+    ct = (r.headers or {}).get("content-type", "")
+    return (r.body() if r.status == 200 else b""), ct
+
+
 def baixar_integral(contexto, cnj: str, url_autos: str,
                     espera_max: float = 300.0) -> dict:
     """
@@ -392,14 +430,21 @@ def baixar_integral(contexto, cnj: str, url_autos: str,
         pagina.on("dialog", lambda d: d.accept())   # "confirma download?" -> sim
         pagina.set_default_timeout(60_000)
         pagina.goto(url_autos, wait_until="domcontentloaded")
-        url = disparar_pacote(pagina, espera_max)
-        if not url:
+        if not _esperar_botao_download(pagina):
             return {"cnj": cnj, "status": "sem_pacote"}
-        url = _url_pacote_ok(url)
-        r = contexto.request.get(url, timeout=180_000)
-        body = r.body() if r.status == 200 else b""
-        if r.status != 200 or body[:5] != b"%PDF-":
-            return {"cnj": cnj, "status": f"http_{r.status}", "bytes": len(body)}
+        # DOIS fluxos: (a) submit -> PDF na resposta do POST (TJMA); (b) window.open
+        # de URL assinada em S3 (TJPA). Tenta o submit; se nao for esse fluxo (body
+        # None), cai no window.open.
+        body, ct = _pacote_via_submit(pagina, contexto, espera_max)
+        if body is None:
+            url = disparar_pacote(pagina, espera_max)
+            if not url:
+                return {"cnj": cnj, "status": "sem_pacote"}
+            url = _url_pacote_ok(url)
+            r = contexto.request.get(url, timeout=180_000)
+            body = r.body() if r.status == 200 else b""
+        if not body or body[:5] != b"%PDF-":
+            return {"cnj": cnj, "status": "nao_pdf", "bytes": len(body or b"")}
         sha = hashlib.sha256(body).hexdigest()
         destino.mkdir(parents=True, exist_ok=True)
         arq = destino / f"autos_integral_{sha[:8]}.pdf"
