@@ -816,3 +816,21 @@ direto. `baixar_integral` detecta o fluxo: se há `<input type=submit>` de
 download → POST (TJMA); senão → `window.open`/S3 (TJPA). R7 intacto: envia apenas
 o submit de download (nenhum verbo de ação), e o rótulo passa por
 `guarda_de_clique`. Provado: os 2 processos do TJMA baixados (8,8 + 42,6 MB).
+
+### 13.7 TJPA 2º grau — VERIFICADO (20/07/2026)
+
+Fica em **`pje.tjpa.jus.br/pje-2g/`** (contexto `/pje-2g`, `client_id=pje-tjpa-2g`)
+— mesmo domínio do 1º grau, app separado. **Mesmo software**: acervo em árvore
+`::jNd`, download `window.open`/S3 (`listProcessoCompletoAdvogado`) — o
+`baixar_integral` usou o fluxo do TJPA sem ajuste. Diferenças:
+- **Árvore por ÓRGÃO**, não comarca: "Tribunal de Justiça (Câmaras)" + "Turma
+  Recursal dos Juizados Especiais". O `acervo_completo` percorre igual (os nós
+  são `::jNd` genéricos).
+- **Autuação própria do 2º grau tem CNJ terminando em `...8.14.0000`** (ex.:
+  0807884-75.2026.8.14.0000). Os recursos que mantêm o número do 1º grau (.0040)
+  compartilham os autos já baixados (vieram como "ja_existe").
+- Provado: 6 no acervo (4 Câmaras + 2 Turma), 3 novos baixados (.0000).
+
+**Flakiness corrigida:** o 1º clique na aba Acervo às vezes não registra (A4J do
+RichFaces ainda não pronto após o painel montar) — bateu no TJMA e no 2º grau.
+`_ir_para_acervo` agora **re-clica** até a árvore aparecer (até 3 tentativas).

@@ -39,11 +39,12 @@ REGISTRO: dict[str, Instancia] = {
 
     # -- padrao conhecido do PJe; confirmar com uma sessao real -----------------
     "tjpa2g": Instancia(
-        "tjpa2g", "TJPA — 2o grau (Turma/Camara)", "pje.tjpa.jus.br",
-        "https://pje.tjpa.jus.br/pje",
-        "https://pje.tjpa.jus.br/pje/login.seam", False,
-        "confirmar a entrada do 2o grau ao abrir o painel — pode compartilhar o "
-        "acervo do 1o grau ou exigir URL propria"),
+        "tjpa2g", "TJPA — 2o grau", "pje.tjpa.jus.br",
+        "https://pje.tjpa.jus.br/pje-2g",
+        "https://pje.tjpa.jus.br/pje-2g/login.seam", True,
+        "VERIFICADO 20/07 (contexto /pje-2g, client_id pje-tjpa-2g). Acervo por "
+        "ORGAO (Camaras + Turma Recursal), nao comarca; download igual ao 1o grau "
+        "(window.open/S3). Processos proprios do 2o grau tem CNJ ...8.14.0000"),
     "tjma": Instancia(
         "tjma", "TJMA — 1o grau", "pje.tjma.jus.br",
         "https://pje.tjma.jus.br/pje",

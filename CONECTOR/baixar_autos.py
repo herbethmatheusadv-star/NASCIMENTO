@@ -203,24 +203,33 @@ def extrair_acervo(html: str, inst=None) -> dict[str, str]:
 # (o rotulo e "Acervo"/nome de comarca, nunca um verbo de acao).
 
 def _ir_para_acervo(pagina) -> bool:
-    """Troca para a aba Acervo (se ainda nao estiver). True se a arvore montou."""
-    ativo = pagina.evaluate(
-        "() => { const c=document.getElementById('tabAcervo_cell');"
-        " return !!(c && (c.className||'').includes('active')); }")
-    if not ativo:
-        lbl = (pagina.evaluate(
-            "() => (document.getElementById('tabAcervo_lbl')||{}).innerText||''")
-            or "").strip().split("\n")[0]
-        if not lbl:
-            return False
-        regras.guarda_de_clique(lbl)   # R7: "Acervo" e leitura
-        pagina.evaluate("() => { const e=document.getElementById('tabAcervo_lbl');"
-                        " if(e) e.click(); }")
-    for _ in range(20):
-        time.sleep(1)
-        if pagina.evaluate("() => document.querySelectorAll(\"a[id$='::jNd']\").length>0"):
-            return True
-    return False
+    """Troca para a aba Acervo (se ainda nao estiver). True se a arvore montou.
+
+    Com RETRY do clique: o 1o clique as vezes nao registra (o A4J do RichFaces
+    ainda nao esta pronto logo apos o painel montar) — bateu no TJMA e no 2o grau.
+    Re-clica ate a arvore de comarcas/orgaos aparecer."""
+    def ativo():
+        return pagina.evaluate(
+            "() => { const c=document.getElementById('tabAcervo_cell');"
+            " return !!(c && (c.className||'').includes('active')); }")
+    def tem_arvore():
+        return pagina.evaluate(
+            "() => document.querySelectorAll(\"a[id$='::jNd']\").length>0")
+    if not pagina.evaluate("() => !!document.getElementById('tabAcervo_lbl')"):
+        return False
+    for _ in range(3):
+        if not ativo():
+            lbl = (pagina.evaluate(
+                "() => (document.getElementById('tabAcervo_lbl')||{}).innerText||''")
+                or "").strip().split("\n")[0]
+            regras.guarda_de_clique(lbl or "Acervo")   # R7: "Acervo" e leitura
+            pagina.evaluate("() => { const e=document.getElementById('tabAcervo_lbl');"
+                            " if(e) e.click(); }")
+        for _ in range(10):
+            time.sleep(1)
+            if tem_arvore():
+                return True
+    return tem_arvore()
 
 
 def acervo_completo(pagina) -> dict[str, str]:
