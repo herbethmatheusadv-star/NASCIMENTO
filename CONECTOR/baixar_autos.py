@@ -52,14 +52,17 @@ import unicodedata
 from datetime import datetime
 from pathlib import Path
 
+import instancias
 import regras
 import sessao
 
 RAIZ = Path(__file__).resolve().parents[1]
-BASE = "https://pje.tjpa.jus.br/pje"
 
-# A UNICA rota de leitura que este arquivo constroi e chama. Allowlist.
-REST_DOWNLOAD = BASE + "/seam/resource/rest/pje-legacy/documento/download/{id}"
+# Endereco por INSTANCIA (instancias.py): o default e o TJPA 1o grau, o unico
+# confirmado em execucao real. --instancia troca para TJMA/TRT-8/2o grau — o
+# fluxo e o mesmo, so muda o host. A UNICA rota REST de leitura construida aqui
+# (allowlist) e este sufixo, aplicado sobre a raiz da instancia.
+REST_REL = "/seam/resource/rest/pje-legacy/documento/download/"
 
 RE_CNJ = re.compile(r"\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}")
 # nome da peca: title="177919838 - Peticao Inicial"
@@ -114,11 +117,13 @@ def _slug(texto: str) -> str:
     return (t or "peca")[:40]
 
 
-def _url_download(iddoc: str) -> str:
-    url = REST_DOWNLOAD.format(id=iddoc)
+def _url_download(iddoc: str, inst=None) -> str:
+    inst = inst or instancias.atual()
+    prefixo = inst.raiz + REST_REL
+    url = prefixo + str(iddoc)
     # allowlist + guarda: so passa o que comeca pelo prefixo de leitura, e a
     # guarda ainda barra qualquer verbo de acao que porventura aparecesse.
-    if not url.startswith(BASE + "/seam/resource/rest/pje-legacy/documento/download/"):
+    if not url.startswith(prefixo):
         raise regras.ViolacaoR7(f"rota fora da allowlist de leitura: {url!r}")
     regras.guarda_de_url(url)
     return url
@@ -157,23 +162,24 @@ def _norm_cnj(texto: str) -> str:
 
 # URL dos autos por processo, lida da aba Acervo do painel. Cada linha traz o
 # CNJ junto do link listProcessoCompletoAdvogado.seam?id=..&ca=.. — o `ca` e um
-# token por processo, valido so na sessao viva.
+# token por processo, valido so na sessao viva. Captura o caminho a partir da
+# `/` inicial (href relativo) — NAO assume o contexto `/pje/`, que muda por
+# instancia (o TRT usa `/primeirograu/`).
 RE_ACERVO = re.compile(
-    r'((?:/pje/[^"\']*)?listProcessoCompletoAdvogado\.seam\?id=\d+&(?:amp;)?ca=[a-f0-9]+)')
+    r"(/[^\"'<>\s]*?listProcessoCompletoAdvogado\.seam\?id=\d+&(?:amp;)?ca=[a-f0-9]+)")
 
 
-def extrair_acervo(html: str) -> dict[str, str]:
+def extrair_acervo(html: str, inst=None) -> dict[str, str]:
     """{cnj: url_dos_autos} a partir do HTML do painel (aba Acervo aberta)."""
+    inst = inst or instancias.atual()
     out: dict[str, str] = {}
     html = html or ""
     for m in RE_ACERVO.finditer(html):
         caminho = htmlmod.unescape(m.group(1))
         if caminho.startswith("http"):
             url = caminho
-        elif caminho.startswith("/pje"):
-            url = "https://pje.tjpa.jus.br" + caminho
-        else:
-            url = BASE + "/Processo/ConsultaProcesso/Detalhe/" + caminho
+        else:   # href relativo, comeca com "/": prefixa o host da instancia
+            url = f"https://{inst.host}" + caminho
         # o CNJ vem DEPOIS do link, no texto da linha, ~600 chars a frente
         # (medido no HTML real 16/07/2026; 400 nao alcancava). Janela de 1200
         # cobre com folga sem invadir a proxima linha (~1700 a frente).
@@ -205,7 +211,10 @@ def extrair_acervo(html: str) -> dict[str, str]:
 # regras.guarda_de_clique — se um dia o seletor pegasse um botao de acao, o
 # rotulo casaria com o vocabulario proibido e a guarda recusaria.
 
-HOST_PACOTE = "pje-docs.tjpa.jus.br"
+# O PDF empacotado vem de um host de documentos do PJe — no TJPA e
+# `pje-docs.tjpa.jus.br` (S3 assinado). A allowlist aceita a FAMILIA
+# `pje-docs.<tribunal>.jus.br` (ou o proprio host da instancia), sempre .pdf.
+RE_HOST_DOCS = re.compile(r"^pje-docs\.[a-z0-9-]+\.jus\.br$")
 
 # O botao vive num dropdown oculto (display:none); .click() no elemento dispara
 # o A4J mesmo sem visibilidade. O id do <input> e j_idNNN — auto-gerado pelo
@@ -241,13 +250,17 @@ _JS_LER_LINK = ("() => { const e = document.getElementById('linkDownloadOculto')
 RE_OPEN_URL = re.compile(r"window\.open\('([^']+)'\)")
 
 
-def _url_pacote_ok(url: str) -> str:
-    """Allowlist do PDF empacotado: so o host pje-docs e caminho .../...processo.pdf.
-    Como o _url_download da REST: uma rota de LEITURA conhecida; o resto e ausencia."""
+def _url_pacote_ok(url: str, inst=None) -> str:
+    """Allowlist do PDF empacotado: host de documentos do PJe (pje-docs.*.jus.br
+    ou o host da instancia) e caminho terminando em .pdf. Como o _url_download da
+    REST: uma rota de LEITURA conhecida; o resto e ausencia."""
+    inst = inst or instancias.atual()
     if url.startswith("/"):
-        url = "https://" + HOST_PACOTE + url
+        url = f"https://{inst.host}" + url
     limpo = url.split("?", 1)[0].lower()
-    if not (url.startswith(f"https://{HOST_PACOTE}/") and limpo.endswith("processo.pdf")):
+    host = re.sub(r"^https?://([^/]+).*", r"\1", url).lower()
+    host_ok = bool(RE_HOST_DOCS.match(host)) or host == inst.host
+    if not (url.startswith("https://") and host_ok and limpo.endswith(".pdf")):
         raise regras.ViolacaoR7(
             f"URL de pacote fora da allowlist de leitura: {url[:80]!r}")
     regras.guarda_de_url(url)   # ainda barra qualquer verbo de acao que aparecesse
@@ -532,7 +545,17 @@ def main() -> None:
                     help="segundos max p/ o servidor empacotar cada processo (integral)")
     ap.add_argument("--pausa", type=float, default=2.0,
                     help="segundos entre processos (rate limit; padrao 2.0)")
+    ap.add_argument("--instancia", default="tjpa",
+                    help="instancia PJe: " + ", ".join(i.chave for i in instancias.listar()))
     args = ap.parse_args()
+
+    try:
+        inst = instancias.definir(args.instancia)
+    except KeyError as e:
+        print("[baixar]", e)
+        sys.exit(1)
+    print(f"[baixar] instancia: {inst.nome} ({inst.host})"
+          + ("" if inst.verificado else f" — NAO verificado: {inst.nota}"))
 
     reuso = sessao.sessao_viva_logada()
     ok, faltas = sessao.ambiente_ok(reuso=reuso)

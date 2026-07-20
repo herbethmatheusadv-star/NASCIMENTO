@@ -719,3 +719,47 @@ A URL do pacote tem allowlist própria (`_url_pacote_ok`: só
 integrais de **todos** os processos, com um login. Próximo: o **importador
 (Fase 3)** — PDF → texto com marcador de página (`===[p.N]===`), hash, dedup e
 citação por página.
+
+## 13. MULTI-INSTÂNCIA — o mesmo conector em vários PJe (20/07/2026)
+
+O fluxo de leitura (login por certificado → Acervo → "Download autos do processo"
+→ PDF assinado) é **padrão do PJe**. O que muda de um tribunal para outro é o
+**endereço**: host, raiz do app e URL de login. Isso agora está isolado em
+`CONECTOR/instancias.py` (registro de instâncias), e o conector recebe
+`--instancia <chave>` (default `tjpa`). **O R7 não muda**: a blocklist de URLs em
+`regras.py` é agnóstica de tribunal, então vale para todas as instâncias.
+
+### 13.1 O que ficou parametrizado
+- `sessao.py`: a URL de login e o `_url_e_painel` (reconhecimento do painel) vêm
+  do `instancias.atual().host`/`.login`.
+- `baixar_autos.py`: `extrair_acervo` monta a URL com o host da instância e
+  captura o href a partir da `/` inicial (não assume `/pje/` — o TRT usa
+  `/primeirograu/`); `_url_download` usa a raiz da instância; `_url_pacote_ok`
+  aceita a **família** `pje-docs.<tribunal>.jus.br` (ou o host da instância),
+  sempre `.pdf`.
+
+### 13.2 Instâncias e status
+| chave | tribunal | verificado | observação |
+|---|---|---|---|
+| `tjpa` | TJPA 1º grau | ✅ sim | 16 processos, 280 MB (16/07) |
+| `tjpa2g` | TJPA 2º grau | ❌ | confirmar entrada do 2º grau ao abrir o painel |
+| `tjma` | TJMA 1º grau | ❌ | mesma família PJe-TJ; alta confiança |
+| `trt8` | TRT-8 1º grau | ❌ | PJe-TRT usa `/primeirograu`; testar acervo/botão |
+| `trt8-2g` | TRT-8 2º grau | ❌ | `/segundograu` |
+
+`verificado=False` = endereço pelo padrão conhecido do PJe; **precisa de uma
+sessão real** para confirmar acervo, botão e o host do PDF do pacote.
+
+### 13.3 Canaã dos Carajás — NÃO é outra instância
+Canaã (8.14.**0136**) é a **mesma instância TJPA**. Só não veio no 1º download
+porque o Acervo agrupa por comarca e apenas Parauapebas estava expandida no HTML
+renderizado. **Correção:** na próxima sessão TJPA, expandir a jurisdição de Canaã
+no Acervo e rodar `baixar_autos.py --todos` — os processos de lá entram sozinhos.
+Sem código novo.
+
+### 13.4 O que falta (precisa de login real)
+- **TJMA** e **TRT-8/2º grau**: confirmar, numa sessão, que o acervo e o botão
+  "Download autos do processo" respondem igual ao TJPA e qual o host do PDF do
+  pacote (a allowlist já aceita `pje-docs.*.jus.br`; se o host for outro, ajustar).
+- **TJPA 2º grau**: descobrir se compartilha o painel do 1º grau ou tem entrada
+  própria — abrir o painel do 2º grau confirma.

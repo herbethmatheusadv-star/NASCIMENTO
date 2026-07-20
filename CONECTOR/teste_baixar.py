@@ -11,6 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import baixar_autos as ba
+import instancias
 import regras
 
 falhas = []
@@ -77,10 +78,39 @@ check("monta a URL absoluta com id e ca (amp; desescapado)",
 check("normaliza CNJ (so digitos)", ba._norm_cnj("0809135-08.2026.8.14.0040"),
       "08091350820268140040")
 
+print("\n=== 2c. Multi-instancia: o host vem da instancia (TRT usa /primeirograu) ===")
+trt8 = instancias.REGISTRO["trt8"]
+ACERVO_TRT = ('<a href="/primeirograu/Processo/ConsultaProcesso/Detalhe/'
+              'listProcessoCompletoAdvogado.seam?id=99&amp;ca=abc123def">'
+              '<span>0001766-17.2024.5.08.0126</span></a>')
+ac = ba.extrair_acervo(ACERVO_TRT, inst=trt8)
+check("acha o processo no acervo do TRT", sorted(ac), ["0001766-17.2024.5.08.0126"])
+check("monta a URL no host do TRT, preservando /primeirograu",
+      ac["0001766-17.2024.5.08.0126"],
+      "https://pje.trt8.jus.br/primeirograu/Processo/ConsultaProcesso/Detalhe/"
+      "listProcessoCompletoAdvogado.seam?id=99&ca=abc123def")
+check("REST de leitura do TRT usa a raiz da instancia",
+      ba._url_download("777", inst=trt8),
+      "https://pje.trt8.jus.br/primeirograu/seam/resource/rest/pje-legacy/"
+      "documento/download/777")
+
 print("\n=== 3. URL de download: allowlist de leitura ===")
 url = ba._url_download("900000001")
 check("monta a rota REST de leitura correta", url,
       "https://pje.tjpa.jus.br/pje/seam/resource/rest/pje-legacy/documento/download/900000001")
+
+print("\n=== 3b. Allowlist do PDF empacotado (pje-docs.*.jus.br, so .pdf) ===")
+tjpa = instancias.REGISTRO["tjpa"]
+ok_url = "https://pje-docs.tjpa.jus.br/2026/x-processo.pdf?X-Amz-Signature=deadbeef"
+check("aceita pje-docs.tjpa .pdf", ba._url_pacote_ok(ok_url, inst=tjpa), ok_url)
+check("aceita pje-docs de OUTRO tribunal (mesma familia)",
+      ba._url_pacote_ok("https://pje-docs.tjma.jus.br/a/y-processo.pdf?s=1",
+                        inst=instancias.REGISTRO["tjma"]).startswith(
+                            "https://pje-docs.tjma"), True)
+check_levanta("barra host fora de .jus.br",
+              ba._url_pacote_ok, "https://evil.example.com/x-processo.pdf")
+check_levanta("barra o que nao termina em .pdf",
+              ba._url_pacote_ok, "https://pje-docs.tjpa.jus.br/x.exe")
 
 print("\n=== 4. guarda_de_url libera leitura, barra escrita ===")
 regras.guarda_de_url(url)   # nao pode levantar

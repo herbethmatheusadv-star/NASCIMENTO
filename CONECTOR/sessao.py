@@ -36,11 +36,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+import instancias
 import regras
 
 RAIZ = Path(__file__).resolve().parents[1]
 
-URL_LOGIN_TJPA = "https://pje.tjpa.jus.br/pje/login.seam"
+# A instancia PJe (TJPA/TJMA/TRT-8/...) mora em instancias.py; o default e o TJPA
+# 1o grau. `--instancia` (no main) troca o host/login sem mexer neste arquivo.
 
 # Porta de depuracao do Chrome. O robo CONECTA nela (nao lanca com as flags de
 # automacao do Playwright): assim o PJe ve um navegador comum e o login por
@@ -90,15 +92,16 @@ def _paginas_cdp() -> list[str]:
         return []
 
 
-def _url_e_painel(u: str) -> bool:
+def _url_e_painel(u: str, inst=None) -> bool:
     """True so para o PAINEL (painel_usuario/advogado.seam), nao para os autos.
 
     Cuidado: a tela de autos e `listProcessoCompletoAdvogado.seam` — tambem
     termina em 'advogado.seam'. Casar por 'advogado.seam' pegava a aba de autos
     por engano (16/07/2026). Ancoramos em 'painel' e excluimos explicitamente as
-    telas de processo/autos."""
+    telas de processo/autos. O host vem da instancia (TJPA/TJMA/TRT-8/...)."""
+    inst = inst or instancias.atual()
     ul = (u or "").lower()
-    if not ul or ul == "about:blank" or "login" in ul or "tjpa" not in ul:
+    if not ul or ul == "about:blank" or "login" in ul or inst.host not in ul:
         return False
     if "listprocessocompleto" in ul or "consultaprocesso" in ul:
         return False   # e a tela de AUTOS, nao o painel
@@ -197,7 +200,7 @@ class SessaoEfemera:
              f"--user-data-dir={self._tmp}",
              "--no-first-run", "--no-default-browser-check",
              "--start-maximized", "--new-window",
-             URL_LOGIN_TJPA],
+             instancias.atual().login],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
         # espera a porta de depuracao subir
@@ -570,7 +573,25 @@ def main() -> None:
                     help="abre o navegador e espera o login do titular")
     ap.add_argument("--mapear", action="store_true",
                     help="apos o login, anota o trafego enquanto VOCE navega")
+    ap.add_argument("--instancia", default="tjpa",
+                    help="instancia PJe: " + ", ".join(i.chave for i in instancias.listar()))
+    ap.add_argument("--instancias", action="store_true",
+                    help="lista as instancias conhecidas e sai")
     args = ap.parse_args()
+
+    if args.instancias:
+        for i in instancias.listar():
+            marca = "OK " if i.verificado else "?? "
+            print(f"  {marca}{i.chave:<8} {i.nome:<28} {i.login}"
+                  + ("" if i.verificado else f"\n            (a confirmar: {i.nota})"))
+        return
+    try:
+        inst = instancias.definir(args.instancia)
+    except KeyError as e:
+        print("[sessao]", e)
+        sys.exit(1)
+    print(f"[sessao] instancia: {inst.nome} ({inst.host})"
+          + ("" if inst.verificado else " — NAO verificado"))
 
     reuso = sessao_viva_logada()
     ok, faltas = ambiente_ok(reuso=reuso)
