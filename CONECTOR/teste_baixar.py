@@ -94,6 +94,24 @@ check("REST de leitura do TRT usa a raiz da instancia",
       "https://pje.trt8.jus.br/primeirograu/seam/resource/rest/pje-legacy/"
       "documento/download/777")
 
+print("\n=== 2d. Acervo em outro deployment: listAutosDigitais (TJMA) + dummy ===")
+tjma = instancias.REGISTRO["tjma"]
+ACERVO_TJMA = (
+    "<a onclick=\"window.open('/pje/Processo/ConsultaProcesso/Detalhe/"
+    "listAutosDigitais.seam?idProcesso=3717097')\">Autos</a>"
+    "<span>APOrd 0805885-75.2026.8.10.0040</span>"
+    "<a onclick=\"window.open('/pje/x/listAutosDigitais.seam?idProcesso=0')\">m</a>"
+    "<span>9999999-99.9999.9.99.9999</span>")
+acj = ba.extrair_acervo(ACERVO_TJMA, inst=tjma)
+check("acha o processo pelo link listAutosDigitais (onclick)",
+      sorted(acj), ["0805885-75.2026.8.10.0040"])
+check("monta a URL de autos no host do TJMA",
+      acj.get("0805885-75.2026.8.10.0040"),
+      "https://pje.tjma.jus.br/pje/Processo/ConsultaProcesso/Detalhe/"
+      "listAutosDigitais.seam?idProcesso=3717097")
+check("ignora a linha-modelo do RichFaces (CNJ 9999999)",
+      "9999999-99.9999.9.99.9999" in acj, False)
+
 print("\n=== 3. URL de download: allowlist de leitura ===")
 url = ba._url_download("900000001")
 check("monta a rota REST de leitura correta", url,

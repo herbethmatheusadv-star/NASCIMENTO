@@ -771,3 +771,30 @@ a aba é `tabAcervo_lbl` (RichFaces).
   pacote (a allowlist já aceita `pje-docs.*.jus.br`; se o host for outro, ajustar).
 - **TJPA 2º grau**: descobrir se compartilha o painel do 1º grau ou tem entrada
   própria — abrir o painel do 2º grau confirma.
+
+### 13.5 TJMA — o que a 1ª sessão real ensinou (20/07/2026)
+
+Login e **leitura do acervo funcionam** — mas o TJMA roda uma **versão diferente
+do PJe** e diverge em dois pontos que já foram tratados/mapeados:
+
+1. **Link de abrir autos (TRATADO):** o TJMA usa
+   `listAutosDigitais.seam?idProcesso=<n>` (dentro de um `onclick window.open`),
+   não o `listProcessoCompletoAdvogado.seam?id=..&ca=..` do TJPA. O `RE_ACERVO`
+   agora casa os dois. O acervo é a mesma árvore por comarca (Açailândia,
+   Imperatriz) — o auto-percurso funciona.
+2. **Download integral (PENDENTE — driver próprio):** o botão é
+   `navbar:downloadProcesso` (`type=submit`, id estável), com `confirm()` +
+   `iniciarTemporizadorDownload()`. O empacotamento é **assíncrono**: um timer
+   (`executarTemporizadorDownload`, 1×/s) faz **polling do cookie
+   `cookieTemporizadorDownload`** até `"finalizado"`, então chama
+   `callbackTemporizadorDownload()`. **Não** há `linkDownloadOculto` nem
+   `window.open` do S3 (fluxo do TJPA). Ou seja: `disparar_pacote` (feito para o
+   TJPA) devolve `sem_pacote` no TJMA. Falta mapear o `callback` / a URL final e,
+   provavelmente, capturar via **evento de download** do navegador ou pela **Área
+   de download**. Rota REST por documento no TJMA (vista no JS):
+   `/seam/resource/rest/pje-legacy/documento/download/TJMA/1g/<x>/<idDocumento>`.
+
+**Conclusão honesta:** o conector **lê** o TJMA (acervo, autos abríveis); o
+**download integral** do TJMA precisa de um driver assíncrono próprio — é o
+próximo passo para essa instância. Volume baixo (1–2 processos), então dá para
+baixar manualmente enquanto o driver não vem.

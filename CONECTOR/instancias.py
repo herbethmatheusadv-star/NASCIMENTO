@@ -48,8 +48,10 @@ REGISTRO: dict[str, Instancia] = {
         "tjma", "TJMA — 1o grau", "pje.tjma.jus.br",
         "https://pje.tjma.jus.br/pje",
         "https://pje.tjma.jus.br/pje/login.seam", False,
-        "padrao PJe-TJ (mesma familia do TJPA); confirmar o host do PDF do pacote "
-        "no 1o download"),
+        "20/07: login e LEITURA do acervo OK (autos via listAutosDigitais.seam). "
+        "Falta o DOWNLOAD: o TJMA empacota de forma ASSINCRONA (submit + timer que "
+        "faz polling do cookie 'cookieTemporizadorDownload' ate 'finalizado'), "
+        "diferente do S3/window.open do TJPA — precisa de driver proprio"),
     "trt8": Instancia(
         "trt8", "TRT-8 — 1o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/primeirograu",

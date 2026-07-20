@@ -160,13 +160,18 @@ def _norm_cnj(texto: str) -> str:
     return re.sub(r"\D", "", texto or "")
 
 
-# URL dos autos por processo, lida da aba Acervo do painel. Cada linha traz o
-# CNJ junto do link listProcessoCompletoAdvogado.seam?id=..&ca=.. — o `ca` e um
-# token por processo, valido so na sessao viva. Captura o caminho a partir da
-# `/` inicial (href relativo) — NAO assume o contexto `/pje/`, que muda por
-# instancia (o TRT usa `/primeirograu/`).
+# URL dos autos por processo, lida da aba Acervo. Captura o caminho a partir da
+# `/` inicial (href OU dentro de um onclick window.open) — NAO assume `/pje/`
+# (o TRT usa `/primeirograu/`). O NOME do link de autos MUDA por deployment:
+#   TJPA: listProcessoCompletoAdvogado.seam?id=<n>&ca=<hex>
+#   TJMA: listAutosDigitais.seam?idProcesso=<n>   (descoberto em 20/07/2026)
+# Ambos abrem os autos digitais; casamos os dois.
 RE_ACERVO = re.compile(
-    r"(/[^\"'<>\s]*?listProcessoCompletoAdvogado\.seam\?id=\d+&(?:amp;)?ca=[a-f0-9]+)")
+    r"(/[^\"'<>\s]*?(?:"
+    r"listProcessoCompletoAdvogado\.seam\?id=\d+&(?:amp;)?ca=[a-f0-9]+"
+    r"|listAutosDigitais\.seam\?idProcesso=\d+"
+    r"))")
+CNJ_DUMMY = "9999999-99.9999.9.99.9999"   # linha-modelo oculta do RichFaces
 
 
 def extrair_acervo(html: str, inst=None) -> dict[str, str]:
@@ -184,7 +189,7 @@ def extrair_acervo(html: str, inst=None) -> dict[str, str]:
         # (medido no HTML real 16/07/2026; 400 nao alcancava). Janela de 1200
         # cobre com folga sem invadir a proxima linha (~1700 a frente).
         cm = RE_CNJ.search(html[m.start():m.start() + 1200])
-        if cm:
+        if cm and cm.group(0) != CNJ_DUMMY:
             out.setdefault(cm.group(0), url)
     return out
 
