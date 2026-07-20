@@ -28,6 +28,7 @@ from pathlib import Path
 
 import soj_lib as soj
 import soj_prazos as prazos
+import soj_pendencias as pendencias
 
 try:
     import yaml
@@ -211,9 +212,13 @@ def carregar() -> dict:
     total = len(processos)
     com_autos = sum(1 for p in processos if p["autos"]["indexado"])
     paginas = sum(p["autos"].get("paginas", 0) for p in processos)
+    try:
+        pend = pendencias.pendencias_do_acervo()
+    except Exception:  # noqa: BLE001
+        pend = []
     return {"processos": processos, "audiencias": audiencias, "hoje": hoje_itens,
             "resumos": resumos, "minutas": minutas, "novidades": novidades,
-            "cobertura": cob,
+            "cobertura": cob, "pendencias": pend,
             "kpi": {"total": total, "com_autos": com_autos, "paginas": paginas,
                     "audiencias": sum(1 for a in audiencias if 0 <= a["dias"] <= 7)}}
 
@@ -401,13 +406,27 @@ def bloco_robo(dados):
     linhas.append(linha("", f"{len(minu)} minutas de peça (rascunho)",
         "<span class='chip c-suc'>citações verificadas</span>" if minu else "<span class='chip c-mut'>nenhuma</span>",
         ""))
-    linhas.append(linha("", "Procurações a assinar",
-        "<span class='chip c-mut'>a implementar</span>", ""))
-    linhas.append(linha("", "Petições pendentes de protocolo",
-        "<span class='chip c-mut'>a implementar</span>", ""))
+    pend = dados.get("pendencias", [])
+    npr = {"protocolo": 0, "procuração": 0, "documento": 0}
+    for p in pend:
+        if p["tipo"] in npr:
+            npr[p["tipo"]] += 1
+    linhas.append(linha("", "Petições prontas a protocolar (você assina)",
+        f"<span class='chip {'c-war' if npr['protocolo'] else 'c-suc'}'>"
+        f"{npr['protocolo']}</span>", ""))
+    linhas.append(linha("", "Procurações a assinar / confirmar",
+        f"<span class='chip {'c-war' if npr['procuração'] else 'c-suc'}'>"
+        f"{npr['procuração']}</span>", ""))
+    linhas.append(linha("", "Documentos a coletar",
+        f"<span class='chip {'c-acc' if npr['documento'] else 'c-mut'}'>"
+        f"{npr['documento']}</span>", ""))
     novtxt = (", ".join(f"{H.escape(p['id'])} (+{len(p['autos']['novidades'].get('novos_nums',[]))})"
                         for p in nov) if nov else "nenhuma hoje")
+    prot = [p for p in pend if p["tipo"] == "protocolo"]
+    prot_txt = ("; ".join(H.escape(f"{p['ref']} — {p['o_que'].replace('protocolar: ', '')}")
+                          for p in prot[:4]) if prot else "nenhuma pronta")
     return (f"<div class='card'>{''.join(linhas)}"
+            f"<div class='note'>📌 Prontas a protocolar: {prot_txt}.</div>"
             f"<div class='note'>Novidades nos autos: {novtxt}.</div>"
             f"<div class='note'>🔒 O robô lê e prepara. Assinar e protocolar são só seus "
             f"— o sistema nunca age no PJe (R7).</div></div>")

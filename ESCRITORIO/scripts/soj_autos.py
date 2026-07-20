@@ -30,6 +30,7 @@ REINDEX = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_reindex.py"
 INTEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_inteligencia.py"
 RESUMO = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_resumo.py"
 PRAZOS = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_prazos.py"
+PENDENCIAS = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_pendencias.py"
 PAINEL = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_painel.py"
 
 
@@ -95,8 +96,11 @@ def main() -> None:
     # passo 6: o motor de prazos varre as fichas e lista os vencimentos.
     passo(6, "PRAZOS do acervo (motor de prazos — vencimentos)", [PRAZOS])
 
-    # passo 7: gera e ABRE o painel do dia (o cockpit). Nao derruba a rotina.
-    passo(7, "PAINEL do dia (abre no navegador)", [PAINEL])
+    # passo 7: a fila de acoes humanas (procuracoes, protocolos, documentos).
+    passo(7, "PENDENCIAS do escritorio (procuracoes, protocolos, docs)", [PENDENCIAS])
+
+    # passo 8: gera e ABRE o painel do dia (o cockpit). Nao derruba a rotina.
+    passo(8, "PAINEL do dia (abre no navegador)", [PAINEL])
 
     print("\n" + "=" * 68)
     print("  ROTINA COMPLETA — o painel do dia abriu no navegador.")
