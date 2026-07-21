@@ -61,11 +61,12 @@ REGISTRO: dict[str, Instancia] = {
         "trt8", "TRT-8 — 1o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/primeirograu",
         "https://pje.trt8.jus.br/primeirograu/login.seam", False,
-        "contexto /primeirograu CONFIRMADO (login.seam=200, sondagem 20/07/2026); "
-        "falta o fluxo real (acervo + botao de download) com a sua sessao. MNI "
-        "SOAP classico AUSENTE aqui (/intercomunicacao=404); o PJe-JT tem MNI "
-        "proprio em /pje-comum-api/api/mni (403=exige auth) — leitura do TRT-8 e "
-        "pelo NAVEGADOR (baixar_autos.py --instancia trt8).",
+        "PJe NOVO (PDPJ/'Meu Painel', SPA Angular v2.19.2) — NAO e o Seam do "
+        "TJPA. Sessao LOGADA 20/07/2026: acervo pela API REST GET "
+        "/pje-comum-api/api/paineladvogado/{idAdv}/processos (idPainelAdvogadoEnum "
+        "1=acervo, 5=arquivados; idAdv do titular=837986), auth Bearer do PDPJ. "
+        "MNI SOAP classico ausente (/intercomunicacao=404). Autos via PJe-Kz "
+        "(window.open) — download a mapear. Detalhes em MAPA_PJE.md §13.9.",
         mni_soap=False),
     "trt8-2g": Instancia(
         "trt8-2g", "TRT-8 — 2o grau", "pje.trt8.jus.br",

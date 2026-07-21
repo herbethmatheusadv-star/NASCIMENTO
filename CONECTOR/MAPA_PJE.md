@@ -859,3 +859,46 @@ melhor um erro claro que um POST num endereço morto. A leitura do TRT-8 vai pel
 sessão real (seu login)** para confirmar o acervo e o botão de download — único
 pedaço que não dá para fechar sem você. Confirmar o MNI REST do `/pje-comum-api`
 como caminho alternativo também depende de um token autenticado.
+
+### 13.9 TRT-8 — sessão de mapeamento LOGADA (20/07/2026)
+
+Login do titular pelo **PDPJ** (SSO `sso.cloud.pje.jus.br` — CPF+senha, gov.br ou
+certificado). Achado estrutural: **o TRT-8 roda o PJe NOVO** (PDPJ, "Meu Painel",
+SPA Angular, v2.19.2 "CARAÚBA") — **não** o PJe Seam/RichFaces do TJPA/TJMA. Os
+seletores da família TJ (`::jNd`, `listView.seam`, window.open/S3) **não valem**.
+Mas o SPA se alimenta de uma **API REST limpa e autenticada** — o caminho robusto:
+
+- **Base:** `https://pje.trt8.jus.br/pje-comum-api/api/` (+ `/pje-seguranca/api/`
+  para token/perfis/permissões). Auth: **Bearer** obtido na sessão PDPJ.
+- **Acervo (a lista que vira ficha):**
+  `GET /pje-comum-api/api/paineladvogado/{idAdv}/processos?pagina=1&tamanhoPagina=10&idPainelAdvogadoEnum=N`
+  → JSON. **`N=1` Acervo Geral, `N=5` Arquivados.** `{idAdv}` do titular = **837986**.
+- **Contadores:** `…/paineladvogado/{idAdv}/totalizadores?tipoPainelAdvogado=0`.
+- **Órgãos:** `…/paineladvogado/{idAdv}/orgaojulgadores`.
+- **Avisos/expedientes (fonte de ciência — R7 sensível):** `…/api/quadroavisos/`.
+- **Shape por processo:** `numeroProcesso`, `classeJudicial`, `descricaoOrgaoJulgador`,
+  `nomeParteAutora`/`nomeParteRe` (+ `qtde…`), `dataAutuacao`, `dataArquivamento`,
+  `segredoDeJustica`, `codigoStatusProcesso`, `juizoDigital`, `id` (interno). Mapeia
+  1:1 nos campos da ficha PROC.
+- **Autos:** o botão "Abrir Processo" (ícone *kz*) abre o **PJe-Kz** via
+  `window.open` (aba nova) — a API de documentos/download vive no app Kz, a mapear
+  na implementação (o navegador embutido bloqueia o popup; no navegador real abre).
+
+**R7 aqui:** a UI tem **"Peticionar"** colado no "Abrir Processo" (é o botão de
+escrita) e o `quadroavisos` é a porta da ciência. Mesma disciplina do MNI: o
+conector só faz **GET de consulta**; peticionar/ciência não existem no código.
+
+**Cobertura confirmada — os 5 trabalhistas (1 no acervo + 4 arquivados)**, todos
+na Justiça do Trabalho de Parauapebas, e todos cruzam com clientes já cadastrados:
+
+| nº CNJ | classe | parte contrária | cliente |
+|---|---|---|---|
+| 0000483-10.2025.5.08.0130 | ATSum | LEMONBRAS (ré) | Beatryz — CLI-0003 (autora) |
+| 0000342-54.2026.5.08.0130 | ATSum | Odilon (réu) | André — CLI-0002 (autor) |
+| 0001128-32.2025.5.08.0131 | ATSum | Gustavo Palhano (autor) | C E S Nascimento — CLI-0005 (ré) · = PROC-0005 |
+| 0001766-17.2024.5.08.0126 | ACum | Sindicato (autor) | F A Comércio — CLI-0001 (ré) |
+| 0000017-16.2025.5.08.0130 | ACum | Sindicato (autor) | Perfil Com. e Eng. (ré) — cluster Nascimento |
+
+Só **PROC-0005** já existia em v2; os outros 4 são cadastro novo (dados crus da
+API prontos). Nenhum tem segredo; **Meus Expedientes = 0** (nada com ciência
+pendente — mapear foi seguro pelo R7).
