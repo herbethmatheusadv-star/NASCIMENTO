@@ -15,6 +15,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import instancias
 import mni
 import regras
 
@@ -114,6 +115,27 @@ check("2o grau", mni.ENDPOINTS[2], "https://pje.tjpa.jus.br/pje-2g/intercomunica
 check("soapAction segue o padrao do namespace",
       f"{mni.NS_SERVICO}consultarProcesso",
       "http://www.cnj.jus.br/servico-intercomunicacao-2.2.2/consultarProcesso")
+
+print("\n=== 8. Endpoint por instancia (o driver multi-tribunal) ===")
+# Familia TJ: derivar da raiz tem de bater BYTE A BYTE com o contrato do WSDL.
+check("endpoint_mni(tjpa) == contrato 1o grau",
+      mni.endpoint_mni(instancias.REGISTRO["tjpa"]), mni.ENDPOINTS[1])
+check("endpoint_mni(tjpa2g) == contrato 2o grau",
+      mni.endpoint_mni(instancias.REGISTRO["tjpa2g"]), mni.ENDPOINTS[2])
+check("endpoint_mni(tjma) segue o padrao TJ",
+      mni.endpoint_mni(instancias.REGISTRO["tjma"]),
+      "https://pje.tjma.jus.br/pje/intercomunicacao")
+# TRT-8 (PJe-JT) NAO fala o MNI SOAP: endpoint_mni tem de RECUSAR, nunca devolver
+# um endereco morto (sondagem 20/07/2026: /intercomunicacao=404, /pje-comum-api=403).
+for chave in ("trt8", "trt8-2g"):
+    try:
+        mni.endpoint_mni(instancias.REGISTRO[chave])
+        check(f"{chave} deveria recusar o MNI SOAP", "devolveu url", "MNIIndisponivel")
+    except mni.MNIIndisponivel:
+        check(f"{chave} recusa o MNI SOAP (leitura vai pelo navegador)", True, True)
+# o caminho valido (TJPA) segue passando na guarda de URL (R7)
+regras.guarda_de_url(mni.ENDPOINTS[1])
+check("endpoint TJPA passa na guarda de URL (R7)", True, True)
 
 print("\n" + "=" * 74)
 if falhas:

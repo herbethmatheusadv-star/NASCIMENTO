@@ -834,3 +834,28 @@ Fica em **`pje.tjpa.jus.br/pje-2g/`** (contexto `/pje-2g`, `client_id=pje-tjpa-2
 **Flakiness corrigida:** o 1º clique na aba Acervo às vezes não registra (A4J do
 RichFaces ainda não pronto após o painel montar) — bateu no TJMA e no 2º grau.
 `_ir_para_acervo` agora **re-clica** até a árvore aparecer (até 3 tentativas).
+
+### 13.8 TRT-8 (Justiça do Trabalho) — sondagem do MNI (20/07/2026)
+
+Sondagem **pública** (GET anônimo, sem credencial, sem enviar dado; pausa de 2s
+entre alvos, conforme CONDUTA). O que ela estabeleceu:
+
+- **Contexto `/primeirograu` CONFIRMADO:** `…/primeirograu/login.seam` → **200**
+  (HTML da tela de login). O endereço da instância `trt8` em `instancias.py`
+  está certo para o **fluxo de navegador**.
+- **NÃO há MNI SOAP clássico no padrão TJ:** `…/primeirograu/intercomunicacao`
+  (e `…/pje/intercomunicacao`, `…/intercomunicacao`, `…/pje-comum/intercomunicacao`)
+  → **404**. A família TJ (TJPA, TJMA) publica o MNI em `raiz + /intercomunicacao`;
+  **a Justiça do Trabalho não.**
+- **O MNI do PJe-JT existe, mas é autenticado e de outra arquitetura:**
+  `…/pje-comum-api/api/mni/intercomunicacao` → **403 Forbidden** (existe, exige
+  auth), enquanto todo o resto dá 404. É a fachada MNI da CSJT — provável
+  REST/token, **não** o `document/literal` SOAP 1.1 que o `mni.py` monta.
+
+**Decisão de engenharia (honesta):** a instância declara `mni_soap=False`
+(`instancias.py`) e o `mni.py` **se recusa** a montar endpoint para o TRT-8 —
+melhor um erro claro que um POST num endereço morto. A leitura do TRT-8 vai pelo
+**navegador** (`baixar_autos.py --instancia trt8`), que ainda precisa de **uma
+sessão real (seu login)** para confirmar o acervo e o botão de download — único
+pedaço que não dá para fechar sem você. Confirmar o MNI REST do `/pje-comum-api`
+como caminho alternativo também depende de um token autenticado.

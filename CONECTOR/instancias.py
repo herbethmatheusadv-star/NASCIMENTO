@@ -28,6 +28,11 @@ class Instancia:
     login: str         # URL da tela de login
     verificado: bool   # o fluxo ja rodou de verdade aqui?
     nota: str = ""     # ressalva quando verificado=False
+    mni_soap: bool = True  # fala o MNI SOAP classico (intercomunicacao 2.2.2)?
+    #  A familia TJ (TJPA, TJMA) publica o MNI em raiz + '/intercomunicacao'.
+    #  A Justica do Trabalho (PJe-JT/TRT) NAO: sondagem publica de 20/07/2026
+    #  deu 404 nesse caminho e 403 (existe, exige auth) em /pje-comum-api/api/mni.
+    #  Quando False, o mni.py se RECUSA a montar endpoint — nao POSTa em 404.
 
 
 REGISTRO: dict[str, Instancia] = {
@@ -56,13 +61,19 @@ REGISTRO: dict[str, Instancia] = {
         "trt8", "TRT-8 — 1o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/primeirograu",
         "https://pje.trt8.jus.br/primeirograu/login.seam", False,
-        "PJe-TRT usa contexto /primeirograu; confirmar acervo e o botao de "
-        "download integral"),
+        "contexto /primeirograu CONFIRMADO (login.seam=200, sondagem 20/07/2026); "
+        "falta o fluxo real (acervo + botao de download) com a sua sessao. MNI "
+        "SOAP classico AUSENTE aqui (/intercomunicacao=404); o PJe-JT tem MNI "
+        "proprio em /pje-comum-api/api/mni (403=exige auth) — leitura do TRT-8 e "
+        "pelo NAVEGADOR (baixar_autos.py --instancia trt8).",
+        mni_soap=False),
     "trt8-2g": Instancia(
         "trt8-2g", "TRT-8 — 2o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/segundograu",
         "https://pje.trt8.jus.br/segundograu/login.seam", False,
-        "PJe-TRT contexto /segundograu"),
+        "PJe-TRT contexto /segundograu; mesmo caso do 1o grau — sem MNI SOAP "
+        "classico, leitura pelo navegador.",
+        mni_soap=False),
 }
 
 _atual: Instancia = REGISTRO["tjpa"]
