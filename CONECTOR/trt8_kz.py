@@ -210,8 +210,17 @@ def baixar_autos(sessao: Sessao, id_proc: int, cnj: str | None = None,
     pdfs: list[bytes] = []
     manifesto: list[dict] = []
     fora_do_padrao: list[dict] = []
+    falhos: list[dict] = []
     for i, d in enumerate(docs_ord, 1):
-        dados, ctype = baixar_conteudo(sessao, id_proc, d["id"])
+        try:
+            dados, ctype = baixar_conteudo(sessao, id_proc, d["id"])
+        except urllib.error.HTTPError as e:
+            # um documento que falha nao derruba o processo: anota e segue
+            falhos.append({"ordem": i, "id": d["id"], "tipo": d["tipo"],
+                          "erro": f"HTTP {e.code}"})
+            print(f"    [{i:>3}/{len(docs_ord)}] {(d['tipo'] or '')[:34]:34} "
+                  f"  FALHOU HTTP {e.code} (segue)")
+            continue
         time.sleep(regras.CONDUTA["pausa_entre_requisicoes_seg"])  # nao castigar o tribunal
         sha = hashlib.sha256(dados).hexdigest()[:8]
         pdf_ok = _eh_pdf(dados, ctype)
@@ -244,13 +253,13 @@ def baixar_autos(sessao: Sessao, id_proc: int, cnj: str | None = None,
         "gerado_em": datetime.now().isoformat(timespec="seconds"),
         "integral": arq_int.name, "total_docs": len(docs_ord),
         "pdfs_no_integral": len(pdfs), "fora_do_padrao": fora_do_padrao,
-        "documentos": manifesto,
+        "falhos": falhos, "documentos": manifesto,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
     return {"status": "ok", "id": id_proc, "cnj": cnj,
             "arquivo": str(arq_int.relative_to(RAIZ)),
             "docs": len(docs_ord), "pdfs": len(pdfs),
-            "fora_do_padrao": len(fora_do_padrao),
+            "fora_do_padrao": len(fora_do_padrao), "falhos": len(falhos),
             "tamanho_mb": round(len(integral) / 1_048_576, 1)}
 
 
