@@ -375,10 +375,14 @@ def bloco_hoje(itens, servidor=False):
         obs = H.escape(re.sub(r"\s+", " ", it.get("obs") or "")[:200])
         partes = H.escape(f"{it['cliente']} × {it['adverso'][:40]}")
         if it["tipo"] == "audiência":
-            prompt = _jsq(f"Preparar o roteiro da audiencia de {quando} do {it['proc']} "
-                          f"({it['cliente']} x {it['adverso'][:40]})")
-            botoes = (f"<button class='btn' onclick=\"copiar('{prompt}')\">Preparar roteiro</button>"
-                      + _arq(num, "resumo_executivo.md", "Resumo", servidor))
+            if servidor:
+                rot = (f"<button class='btn' onclick=\"rodar('audiencia','{num}')\">"
+                       f"Preparar roteiro</button>")
+            else:
+                prompt = _jsq(f"Preparar o roteiro da audiencia de {quando} do {it['proc']} "
+                              f"({it['cliente']} x {it['adverso'][:40]})")
+                rot = f"<button class='btn' onclick=\"copiar('{prompt}')\">Preparar roteiro</button>"
+            botoes = rot + _arq(num, "resumo_executivo.md", "Resumo", servidor)
         else:
             botoes = (_arq(num, "resumo_executivo.md", "Resumo", servidor)
                       + _arq(num, "linha_do_tempo.md", "Linha do tempo", servidor))

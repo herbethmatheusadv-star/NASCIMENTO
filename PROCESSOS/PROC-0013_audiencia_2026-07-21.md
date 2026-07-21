@@ -23,6 +23,17 @@ ultima_revisao_humana:
 > Confira os IDs antes de usá-los na mesa.
 > **O acordo é decisão reservada #3** (`decisoes_reservadas.md`): valores e
 > condições são vontade da cliente, ouvida por você. Aqui vão parâmetros, não número.
+>
+> ✅ **ATUALIZAÇÃO 20/07 — autos lidos (132 fls.), o que confirma/muda para amanhã:**
+> - **Valor pedido confirmado: R$ 15.180,52** (dano moral R$ 15.000 + dobro
+>   R$ 180,52) — resolve o "não sei" do §5. Pedidos na inicial fls. 4-12 (Num 175988315).
+> - **A ré NÃO contestou o mérito.** A única peça dela (28/06, fls. 66-67, Num
+>   181309585) só *"informa o cumprimento"* da liminar — nada sobre inexigibilidade,
+>   dobro ou dano moral. Com a confissão (protocolo 2026/35610), a defesa de mérito
+>   está esvaziada: **você chega ainda mais forte.**
+> - **Multa:** a ré só peticionou em **28/06** — 38 dias após a liminar. Confirma o
+>   §4: exija a data exata da exclusão; o **teto de R$ 5.000** muito provavelmente
+>   venceu. Puxe o extrato Serasa no dia.
 
 ## 1. O ato
 

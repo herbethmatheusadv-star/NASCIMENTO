@@ -43,8 +43,8 @@ PROIBIDO = ("assin", "peticion", "protocol", "ciencia", "ciência",
 alvo = " ".join(sv.ACOES).lower() + " " + " ".join(sv.SCRIPTS_PERMITIDOS).lower()
 for termo in PROIBIDO:
     checkv(f"'{termo}' nao aparece na allowlist", termo not in alvo)
-check("as acoes sao exatamente as 4 de leitura", sorted(sv.ACOES),
-      ["buscar", "inteligencia", "reindexar", "resumo"])
+check("as acoes sao exatamente as 5 de leitura", sorted(sv.ACOES),
+      ["audiencia", "buscar", "inteligencia", "reindexar", "resumo"])
 
 print("\n=== 2. Todo comando montado usa um script permitido ===")
 for nome, (_, monta, _exige) in sv.ACOES.items():

@@ -62,17 +62,22 @@ def _cmd_reindexar(cnj, termo):
     return ["soj_reindex.py"]
 
 
+def _cmd_audiencia(cnj, termo):
+    return ["soj_audiencia.py", "--cnj", cnj]
+
+
 ACOES = {
     "buscar":       ("Busca nos autos",   _cmd_buscar,       True),
     "resumo":       ("Preparo do dossie", _cmd_resumo,       False),
     "inteligencia": ("Linha do tempo",    _cmd_inteligencia, False),
     "reindexar":    ("Reindexacao FTS5",  _cmd_reindexar,    False),
+    "audiencia":    ("Roteiro de audiencia", _cmd_audiencia, False),
 }
 
 # scripts que a allowlist tem direito de chamar (defesa em profundidade: mesmo
 # que uma funcao acima fosse adulterada, so estes nomes rodam).
 SCRIPTS_PERMITIDOS = {"soj_search.py", "soj_resumo.py", "soj_inteligencia.py",
-                      "soj_reindex.py"}
+                      "soj_reindex.py", "soj_audiencia.py"}
 
 
 # ----------------------------------------------------------- markdown -> html
