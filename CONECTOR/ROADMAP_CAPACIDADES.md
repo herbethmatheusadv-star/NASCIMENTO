@@ -35,9 +35,12 @@ explícita da R7** — decisão deliberada do titular, nunca efeito colateral de
 
 ## Backlog — pendente, a mapear/implementar sob demanda
 
-1. **[TRT-8] Download dos autos no PJe-Kz** — ✅ **MAPEADO E IMPLEMENTADO**
-   (21/07/2026, `trt8_kz.py`, `MAPA_PJE.md §13.10`). Resta o teste com o Bearer do
-   titular (baixar de verdade os 5) e montar as fichas PROC-0001..0005.
+1. **[TRT-8] Download dos autos no PJe-Kz** — ✅ **FEITO (21/07/2026).** Os 5
+   trabalhistas baixados, importados e indexados (819 pgs → PROC-0001..0005). O
+   caminho vencedor foi o **botão nativo "Baixar processo completo"** no front do
+   Kz (sem token, pela sessão logada — `MAPA_PJE.md §13.12`), dirigido pelo Claude.
+   `trt8_kz.py` (API+token, §13.10-13.11) fica como via programática/fallback.
+   *Pendente: enriquecer as fichas PROC-0001..0005 com o conteúdo dos autos.*
 2. **Download em massa por EMPRESA (CNPJ / razão social)** — dado um CNPJ/nome,
    pesquisar, **enumerar TODOS os processos** e baixar os autos de cada um. Caso
    de uso: litígio contra uma empresa (mapear o adversário inteiro de uma vez).

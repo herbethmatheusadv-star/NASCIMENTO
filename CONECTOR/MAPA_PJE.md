@@ -972,3 +972,32 @@ pede os DOIS cookies (DevTools → Application → Cookies) e monta
 propósito** — é anti-CSRF de **escrita**, a linha R7 na porta. Testes offline
 verdes (R7 56 OK). **Falta o teste real com os dois cookies** (login fresco — o
 titular expôs a sessão anterior por engano no chat; recomendado logout/rotação).
+
+### 13.12 O caminho PRÁTICO: "Baixar processo completo" no front, sem token (21/07/2026)
+
+O titular achou o que faltava e tinha razão: o Kz tem um botão nativo **"Baixar
+processo completo"** (menu ☰ do processo, coluna esquerda; ao lado fica
+"Peticionar" — **NÃO tocar**). Ele baixa **o processo inteiro num PDF paginado**
+("Fls.: 1…"), pela **sessão logada do navegador** — **sem token, sem DevTools**.
+É o equivalente ao "Download autos" do TJPA.
+
+**Fluxo (o que rodou, dirigido pelo Claude no navegador do titular):** para cada
+processo → navegar a `…/pjekz/processo/{id}/detalhe` → clicar ☰ (canto sup.
+dir., ~1545,100) → clicar "Baixar processo completo" (~1160,222) → toast
+*"Download iniciado. Por favor, aguarde."* → o PDF cai em Downloads como
+`Processo_<CNJ>.pdf`. Depois: mover para `AUTOS/{cnj}/autos_integral_{sha8}.pdf`
+→ `soj_import.py` → `soj_reindex.py`.
+
+**Provado 21/07:** os **5 trabalhistas baixados de uma vez** (224+232+167+115+81 =
+819 pgs), mapeados a PROC-0001..0005, texto extraído e indexado.
+
+**Por que é melhor que o `trt8_kz.py` (API+token):** (a) sem a dança dos 2
+cookies; (b) devolve o **integral OFICIAL** do tribunal (paginado, com capa), não
+uma remontagem peça-a-peça. O `trt8_kz` fica como via programática/fallback.
+**R7:** clicar "Baixar processo completo" é LEITURA (a `guarda_de_clique` libera
+"baixar/download"); o "Peticionar" ao lado é que é vedado — clicar só pelo alvo.
+
+**Modelo de automação (visão do titular):** o titular loga (credencial sempre
+dele, efêmera — R7); o Claude dirige os cliques de download pelos ids. Sem token
+colado, sem persistência de sessão. É a praticidade dentro da R7 — e o norte é o
+conector navegar os sistemas do Judiciário assim, com o mínimo de esforço humano.
