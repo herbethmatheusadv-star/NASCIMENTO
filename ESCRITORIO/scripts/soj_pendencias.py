@@ -32,6 +32,7 @@ import sys
 from pathlib import Path
 
 import soj_lib as soj
+import soj_casos_v1
 
 try:
     import yaml
@@ -140,6 +141,14 @@ def pendencias_do_acervo() -> list:
                     "status": "aberto",
                     "prazo": str(pz.get("prazo")) if pz.get("prazo") else None,
                     "obs": str(pz.get("obs") or "")})
+
+    # 5) PONTE v1 → v2 — casos da oficina (CASOS/) prontos a protocolar mas
+    #    ainda invisíveis ao cockpit (ex.: Tânia, Daiane-cível). Nunca falha a
+    #    fila inteira se a ponte tropeçar.
+    try:
+        out.extend(soj_casos_v1.pendentes_de_protocolo())
+    except Exception:  # noqa: BLE001
+        pass
 
     ordem = {"protocolo": 0, "procuração": 1, "assinatura": 1, "contrato": 2,
              "documento": 3, "tarefa": 4}
