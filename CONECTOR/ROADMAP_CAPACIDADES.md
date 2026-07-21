@@ -50,6 +50,30 @@ explícita da R7** — decisão deliberada do titular, nunca efeito colateral de
 5. **Radar de novidades multi-tribunal** — `consultarAlteracao` (MNI) e a API do
    PDPJ para detectar movimento diário, alimentando o cockpit sozinho.
 
+## A MARCHA PROCESSUAL VIVA (norte do titular, 21/07/2026)
+
+Baixar os autos é só o **retrato de hoje** (o baseline). O processo **anda**, e o
+sistema tem de andar junto: os autos **não podem ficar mortos** ocupando espaço —
+servem para **automatizar a marcha** (sabendo o teor da inicial/contestação, monta-se
+estratégia: alegações finais etc.). Não dá para rebaixar os autos inteiros todo dia;
+a regra é **baseline 1× + delta diário** (capturar só o que é NOVO). Assim nunca se
+fica cego. Sequência **A → B → C**:
+
+- **(A) Estruturar os autos** — índice cronológico de peças (tipo + data + id), do
+  mais antigo ao mais novo. `ESCRITORIO/scripts/estruturar_autos.py` a partir da
+  timeline do Kz → `AUTOS/{cnj}/estrutura_cronologica.md` + `timeline_baseline.json`
+  (a régua do delta). *Iniciado 21/07: PROC-0003 (Beatryz) estruturado, 39 peças.*
+- **(B) O elo do DELTA** ⭐ o coração — o `RADAR/` já sabe QUE mexeu (DJEN +
+  DataJud); falta ele **buscar só a peça nova** (a timeline diz o que entrou depois
+  da régua), encaixar na estrutura e atualizar ficha/prazo. Baseline 1×, delta todo dia.
+- **(C) Onboarding automático** — processo novo protocolado → baseline baixado 1× →
+  entra no radar diário sozinho.
+
+**Regra dos ARQUIVADOS (titular, 21/07):** processo arquivado vai para uma
+**classificação à parte, só a título de registro** — **não entra no radar diário**
+(não anda mais). Só os **ativos/não-arquivados** são vigiados. Dos 5 trabalhistas de
+21/07, só **PROC-0003 (Beatryz, em execução)** é ativo; os outros 4 são registro.
+
 ## O rito de cada capacidade nova
 
 (a) **Sessão de mapeamento logada** com o titular — ver por dentro, sem chutar
