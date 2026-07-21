@@ -90,21 +90,33 @@ def pedir_token() -> str:
     remonta. Copiar so o access_token vinha 'cortado' (sem assinatura) e dava 500.
     Por isso pedimos OS DOIS. Ver MAPA_PJE.md §13.11."""
     print("\n  Sessao PDPJ — os DOIS cookies, colados agora, NUNCA gravados.")
-    print("  No navegador logado: DevTools (F12) -> Application -> Cookies ->")
-    print("  https://pje.trt8.jus.br . Copie o VALOR de cada um destes:\n")
-    at = getpass.getpass("  1) access_token (nao aparece na tela): ").strip()
-    ft = getpass.getpass("  2) access_token_footer (idem): ").strip()
-    at = re.sub(r"^Bearer\s+", "", at, flags=re.IGNORECASE).strip().rstrip(";").strip()
-    ft = ft.rstrip(";").strip()
+    print("  DevTools (F12) -> Application -> Cookies -> https://pje.trt8.jus.br .")
+    print("  Copie o VALOR de cada um (aceito tambem no formato 'nome=valor'):\n")
+
+    def _limpa(s: str) -> str:
+        s = s.strip()
+        # se colou 'access_token=...' ou 'Bearer ...', tira o prefixo
+        s = re.sub(r"^\s*access_token(_footer)?\s*=\s*", "", s, flags=re.IGNORECASE)
+        s = re.sub(r"^Bearer\s+", "", s, flags=re.IGNORECASE)
+        return s.rstrip(";").strip()
+
+    at = _limpa(getpass.getpass("  1) access_token  (~1019 chars, TEM 1 ponto): "))
+    print(f"     -> li {len(at)} chars, {at.count('.') + 1} parte(s)"
+          + ("  ok" if at.count(".") == 1 else "  <== esperado: 2 partes / ~1019 chars"))
+    ft = _limpa(getpass.getpass("  2) access_token_footer  (curto, SEM ponto): "))
+    print(f"     -> li {len(ft)} chars, {ft.count('.') + 1} parte(s)"
+          + ("  ok" if ft.count(".") == 0 and ft else "  <== esperado: 1 parte, sem ponto"))
+
     if not at or not ft:
         sys.exit("  Faltou um dos dois cookies — sem sessao, sem consulta.")
-    # Sanidade de FORMA (nada gravado): o access_token e cabecalho.dados = 2
-    # partes (um ponto). Com o footer (a assinatura) fecha um JWT de 3 partes.
-    if at.count(".") != 1:
-        print("\n  [!] O 'access_token' deveria ter 2 partes (um ponto no meio).")
-        print("      Confira se copiou o cookie certo em Application -> Cookies.")
-        if input("      Seguir assim? (s/N): ").strip().lower() not in ("s", "sim"):
-            sys.exit("      Ok — confira os cookies e rode de novo.")
+    # Sanidade de FORMA (nada gravado): access_token = cabecalho.dados (2 partes,
+    # 1 ponto); footer = assinatura (1 parte, sem ponto). Se nao bate, provavel
+    # troca dos dois ou cookie errado. Juntos fecham um JWT de 3 partes.
+    if at.count(".") != 1 or ft.count(".") != 0:
+        print("\n  [!] Nao bate: parece que os dois se trocaram ou veio o cookie errado.")
+        print("      access_token = 2 partes (1 ponto), ~1019 chars; footer = sem ponto.")
+        if input("      Seguir assim mesmo? (s/N): ").strip().lower() not in ("s", "sim"):
+            sys.exit("      Ok — confira os DOIS cookies e rode de novo.")
     return f"access_token={at}; access_token_footer={ft}"
 
 
