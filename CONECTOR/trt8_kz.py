@@ -78,9 +78,9 @@ def _rota_permitida(rota: str) -> bool:
 def _fetch(sessao: Sessao, rota: str, params: dict | None = None) -> tuple[bytes, str]:
     """GET cru numa rota da allowlist Kz. Devolve (bytes, content_type). Leitura.
 
-    Mesma autenticacao do trt8_api: a sessao logada autentica o GET pelo cookie
-    access_token (mandamos tambem como Bearer por robustez). So GET, entao nao
-    entra Xsrf-Token (o anti-CSRF de escrita)."""
+    Mesma autenticacao do trt8_api: o PDPJ autentica por COOKIE (access_token +
+    access_token_footer), nao por Authorization. So GET, entao nao entra o
+    Xsrf-Token (o anti-CSRF de escrita)."""
     if not _rota_permitida(rota):
         raise regras.ViolacaoR7(
             f"rota {rota!r} fora da allowlist de leitura {ROTAS_PERMITIDAS}. "
@@ -92,8 +92,7 @@ def _fetch(sessao: Sessao, rota: str, params: dict | None = None) -> tuple[bytes
     url = sessao.host.rstrip("/") + rota + qs
     regras.guarda_de_url(url)
     req = urllib.request.Request(url, method="GET")
-    req.add_header("Cookie", f"access_token={sessao._token}")
-    req.add_header("Authorization", f"Bearer {sessao._token}")
+    req.add_header("Cookie", sessao._cookie)
     req.add_header("Accept", "application/pdf, application/json, */*")
     req.add_header("User-Agent", "SOJ-Conector/1.0 (leitura; OAB 39261/PA)")
     with urllib.request.urlopen(req, timeout=TIMEOUT) as r:

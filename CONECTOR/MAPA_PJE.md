@@ -941,6 +941,34 @@ baixa cada doc, junta os PDFs em ordem cronológica num
 `AUTOS/{cnj}/autos_integral_{sha8}.pdf` com PyMuPDF — o formato que o
 `soj_import.py` já lê — e guarda os originais + `manifesto_kz.json`). Sem função
 de escrita (R7 por ausência). Testes offline sobre a fixture real dos 39 docs:
-`teste_trt8_kz.py` (verde) + `teste_regras.py` (56 OK). **Falta só o teste com o
-Bearer do titular** (baixar de verdade). Os 5 ids: 843832 (acervo) · 822548 ·
-923161 · 871193 (=PROC-0005) · 819363 (arquivados).
+`teste_trt8_kz.py` (verde) + `teste_regras.py` (56 OK). Os 5 ids: 843832 (acervo)
+· 822548 · 923161 · 871193 (=PROC-0005) · 819363 (arquivados).
+
+### 13.11 A 1ª execução REAL com token: o JWT partido em 2 cookies (21/07/2026)
+
+A primeira vez que o driver rodou com o token do titular derrubou 3 premissas —
+as duas primeiras eram ruído, a terceira é a chave de tudo:
+
+1. **O cache-buster `data=<ms>` dá HTTP 500.** O SPA manda `data=<epoch ms>` no
+   `/processos`; o servidor **500a** com ele. Removido do `_pagina_processos`.
+2. **No `/processos/id/{id}` o CNJ vem em `numero`** (a LISTA usa
+   `numeroProcesso`) — a API diverge entre lista e detalhe. `baixar_autos` lê os dois.
+3. **O PDPJ NÃO usa `Authorization: Bearer` — autentica por COOKIE, e parte o
+   JWT em DOIS cookies:**
+   - `access_token` = `cabeçalho.payload` (2 partes, ~1019 chars)
+   - `access_token_footer` = a **assinatura** (a 3ª parte do JWT)
+
+   O navegador manda os dois; o servidor remonta. **Copiar só `access_token`
+   sempre vinha "cortado"** (JWT de 2 partes, sem assinatura) → o servidor 500ava.
+   Era isso que travava o download real — não o código, não o DevTools. Visto no
+   Request Header real: não existe `authorization`; a auth está em
+   `cookie: …; access_token=<hdr.payload>; access_token_footer=<assinatura>;
+   Xsrf-Token=…`.
+
+**Correção (código):** `Sessao` guarda o header `Cookie` inteiro; `pedir_token()`
+pede os DOIS cookies (DevTools → Application → Cookies) e monta
+`access_token=…; access_token_footer=…`; `_get`/`_fetch` mandam esse cookie e
+**largam o Authorization** (o PJe ignora). O `Xsrf-Token` fica **de fora de
+propósito** — é anti-CSRF de **escrita**, a linha R7 na porta. Testes offline
+verdes (R7 56 OK). **Falta o teste real com os dois cookies** (login fresco — o
+titular expôs a sessão anterior por engano no chat; recomendado logout/rotação).

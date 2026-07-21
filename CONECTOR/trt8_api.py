@@ -57,14 +57,16 @@ ROTAS_PERMITIDAS = (
 
 @dataclass
 class Sessao:
-    """Host da instancia + o Bearer. Existe so enquanto o processo roda; nao ha
+    """Host da instancia + o COOKIE de sessao, do jeito que o navegador manda:
+    'access_token=...; access_token_footer=...'. O PDPJ parte o JWT em dois
+    cookies (o footer e a assinatura). Existe so enquanto o processo roda; nao ha
     salvar() nem carregar() — se um dia alguem quiser persistir, escreve do zero
     e o teste_regras barra."""
     host: str          # ex.: "https://pje.trt8.jus.br"
-    _token: str
+    _cookie: str       # "access_token=<hdr.payload>; access_token_footer=<assin>"
 
     def __repr__(self) -> str:
-        return f"Sessao(host={self.host}, token=<oculto>)"
+        return f"Sessao(host={self.host}, cookie=<oculto>)"
 
     __str__ = __repr__
 
@@ -79,30 +81,31 @@ def base_host(inst: "instancias.Instancia | None" = None) -> str:
 
 
 def pedir_token() -> str:
-    """Pergunta o Bearer ao titular. getpass nao ecoa nem vai ao historico."""
-    print("\n  Token PDPJ (access_token) — colado agora, nunca gravado. Ele morre")
-    print("  com este processo. No navegador ja logado no painel do TRT-8:")
-    print("  DevTools -> Application -> Cookies -> valor de 'access_token'")
-    print("  (ou Network -> chamada /pje-comum-api -> Authorization: Bearer).\n")
-    tok = getpass.getpass("  Bearer (nao aparece na tela): ").strip()
-    tok = re.sub(r"^Bearer\s+", "", tok, flags=re.IGNORECASE).strip()
-    if not tok:
-        sys.exit("  Sem token, sem consulta.")
-    # Sanidade de FORMA (nao de conteudo, nada gravado): um JWT tem 3 partes
-    # nao-vazias separadas por ponto. Se vier cortado (copia parcial do cookie),
-    # o servidor responde HTTP 500 cru — melhor avisar aqui, na hora.
-    partes = tok.split(".")
-    if len(partes) != 3 or not all(partes):
-        print("\n  [!] ESSE TOKEN PARECE INCOMPLETO (cortado).")
-        print("      Um token bom tem 3 partes separadas por ponto; a ultima (a")
-        print("      validacao) veio vazia. A copia do cookie costuma cortar.")
-        print("      >> Pegue o token INTEIRO assim: DevTools (F12) -> aba Network")
-        print("         -> clique numa chamada 'pje-comum-api' -> Headers -> em")
-        print("         'Request Headers' copie o valor apos 'Authorization: Bearer'.")
-        resp = input("\n      Seguir mesmo assim? (s/N): ").strip().lower()
-        if resp not in ("s", "sim"):
-            sys.exit("      Ok — pegue o token inteiro e rode de novo.")
-    return tok
+    """Pergunta os DOIS cookies de sessao ao titular e monta o header Cookie.
+    getpass nao ecoa nem vai ao historico; nada e gravado, morre com o processo.
+
+    Descoberta 21/07/2026: o PDPJ NAO usa cabecalho Authorization — autentica por
+    COOKIE, e parte o JWT em dois: `access_token` (cabecalho.dados, 2 partes) e
+    `access_token_footer` (a assinatura). O navegador manda os dois; o servidor
+    remonta. Copiar so o access_token vinha 'cortado' (sem assinatura) e dava 500.
+    Por isso pedimos OS DOIS. Ver MAPA_PJE.md §13.11."""
+    print("\n  Sessao PDPJ — os DOIS cookies, colados agora, NUNCA gravados.")
+    print("  No navegador logado: DevTools (F12) -> Application -> Cookies ->")
+    print("  https://pje.trt8.jus.br . Copie o VALOR de cada um destes:\n")
+    at = getpass.getpass("  1) access_token (nao aparece na tela): ").strip()
+    ft = getpass.getpass("  2) access_token_footer (idem): ").strip()
+    at = re.sub(r"^Bearer\s+", "", at, flags=re.IGNORECASE).strip().rstrip(";").strip()
+    ft = ft.rstrip(";").strip()
+    if not at or not ft:
+        sys.exit("  Faltou um dos dois cookies — sem sessao, sem consulta.")
+    # Sanidade de FORMA (nada gravado): o access_token e cabecalho.dados = 2
+    # partes (um ponto). Com o footer (a assinatura) fecha um JWT de 3 partes.
+    if at.count(".") != 1:
+        print("\n  [!] O 'access_token' deveria ter 2 partes (um ponto no meio).")
+        print("      Confira se copiou o cookie certo em Application -> Cookies.")
+        if input("      Seguir assim? (s/N): ").strip().lower() not in ("s", "sim"):
+            sys.exit("      Ok — confira os cookies e rode de novo.")
+    return f"access_token={at}; access_token_footer={ft}"
 
 
 def _rota_permitida(rota: str) -> bool:
@@ -122,12 +125,11 @@ def _get(sessao: Sessao, rota: str, params: dict | None = None):
     url = sessao.host.rstrip("/") + rota + qs
     regras.guarda_de_url(url)
     req = urllib.request.Request(url, method="GET")
-    # A sessao logada autentica o GET pelo cookie access_token (comprovado na
-    # sessao de 20/07/2026); mandamos tambem como Bearer por robustez. So GET,
-    # entao o Xsrf-Token (anti-CSRF de escrita) nao entra.
-    req.add_header("Cookie", f"access_token={sessao._token}")
-    req.add_header("Authorization", f"Bearer {sessao._token}")
-    req.add_header("Accept", "application/json")
+    # O PDPJ autentica por COOKIE (access_token + access_token_footer), NAO por
+    # cabecalho Authorization — confirmado na rede real 21/07/2026. So GET, entao
+    # o Xsrf-Token (anti-CSRF de escrita) nao entra: e a linha R7 na porta.
+    req.add_header("Cookie", sessao._cookie)
+    req.add_header("Accept", "application/json, text/plain, */*")
     req.add_header("User-Agent", "SOJ-Conector/1.0 (leitura; OAB 39261/PA)")
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
