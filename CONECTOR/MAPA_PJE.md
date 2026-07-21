@@ -902,3 +902,45 @@ na Justiça do Trabalho de Parauapebas, e todos cruzam com clientes já cadastra
 Só **PROC-0005** já existia em v2; os outros 4 são cadastro novo (dados crus da
 API prontos). Nenhum tem segredo; **Meus Expedientes = 0** (nada com ciência
 pendente — mapear foi seguro pelo R7).
+
+### 13.10 TRT-8 — DOWNLOAD dos autos no Kz RESOLVIDO (sessão logada 21/07/2026)
+
+O que o §13.9 deixou como "a mapear" (a API de documentos/download do app Kz)
+caiu numa sessão logada do titular (navegador real, rede lida ao vivo). Achado
+central: **o Kz não tem API própria — ele usa a MESMA `/pje-comum-api/api/`** do
+acervo. O botão "Detalhes do Processo" abre `…/pjekz/processo/{id}/detalhe`
+(window.open, aba nova; `{id}` é o `id` interno que o acervo já devolve), e o SPA
+busca tudo por GET REST. A receita, **toda leitura, sobre dado real**:
+
+- **Metadados:** `GET /pje-comum-api/api/processos/id/{id}` (traz `numeroProcesso`).
+- **Lista de documentos (a timeline):**
+  `GET /pje-comum-api/api/processos/id/{id}/timeline?buscarMovimentos=false&buscarDocumentos=true`
+  → array JSON. **Shape por documento:** `id` (o número que baixa o doc),
+  `idUnicoDocumento` (o hash curto da UI), `titulo`, `tipo`, `idTipo`, `data`
+  (ISO), `documento` (bool), `documentoSigiloso`, `nomeSignatario`/`nomeResponsavel`,
+  `instancia`, `expediente` + **`infoExpedientes.expedienteAberto`** (o sinal de
+  ciência — a QUARENTENA olha isto), `numeroOrdem`. Provado: 39 docs no 843832.
+- **Baixar 1 documento (devolve o PDF):**
+  `GET /pje-comum-api/api/processos/id/{id}/documentos/id/{idDoc}/conteudo?incluirCapa=false&grau=1`
+  → **o PDF**, direto nos bytes da resposta (confirmado no visualizador: Alvará
+  1 pág., Despacho 2 págs.). Todos os tipos testados vêm em PDF.
+
+**R7 aqui — dois cuidados de URL descobertos no ato (senão a `guarda_de_url`
+barra por engano):**
+1. o download aceita `?incluirCapa=false&grau=1` **sem** `incluirAssinatura` — o
+   PDF vem igual, e a URL não encosta na palavra bloqueada ("assinatura").
+2. a timeline vem **idêntica sem** `somenteDocumentosAssinados` (mesmos 39 docs) —
+   e assim a URL não encosta em "assinado".
+   → Com isso o **`regras.py` fica intocado**: as URLs de leitura do Kz passam
+   limpas pela allowlist E pela blocklist. (Se um dia precisar dos params com
+   "assinatura", aí sim é decisão do titular sobre refinar a blocklist.)
+
+**Driver:** `CONECTOR/trt8_kz.py` (allowlist própria das 3 rotas de leitura;
+`guarda_de_url` em toda chamada; **QUARENTENA** pela `infoExpedientes.expedienteAberto`;
+baixa cada doc, junta os PDFs em ordem cronológica num
+`AUTOS/{cnj}/autos_integral_{sha8}.pdf` com PyMuPDF — o formato que o
+`soj_import.py` já lê — e guarda os originais + `manifesto_kz.json`). Sem função
+de escrita (R7 por ausência). Testes offline sobre a fixture real dos 39 docs:
+`teste_trt8_kz.py` (verde) + `teste_regras.py` (56 OK). **Falta só o teste com o
+Bearer do titular** (baixar de verdade). Os 5 ids: 843832 (acervo) · 822548 ·
+923161 · 871193 (=PROC-0005) · 819363 (arquivados).
