@@ -33,6 +33,9 @@ class Instancia:
     #  A Justica do Trabalho (PJe-JT/TRT) NAO: sondagem publica de 20/07/2026
     #  deu 404 nesse caminho e 403 (existe, exige auth) em /pje-comum-api/api/mni.
     #  Quando False, o mni.py se RECUSA a montar endpoint — nao POSTa em 404.
+    api_pdpj: bool = False  # PJe NOVO (PDPJ/"Meu Painel"): tem a API REST em
+    #  https://<host>/pje-comum-api/api/ ? Confirmado no TRT-8 (sessao logada
+    #  20/07/2026). O trt8_api.py so opera instancias com isto True.
 
 
 REGISTRO: dict[str, Instancia] = {
@@ -67,14 +70,14 @@ REGISTRO: dict[str, Instancia] = {
         "1=acervo, 5=arquivados; idAdv do titular=837986), auth Bearer do PDPJ. "
         "MNI SOAP classico ausente (/intercomunicacao=404). Autos via PJe-Kz "
         "(window.open) — download a mapear. Detalhes em MAPA_PJE.md §13.9.",
-        mni_soap=False),
+        mni_soap=False, api_pdpj=True),
     "trt8-2g": Instancia(
         "trt8-2g", "TRT-8 — 2o grau", "pje.trt8.jus.br",
         "https://pje.trt8.jus.br/segundograu",
         "https://pje.trt8.jus.br/segundograu/login.seam", False,
         "PJe-TRT contexto /segundograu; mesmo caso do 1o grau — sem MNI SOAP "
-        "classico, leitura pelo navegador.",
-        mni_soap=False),
+        "classico, leitura pela API REST /pje-comum-api ou pelo navegador.",
+        mni_soap=False, api_pdpj=True),
 }
 
 _atual: Instancia = REGISTRO["tjpa"]
