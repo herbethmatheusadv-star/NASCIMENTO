@@ -180,7 +180,11 @@ def baixar_autos(sessao: Sessao, id_proc: int, cnj: str | None = None,
     um integral e nao for --forcar). Guarda os originais por documento em
     AUTOS/{cnj}/originais/ e um manifesto em AUTOS/{cnj}/manifesto_kz.json.
     Devolve um dict com o resultado."""
-    cnj = cnj or (processo(sessao, id_proc).get("numeroProcesso") or "")
+    if not cnj:
+        # no /processos/id/{id} o CNJ vem no campo `numero` (a LISTA usa
+        # `numeroProcesso` — a API diverge entre os dois; 21/07/2026)
+        meta = processo(sessao, id_proc)
+        cnj = meta.get("numero") or meta.get("numeroProcesso") or ""
     if not cnj:
         return {"status": "erro", "id": id_proc,
                 "erro": "nao achei o numero CNJ (passe --cnj)"}

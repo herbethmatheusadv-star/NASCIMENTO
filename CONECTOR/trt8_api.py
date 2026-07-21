@@ -32,7 +32,6 @@ import getpass
 import json
 import re
 import sys
-import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -89,6 +88,20 @@ def pedir_token() -> str:
     tok = re.sub(r"^Bearer\s+", "", tok, flags=re.IGNORECASE).strip()
     if not tok:
         sys.exit("  Sem token, sem consulta.")
+    # Sanidade de FORMA (nao de conteudo, nada gravado): um JWT tem 3 partes
+    # nao-vazias separadas por ponto. Se vier cortado (copia parcial do cookie),
+    # o servidor responde HTTP 500 cru — melhor avisar aqui, na hora.
+    partes = tok.split(".")
+    if len(partes) != 3 or not all(partes):
+        print("\n  [!] ESSE TOKEN PARECE INCOMPLETO (cortado).")
+        print("      Um token bom tem 3 partes separadas por ponto; a ultima (a")
+        print("      validacao) veio vazia. A copia do cookie costuma cortar.")
+        print("      >> Pegue o token INTEIRO assim: DevTools (F12) -> aba Network")
+        print("         -> clique numa chamada 'pje-comum-api' -> Headers -> em")
+        print("         'Request Headers' copie o valor apos 'Authorization: Bearer'.")
+        resp = input("\n      Seguir mesmo assim? (s/N): ").strip().lower()
+        if resp not in ("s", "sim"):
+            sys.exit("      Ok — pegue o token inteiro e rode de novo.")
     return tok
 
 
@@ -121,7 +134,13 @@ def _get(sessao: Sessao, rota: str, params: dict | None = None):
             return True, json.loads(r.read().decode("utf-8", "ignore")), ""
     except urllib.error.HTTPError as e:
         corpo = e.read()[:300].decode("utf-8", "ignore")
-        dica = " (token expirado? pegue um novo no navegador)" if e.code in (401, 403) else ""
+        if e.code in (401, 403):
+            dica = " (token expirado? pegue um novo no navegador)"
+        elif e.code == 500:
+            dica = (" (token pode ter vindo CORTADO — copie o valor INTEIRO;"
+                    " veja Network -> Authorization: Bearer)")
+        else:
+            dica = ""
         return False, None, f"HTTP {e.code}{dica} — {corpo}"
     except Exception as e:  # noqa: BLE001
         return False, None, f"{type(e).__name__}: {e}"
@@ -137,10 +156,12 @@ def totalizadores(sessao: Sessao, id_advogado: int):
 
 
 def _pagina_processos(sessao: Sessao, id_advogado: int, enum: int, pagina: int):
+    # NB (21/07/2026): NAO enviar o cache-buster `data=<ms>` — o servidor devolve
+    # HTTP 500 com ele (provado na sessao logada; sem ele, a lista vem certa). Era
+    # ruido copiado do XHR do SPA. Ver MAPA_PJE.md §13.9.
     return _get(sessao, f"/pje-comum-api/api/paineladvogado/{id_advogado}/processos",
                 {"pagina": pagina, "tamanhoPagina": 20, "tipoPainelAdvogado": enum,
-                 "ordenacaoCrescente": "false", "idPainelAdvogadoEnum": enum,
-                 "data": int(time.time() * 1000)})
+                 "ordenacaoCrescente": "false", "idPainelAdvogadoEnum": enum})
 
 
 def processos(sessao: Sessao, id_advogado: int, enum: int = 1) -> list:
