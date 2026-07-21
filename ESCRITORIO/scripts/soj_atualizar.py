@@ -14,12 +14,30 @@ VISTAS para refletirem o dia de hoje. Rode à mão a qualquer momento:
   python soj_atualizar.py
 """
 import json
+import os
+import time
 from datetime import date
 
 import soj_lib as soj
 import soj_prazos
 import soj_pendencias
 import soj_painel
+
+
+def _escrever(caminho, conteudo: str) -> None:
+    """Escrita atômica com retry — o OneDrive/antivírus às vezes segura o
+    arquivo (o run agendado cai em cima da sincronização). Grava num .tmp e
+    troca; tenta de novo se estiver travado."""
+    tmp = caminho.with_suffix(caminho.suffix + ".tmp")
+    for tent in range(6):
+        try:
+            tmp.write_text(conteudo, encoding="utf-8")
+            os.replace(tmp, caminho)
+            return
+        except OSError:
+            if tent == 5:
+                raise
+            time.sleep(0.7)
 
 
 def _quando(it) -> str:
@@ -36,15 +54,15 @@ def main() -> None:
     idx.mkdir(parents=True, exist_ok=True)
 
     prazos = soj_prazos.prazos_do_acervo()
-    (idx / "prazos.json").write_text(
-        json.dumps(prazos, ensure_ascii=False, indent=1), encoding="utf-8")
+    _escrever(idx / "prazos.json",
+              json.dumps(prazos, ensure_ascii=False, indent=1))
 
     pend = soj_pendencias.pendencias_do_acervo()
-    (idx / "pendencias.json").write_text(
-        json.dumps(pend, ensure_ascii=False, indent=1), encoding="utf-8")
+    _escrever(idx / "pendencias.json",
+              json.dumps(pend, ensure_ascii=False, indent=1))
 
     dados = soj_painel.carregar()
-    soj_painel.SAIDA.write_text(soj_painel.render(dados), encoding="utf-8")
+    _escrever(soj_painel.SAIDA, soj_painel.render(dados))
 
     # briefing do dia — curto, para bater o olho (e servir de log do agendador)
     hoje = dados["hoje"]
@@ -61,11 +79,23 @@ def main() -> None:
         for p in prazos[:6]:
             L.append(f"- {p['vencimento']} · {p['tipo']} · {p['proc']} "
                      f"({'a conferir' if not p['conferido'] else 'conferido'})")
-    (idx / "briefing_do_dia.md").write_text("\n".join(L), encoding="utf-8")
+    _escrever(idx / "briefing_do_dia.md", "\n".join(L))
 
     print(f"[atualizar] {soj.agora()} — painel + {len(prazos)} prazo(s) + "
           f"{len(pend)} pendência(s). Briefing: index/briefing_do_dia.md")
 
 
 if __name__ == "__main__":
-    main()
+    import traceback
+    try:
+        main()
+    except Exception:
+        # daemon nao pode falhar em silencio: registra o traceback no TEMP
+        # (fora do OneDrive, para nao depender do que pode estar travado).
+        alvo = os.path.join(os.environ.get("TEMP", "."), "soj_agendador_erro.log")
+        try:
+            with open(alvo, "a", encoding="utf-8") as fh:
+                fh.write(f"\n=== {soj.agora()} ===\n{traceback.format_exc()}")
+        except Exception:
+            pass
+        raise

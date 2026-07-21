@@ -21,6 +21,7 @@ import soj_lib as soj
 
 NOME = "SOJ - Atualizar painel do dia"
 ALVO = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_atualizar.py"
+WRAPPER = soj.ROOT / "ESCRITORIO" / "scripts" / "soj_atualizar_agendado.cmd"
 
 
 def _run(args):
@@ -28,12 +29,52 @@ def _run(args):
                           encoding="utf-8", errors="replace")
 
 
+def _gerar_wrapper() -> None:
+    """Gera o .cmd que a tarefa roda.
+
+    Por que não é só `python soj_atualizar.py`: o Agendador roda num contexto de
+    perfil onde o `AppData\\Roaming` (user site-packages) NÃO é o mesmo da sessão
+    interativa — o mesmo caminho resolve para pastas diferentes, e o import de
+    pyyaml/ruamel falha. Por isso as libs ficam em `_SISTEMA/pylibs` (dentro do
+    repositório, que a tarefa lê igual aos scripts). O wrapper injeta ESSA pasta
+    + a dos scripts no sys.path, força UTF-8 e registra a saída num log."""
+    py = sys.executable
+    linha_py = (
+        "import sys,os; h=r\'%~dp0.\'; sys.path.insert(0, h); "
+        "sys.path.insert(0, os.path.abspath(os.path.join(h,'..','..','_SISTEMA','pylibs'))); "
+        "import soj_atualizar; soj_atualizar.main()"
+    )
+    conteudo = (
+        "@echo off\r\n"
+        "chcp 65001 >nul\r\n"
+        'set "PYTHONUTF8=1"\r\n'
+        f'"{py}" -c "{linha_py}" >> "%TEMP%\\soj_agendador.log" 2>&1\r\n'
+    )
+    WRAPPER.write_text(conteudo, encoding="utf-8")
+
+
+def _corrigir_energia() -> None:
+    """schtasks cria a tarefa com 'só iniciar na tomada' — num notebook na
+    bateria ela nunca roda. Limpa essa condição (PowerShell)."""
+    ps = (f'$t=Get-ScheduledTask -TaskName "{NOME}";'
+          f'$t.Settings.DisallowStartIfOnBatteries=$false;'
+          f'$t.Settings.StopIfGoingOnBatteries=$false;'
+          f'Set-ScheduledTask -TaskName "{NOME}" -Settings $t.Settings | Out-Null')
+    r = _run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps])
+    if r.returncode == 0:
+        print("[agendar] condição de bateria removida (roda na tomada ou na bateria).")
+    else:
+        print("[agendar] aviso: não consegui ajustar a condição de bateria — se a "
+              "tarefa não rodar no notebook, desmarque 'só na tomada' no Agendador.")
+
+
 def instalar(hora: str) -> int:
-    tr = f'"{sys.executable}" "{ALVO}"'
-    r = _run(["schtasks", "/Create", "/TN", NOME, "/TR", tr,
+    _gerar_wrapper()
+    r = _run(["schtasks", "/Create", "/TN", NOME, "/TR", str(WRAPPER),
               "/SC", "DAILY", "/ST", hora, "/F"])
     print((r.stdout or r.stderr).strip())
     if r.returncode == 0:
+        _corrigir_energia()
         print(f"[agendar] ✅ tarefa criada — roda TODO DIA às {hora} (quando você"
               f" estiver logado).\n"
               f"          Ver:     python soj_agendar.py --status\n"

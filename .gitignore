@@ -38,3 +38,10 @@ _efemeros/
 
 # index de busca FTS5 — GERADO, reconstruivel, fora do Git
 index/
+
+# libs vendorizadas p/ o agendador (pyyaml/ruamel) — reinstalaveis, fora do Git
+# recriar: python -m pip install --target _SISTEMA/pylibs pyyaml ruamel.yaml
+_SISTEMA/pylibs/
+
+# wrapper do agendador — GERADO por soj_agendar (caminho da python da maquina)
+ESCRITORIO/scripts/soj_atualizar_agendado.cmd

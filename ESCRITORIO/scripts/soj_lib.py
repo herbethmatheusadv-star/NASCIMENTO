@@ -11,16 +11,22 @@ import sys
 import unicodedata
 from pathlib import Path
 
-from ruamel.yaml import YAML
+try:
+    from ruamel.yaml import YAML   # round-trip do CASO.yaml (v1) — opcional
+except ImportError:                # kernel carrega sem ruamel (ex.: tarefa agendada,
+    YAML = None                    # onde o user site-packages pode não estar no path)
 
 # ----------------------------------------------------------------- caminhos
 ROOT = Path(__file__).resolve().parents[2]          # .../NASCIMENTO
 CASOS = ROOT / "CASOS"
 ESCRITORIO = ROOT / "ESCRITORIO"
 
-_yaml = YAML()                    # modo round-trip: preserva comentários do CASO.yaml
-_yaml.preserve_quotes = True
-_yaml.width = 4096
+if YAML is not None:
+    _yaml = YAML()                # modo round-trip: preserva comentários do CASO.yaml
+    _yaml.preserve_quotes = True
+    _yaml.width = 4096
+else:
+    _yaml = None                  # sem ruamel: só as funções de CASO.yaml ficam indisponíveis
 
 
 def console_utf8():
@@ -82,12 +88,20 @@ def caso_dir(nome_cliente):
     return p
 
 
+def _exige_ruamel():
+    if _yaml is None:
+        raise RuntimeError("ruamel.yaml é necessário para o CASO.yaml (v1). "
+                           "Instale: pip install ruamel.yaml")
+
+
 def load_caso(pasta):
+    _exige_ruamel()
     with open(pasta / "CASO.yaml", encoding="utf-8") as f:
         return _yaml.load(f)
 
 
 def save_caso(pasta, dados):
+    _exige_ruamel()
     with open(pasta / "CASO.yaml", "w", encoding="utf-8", newline="\n") as f:
         _yaml.dump(dados, f)
 
