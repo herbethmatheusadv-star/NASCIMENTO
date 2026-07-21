@@ -29,6 +29,7 @@ from pathlib import Path
 import soj_lib as soj
 import soj_prazos as prazos
 import soj_pendencias as pendencias
+import soj_financeiro as financeiro
 
 try:
     import yaml
@@ -216,9 +217,13 @@ def carregar() -> dict:
         pend = pendencias.pendencias_do_acervo()
     except Exception:  # noqa: BLE001
         pend = []
+    try:
+        fin = financeiro.resumo()
+    except Exception:  # noqa: BLE001
+        fin = {}
     return {"processos": processos, "audiencias": audiencias, "hoje": hoje_itens,
             "resumos": resumos, "minutas": minutas, "novidades": novidades,
-            "cobertura": cob, "pendencias": pend,
+            "cobertura": cob, "pendencias": pend, "financeiro": fin,
             "kpi": {"total": total, "com_autos": com_autos, "paginas": paginas,
                     "audiencias": sum(1 for a in audiencias if 0 <= a["dias"] <= 7)}}
 
@@ -424,6 +429,9 @@ def bloco_robo(dados):
     linhas.append(linha("", "Documentos a coletar",
         f"<span class='chip {'c-acc' if npr['documento'] else 'c-mut'}'>"
         f"{npr['documento']}</span>", ""))
+    caf = dados.get("financeiro", {}).get("contratos_a_formalizar", [])
+    linhas.append(linha("", "Contratos de honorários a formalizar",
+        f"<span class='chip {'c-war' if caf else 'c-suc'}'>{len(caf)}</span>", ""))
     novtxt = (", ".join(f"{H.escape(p['id'])} (+{len(p['autos']['novidades'].get('novos_nums',[]))})"
                         for p in nov) if nov else "nenhuma hoje")
     prot = [p for p in pend if p["tipo"] == "protocolo"]
@@ -487,11 +495,13 @@ def bloco_proc(p, servidor=False):
 
 def render(dados, servidor=False) -> str:
     k = dados["kpi"]
+    fin = dados.get("financeiro", {})
     kpis = "".join(f"<div class='kpi'><div class='l'>{l}</div><div class='v'>{v}</div></div>"
                    for l, v in [("Processos", k["total"]),
                                 ("Páginas indexadas", f"{k['paginas']:,}".replace(",", ".")),
                                 ("Audiências (7 dias)", k["audiencias"]),
-                                ("Com autos", f"{k['com_autos']}/{k['total']}")])
+                                ("Com autos", f"{k['com_autos']}/{k['total']}"),
+                                ("A receber", financeiro._r(fin.get("a_receber", 0.0)))])
     filtros = ["<button class='fbtn on' data-f='todos' onclick='setf(this)'>todos</button>"]
     for t in sorted(dados["cobertura"]):
         filtros.append(f"<button class='fbtn' data-f='trib:{H.escape(t)}' onclick='setf(this)'>{H.escape(t)}</button>")

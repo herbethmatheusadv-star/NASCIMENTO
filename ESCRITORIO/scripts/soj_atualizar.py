@@ -21,6 +21,7 @@ from datetime import date
 import soj_lib as soj
 import soj_prazos
 import soj_pendencias
+import soj_financeiro
 import soj_painel
 
 
@@ -61,6 +62,10 @@ def main() -> None:
     _escrever(idx / "pendencias.json",
               json.dumps(pend, ensure_ascii=False, indent=1))
 
+    fin = soj_financeiro.resumo()
+    _escrever(idx / "financeiro.json",
+              json.dumps(fin, ensure_ascii=False, indent=1))
+
     dados = soj_painel.carregar()
     _escrever(soj_painel.SAIDA, soj_painel.render(dados))
 
@@ -74,6 +79,11 @@ def main() -> None:
     r = soj_pendencias.resumo(pend)
     L += ["", f"## Pendências — {len(pend)} aberta(s)",
           "  " + " · ".join(f"{v} {k}" for k, v in r.items())]
+    caf = fin.get("contratos_a_formalizar", [])
+    L += ["", "## Financeiro",
+          f"  A receber {soj_financeiro._r(fin.get('a_receber', 0))} · "
+          f"recebido {soj_financeiro._r(fin.get('recebido', 0))} · "
+          f"{len(caf)} contrato(s) a formalizar"]
     if prazos:
         L += ["", f"## Prazos em curso — {len(prazos)}"]
         for p in prazos[:6]:
