@@ -426,8 +426,108 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | 10 imagens da conversa | **integral** (uma a uma) |
 | Sentença Vagno (perdeu) — 23.946 chars | **integral** |
 | Sentença Leandra (ganhou) — 8.192 chars | **integral** |
-| Contestação da Ferreira (18 pgs) | ⚠️ **NÃO integral** — títulos + 4 trechos |
+| Contestação da Ferreira (18 pgs, 27.236 chars) | ✅ **integral** (seção 12) |
 | Contestação da BBC (29 pgs) | ⚠️ **NÃO integral** — títulos + 3 trechos |
 | 9 petições iniciais baixadas | ⚠️ **NÃO integrais** — títulos e trechos |
 | Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
 | Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
+
+---
+
+## 12. CONTESTAÇÃO DA FERREIRA — LEITURA INTEGRAL (27.236 caracteres)
+
+**Cobertura:** `contestacao_...01._contestacao_J_ferreira_...pdf`, autos
+0810809-89.2024 (Antonio Vitor), JEC de Parauapebas, protocolada em 02/11/2025
+por **ISABELLE NONATO DE OLIVEIRA, OAB/PA 20.134-B** (com Nonato S. de Sousa,
+OAB/PA 9005-E) — **lida integralmente** em 22/07/2026.
+
+### 12.1 A VIGA DA DEFESA — e por que ela NÃO alcança o Edson
+
+Ela repete a mesma frase três vezes, em caixa alta:
+
+> *"no momento do recebimento dos valores, **os depósitos ERAM FEITOS PELOS
+> CLIENTES DIRETAMENTE PARA A CONTA DA BBC FALSA**"*
+>
+> *"a requerida **NÃO RECEBEU VALORES, EIS QUE TODOS OS VALORES FORAM
+> DEPOSITADOS DIRETAMENTE NA CONTA DA EMPRESA ESTELIONATÁRIA**"*
+>
+> *"os valores foram transferidos pelo autor **diretamente à conta da empresa
+> BBC CONSÓRCIOS (fraudulenta)**"*
+
+**No caso do Edson isso é comprovadamente falso**, e temos quatro provas
+independentes de que o dinheiro foi para o **CNPJ 43.674.644/0001-78 — dela
+própria**:
+
+1. **comprovante do Banco do Brasil** — PIX de R$ 2.000,00 em 07/10/2025,
+   recebedor "J FERREIRA FINANCIAL SOLUTION", CNPJ 43.674.644/0001-78,
+   autenticação SISBB 5.803.30F.A6B.171.9F6 (F13);
+2. **o recibo dentro do próprio contrato** dela (P01 p.4), mandando pagar na
+   conta CORA/PIX do mesmo CNPJ;
+3. **a foto da placa de PIX da loja**, enviada pela própria vendedora, com
+   "JFERREIRA REPRESENTAÇÕES — PIX: 43.674.644/0001-78" (IMG-20251007-WA0042);
+4. **o boletim de ocorrência**, que registra o mesmo PIX (P02).
+
+> **É a defesa inteira dela caindo por terra num único ponto de fato.** O
+> capítulo IV.1 da nossa inicial deve abrir por aqui, não por argumento
+> jurídico: *a excludente que a ré invoca pressupõe que o dinheiro foi para
+> terceiro; neste caso o dinheiro foi para ela, e há comprovante bancário.*
+
+### 12.2 O resto do arsenal dela (todos os 8 pontos)
+
+1. **Litisconsórcio + subsidiariedade** — inclusão de **LR REPRESENTAÇÕES
+   EIRELI (CNPJ 32.934.061/0001-12**, rua B, 377, Cidade Nova, Parauapebas),
+   **BBC CONSÓRCIOS (a falsa, CNPJ 45.858.358/0001-98**, Ananindeua), e das
+   pessoas físicas **Erik Almeida Luz (CPF 837.310.672-34)**, **Fernanda Kelly
+   Monteiro Malcher (CPF 701.676.542-33)** e **Jéssica de Souza Oliveira (CPF
+   022.291.762-85)**. Pede que se atinja **primeiro o patrimônio deles**.
+2. **Prova emprestada** do criminal `0801489-49.2023` (2ª Vara Criminal).
+3. **Excludente por fato de terceiro** — rompimento do nexo causal.
+4. **Boa-fé**: *"a trama foi tão bem-feita que tornou impossível ser descoberta
+   de forma imediata"*, e *"assim que desconfiou, a requerida buscou a polícia"*.
+5. **Dano moral**: pede o teto de **R$ 1.000,00**, sem correção nem juros desde
+   o ajuizamento, e lembra que não incide imposto de renda.
+6. **Indicação de bens de terceiro** para penhora — veículo **TOYOTA/CROSS XRE,
+   placa QVX-1F26**, apreendido no criminal, *"há garantia patrimonial
+   suficiente"*.
+7. **Impugnação aos documentos do autor** — alegando que são **sigilosos** e
+   que *"o autor não poderia ter acesso sem a devida autorização"*.
+8. Protesta por **prova testemunhal**.
+
+### 12.3 Fatos novos que ela mesma entrega — e que servem contra ela
+
+- **Há SENTENÇA CONDENATÓRIA no criminal**: *"Há inclusive sentença
+  condenatória no referido processo criminal"* — e ela admite que **não teve
+  acesso, por correr em segredo**. Ou seja: ela invoca uma sentença que não leu.
+- **Erik usou HACKER** para acessar o software **SIPROV Benefícios**, *"que era
+  um sistema que permitia aos representantes emitir contratos de consórcio"*.
+  → Confirma que a Ferreira **emitia contratos de consórcio por sistema
+  próprio de credenciamento**, e não era mera vendedora passiva.
+- **LR Representações era a "representante MASTER"** da região, *"responsável
+  em credenciar os demais representantes"* — informação que ela tira do
+  **relatório da polícia civil (ID 125721311)**. Existe, portanto, uma
+  **hierarquia de credenciamento** que ela integra.
+- No caso Antonio Vitor, o contrato é de **18/05/2022** e a entrada foi de
+  **R$ 3.789,53** — um décimo do que cobraram do Edson três anos depois.
+
+### 12.4 O ARGUMENTO QUE FECHA — a linha do tempo
+
+**Tudo o que ela alega é de 2022:** o esquema começou em **18/08/2022**, o
+contrato daquele autor é de **18/05/2022**, e ela diz que *"assim que
+desconfiou, buscou a polícia"* — o inquérito é de **2023**.
+
+**O contrato do Edson é de 27/09/2025.** Três anos depois de ela dizer que
+descobriu o golpe, denunciou e "tomou todas as medidas cabíveis", ela seguia
+vendendo — e o dinheiro, desta vez, entrou na conta dela.
+
+> Se a Ferreira era vítima em 2022, o que era em 2025?
+
+### 12.5 Consequências práticas para a nossa inicial
+
+| Achado | O que fazer |
+|---|---|
+| A viga "não recebi valores" | abrir o capítulo IV.1 com os 4 comprovantes do CNPJ dela |
+| Pedido de subsidiariedade | impugnar: a relação de consumo é com quem vendeu **e recebeu** |
+| Impugnação de documentos por sigilo | os nossos são **da própria conversa do cliente** e do contrato dele — não há sigilo de terceiro a invocar |
+| Teto de R$ 1.000 de dano moral | o juízo do caso Leandra fixou **R$ 2.000** — pedir com base no parâmetro real |
+| SIPROV / credenciamento | pedir exibição do **contrato de credenciamento** da Ferreira com a EMBRACON |
+| Sentença criminal em segredo | **ela própria não teve acesso** — não pode fundar excludente em documento que não leu |
