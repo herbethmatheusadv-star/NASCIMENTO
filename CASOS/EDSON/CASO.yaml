@@ -72,54 +72,56 @@ fatos:
   status: provado
   provas: [P06]
 - id: F07
-  descricao: "O cliente registrou BO em 03/03/2026 na 20a Seccional de Parauapebas
-    (n. 0007112026.101407-7), relatando a divergencia de valores e a promessa nao
-    cumprida, e declarando suspeita de estelionato. ATENCAO: a autoridade
-    classificou como 'FATO ATIPICO > Atitude suspeita' e o BO foi ARQUIVADO
-    AUTOMATICAMENTE — a via criminal ja falhou na porta de entrada uma vez."
+  descricao: "O cliente registrou BO em 03/03/2026 na 20a Seccional de Parauapebas (n. 0007112026.101407-7), relatando a divergencia de valores e a promessa nao cumprida, e declarando suspeita de estelionato. ATENCAO: a autoridade classificou como 'FATO ATIPICO > Atitude suspeita' e o BO foi ARQUIVADO AUTOMATICAMENTE — a via criminal ja falhou na porta de entrada uma vez."
   status: provado
   provas: [P02]
 - id: F08
-  descricao: "DIVERGENCIA DE VALORES (o nucleo economico do caso). Ao cliente foi
-    dito que a casa custava R$ 90.000,00; o contrato traz credito de R$ 110.000,00
-    (P01 p.1); o cliente afirma ter visto R$ 120.000,00 no documento (P02). Pagou
-    de imediato R$ 14.400,00 (valor no BO) / R$ 14.483,00 (valor no recibo, P01
-    p.4) por PIX a chave CNPJ 43.674.644/0001-78 — chave da J. FERREIRA. Plano:
-    180 meses, parcela R$ 733,00, taxa de administracao 24%, fundo de reserva 3%,
-    correcao INCC, ~1.788 participantes (P01 p.1)."
+  descricao: "DIVERGENCIA DE VALORES (o nucleo economico do caso). Ao cliente foi dito que a casa custava R$ 90.000,00; o contrato traz credito de R$ 110.000,00 (P01 p.1); o cliente afirma ter visto R$ 120.000,00 no documento (P02). Pagou de imediato R$ 14.400,00 (valor no BO) / R$ 14.483,00 (valor no recibo, P01 p.4) por PIX a chave CNPJ 43.674.644/0001-78 — chave da J. FERREIRA. Plano: 180 meses, parcela R$ 733,00, taxa de administracao 24%, fundo de reserva 3%, correcao INCC, ~1.788 participantes (P01 p.1)."
   status: provado
   provas: [P01, P02]
 - id: F09
-  descricao: "O VALOR PAGO NAO E ENTRADA DA CASA: e CORRETAGEM. O proprio contrato
-    declara que 'o pagamento efetuado a EMPRESA JFERREIRA REPRESENTACOES nao e
-    antecipacao de lance, lance ou entrada de Consorcio e nao sera repassado a
-    Administradora de Consorcio' (P01 p.8) — dinheiro que nao abate NADA do bem.
-    Sao 13,2% do credito, pagos a vista e a fundo perdido. O cliente, porem,
-    descreve o pagamento como 'entrada' (P02): e exatamente essa a distancia entre
-    o que se vendeu e o que se contratou."
+  descricao: "O VALOR PAGO NAO E ENTRADA DA CASA: e CORRETAGEM. O proprio contrato declara que 'o pagamento efetuado a EMPRESA JFERREIRA REPRESENTACOES nao e antecipacao de lance, lance ou entrada de Consorcio e nao sera repassado a Administradora de Consorcio' (P01 p.8) — dinheiro que nao abate NADA do bem. Sao 13,2% do credito, pagos a vista e a fundo perdido. O cliente, porem, descreve o pagamento como 'entrada' (P02): e exatamente essa a distancia entre o que se vendeu e o que se contratou."
   status: provado
   provas: [P01, P02]
 - id: F10
-  descricao: "BLINDAGEM DOCUMENTAL: o maco de 12 paginas assinado num unico dia
-    (sabado, 27/09/2025) contem 4 declaracoes de ciencia e um 'termo de pos-venda'
-    que negam por antecipacao cada alegacao da vitima — inclusive a clausula da
-    p.9: 'nenhum documento, promessa escrita, verbal ou GRAVADA... nao terao
-    nenhuma validade, prevalecendo somente as clausulas contratuais' (escrita para
-    matar prova gravada) e a da p.8: 'Declaro que nada tenho a reclamar da empresa
-    ..., quer seja em juizo ou fora dele' (renuncia previa ao direito de acao).
-    Ver ANATOMIA_DO_GOLPE secao 2, etapa 5, e a tese T4."
+  descricao: "BLINDAGEM DOCUMENTAL: o maco de 12 paginas assinado num unico dia (sabado, 27/09/2025) contem 4 declaracoes de ciencia e um 'termo de pos-venda' que negam por antecipacao cada alegacao da vitima — inclusive a clausula da p.9: 'nenhum documento, promessa escrita, verbal ou GRAVADA... nao terao nenhuma validade, prevalecendo somente as clausulas contratuais' (escrita para matar prova gravada) e a da p.8: 'Declaro que nada tenho a reclamar da empresa ..., quer seja em juizo ou fora dele' (renuncia previa ao direito de acao). Ver ANATOMIA_DO_GOLPE secao 2, etapa 5, e a tese T4."
   status: provado
   provas: [P01]
 - id: F11
-  descricao: "NENHUMA ADMINISTRADORA DE CONSORCIO E NOMEADA no maco de 12 paginas —
-    fala-se em 'administradoras autorizadas pelo Banco Central' de modo generico
-    (P01 p.2), e a contratada se obrigou a alocar o cadastro em ate 30 dias (cl.
-    1.3), cadastrar em administradora legalizada (cl. 2.2) e enviar o contrato de
-    adesao (cl. 2.3). NAO SE SABE se isso foi cumprido — e desta resposta depende
-    a tese principal (Ramo A x Ramo B da ANATOMIA)."
-  status: controverso
-  provas: [P01]
-  pendencias: [PEN07]
+  descricao: "CORRIGIDO em 22/07/2026 (analise das IMAGENS, antes nao lidas): a cota EXISTE e e real. Administradora EMBRACON (e-mails de nao-responda@embracon.com.br e naoresponda@embracon.com.br ao e-mail do cliente), GRUPO 7261, COTA 1768 (IMG-20251215-WA0013 e IMG-20251124-WA0131). O contrato de 12 paginas NAO nomeia a administradora, mas ela existe e foi identificada pelas mensagens. Logo o caso e o RAMO A da ANATOMIA: consorcio real, vendido de forma enganosa."
+  status: provado
+  provas:
+  - P06
+- id: F12
+  descricao: "A PORTA DE ENTRADA FOI UM ANUNCIO DE CASA A VENDA, NAO DE CONSORCIO. A primeira imagem da conversa (IMG-20250925-WA0146, enviada pela PROPRIA vendedora em 25/09/2025 16:06) e o print do Facebook Marketplace: 'Classificado do Marketplace - R$15.000 - CASA A VENDA', com a foto de uma casa e a conversa em que Edson passa seu telefone (91993057288). Ele respondeu a um anuncio de CASA por R$ 15.000 e terminou num consorcio de credito R$ 110.000 em 180 meses. O valor que lhe cobraram de corretagem (R$ 14.483) e praticamente o preco anunciado da casa."
+  status: provado
+  provas:
+  - P06
+- id: F13
+  descricao: "PAGAMENTO ADICIONAL DE R$ 2.000,00, alem da entrada. Comprovante do Banco do Brasil (IMG-20251007-WA0050, enviado pelo cliente em 07/10/2025 11:01): PIX QR Code de R$ 2.000,00 em 07/10/2025 as 11:01:23, pagador Edson Ribeiro Dias, recebedor 'J FERREIRA FINANCIAL SOLUTION', CNPJ 43.674.644/0001-78, instituicao ITAU UNIBANCO. Autenticacao SISBB 5.803.30F.A6B.171.9F6; ID E00000000202510071401155444464869. DUAS DIVERGENCIAS: (a) o nome do recebedor e 'FINANCIAL SOLUTION', diferente do 'J FERREIRA REPRESENTACOES' do contrato; (b) o contrato exigia pagamento SO na conta CORA (cod. 403), e este foi para o ITAU. Na vespera (07/10 09:06) a vendedora havia enviado a foto da placa de PIX da loja (IMG-20251007-WA0042)."
+  status: provado
+  provas:
+  - P06
+- id: F14
+  descricao: O CLIENTE PAGOU PARCELAS DO CONSORCIO. Boleto EMBRACON do grupo 7261 cota 1768, vencimento 15/12/2025, linha digitavel 23793.39019 90024.641178 10000.168608 2 12960000050892 (IMG-20251215-WA0013); em 15/12/2025 11:08 o cliente escreve 'Ta pago'. Em 09/10/2025 06:53 ele ja enviara link de boleto do Bradesco. LEVANTAR o extrato completo de parcelas pagas (PEN04).
+  status: provado
+  provas:
+  - P06
+- id: F15
+  descricao: "COLETA SISTEMATICA DE CREDENCIAIS DO CONSUMIDOR POR SEIS MESES (09/10/2025 a 18/03/2026). A vendedora pedia reiteradamente os codigos e SENHAS que a EMBRACON enviava ao e-mail/celular do cliente, para acessar a conta dele: 'vou abrir aqui o portal do senhor, vai chegar alguns codigos ai, o senhor vai so me passar eles' (PTT-20251009-WA0130); 'caiu uma senha ai no meio do senhor, se tiver essa senha o senhor manda pra mim' (PTT-20251010-WA0082); 'se caiu um codigo ai, o senhor me manda um codigo SMS' (PTT-20251010-WA0127); e assim ate 18/03/2026. O cliente enviou prints dos proprios e-mails da Embracon: codigo de verificacao 2GIC (IMG-20251208-WA0123) e DUAS senhas temporarias de recuperacao, 184912 e 123163 (IMG-20251208-WA0138), alem dos codigos 044985, 717085 e 127622 digitados no chat."
+  status: provado
+  provas:
+  - P06
+- id: F16
+  descricao: "TRES LANCES FORAM EFETIVAMENTE OFERTADOS EM NOME DO CLIENTE, POR TERCEIRO. A vendedora enviou os comprovantes de tela 'Seu lance foi realizado, boa sorte!': protocolo 46484701 gerado em 10/10/2025 as 14:36:51 (assembleia 21/10/2025) - IMG-20251010-WA0133; protocolo 46604410 gerado em 06/11/2025 as 15:47:11 (assembleia 21/11/2025) - IMG-20251106-WA0112; protocolo 46703501 gerado em 24/11/2025 as 16:34:48 (assembleia 18/12/2025) - IMG-20251124-WA0133. PROVA DA AUTORIA: ela ENVIOU cada print MINUTOS APOS a geracao do protocolo (o de 10/10 foi gerado 14:36:51 e enviado 14:37), e as telas sao de um COMPUTADOR (barra de tarefas do Windows e aba do navegador escrita 'racon' = Embracon visiveis na IMG-20251010-WA0133) - nao do celular do cliente, cujos prints sao de tela de telefone. Em audio ela confirma: 'eu ofertei o lance, ne, esse mes' (PTT-20251222-WA0041)."
+  status: provado
+  provas:
+  - P06
+- id: F17
+  descricao: "O CLIENTE NAO FOI CONTEMPLADO. Tela do portal enviada pela vendedora em 24/11/2025 16:32 (IMG-20251124-WA0131): 'Assembleia 12 - 21 de novembro de 2025 - Concluida', grupo 7261 cota 1768, 'Voce nao foi contemplado(a) nesta assembleia.' DOIS MINUTOS DEPOIS (16:34) ela oferta novo lance (F16) e, no mesmo dia, promete em audio a contemplacao 'agora no mes de dezembro' (PTT-20251124-WA0132, F03)."
+  status: provado
+  provas:
+  - P06
 # status: provado | alegado | controverso. Provado exige prova; sem prova,
 # abrir pendencia (ou campo justificativa: "...").
 # - { id: F01, descricao: "...", status: alegado, provas: [], pendencias: [PEN01] }
@@ -245,21 +247,14 @@ pendencias:
   prioridade: critica
   bloqueia: [G2, G3]
   status: resolvida
-  resolucao: 'RESOLVIDA em 22/07/2026: OCR local (Windows pt-BR, nada saiu da
-    maquina) das 12 paginas do contrato e da pagina do BO. Texto em
-    _efemeros/edson_texto/. Gerou os fatos F07 a F11 e a ANATOMIA_DO_GOLPE do
-    modulo consumidor_consorcio.'
+  resolucao: 'RESOLVIDA em 22/07/2026: OCR local (Windows pt-BR, nada saiu da maquina) das 12 paginas do contrato e da pagina do BO. Texto em _efemeros/edson_texto/. Gerou os fatos F07 a F11 e a ANATOMIA_DO_GOLPE do modulo consumidor_consorcio.'
 - id: PEN07
-  descricao: 'A PERGUNTA QUE DECIDE O CASO — a cota existe? Em qual administradora?
-    Qual grupo? O contrato de adesao chegou ao cliente? Ver ANATOMIA_DO_GOLPE
-    secao 3 (Ramo A x Ramo B): a resposta muda a tese principal, os reus e o valor
-    da causa. Caminhos: perguntar ao cliente; procurar e-mails da administradora;
-    acessar o portal do consorciado; consultar o BACEN; e, na inicial, pedir a
-    EXIBICAO do contrato de adesao, do numero de grupo/cota e do comprovante de
-    repasse da 1a parcela (que a clausula 4.0 deles diz que a contratada pagaria).'
+  descricao: 'A PERGUNTA QUE DECIDE O CASO — a cota existe? Em qual administradora? Qual grupo? O contrato de adesao chegou ao cliente? Ver ANATOMIA_DO_GOLPE secao 3 (Ramo A x Ramo B): a resposta muda a tese principal, os reus e o valor da causa. Caminhos: perguntar ao cliente; procurar e-mails da administradora; acessar o portal do consorciado; consultar o BACEN; e, na inicial, pedir a EXIBICAO do contrato de adesao, do numero de grupo/cota e do comprovante de repasse da 1a parcela (que a clausula 4.0 deles diz que a contratada pagaria).'
   responsavel: advogado
   prioridade: critica
   bloqueia: [G2, G3]
+  status: resolvida
+  resolucao: 'RESPONDIDA em 22/07/2026 pela analise das IMAGENS da conversa (que nao haviam sido abertas na primeira passada): a cota EXISTE - EMBRACON, grupo 7261, cota 1768. E o RAMO A. Restam: extrato completo da cota e apuracao formal dos lances junto a Embracon.'
 - id: PEN03
   descricao: 'Confirmar a qualificacao e o endereco das RES: o contrato de honorarios diz "Avenida Rio Grande, n. 155" e a preposta enviou no WhatsApp "Rua Rio Grande, N 156, bairro Beira Rio, em cima do outlet do 20". Divergencia de via e numero — conferir cartao CNPJ das duas empresas antes de distribuir (citacao).'
   responsavel: advogado

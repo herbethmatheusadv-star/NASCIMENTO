@@ -7,6 +7,7 @@
 
 | # | O que | Por quê | Bloqueia |
 |---|---|---|---|
+| 0 | **ABRIR TODAS AS IMAGENS, uma a uma, e ler o texto INTEGRAL da conversa** | **Nesta área a prova decisiva é print de tela**: anúncio do Marketplace, e-mail de código, tela do portal, protocolo de lance, comprovante de PIX. No caso-fonte, 10 imagens continham a administradora, o grupo, a cota, 3 protocolos de lance, o comprovante do PIX e o anúncio de "casa à venda" — nada disso estava no áudio nem no contrato. **Imagem não lida é prova não produzida.** | G2 |
 | 1 | **Todos os áudios da conversa, degravados** (`motor_audio.py <pasta>`) | O caso vive ou morre no áudio: o papel está todo contra o cliente. Opinar sem degravar é chute. | G2 |
 | 2 | **A resposta: existe cota? qual administradora? qual grupo?** | É a bifurcação Ramo A / Ramo B da ANATOMIA — muda a tese principal e o valor da causa. | G2 |
 | 3 | **Contrato completo, TODAS as páginas, legíveis** (OCR se for scan) | As cláusulas de blindagem e as declarações estão nas páginas do meio, que o cliente costuma não fotografar. | G2 |

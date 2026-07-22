@@ -10,6 +10,21 @@
 > lícito (LEI11795:art12). O golpe está em vender consórcio **dizendo que é
 > casa**, e em blindar por escrito exatamente aquilo que se promete na boca.
 
+## ⚠️ LIÇÃO DE MÉTODO (erro cometido e corrigido em 22/07/2026)
+
+A primeira versão deste documento foi escrita **sem abrir uma única imagem**
+da conversa e lendo apenas o começo e o fim das mensagens. Resultado: afirmou
+que "nenhuma administradora é nomeada" e apontou o caso para o Ramo B (cota
+inexistente). **Estava errado.** As imagens continham a administradora
+(EMBRACON), o número do grupo e da cota, o comprovante de PIX, três protocolos
+de lance e o anúncio original do Facebook.
+
+**Regra que nasce daí, obrigatória para esta área:** a análise só está completa
+depois de **abrir TODAS as imagens** e ler o texto **integral** da conversa. Em
+golpe de consórcio, a prova decisiva costuma ser **print de tela** — e-mail de
+código, tela do portal, comprovante de pagamento, anúncio. Áudio degravado e
+contrato **não bastam**. Imagem não lida é prova não produzida.
+
 ---
 
 ## 1. O QUE É VENDIDO × O QUE É ASSINADO
@@ -34,7 +49,25 @@ um grupo de autofinanciamento de 180 meses.
 
 Ordem observada no caso-fonte. As datas são do caso 2026-0006.
 
-### Etapa 1 — A abordagem por rede social, com identidade emprestada
+### Etapa 1 — O ANÚNCIO DE CASA À VENDA (a origem de tudo)
+O consumidor **não procura consórcio**. Ele responde a um anúncio de **imóvel
+à venda** no Facebook Marketplace. No caso-fonte, o print enviado **pela
+própria vendedora** (IMG-20250925-WA0146) mostra:
+
+> **"Classificado do Marketplace — R$ 15.000 — CASA A VENDA"**
+
+Ele respondeu a uma casa anunciada por **R$ 15.000** e terminou em consórcio de
+crédito **R$ 110.000** por **180 meses**. E a "corretagem" cobrada foi
+**R$ 14.483** — quase exatamente o preço anunciado da casa.
+
+**Por que importa:** é a prova documental do descompasso entre a oferta e o
+contrato, produzida **antes** de qualquer declaração de ciência. É a peça mais
+valiosa do caso e costuma estar na **primeira imagem** da conversa.
+
+**O que colher:** print do anúncio, link do Marketplace, valor anunciado, foto
+do imóvel exibida, data.
+
+### Etapa 1-B — A abordagem por rede social, com identidade emprestada
 A vendedora aborda pelo **Facebook**, usando o perfil de **outra pessoa**:
 
 > *"eu estava falando com o senhor pelo Face de um amigo meu, tá bom? Porém
@@ -125,7 +158,44 @@ enuncia o que foi combinado; a fornecedora **não desmente a promessa** — ela
 corrige o mecanismo. É prova de que a versão do consumidor sobre o combinado
 nunca foi contestada no momento em que seria natural contestá-la.
 
-### Etapa 7 — O pedido dos códigos (a etapa mais grave)
+### Etapa 7 — A TOMADA DA CONTA DO CONSUMIDOR (a etapa mais grave, e a mais bem documentada)
+
+Não é um pedido isolado de código. É **campanha continuada de captura de
+credenciais**. No caso-fonte durou **seis meses** (09/10/2025 a 18/03/2026) e
+seguia sempre o mesmo ciclo:
+
+1. Ela dispara a **recuperação de senha** no portal da administradora
+2. A administradora manda código/senha temporária **ao e-mail do consumidor**
+3. Ela pede: *"caiu uma senha aí no seu e-mail, o senhor manda pra mim"*
+4. Ele fotografa o e-mail e envia
+5. Ela entra na conta **do computador dela** e **oferta lance em nome dele**
+6. Ela devolve o print do protocolo como prova de serviço
+
+Provas disso no caso-fonte, todas com hora:
+- *"vou abrir aqui o portal do senhor, tá bom? Vai chegar alguns códigos aí, o senhor vai só me passar eles"* — `PTT-20251009-WA0130`
+- *"caiu uma senha aí no meio [e-mail] do senhor. Se tiver essa senha, o senhor manda pra mim"* — `PTT-20251010-WA0082`
+- Prints dos e-mails da EMBRACON enviados pelo cliente: código `2GIC`
+  (IMG-20251208-WA0123) e **duas senhas temporárias**, `184912` e `123163`
+  (IMG-20251208-WA0138); mais os códigos `044985`, `717085`, `127622` digitados
+- **Três lances ofertados**, com protocolo e segundo exato:
+  `46484701` (10/10/2025 14:36:51) · `46604410` (06/11/2025 15:47:11) ·
+  `46703501` (24/11/2025 16:34:48)
+- Ela admite: *"eu ofertei o lance, né, esse mês"* — `PTT-20251222-WA0041`
+
+**A prova de autoria é temporal e visual, e é forte:** ela enviou cada print
+**minutos** depois do protocolo ser gerado (o de 10/10 nasceu às 14:36:51 e
+chegou ao WhatsApp às 14:37), e as telas dos lances são de **computador** —
+barra de tarefas do Windows e aba de navegador escrita "…racon" visíveis na
+IMG-20251010-WA0133 — enquanto os prints do cliente são de **tela de celular**.
+Quem operou a conta foi ela, do escritório.
+
+**Por que isto pode virar o eixo da ação:** lance compromete patrimônio e
+altera a posição do consorciado. Foram três, por terceiro, com credencial
+obtida do titular sob pretexto de "serviço". E abre uma frente contra a
+**administradora**: um sistema que permite recuperação de senha em série e
+lances de terceiro sem verificação própria tem falha de segurança a responder.
+
+### Etapa 7-B — O texto original desta etapa (pedido de códigos)
 A vendedora pede ao consumidor os **códigos de verificação** que chegam ao
 e-mail/telefone dele, para operar a conta dele:
 
@@ -153,6 +223,12 @@ datas dos códigos.
 
 > **A cota existe? Em qual administradora? Qual grupo? O contrato de adesão
 > chegou às mãos do consumidor?**
+
+> **No caso-fonte 2026-0006 a resposta é RAMO A**, e veio das imagens da
+> conversa (não do contrato): **EMBRACON, grupo 7261, cota 1768** — consórcio
+> real, em administradora real, com assembleias reais (a 12ª em 21/11/2025) e
+> boletos pagos. Procure a resposta **nas imagens e nos e-mails**, não no maço
+> contratual: o contrato do caso-fonte não nomeia administradora nenhuma.
 
 Está tudo nesta bifurcação, e ela é de FATO, não de tese:
 

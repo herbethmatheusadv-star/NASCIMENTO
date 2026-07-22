@@ -10,8 +10,8 @@ g1: reprovado
 g2: pendente
 g3: pendente
 proximo_prazo: ""
-pendencias_criticas_abertas: 3
-atualizado: 2026-07-22 17:09
+pendencias_criticas_abertas: 2
+atualizado: 2026-07-22 17:25
 ---
 
 # STATUS — Edson x J. Ferreira Representacoes e Lima Financeira — Rescisao de consorcio por vicio de consentimento
@@ -24,12 +24,11 @@ atualizado: 2026-07-22 17:09
 - Nenhum prazo registrado.
 
 ## Pendências críticas abertas
-- PEN07 (advogado): A PERGUNTA QUE DECIDE O CASO — a cota existe? Em qual administradora? Qual grupo? O contrato de adesao chegou ao cliente? Ver ANATOMIA_DO_GOLPE secao 3 (Ramo A x Ramo B): a resposta muda a tese principal, os reus e o valor da causa. Caminhos: perguntar ao cliente; procurar e-mails da administradora; acessar o portal do consorciado; consultar o BACEN; e, na inicial, pedir a EXIBICAO do contrato de adesao, do numero de grupo/cota e do comprovante de repasse da 1a parcela (que a clausula 4.0 deles diz que a contratada pagaria). — bloqueia G2, G3
 - PEN04 (cliente): PARCIALMENTE RESPONDIDA pelo OCR de 22/07/2026: o recibo (P01 p.4) traz R$ 14.483,00 de corretagem e o BO (P02) fala em R$ 14.400,00 pagos por PIX a chave CNPJ 43.674.644/0001-78 — diferenca de R$ 83,00 a esclarecer. AINDA FALTA: (a) o COMPROVANTE do PIX — o proprio contrato avisa que o recibo so vale mediante comprovacao de compensacao bancaria; (b) saber se houve MAIS algum pagamento depois (parcela de consorcio, boleto de administradora). Sem o comprovante, o PED02 nao fecha e o valor da causa nao se define. — bloqueia G2, G3
 - PEN06 (advogado): RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos". — bloqueia G2, G3
 
 ## Números do caso
-- Partes: 3 · Fatos: 11 (provados 10 / alegados 0 / controversos 1) · Provas: 8 · Pedidos: 3 · Pendências abertas: 5
+- Partes: 3 · Fatos: 17 (provados 17 / alegados 0 / controversos 0) · Provas: 8 · Pedidos: 3 · Pendências abertas: 4
 
 ## Últimas entradas do diário
 - #010 | 2026-07-22 17:08 | DOC_RECEBIDO — Recebido CONTRATO DE HONORARIOS ASSINADO [rota: prova] -> 00_originais/CONTRATO DE HONORARIOS ASSINADO.pdf -> DOC-08_CONTRATO_DE_HONORARIOS_ASSINADO.pdf.

@@ -14,7 +14,13 @@ Minuta lida: nenhuma minuta ainda
 | F08 | provado | P01, P02 | — | — |
 | F09 | provado | P01, P02 | — | — |
 | F10 | provado | P01 | — | — |
-| F11 | controverso | P01 | — | — |
+| F11 | provado | P06 | — | — |
+| F12 | provado | P06 | — | — |
+| F13 | provado | P06 | — | — |
+| F14 | provado | P06 | — | — |
+| F15 | provado | P06 | — | — |
+| F16 | provado | P06 | — | — |
+| F17 | provado | P06 | — | — |
 
 ## Pedidos
 
