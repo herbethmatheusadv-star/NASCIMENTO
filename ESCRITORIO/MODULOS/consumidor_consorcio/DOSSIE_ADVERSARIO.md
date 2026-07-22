@@ -288,3 +288,64 @@ cartões CNPJ de todas as empresas) · 7 substabelecimentos (quem advoga por ela
 
 As 43 chaves que falharam eram, quase todas, da categoria "decisão" — a chave
 publicada ali não abre documento. Não é bloqueio: é ruído da extração.
+
+---
+
+# 10. OS ACORDOS — quanto elas pagam, e quando
+
+Dois acordos identificados nos 28 processos. **O padrão importa mais que os
+valores: elas não acordam antes; acordam depois de perder.**
+
+## 10.1 Acordo com valor conhecido (o parâmetro de negociação)
+
+**`0815826-72.2025.8.14.0040`** — LEANDRA RIBEIRO DA SILVA MELO × FERREIRA
+REPRESENTAÇÕES + LIMA FINANCEIRA (**as duas juntas — a mesma dupla do caso do
+Edson**), Juizado Especial Cível de Parauapebas.
+
+Linha do tempo:
+- **23/02/2026 — sentença: "JULGO PROCEDENTES os pedidos formulados na inicial"**
+- 11/03/2026 — as rés juntam a minuta de acordo assinada (pela advogada delas,
+  Isabelle Nonato de Oliveira Moura)
+- 15/05 e 01/06/2026 — tramitação do acordo
+
+Termos (minuta assinada, em `docs/acordo_...MINUTA_ACORDO...pdf`):
+- **Total R$ 15.000,00**, parcelado em **5×**:
+  R$ 5.000,00 (16/03) + R$ 2.500,00 em 16/04, 16/05, 16/06 e **16/07/2026**;
+- 1ª parcela na conta do **advogado** da autora; as demais na conta da autora
+  (inclusive chave PIX);
+- **quitação ampla, geral e irrevogável** — "para nada mais reclamar, a que
+  título for, seja em Juízo ou fora dele";
+- **renúncia expressa a recurso** contra a homologação, para trânsito imediato.
+
+## 10.2 Segundo acordo
+
+**`0819362-28.2024.8.14.0040`** — GINA CARLA COELHO BALESTERO × FERREIRA
+REPRESENTAÇÕES + BBC ADMINISTRADORA, 1ª Vara Cível de Parauapebas.
+Em **15/08/2025** o juízo registra "acordo com a autora e apresentou
+comprovantes de pagamento"; a homologação extinguiu o feito quanto à Ferreira.
+**Valor não publicado** — está nos autos, chave não disponível no DJEN.
+
+## 10.3 O QUE ISSO ENSINA PARA NEGOCIAR
+
+1. **Elas acordam depois da sentença desfavorável, não antes.** No caso da
+   Leandra, o acordo veio **16 dias depois** da procedência. Antes disso,
+   contestaram. Logo: **propor acordo cedo tende a ser desperdício de posição**
+   — a alavanca aparece com a sentença (ou com uma tutela).
+2. **O patamar conhecido é R$ 15.000, parcelado em 5 meses.** Serve de piso de
+   referência, não de teto: era um caso de JEC.
+3. **Para o Edson, R$ 15.000 seria abaixo do prejuízo dele:** R$ 14.483 de
+   corretagem + R$ 2.000 do segundo PIX + as parcelas do boleto EMBRACON já
+   passam de R$ 20.000, **sem contar dano moral**. Um acordo nesse patamar
+   devolveria menos do que ele pôs.
+4. **Elas parcelam.** Quem aceitar acordo deve prever cláusula de vencimento
+   antecipado e o acordo como título executivo — a minuta da Leandra não traz
+   multa por inadimplemento visível na parte examinada. **Conferir antes de
+   assinar qualquer coisa parecida.**
+5. **A quitação que elas pedem é ampla e irrevogável**, com renúncia a recurso.
+   Se houver frente autônoma (ex.: o acesso indevido à conta do consumidor —
+   F15/F16 do caso 2026-0006), a quitação ampla **mata essa frente também**.
+   Decidir antes de assinar (decisão reservada R5).
+
+> **Verificação pendente:** a última parcela da Leandra venceu em **16/07/2026**
+> (seis dias antes deste levantamento). Saber se foi paga diz se elas cumprem
+> acordo — informação valiosa antes de recomendar transação ao Edson.
