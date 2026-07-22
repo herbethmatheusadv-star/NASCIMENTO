@@ -157,6 +157,17 @@ futuras usam a ficha, jamais o PDF.
   do computador. Toda degravação sai rotulada: *"degravação de trabalho — não
   substitui perícia nem ata notarial"*; se a autenticidade virar ponto
   controverso, o sistema manda providenciar prova técnica.
+- **`degravar os áudios do caso X`** — o **motor de áudio**, para quando são
+  muitos (centenas, milhares). Quatro coisas que o transcritor simples não
+  faz: **não re-degrava** (catálogo por hash — o mesmo áudio encaminhado em
+  cinco conversas é degravado uma vez); **retoma de onde parou** (queda de
+  energia no áudio 700 custa um áudio, não setecentos); **marca o que precisa
+  de ouvido humano** (o robô erra e às vezes *inventa* frase em cima de
+  silêncio — isso sai sinalizado, nunca disfarçado); e guarda o **minuto de
+  cada fala**, para citar "aos 1min12s do áudio" na peça e na audiência.
+- **`em qual áudio ela fala de pagamento?`** — busca dentro das degravações,
+  que responde **arquivo + minuto + trecho**. É o que faz valer ter mil
+  áudios: ninguém reouve mil áudios para achar uma frase.
 - Transcrição pronta que o cliente mandou do celular = RELATO (não é
   degravação do sistema). Gravação de atendimento = consentimento no DIÁRIO
   primeiro.
@@ -220,7 +231,8 @@ Você fala em português; a tabela existe só para você saber o que há.
 | `novo_caso.py` | Cria a árvore do caso | "novo caso da fulana" |
 | `receber_documento.py` | Porta única com roteador de tipos | "chegou … do caso X" |
 | `receber_whatsapp.py` | Conversa de WhatsApp → cronologia lacrada | "chegou export de conversa" |
-| `degravar.py` | Transcritor 100% local | "degrava o áudio / a pasta" |
+| `degravar.py` | Transcritor 100% local (1 áudio / pasta pequena) | "degrava o áudio / a pasta" |
+| `motor_audio.py` | Motor de áudio: centenas/milhares, retomável | "degrava os áudios do caso X" |
 | `anexar_autos.py` | Motor de autos: índice + plano + cache | "anexar autos do caso X" |
 | `importar_caso.py` | Porta de importação (confiança zero) | "importar caso trabalhado" |
 | `absorver_versao.py` | Porta de retorno da peça | "absorver minha versão" |

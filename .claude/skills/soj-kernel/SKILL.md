@@ -104,6 +104,36 @@ Regras INEGOCIÁVEIS do modo:
   [--sidecar]` — roda com o Python normal (se relança sozinho no ambiente
   próprio em `~/.soj/transcritor/`). Se a qualidade do `small` não bastar
   num áudio real, propor upgrade de modelo ANTES de baixar (download novo).
+- **MOTOR DE ÁUDIO (escala) — `motor_audio.py`:** a partir de ~20 áudios,
+  usar o motor, NÃO o `degravar.py`. Comando: **"degravar os áudios do caso
+  X"** → `motor_audio.py CAMINHO` (varre a pasta em profundidade).
+  - **Catálogo por SHA-256** em `_SISTEMA/audio/` (fora do git, cache
+    reconstruível): vale a REGRA DE OURO — *nada se re-degrava*. Áudio
+    encaminhado em N conversas custa 1 degravação e ganha N sidecars.
+  - **Retomável**: Ctrl+C ou queda de energia custa 1 áudio. Rodar de novo
+    continua de onde parou — nunca recomeça.
+  - **Semáforo** OK · REVISAR · SEM_FALA · ALUCINACAO? · ERRO. Whisper
+    ALUCINA frase em cima de silêncio ("Legendas pela comunidade
+    Amara.org"): o motor detecta e marca. **O que não for OK não vira
+    citação sem o advogado ouvir** — `--revisar` dá a lista de conferência,
+    e o aviso viaja DENTRO do sidecar (entra visível na cronologia).
+  - **Fita de tempo**: `--relatorio` gera `DEGRAVACAO_<pasta>.md` com o
+    minuto de cada fala, para citar em peça e audiência.
+  - **Repescagem (a economia do escritório)**: varrer TUDO no modelo rápido
+    e depois `--repescar --modelo large-v3-turbo` — o modelo caro e lento só
+    trabalha nos poucos áudios que o semáforo marcou. Só troca o texto se
+    MELHORAR o sinal; e se o sidecar tiver correção do advogado, atualiza o
+    catálogo mas **preserva o arquivo** e avisa.
+  - **Busca com o minuto** — é o que faz valer ter mil áudios: **"em qual
+    áudio ela fala de pagamento?"** → `motor_audio.py [PASTA] --buscar
+    "pagamento"` responde arquivo + minuto + trecho, já citável. Sem pasta,
+    procura no acervo inteiro. (A busca do `soj_search.py` cobre autos de
+    processo, NÃO cobre áudio — para áudio é esta.)
+  - Antes de degravar em massa: `--status` (mapa + estimativa medida nesta
+    máquina). Sidecar existente NUNCA é sobrescrito (correção do advogado é
+    soberana) — só com `--forcar`, e perguntando antes.
+  - Ordem certa numa conversa de WhatsApp: `motor_audio.py <pasta>` →
+    depois `receber_whatsapp.py` (que lê os sidecars e põe a fala inline).
 
 ## MOTOR DE AUTOS (Onda 5/F6 — processo que chega de fora)
 

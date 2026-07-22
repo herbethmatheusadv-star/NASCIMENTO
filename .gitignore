@@ -43,6 +43,10 @@ _efemeros/
 # index de busca FTS5 — GERADO, reconstruivel, fora do Git
 index/
 
+# catalogo do motor de audio — CACHE (hash -> degravacao). E reconstruivel a
+# partir dos sidecars <audio>.txt, muda a cada rodada e e binario: fora do Git.
+_SISTEMA/audio/
+
 # libs vendorizadas p/ o agendador (pyyaml/ruamel) — reinstalaveis, fora do Git
 # recriar: python -m pip install --target _SISTEMA/pylibs pyyaml ruamel.yaml
 _SISTEMA/pylibs/
