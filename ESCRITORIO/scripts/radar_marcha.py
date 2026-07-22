@@ -140,6 +140,24 @@ def main() -> None:
         print("  [ok] Nenhuma novidade — os ativos nao andaram desde a ultima captura.")
     print("=" * 74)
 
+    # heartbeat persistente: o titular ve a varredura mesmo rodando sozinha (07h)
+    log = RAIZ / "_SISTEMA" / "logs" / "marcha_viva.md"
+    log.parent.mkdir(parents=True, exist_ok=True)
+    novo = not log.exists()
+    with log.open("a", encoding="utf-8") as f:
+        if novo:
+            f.write("# Marcha viva — varredura diaria (radar_marcha)\n\n"
+                    "> O que mexeu nos processos ATIVOS, via DataJud (sem login).\n"
+                    "> NOVIDADE = capturar a peca nova no Kz no proximo login.\n\n")
+        f.write(f"## {datetime.now():%Y-%m-%d %H:%M} — {len(rel)} ativo(s), "
+                f"{len(novidades)} novidade(s)\n")
+        for r in novidades:
+            f.write(f"- [!] {r['cnj']} mexeu (ult.mov {r.get('ultimo_movimento')} "
+                    f"· {r.get('ultimo_nome')}) — capturar no Kz\n")
+        if not novidades and rel:
+            f.write("- (nada novo)\n")
+        f.write("\n")
+
 
 if __name__ == "__main__":
     main()
