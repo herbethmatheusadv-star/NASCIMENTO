@@ -152,3 +152,100 @@ fizeram:
 | Valor da causa errado por PEN04 aberta | não protocolar antes de fechar o valor |
 | Acordo precoce | elas só acordam **depois** de perder (16 dias após a procedência, caso Leandra, R$ 15.000 em 5×) — e esse patamar é **abaixo** do prejuízo do Edson |
 | Citações não verificadas | G3 barra; verbetar CDC/CC e conferir na fonte os precedentes TJ-SP AI 2144270-54.2021.8.26.0000, TJ-RS Ap. 70068923770 (19ª Câm. Cível, 25/08/2016) e TJ-MG AC 1.0000.22.039932-3/001 |
+
+---
+
+## 6. A TESE QUE GANHOU O CASO LEANDRA — lida na íntegra (22/07/2026)
+
+O advogado suspeitou que fosse propaganda enganosa. **Quase** — e o que é de
+fato é mais útil para nós. O dispositivo da sentença que julgou PROCEDENTE
+(`0815826-72.2025`, JEC de Parauapebas):
+
+> a) **DECLARAR a nulidade do contrato de intermediação firmado entre as partes
+> por VÍCIO DE CONSENTIMENTO (DOLO/ERRO)**;
+> b) CONDENAR as requeridas, **de forma solidária**, a restituir R$ 12.578,40 —
+> o total desembolsado **menos a primeira parcela já restituída pela
+> administradora**;
+> c) danos morais **solidários** de R$ 2.000,00.
+
+### 6.1 O que sustentou a decisão (e que ainda não estava na nossa estratégia)
+
+**⭐ TEMA 938 DO STJ — a chave contra a corretagem.** A sentença invoca:
+> *"A comissão de corretagem somente pode ser cobrada se houver **informação
+> clara e destacada** ao consumidor **antes** da contratação"*
+
+**Isto ataca frontalmente os R$ 14.483 do Edson.** Ele respondeu a um anúncio de
+**"CASA A VENDA — R$ 15.000"** (F12). A pergunta que o Tema 938 impõe é:
+*antes* de contratar, foi-lhe informado, de forma clara e destacada, que
+pagaria ~R$ 14.483 de **comissão** — dinheiro que não abate nada do imóvel? A
+resposta está no próprio contrato, que só diz que **não devolve** (F09).
+
+> ⚠️ Tema 938 **NÃO VERIFICADO** — foi lido na sentença alheia. Conferir o teor
+> na fonte do STJ antes de citar. Mesmo assim, é hoje o **precedente mais
+> valioso do caso**: não depende de vencer a blindagem, depende só de o dever
+> de informação sobre a corretagem ter sido cumprido ou não.
+
+**Solidariedade — fundamento usado:** *"pertencendo ao mesmo grupo econômico e
+atuando em conjunto na cadeia de fornecimento, fato confirmado em audiência"*,
+com **art. 7º, parágrafo único, do CDC**, e os precedentes de **teoria da
+aparência, culpa in eligendo e in vigilando**.
+→ Note: a solidariedade foi confirmada **em audiência**. No Edson temos algo
+melhor que depoimento: a admissão gravada *"foi comigo que o senhor fechou"*.
+
+**Dano moral — a fórmula que o juízo aceitou:** *"a frustração do **sonho da
+casa própria**, aliada ao desfalque financeiro considerável e à utilização de
+**meios ardilosos de venda**, ultrapassa o mero aborrecimento"*. Fixado em
+apenas **R$ 2.000** (a autora era gestante). É o parâmetro real deste juízo —
+não prometer mais que isso ao cliente.
+
+**Detalhe operacional:** a administradora **restituiu a primeira parcela** e o
+juízo abateu isso da condenação. No caso do Edson, apurar o que a EMBRACON já
+devolveu (se devolveu) antes de fechar o valor.
+
+---
+
+## 7. ⚠️ A PROVA QUE JOGA CONTRA O EDSON (e como tratá-la)
+
+Encontrada nas próprias mensagens dele. **A defesa vai usar, e é o melhor
+argumento que ela tem.**
+
+| Data/hora | Mensagem do cliente | Por que machuca |
+|---|---|---|
+| 27/09 12:39 | *"Foi bom o atendimento"* | saiu satisfeito da loja |
+| **27/09 12:40** | ***"Proposta boa"*** | **elogiou a proposta que hoje diz não ter entendido** |
+| 27/09 12:47 | *"Na semana que vem"* (quando retornaria) | não pagou no calor da abordagem |
+| 30/09 15:48 | *"tive um imprevisto e não consegui comparecer, vamos remarcar meu comparecimento"* | **estava se esforçando para voltar e pagar** |
+| 07/10 11:01 | comprovante de R$ 2.000 | **dez dias** depois da apresentação |
+| 15/12 11:08 | *"Ta pago"* (boleto EMBRACON) | continuou pagando **depois** de a promessa vencer |
+
+**A narrativa que a defesa vai montar:** *"o autor foi à loja, gostou, disse
+que a proposta era boa, foi para casa, refletiu por dez dias, remarcou por
+vontade própria o retorno e só então pagou. Onde está o vício de consentimento
+de quem teve dez dias para pensar e insistiu em voltar?"*
+
+### Como neutralizar — três movimentos
+
+1. **Não esconder. Trazer na inicial, na voz do autor.** Fato escondido que a
+   contestação revela vale o dobro contra nós. *"O autor de fato achou a
+   proposta boa — porque a proposta que lhe apresentaram era a de uma casa por
+   R$ 15.000, anunciada no Facebook (F12). Ele elogiou o que lhe venderam, não
+   o que lhe entregaram."*
+2. **O vício é sobre a NATUREZA, não sobre pressão.** Erro substancial não
+   exige urgência nem coação: exige que a vítima tenha entendido coisa diversa
+   da contratada. Dez dias de reflexão **sobre a coisa errada** continuam sendo
+   dez dias de erro. E foi a **própria vendedora** quem manteve o erro vivo
+   depois — prometendo dezembro em 24/11 (F03).
+3. **O pagamento continuado é sintoma, não cura.** Ele seguiu pagando porque
+   **continuava acreditando** — e é justamente o que o áudio de 24/11 prova.
+   No caso gêmeo (Vagno), o autor também "continuou os pagamentos na esperança
+   de ver o contrato cumprido".
+
+### Outros pontos frágeis, menores
+
+- **As 4 declarações de ciência** (F10) — já tratadas em III.2/T4.
+- **Os códigos enviados voluntariamente** (F15) — virá "culpa concorrente".
+  Contramedida: quem tinha o dever técnico de não pedir credencial era o
+  **fornecedor**; e o consumidor os enviou a pedido de quem se apresentava como
+  a responsável pelo processo dele.
+- **O BO arquivado como "fato atípico"** (F07) — a defesa vai exibir. Não é
+  coisa julgada nem afasta o ilícito civil, mas **antecipar**.

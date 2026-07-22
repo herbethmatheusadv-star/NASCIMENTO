@@ -11,7 +11,7 @@ g2: pendente
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 3
-atualizado: 2026-07-22 18:50
+atualizado: 2026-07-22 18:54
 ---
 
 # STATUS — Edson x Ferreira Representacoes e Lima Financeira — NULIDADE de contrato de intermediacao de consorcio c/c restituicao integral e danos morais
