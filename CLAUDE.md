@@ -45,6 +45,33 @@ ancorada em elemento concreto do caso e com consequência declarada; veredito
 só com base e faixa; tarefa analítica LÊ MAIS (ficha + INTAKE integral +
 provas + teses do módulo), nunca menos.
 
+## ORDEM DO SISTEMA — não se limitar (diretiva do advogado, 22/07/2026)
+
+**Antes de dizer "não dá", pergunte: como o Jusbrasil, o Escavador, o Harvey
+fariam isso?** São ferramentas lícitas e regulamentadas que acessam a mesma
+informação pública. Se elas conseguem e eu não, **o problema é a minha rota,
+não a informação**.
+
+O método, que já rendeu três vezes em 22/07/2026:
+
+1. **A porta óbvia costuma ser a errada.** DataJud não traz parte; consulta de
+   tribunal tem captcha. Isso não é "impossível" — é a porta errada.
+2. **Pergunte de onde eles tiram.** A resposta quase sempre é o **DIÁRIO
+   OFICIAL**: o DJEN publica nome de parte, íntegra de sentença, ementa de
+   acórdão e chave de acesso a documento. `comunicaapi.pje.jus.br` aceita
+   `nomeParte`, `siglaTribunal` e **`texto`** (busca nacional em texto integral).
+3. **Tela SPA = existe API JSON por baixo.** Inspecionar a rede antes de
+   desistir do site.
+4. **Testar em vez de supor.** Foi testando que se descobriu que o POST do
+   `ConsultaDocumento` funciona por script — o `MAPA_PJE` afirmava o contrário.
+
+Ferramentas nascidas daí: `CONECTOR/mapear_adversario.py` (todos os processos
+de uma empresa) · `CONECTOR/baixar_por_chave.py` (autos por chave do DJEN) ·
+`CONECTOR/buscar_jurisprudencia.py` (jurisprudência nacional por texto livre).
+
+**O limite que continua de pé:** captcha não se resolve, credencial não se usa
+sem o titular, e nada disso dispensa conferir o teor na fonte antes de citar.
+
 ## Regras duras (blueprint)
 
 - `00_originais/` é imutável. `DIARIO.md` é append-only (corrigir = nova
