@@ -53,3 +53,6 @@ _SISTEMA/pylibs/
 
 # wrapper do agendador — GERADO por soj_agendar (caminho da python da maquina)
 ESCRITORIO/scripts/soj_atualizar_agendado.cmd
+
+# mapa do adversario — dados brutos do DJEN, regeneraveis pelo mapear_adversario.py
+ADVERSARIOS/

@@ -10,8 +10,8 @@ g1: reprovado
 g2: pendente
 g3: pendente
 proximo_prazo: ""
-pendencias_criticas_abertas: 2
-atualizado: 2026-07-22 17:25
+pendencias_criticas_abertas: 3
+atualizado: 2026-07-22 18:05
 ---
 
 # STATUS — Edson x J. Ferreira Representacoes e Lima Financeira — Rescisao de consorcio por vicio de consentimento
@@ -26,6 +26,7 @@ atualizado: 2026-07-22 17:25
 ## Pendências críticas abertas
 - PEN04 (cliente): PARCIALMENTE RESPONDIDA pelo OCR de 22/07/2026: o recibo (P01 p.4) traz R$ 14.483,00 de corretagem e o BO (P02) fala em R$ 14.400,00 pagos por PIX a chave CNPJ 43.674.644/0001-78 — diferenca de R$ 83,00 a esclarecer. AINDA FALTA: (a) o COMPROVANTE do PIX — o proprio contrato avisa que o recibo so vale mediante comprovacao de compensacao bancaria; (b) saber se houve MAIS algum pagamento depois (parcela de consorcio, boleto de administradora). Sem o comprovante, o PED02 nao fecha e o valor da causa nao se define. — bloqueia G2, G3
 - PEN06 (advogado): RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos". — bloqueia G2, G3
+- PEN08 (advogado): LER A SENTENCA DO CASO GEMEO antes de redigir a inicial: autos 0814910-72.2024.8.14.0040 (VAGNO DA SILVA MOURA x FERREIRA REPRESENTACOES + LIMA FINANCEIRA + PORTO SEGURO, 1a Vara Civel de Parauapebas, sentenca em 27/01/2026, hoje em Apelacao na 3a Turma de Direito Privado). MESMAS DUAS RES, MESMO PEDIDO, MESMA COMARCA. O autor apelou — logo perdeu ou ganhou so em parte, e saber POR QUE muda nossa inicial. As publicacoes trazem CHAVES DE ACESSO do ConsultaDocumento, que abre SEM login (MAPA_PJE.md secao 4). Ver DOSSIE_ADVERSARIO.md do modulo. — bloqueia G2, G3
 
 ## Números do caso
 - Partes: 3 · Fatos: 17 (provados 17 / alegados 0 / controversos 0) · Provas: 8 · Pedidos: 3 · Pendências abertas: 4

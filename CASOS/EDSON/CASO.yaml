@@ -37,12 +37,22 @@ partes:
   papel: reu
   nome: "J. FERREIRA REPRESENTACOES LTDA"
   cnpj: "43.674.644/0001-78"
-  endereco: {valor: "Avenida Rio Grande, n. 155, Bairro Beira Rio, Parauapebas/PA, CEP 68515-000", status: nao_confirmado, pendencia: PEN03}
+  endereco:
+    valor: Avenida Ypes, quadra 78, Lote 06, Bairro Cidade Jardim, Parauapebas/PA, CEP 68.515-000
+    status: confirmado
+    fonte: autos 0814910-72.2024.8.14.0040 (1a Vara Civel Parauapebas)
+    telefone: (94) 98166-5139
+    email: jaferreiraadm.pbs@gmail.com
 - id: PT03
   papel: reu
-  nome: "LIMA FINANCEIRA LTDA"
+  nome: "LIMA FINANCEIRA (firma individual de HAYARA PATRICIA LIMA DE SOUZA)"
   cnpj: "46.603.969/0001-58"
-  endereco: {valor: "Avenida Rio Grande, n. 155, Bairro Beira Rio, Parauapebas/PA, CEP 68515-000", status: nao_confirmado, pendencia: PEN03}
+  endereco:
+    valor: Avenida Rio Grande, n. 156, Bairro Beira Rio (em cima do Outlet do 20), Parauapebas/PA, CEP 68.515-000
+    status: confirmado
+    fonte: autos 0814910-72.2024.8.14.0040 (1a Vara Civel Parauapebas)
+    telefone: (94) 98439-9566
+    email: limafinanceirapbs@gmail.com
 # - { id: PT02, papel: reu, nome: "...",
 #     endereco: { status: nao_confirmado, pendencia: PEN01 } }
 
@@ -260,6 +270,8 @@ pendencias:
   responsavel: advogado
   prioridade: alta
   bloqueia: [G3]
+  status: resolvida
+  resolucao: 'RESOLVIDA em 22/07/2026 pelo mapa do adversario (DJEN). Os enderecos vieram dos PROPRIOS AUTOS do caso gemeo 0814910-72.2024.8.14.0040 (1a Vara Civel de Parauapebas): FERREIRA REPRESENTACOES LTDA - Avenida Ypes, quadra 78, Lote 06, Cidade Jardim, Parauapebas/PA, CEP 68.515-000, (94) 98166-5139, jaferreiraadm.pbs@gmail.com. LIMA FINANCEIRA (firma individual de HAYARA PATRICIA LIMA DE SOUZA) - Avenida Rio Grande, 156, Beira Rio (em cima do Outlet do 20), Parauapebas/PA, (94) 98439-9566, limafinanceirapbs@gmail.com. Sao DOIS enderecos distintos: a Ypes e a sede da Ferreira; a Rio Grande 156 e a loja. Naquele processo o juizo determinou RETIFICAR o polo para usar LIMA FINANCEIRA, e nao o nome da titular.'
 - id: PEN04
   descricao: 'PARCIALMENTE RESPONDIDA pelo OCR de 22/07/2026: o recibo (P01 p.4) traz R$ 14.483,00 de corretagem e o BO (P02) fala em R$ 14.400,00 pagos por PIX a chave CNPJ 43.674.644/0001-78 — diferenca de R$ 83,00 a esclarecer. AINDA FALTA: (a) o COMPROVANTE do PIX — o proprio contrato avisa que o recibo so vale mediante comprovacao de compensacao bancaria; (b) saber se houve MAIS algum pagamento depois (parcela de consorcio, boleto de administradora). Sem o comprovante, o PED02 nao fecha e o valor da causa nao se define.'
   responsavel: cliente
@@ -276,6 +288,13 @@ pendencias:
   responsavel: advogado
   prioridade: alta
   bloqueia: [G2]
+- id: PEN08
+  descricao: 'LER A SENTENCA DO CASO GEMEO antes de redigir a inicial: autos 0814910-72.2024.8.14.0040 (VAGNO DA SILVA MOURA x FERREIRA REPRESENTACOES + LIMA FINANCEIRA + PORTO SEGURO, 1a Vara Civel de Parauapebas, sentenca em 27/01/2026, hoje em Apelacao na 3a Turma de Direito Privado). MESMAS DUAS RES, MESMO PEDIDO, MESMA COMARCA. O autor apelou — logo perdeu ou ganhou so em parte, e saber POR QUE muda nossa inicial. As publicacoes trazem CHAVES DE ACESSO do ConsultaDocumento, que abre SEM login (MAPA_PJE.md secao 4). Ver DOSSIE_ADVERSARIO.md do modulo.'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia:
+  - G2
+  - G3
 # responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
 # critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
 # mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
