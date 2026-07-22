@@ -86,6 +86,67 @@ def ativos_com_baseline() -> list[tuple[str, dict]]:
     return out
 
 
+def cnjs_ativos() -> list[str]:
+    """CNJs dos processos com situacao=ativo nas fichas (os encerrados ficam
+    de fora do radar — regra do titular)."""
+    out = []
+    proc_dir = RAIZ / "PROCESSOS"
+    if not proc_dir.exists():
+        return out
+    for p in sorted(proc_dir.glob("PROC-*.md")):
+        if not re.match(r"PROC-\d+\.md$", p.name):
+            continue
+        t = p.read_text(encoding="utf-8", errors="ignore")
+        m = re.search(r"^---\s*\n(.*?)\n---", t, re.S)
+        if not m:
+            continue
+        fm = m.group(1)
+        sit = re.search(r"^situacao:\s*(.+)$", fm, re.M)
+        num = re.search(r"^numero:\s*(.+)$", fm, re.M)
+        if sit and num and sit.group(1).strip().strip('"') == "ativo":
+            out.append(num.group(1).strip().strip('"'))
+    return out
+
+
+def init_baselines(usar_rede: bool = True) -> list[tuple[str, str]]:
+    """Cria a regua (baseline) via DataJud para cada ATIVO que ainda nao tem.
+    Nao mexe em quem ja tem baseline (ex.: a Beatryz, com a timeline rica do Kz).
+    O DataJud se paca sozinho (pausa + backoff 429 + cache 12h)."""
+    import datajud
+    rel = []
+    for cnj in cnjs_ativos():
+        bl = RAIZ / "AUTOS" / cnj / "timeline_baseline.json"
+        if bl.exists():
+            rel.append((cnj, "ja_tinha")); continue
+        sigla = sigla_do_cnj(cnj)
+        if not sigla:
+            rel.append((cnj, "sem_sigla")); continue
+        if not usar_rede:
+            rel.append((cnj, "offline")); continue
+        import time as _t
+        try:
+            proc = datajud.consultar(so_digitos(cnj), sigla)
+        except Exception as e:  # o DataJud RESETA a conexao em rajada (WinError 10054)
+            rel.append((cnj, f"erro_rede: {type(e).__name__} (tentar de novo depois)"))
+            _t.sleep(5); continue
+        _t.sleep(1.5)  # gentileza extra: nao provocar novo reset
+        movs = sorted([m for m in (proc.movimentos if proc else []) if m.data],
+                      key=lambda m: m.data)
+        if not movs:
+            rel.append((cnj, "sem_datajud")); continue
+        pecas = [{"id": f"mov-{i}", "id_unico": f"mov-{i}", "tipo": m.nome,
+                  "titulo": m.nome, "data": m.data.isoformat() + "T00:00:00",
+                  "responsavel": "", "sigiloso": False} for i, m in enumerate(movs)]
+        bl.parent.mkdir(parents=True, exist_ok=True)
+        bl.write_text(json.dumps(
+            {"cnj": cnj, "fonte": "datajud",
+             "capturado_em": datetime.now().isoformat(timespec="seconds"),
+             "total_pecas": len(pecas), "pecas": pecas},
+            ensure_ascii=False, indent=1), encoding="utf-8")
+        rel.append((cnj, f"regua {movs[-1].data.isoformat()} ({len(movs)} movs)"))
+    return rel
+
+
 def varrer(usar_rede: bool = True) -> list[dict]:
     """Varre os ativos e devolve o relatorio de novidade (captura pendente)."""
     import datajud
@@ -116,7 +177,18 @@ def varrer(usar_rede: bool = True) -> list[dict]:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Detector diario de novidade (marcha viva).")
     ap.add_argument("--sem-rede", action="store_true", help="so a logica, sem DataJud")
+    ap.add_argument("--init", action="store_true",
+                    help="cria a regua (baseline) via DataJud p/ os ATIVOS sem baseline")
     args = ap.parse_args()
+
+    if args.init:
+        print("=" * 74)
+        print("  MARCHA VIVA — criando regua (baseline) dos ATIVOS via DataJud")
+        print("  (o DataJud se paca sozinho: pausa + backoff 429 + cache 12h)")
+        print("=" * 74)
+        for cnj, st in init_baselines(usar_rede=not args.sem_rede):
+            print(f"  {st:36} {cnj}")
+        print("")
 
     rel = varrer(usar_rede=not args.sem_rede)
     print("=" * 74)
