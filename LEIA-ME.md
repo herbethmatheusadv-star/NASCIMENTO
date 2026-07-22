@@ -168,6 +168,10 @@ futuras usam a ficha, jamais o PDF.
 - **`em qual áudio ela fala de pagamento?`** — busca dentro das degravações,
   que responde **arquivo + minuto + trecho**. É o que faz valer ter mil
   áudios: ninguém reouve mil áudios para achar uma frase.
+- O motor usa o modelo **large-v3-turbo** (sua decisão de 22/07/2026). O
+  modelo pequeno é ~3x mais rápido, mas erra nome próprio *com confiança* —
+  e erro confiante o semáforo não pega. Como a degravação vira citação em
+  peça, aqui a precisão vale o tempo.
 - Transcrição pronta que o cliente mandou do celular = RELATO (não é
   degravação do sistema). Gravação de atendimento = consentimento no DIÁRIO
   primeiro.

@@ -107,6 +107,11 @@ Regras INEGOCIÁVEIS do modo:
 - **MOTOR DE ÁUDIO (escala) — `motor_audio.py`:** a partir de ~20 áudios,
   usar o motor, NÃO o `degravar.py`. Comando: **"degravar os áudios do caso
   X"** → `motor_audio.py CAMINHO` (varre a pasta em profundidade).
+  - **Modelo padrão `large-v3-turbo`** (decisão do advogado, 22/07/2026, já
+    baixado). O `small` é ~3x mais rápido mas erra nome próprio COM
+    CONFIANÇA ("Edison" por "Edson") — e erro confiante o semáforo NÃO pega.
+    Degravação vira citação em peça: aqui precisão vale o tempo. Para
+    triagem rápida de acervo grande, `--modelo small`.
   - **Catálogo por SHA-256** em `_SISTEMA/audio/` (fora do git, cache
     reconstruível): vale a REGRA DE OURO — *nada se re-degrava*. Áudio
     encaminhado em N conversas custa 1 degravação e ganha N sidecars.

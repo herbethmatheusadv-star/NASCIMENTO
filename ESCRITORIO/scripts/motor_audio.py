@@ -32,8 +32,15 @@ Uso (roda com o Python normal; se relanca sozinho no ambiente do transcritor):
   python motor_audio.py CAMINHO --relatorio     # DEGRAVACAO_<pasta>.md com os minutos
   python motor_audio.py --catalogo              # estado geral do catalogo
 
-Opcoes: --modelo small|medium|large-v3-turbo · --processos N · --limite N
-        --forcar · --idioma pt · --beam N
+  python motor_audio.py CAMINHO --buscar "pagamento"   # acha a fala e o MINUTO
+
+Opcoes: --modelo large-v3-turbo|small|medium · --processos N · --limite N
+        --forcar · --repescar · --idioma pt · --beam N
+
+MODELO PADRAO: large-v3-turbo, por decisao do advogado em 22/07/2026. O small
+e ~3x mais rapido, mas erra nome proprio COM CONFIANCA ("Edison" por "Edson") —
+e erro confiante o semaforo nao pega. Como a degravacao vira citacao em peca,
+aqui a precisao vale o tempo. Para triagem rapida de acervo, use --modelo small.
 """
 from __future__ import annotations
 
@@ -767,8 +774,10 @@ def main():
     ap = argparse.ArgumentParser(
         description="Motor de audio do SOJ — degravacao em escala, 100% local.")
     ap.add_argument("caminho", nargs="?", help="Pasta (varre em profundidade) ou audio")
-    ap.add_argument("--modelo", default="small",
-                    help="small (padrao) | medium | large-v3-turbo")
+    ap.add_argument("--modelo", default="large-v3-turbo",
+                    help="large-v3-turbo (padrao — decisao do advogado em "
+                         "22/07/2026: precisao e o produto) | small (rapido, "
+                         "para triagem) | medium")
     ap.add_argument("--processos", type=int, default=1,
                     help="Processos em paralelo (padrao 1: o ctranslate2 ja usa "
                          "todos os nucleos)")
