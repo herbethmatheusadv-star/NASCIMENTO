@@ -249,3 +249,87 @@ de quem teve dez dias para pensar e insistiu em voltar?"*
   a responsável pelo processo dele.
 - **O BO arquivado como "fato atípico"** (F07) — a defesa vai exibir. Não é
   coisa julgada nem afasta o ilícito civil, mas **antecipar**.
+
+---
+
+## 8. 🔴 CORREÇÃO — A RATIO DECIDENDI DA SENTENÇA VENCEDORA (22/07/2026)
+
+**Erro meu, apontado pelo advogado.** Eu havia lido apenas o trecho em volta do
+dispositivo e das citações da sentença `0815826-72.2025`, e reportei a tese
+como "vício de consentimento (dolo/erro)". Faltou a **fundamentação**, item 2.2
+— que é onde está a razão de decidir. Ela é **PUBLICIDADE ENGANOSA**.
+
+### 8.1 O que a sentença efetivamente diz
+
+> *"A autora alega ter sido vítima de **publicidade enganosa**. As provas
+> documentais corroboram tal tese. **O anúncio em rede social** (ID 156984549)
+> ofertava a **venda direta de um imóvel mediante entrada e parcelamento**, sem
+> qualquer menção à **natureza aleatória do consórcio**. Mais grave é a
+> **'Proposta de Liberação de Crédito'** (ID 156984550), que utiliza
+> indevidamente o **timbre da Caixa Econômica Federal** e afirma que o crédito
+> estava '**APROVADO**', induzindo a consumidora ao **erro substancial** de que
+> estava adquirindo um financiamento ou cota contemplada."*
+
+E o parágrafo que **desmonta a blindagem** — o mais valioso do caso:
+
+> *"As requeridas sustentam a validade do negócio com base em **termos de
+> ciência assinados** (ID 162170780), **todavia**, a jurisprudência é firme no
+> sentido de que o vício de consentimento provocado por publicidade enganosa e
+> promessa de contemplação imediata **anula o negócio jurídico,
+> INDEPENDENTEMENTE DE CLÁUSULAS CONTRATUAIS EM SENTIDO CONTRÁRIO, pois estas
+> são anuláveis quando redigidas para MASCARAR A REALIDADE DA OFERTA**"*
+> — **art. 37, §1º, CDC** e **art. 145 do Código Civil**.
+
+### 8.2 O que isso muda na nossa peça
+
+1. **A tese principal passa a ser PUBLICIDADE ENGANOSA (CDC art. 37, §1º) c/c
+   DOLO (CC art. 145)** — e não "vício de consentimento" genérico. O vício é a
+   **consequência**; a publicidade enganosa é a **causa**, e é ela que o juízo
+   local reconhece.
+2. **A prova central é o ANÚNCIO EM REDE SOCIAL** — e nós temos exatamente
+   isso: "CASA A VENDA — R$ 15.000" no Facebook Marketplace (F12), que ofertava
+   **casa**, sem uma palavra sobre sorteio, lance ou assembleia. É o mesmo tipo
+   de prova que decidiu lá.
+3. **O capítulo III.2 (blindagem) ganha a chave do próprio juízo:** cláusula
+   redigida para **mascarar a realidade da oferta** é anulável, e termo de
+   ciência assinado **não salva** o negócio. Citar essa razão de decidir.
+4. **Preliminar de incompetência do JEC — já rejeitada por este juízo:** *"o
+   valor da causa deve corresponder ao **proveito econômico perseguido**
+   (restituição + indenização), e não ao valor total do contrato de consórcio"*
+   (art. 2º da Lei 9.099/95). As rés tentaram tirar o caso do JEC alegando o
+   valor do contrato — e perderam. **Antecipar.**
+5. **Abatimento do que a administradora já devolveu:** lá, as rés comprovaram
+   repasse de R$ 646,60 à Caixa Consórcio, e a condenação recaiu só sobre o
+   **saldo retido por elas** (R$ 12.578,40 de R$ 13.225,00), "sob pena de bis
+   in idem". → No Edson, apurar o que a **EMBRACON** já devolveu antes de fechar
+   o valor (PEN04).
+
+### 8.3 ⚠️ DOCUMENTO A PEDIR AO CLIENTE — pode existir e ser decisivo
+
+Naquele caso houve uma **"Proposta de Liberação de Crédito" com timbre da CAIXA
+ECONÔMICA FEDERAL** dizendo crédito "APROVADO". O juízo chamou de "**mais
+grave**" que o próprio anúncio.
+
+**Perguntar ao Edson se ele recebeu algo assim** — papel, PDF, print ou foto com
+timbre/logo de banco (Caixa, Bradesco, ou a própria Embracon) dizendo "crédito
+aprovado", "carta de crédito" ou "liberação". Não está na conversa de WhatsApp
+que temos. Se existir, é prova de primeira linha.
+
+## 9. LIMITE DESTA ANÁLISE — só temos o que foi PUBLICADO
+
+Tudo acima veio do **DJEN** e dos **50 documentos** baixados por chave. **Não
+temos os autos integrais de nenhum caso.** O que falta, e que só o acesso
+logado ao PJe traz:
+
+- os **documentos referenciados por ID** na sentença vencedora — ID 156984549
+  (o anúncio), ID 156984550 (a "Proposta de Liberação de Crédito" com timbre da
+  Caixa), ID 162170778 (comprovante de repasse), ID 162170780 (os termos de
+  ciência). **São as provas que ganharam o caso, e não as vimos.**
+- a **contestação** daquele processo e a **ata de audiência** onde a
+  solidariedade foi confirmada;
+- as 43 chaves que não abriram;
+- os autos do **criminal 0801489-49.2023** (denúncia do MP contra o esquema).
+
+**Conclusão honesta:** o diário dá a decisão e o raciocínio; **não dá as
+provas**. Para modelar a nossa inicial sobre a que venceu, ver os documentos
+dela vale mais do que qualquer inferência minha.
