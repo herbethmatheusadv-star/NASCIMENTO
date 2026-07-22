@@ -427,7 +427,7 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | Sentença Vagno (perdeu) — 23.946 chars | **integral** |
 | Sentença Leandra (ganhou) — 8.192 chars | **integral** |
 | Contestação da Ferreira (18 pgs, 27.236 chars) | ✅ **integral** (seção 12) |
-| Contestação da BBC (29 pgs) | ⚠️ **NÃO integral** — títulos + 3 trechos |
+| Contestação da BBC (29 pgs, 40.056 chars) | ✅ **integral** (seção 13) |
 | 9 petições iniciais baixadas | ⚠️ **NÃO integrais** — títulos e trechos |
 | Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
 | Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
@@ -531,3 +531,105 @@ vendendo — e o dinheiro, desta vez, entrou na conta dela.
 | Teto de R$ 1.000 de dano moral | o juízo do caso Leandra fixou **R$ 2.000** — pedir com base no parâmetro real |
 | SIPROV / credenciamento | pedir exibição do **contrato de credenciamento** da Ferreira com a EMBRACON |
 | Sentença criminal em segredo | **ela própria não teve acesso** — não pode fundar excludente em documento que não leu |
+
+---
+
+## 13. CONTESTAÇÃO DA BBC — LEITURA INTEGRAL (40.056 caracteres)
+
+**Cobertura:** `Contestacao - MAX PEREIRA DA SILVA - BBC - fraude consorcio.pdf`,
+autos 0801946-81.2023, protocolada em 17/05/2023 por **STEPHANIE FEITOSA
+SILVA** — **lida integralmente** em 22/07/2026.
+
+### 13.1 ⭐ AS DUAS RÉS SE DESMENTEM — e há documento nos autos
+
+A Ferreira jura, em caixa alta, que *"todos os valores foram depositados
+diretamente na conta da empresa estelionatária"*. **A BBC, no parágrafo 28 da
+sua contestação, afirma o contrário e junta o comprovante:**
+
+> *"o titular da conta bancária para a qual foi realizado o pagamento objeto de
+> ressarcimento (**JFERREIRA REPRESENTAÇÕES**), não possui qualquer relação com
+> o BBC CONSÓRCIO, sendo completamente desconhecido pela Ré, **assim como o
+> CNPJ indicado (43.674.644/0001-78) não corresponde ao da Ré**"* (IDs.
+> 86444333 e 86442900)
+
+**Ou seja: já em 2023, num caso em que a Ferreira alega que o dinheiro foi para
+a BBC falsa, o comprovante juntado nos próprios autos mostra que o dinheiro foi
+para o CNPJ da FERREIRA — o mesmo CNPJ que recebeu os PIX do Edson em 2025.**
+
+> **Uso na inicial:** a excludente da Ferreira não é apenas inaplicável ao nosso
+> caso — ela é **contraditada por peça de corré, em processo público, com
+> comprovante bancário anexo**. Citar a contestação da BBC (autos
+> 0801946-81.2023, chave 23051717484217000000088069886) é citar prova produzida
+> pelo adversário do nosso adversário.
+
+**Detalhe fino:** a BBC ainda aponta (§29) que o pagamento se deu em conta na
+**"CORA SCD S.A."** como indício que "poderia ter sido observado". **O contrato
+do Edson manda pagar exatamente na CORA** (P01 p.1 e p.4) — a mesma
+instituição, dois anos depois.
+
+### 13.2 A DEFESA DA ADMINISTRADORA — o roteiro completo
+
+1. **"Não trabalho com representantes"** (§14, §39, §42): *"a Ré não trabalha
+   com representantes comerciais e tampouco possui outros CNPJs ou filiais"* e
+   *"não conhece e nem é responsável pela empresa J FERREIRA REPRESENTAÇÕES"*.
+2. **Marca usurpada** — a falsa é **BBC CONSÓRCIOS LTDA, CNPJ
+   45.858.358/0001-98**, domínio `bbc1.com.br`, cujo titular é a pessoa física
+   **MARCELO MOURA DA SILVA, CPF 312.083.488-25**. A verdadeira é CNPJ
+   36.770.683/0001-03, domínio `bancobbcdigital.com.br`, do **grupo SIMPAR**.
+3. **Providências que tomou:** aviso em primeira página do site + notícia-crime
+   **531/2022 no 15º DP de São Paulo** + ação **1110115-96.2022.8.26.0100** na
+   2ª Vara Empresarial de SP.
+4. **Culpa exclusiva da vítima ou de terceiro** — **art. 14, §3º, II, do CDC**.
+5. **"Fraude grosseira e perceptível ao homem médio"** — o consumidor deveria
+   ter conferido CNPJ, domínio e conta bancária.
+6. **Ausência de interesse em conciliação** + pedido de **julgamento antecipado**
+   (art. 355, I) — a mesma jogada que fez o Vagno perder sem instrução.
+7. **Subsidiariamente:** mero inadimplemento contratual não gera dano moral.
+
+### 13.3 ⚠️ O MODUS OPERANDI QUE A PRÓPRIA BBC APUROU (§27)
+
+> *"os potenciais compradores/vítimas são atraídos pelos **anúncios de veículos
+> e equipamentos publicados nos portais eletrônicos (tais como OLX e/ou
+> semelhantes)**, e são procurados por pessoas que se dizem representantes da
+> Ré; nesta ocasião, oferecem consórcios contemplados ou na iminência de serem
+> contemplados, sob condições contratuais muito mais vantajosas do que as
+> comumente oferecidas no mercado"*
+
+**É exatamente o caso do Edson**, trocando OLX por Facebook Marketplace e
+veículo por imóvel. A descrição do golpe vem da **própria administradora**, e
+serve de reforço à nossa narrativa — não da defesa dela.
+
+### 13.4 🔴 OS PRECEDENTES PERIGOSOS (todos do TJSP, todos favoráveis a elas)
+
+- **TJSP, Ap. 1003271-60.2015.8.26.0006** (Rel. Adilson de Araújo, j.
+  02/02/2022) — **o mais perigoso para nós**: *"CONVERSA REPRODUZIDA NESTE
+  PROCESSO, VIA APLICATIVO WHATSAPP, ENTRE O COAUTOR E O VENDEDOR.
+  **INEXISTÊNCIA DE QUALQUER INDÍCIO DE INTERMEDIAÇÃO** IMPUTADA À RÉ.
+  SENTENÇA DE PROCEDÊNCIA PARCIAL **REFORMADA**. CULPA EXCLUSIVA DOS AUTORES."*
+- **TJSP, Ap. 1006001-14.2019.8.26.0100** (Rel. Vicentini Barroso) — golpe da
+  carta contemplada; Rodobens absolvida; culpa exclusiva da vítima.
+- **TJSP, Ap. 1001119-15.2018.8.26.0077** (Rel. Marcos Gozzo) — culpa
+  concorrente reformada para improcedência **total**.
+
+> **Como isso nos afeta:** esses precedentes protegem a **administradora**, não
+> a corretora. Contra a **Ferreira** eles não valem — ela recebeu o dinheiro e
+> vendeu. Se decidirmos incluir a **EMBRACON**, é este muro que teremos de
+> furar. **Não citar WhatsApp como prova contra administradora sem antes ter os
+> outros elementos.**
+
+### 13.5 O CHECKLIST QUE A BBC EXIGE (§43) — nosso teste para incluir a Embracon
+
+A BBC lista o que o autor teria de provar para responsabilizar a administradora.
+**Aplicando ao Edson:**
+
+| O que a defesa exige | Edson tem? |
+|---|---|
+| a) contato pelo site/telefone institucional oficial | ❌ não |
+| b) **que a ré foi destinatária do valor** | ⚠️ **parcialmente SIM** — houve **boleto EMBRACON pago** (F14), embora a corretagem tenha ido para a Ferreira |
+| c) que os interlocutores eram prepostos da ré | ❌ a Raiane é preposta da Ferreira, não da Embracon |
+| d) **que o contrato/ambiente partiu de local ou domínio da ré** | ✅ **SIM** — a cota é real na EMBRACON (grupo 7261, cota 1768), os e-mails vieram de `@embracon.com.br` e **o portal da própria EMBRACON foi operado** (F15/F16) |
+
+> **Conclusão para a decisão reservada R3:** contra a Embracon, temos (b) e (d),
+> não temos (a) e (c). É mais do que os autores desses precedentes tinham — mas
+> **não é uma frente segura**. Se entrar, entra em **capítulo próprio**, com a
+> tese de **falha de segurança do portal**, jamais pendurada na venda enganosa.
