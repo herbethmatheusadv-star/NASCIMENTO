@@ -83,3 +83,64 @@ Tarefa analítica lê MAIS, não menos — ficha + INTAKE integral +
 provas-chave + teses e antíteses do módulo + verbetes citados + modelos
 relevantes do Acervo. A pirâmide de leitura vale para autos brutos, nunca
 para o material do próprio caso em tarefa analítica.
+
+---
+
+# 8. LEITURA INTEGRAL (ordem do titular, 22/07/2026)
+
+> Acrescentado depois de um erro concreto: a sentença que julgou procedente o
+> caso `0815826-72.2025` foi lida **por amostragem** (o dispositivo e as
+> citações), e por isso a razão de decidir — **publicidade enganosa**, com o
+> parágrafo que desmonta a blindagem documental — **passou despercebida**. A
+> análise foi entregue como se fosse completa. O advogado teve de apontar.
+
+## 8.1 A regra
+
+**Documento decisivo se lê INTEIRO. Sem exceção, sem amostragem, sem grep.**
+
+São decisivos, sempre: **sentença · acórdão · contestação · petição inicial ·
+o contrato objeto do caso · laudo · ata de audiência · denúncia**.
+
+`grep`/regex servem para **localizar** dentro de um documento já lido — **nunca
+para substituir a leitura**. Achar o trecho não é ler a peça: a razão de decidir
+raramente está onde a palavra-chave está.
+
+## 8.2 O mecanismo — DECLARAR A COBERTURA
+
+Toda entrega analítica declara, por documento decisivo, **quanto foi lido**:
+
+> *"Sentença 0815826-72.2025 — **lida integralmente** (8.192 caracteres)."*
+> *"Contestação da Ferreira — **lidos títulos e 4 trechos de 18 páginas; NÃO
+> integral**."*
+
+**Sem a declaração, a análise está incompleta por definição.** O objetivo não é
+burocracia: é tornar **visível** a leitura parcial, que hoje se disfarça de
+conclusão segura. Leitura parcial não declarada é o erro; leitura parcial
+declarada é uma limitação honesta que o advogado pode decidir aceitar ou não.
+
+## 8.3 Corolários
+
+a) **Autos: leitura integral do que é decisivo.** A pirâmide de leitura do motor
+   de autos (ler_integral / nunca_ler / sob_demanda) continua valendo para
+   triar o VOLUME — mas o que cai em `ler_integral` se lê **inteiro**, e o
+   plano de leitura não é desculpa para amostrar a peça central.
+
+b) **Publicação de diário não é o processo.** O DJEN entrega a decisão e o
+   raciocínio; **não entrega as provas**. Quando a decisão referencia documentos
+   por ID, esses documentos **não foram vistos** — dizer isso explicitamente, e
+   propor o acesso aos autos.
+
+c) **Imagem é documento.** Print, foto e anexo se abrem **um a um**. No caso
+   2026-0006, dez imagens não abertas continham a administradora, o grupo, a
+   cota, três protocolos de lance, o comprovante de PIX e o anúncio de origem —
+   tudo o que decidiu o caso.
+
+d) **Se não deu para ler tudo, a entrega diz isso na primeira linha** — não na
+   última, não em nota de rodapé.
+
+## 8.4 O que isto custa, e por que se paga
+
+Ler inteiro é mais lento e gasta mais contexto. É exatamente o que a seção 1
+desta doutrina já mandava: **em tarefa analítica, profundidade é o produto, e a
+economia da mecânica existe para financiar a análise.** Amostrar uma sentença
+para "economizar" é economizar no único lugar onde não se pode.

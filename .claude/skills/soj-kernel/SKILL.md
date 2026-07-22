@@ -185,6 +185,16 @@ e rodar o protocolo. Comandos:
 - Regra de ouro da rota: **antes de dizer "não dá", perguntar como o
   Jusbrasil/Escavador fariam.** A resposta quase sempre é o DIÁRIO.
 
+## LEITURA INTEGRAL (kernel — 22/07/2026)
+
+**Documento decisivo se lê INTEIRO**: sentença · acórdão · contestação ·
+inicial · contrato do caso · laudo · ata · denúncia. `grep` LOCALIZA dentro do
+que já foi lido; não substitui a leitura. **Imagem é documento** — abrir uma a
+uma. **Diário não é o processo** (dá a decisão, não as provas; quando a decisão
+referencia IDs, esses documentos NÃO foram vistos — dizer isso).
+**Toda entrega analítica DECLARA A COBERTURA por documento.** Sem isso, está
+incompleta. `DOUTRINA_ANALISE.md` §8.
+
 ## DOUTRINA DE ANÁLISE (kernel — LEITURA OBRIGATÓRIA antes de analisar)
 
 Antes de qualquer tarefa ANALÍTICA (diagnóstico, estratégia, simulação

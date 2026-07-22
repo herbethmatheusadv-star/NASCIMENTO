@@ -78,6 +78,19 @@ naquele foro é o que separa a petição correta da petição que vence. No caso
 2026-0006 o levantamento mudou a tese, o rito, o valor e o nome da ação — antes
 de a inicial existir.
 
+## LEITURA INTEGRAL (ordem do advogado, 22/07/2026)
+
+**Documento decisivo se lê INTEIRO** — sentença, acórdão, contestação, inicial,
+o contrato do caso, laudo, ata, denúncia. `grep` serve para LOCALIZAR dentro do
+que já foi lido, **nunca para substituir a leitura**: a razão de decidir
+raramente está onde a palavra-chave está. **Imagem é documento** — abrir uma a
+uma. **Publicação de diário não é o processo**: dá a decisão, não dá as provas.
+
+**Mecanismo obrigatório:** toda entrega analítica **declara a cobertura** por
+documento decisivo ("lida integralmente, 8.192 caracteres" / "lidos títulos e 4
+trechos de 18 páginas — NÃO integral"). Sem a declaração, a análise está
+incompleta por definição. Detalhes: `ESCRITORIO/DOUTRINA_ANALISE.md` §8.
+
 ## Regras duras (blueprint)
 
 - `00_originais/` é imutável. `DIARIO.md` é append-only (corrigir = nova

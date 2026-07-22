@@ -333,3 +333,101 @@ logado ao PJe traz:
 **Conclusão honesta:** o diário dá a decisão e o raciocínio; **não dá as
 provas**. Para modelar a nossa inicial sobre a que venceu, ver os documentos
 dela vale mais do que qualquer inferência minha.
+
+---
+
+## 10. LEITURA INTEGRAL DA SENTENÇA QUE PERDEU — o que a amostragem escondia
+
+**Cobertura:** sentença `0814910-72.2024` (Vagno) — **lida integralmente,
+23.946 caracteres**, em 22/07/2026, cumprindo a ordem de leitura integral.
+Antes eu havia lido só o dispositivo. O que faltava muda decisões concretas.
+
+### 10.1 ERRO MEU A CORRIGIR: a "checagem telefônica gravada"
+
+Na seção V eu pedi a **exibição da "checagem telefônica gravada"** (P01 p.7),
+apresentando-a como prova a nosso favor. **É o oposto.** No caso Vagno foi
+**a defesa** que a juntou, e foi ela que **derrubou o autor**:
+
+> *"há **gravação de checagem** (ID 139915707), **juntada pela defesa**, que
+> **corrobora a versão de que o autor foi devidamente informado** sobre os
+> termos e funcionamento do contrato"*
+>
+> *"A ligação de checagem ID 139915707 é **clara e reforça** os dados
+> constantes da contratação"*
+
+**Consequência prática:** eles gravam uma ligação em que o consumidor confirma
+que entendeu tudo, e a usam como prova de ciência. Se existe uma dessas com o
+Edson, **ela virá na contestação de qualquer modo**. Pedir a exibição não é
+vantagem — é antecipar a munição deles com a nossa assinatura.
+
+**O que fazer:** **perguntar ao Edson se recebeu ligação de "confirmação" ou
+"checagem" gravada, e o que respondeu.** Precisamos saber ANTES de escrever, não
+descobrir na contestação. Se existir e for ruim, a estratégia muda.
+
+### 10.2 O contra-ataque que o autor do caso gêmeo NÃO explorou
+
+O mesmo juiz registrou, e passou por cima:
+
+> *"Em um dos áudios do ID 127222257, **um representante da requerida JFERREIRA
+> orienta o consumidor a falar que não houve pagamento de quantia**, porém na
+> ligação ID 139915707 foi esclarecido acerca da origem e destino do montante"*
+
+**Leia de novo: a própria ré roteirizou o que o consumidor deveria dizer — e o
+juiz ainda assim validou a checagem como prova de ciência.**
+
+É falha de valoração, e é o melhor ataque disponível: **checagem telefônica
+cujo roteiro é ditado pelo fornecedor não prova ciência — prova encenação.**
+Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
+122 áudios procurando se a Raiane orientou o Edson sobre o que dizer.
+
+### 10.3 Por que o Vagno perdeu, e por que podemos não perder
+
+| | Vagno (perdeu) | Edson |
+|---|---|---|
+| Prova da promessa | *"a gravação ID 127204351 contempla conversa em que **não há indicação de processo de contemplação imediata**"* — **os áudios dele não provavam** | áudio explícito: *"vou ofertar o lance do senhor mais alto, que é pra gente conseguir essa **contemplação agora no mês de dezembro**"* (F03) |
+| Anúncio de origem | não consta | **"CASA A VENDA — R$ 15.000"** (F12) |
+| Checagem gravada | **existia, e a defesa juntou** | **desconhecida — descobrir já** |
+| Instrução | **julgamento antecipado (art. 355, I)** — sem audiência | pedir prova oral e **oitiva da Raiane** |
+
+### 10.4 Precedentes que a sentença usou — todos contra nós, se pisarmos lá
+
+- **Tema 312 / REsp 1.119.300/RS** (2ª Seção, Rel. Luis Felipe Salomão):
+  restituição ao desistente só até 30 dias após o **encerramento do grupo**.
+  Aplicável pós-Lei 11.795 conforme **Rcl 16.390/BA**.
+- **TJPA, Ap. 0019633-49.2013.8.14.0301** (2ª Turma, Rel. Gleide Pereira de
+  Moura) — mesma linha, no nosso tribunal.
+- **Súmula 538 do STJ** — taxa de administração acima de 10% é lícita.
+- **TJTO, Ap. 0001217-12.2019.8.27.2742** — vício por propaganda enganosa não
+  comprovado ⇒ desistência ⇒ restituição só ao fim do grupo.
+
+> **Todos só se aplicam se o caso for tratado como DESISTÊNCIA.** É a
+> confirmação, agora com leitura completa, da regra R1: pedir **nulidade**,
+> jamais rescisão.
+
+### 10.5 O que mais a leitura integral confirmou
+
+- **A Porto Seguro alegou ilegitimidade passiva e PERDEU:** o juízo aplicou o
+  **art. 7º, parágrafo único, do CDC** — grupo econômico sob a mesma marca
+  responde solidariamente. Precedente do próprio juízo, útil se a **EMBRACON**
+  entrar (decisão reservada R3).
+- O contrato do Vagno trazia **"NÃO SE TRATA DE COTA CONTEMPLADA" em destaque**
+  — o do Edson traz avisos equivalentes (F10).
+- As rés alegaram que ele **pagou só 3 parcelas e nunca formalizou pedido de
+  cancelamento**. O Edson também não formalizou: **antecipar**.
+
+## 11. DECLARAÇÃO DE COBERTURA DE LEITURA
+
+| Documento | Cobertura |
+|---|---|
+| Contrato de consórcio do Edson (P01, 12 pgs) | **integral** (OCR das 12 páginas) |
+| Boletim de ocorrência (P02) | **integral** |
+| Conversa de WhatsApp — 329 linhas | **integral** |
+| 122 áudios degravados | **integral** (relatório com minutagem) |
+| 10 imagens da conversa | **integral** (uma a uma) |
+| Sentença Vagno (perdeu) — 23.946 chars | **integral** |
+| Sentença Leandra (ganhou) — 8.192 chars | **integral** |
+| Contestação da Ferreira (18 pgs) | ⚠️ **NÃO integral** — títulos + 4 trechos |
+| Contestação da BBC (29 pgs) | ⚠️ **NÃO integral** — títulos + 3 trechos |
+| 9 petições iniciais baixadas | ⚠️ **NÃO integrais** — títulos e trechos |
+| Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
+| Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
