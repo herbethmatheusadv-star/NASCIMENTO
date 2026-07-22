@@ -273,11 +273,11 @@ pendencias:
   status: resolvida
   resolucao: 'RESOLVIDA em 22/07/2026 pelo mapa do adversario (DJEN). Os enderecos vieram dos PROPRIOS AUTOS do caso gemeo 0814910-72.2024.8.14.0040 (1a Vara Civel de Parauapebas): FERREIRA REPRESENTACOES LTDA - Avenida Ypes, quadra 78, Lote 06, Cidade Jardim, Parauapebas/PA, CEP 68.515-000, (94) 98166-5139, jaferreiraadm.pbs@gmail.com. LIMA FINANCEIRA (firma individual de HAYARA PATRICIA LIMA DE SOUZA) - Avenida Rio Grande, 156, Beira Rio (em cima do Outlet do 20), Parauapebas/PA, (94) 98439-9566, limafinanceirapbs@gmail.com. Sao DOIS enderecos distintos: a Ypes e a sede da Ferreira; a Rio Grande 156 e a loja. Naquele processo o juizo determinou RETIFICAR o polo para usar LIMA FINANCEIRA, e nao o nome da titular.'
 - id: PEN04
-  descricao: 'PARCIALMENTE RESPONDIDA pelo OCR de 22/07/2026: o recibo (P01 p.4) traz R$ 14.483,00 de corretagem e o BO (P02) fala em R$ 14.400,00 pagos por PIX a chave CNPJ 43.674.644/0001-78 — diferenca de R$ 83,00 a esclarecer. AINDA FALTA: (a) o COMPROVANTE do PIX — o proprio contrato avisa que o recibo so vale mediante comprovacao de compensacao bancaria; (b) saber se houve MAIS algum pagamento depois (parcela de consorcio, boleto de administradora). Sem o comprovante, o PED02 nao fecha e o valor da causa nao se define.'
+  descricao: 'QUANTO E QUANDO O CLIENTE PAGOU — a pendencia mudou de natureza em 22/07/2026, depois de ler a conversa dia a dia. DESCOBERTA: ele NAO pagou em 27/09/2025, data do contrato. Naquele dia ele foi a loja, gostou (''foi bom o atendimento'', ''proposta boa'') e disse que retornaria ''na semana que vem'' (27/09 12:47). O unico comprovante que existe na conversa e de R$ 2.000,00, em 07/10/2025 — e no mesmo dia, as 09:06, a vendedora enviara a foto da placa de PIX da loja. O comprovante dos R$ 14.483/14.400 NAO ESTA na conversa (as 10 imagens foram todas abertas e catalogadas). ENTAO: pedir ao cliente o extrato bancario de set/2025 a hoje, e nao so ''o comprovante'' — pode ter havido pagamento parcelado, presencial ou por outro canal, e o valor do BO (R$ 14.400) pode nao corresponder ao efetivamente pago de uma vez. Sem isso o valor da causa nao fecha e o PED02 fica sem lastro.'
   responsavel: cliente
   prioridade: critica
   bloqueia: [G2, G3]
-  mensagem_cliente: os comprovantes de TUDO que voce ja pagou para essa empresa (extrato, recibo, print do banco) e a data de cada pagamento
+  mensagem_cliente: o EXTRATO da sua conta de setembro de 2025 ate hoje (pode ser o PDF do app do banco), e os comprovantes de TUDO que voce pagou para essa empresa — inclusive se pagou em mais de uma vez ou em dinheiro na loja. Ja tenho o de R$ 2.000 do dia 07/10.
 - id: PEN06
   descricao: 'RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos".'
   responsavel: advogado
@@ -310,8 +310,7 @@ pendencias:
   - G2
   - G3
 - id: PEN10
-  descricao: 'LEVAR AO PROCON DE PARAUAPEBAS ANTES DE AJUIZAR. Na unica sentenca PROCEDENTE contra estas res (0810538-17.2023), a prova que virou o jogo foi a ATA DE AUDIENCIA DO PROCON: documento PUBLICO (CPC art. 405), que faz prova dos fatos declarados perante o servidor — e nela a administradora ja admitira o cancelamento. Custo baixo, retorno alto, e pode resolver sem processo.'
+  descricao: 'PROCON — OPCIONAL, nao recomendado como obrigatorio (revisto em 22/07/2026 por observacao do advogado). Eu havia recomendado com base num caso so (0810538-17.2023, 2a Vara), onde a ata do PROCON foi decisiva — mas naquele processo as RES FORAM REVEIS, contexto muito particular. Conferido: a inicial da LEANDRA (0815826-72.2025), que GANHOU no JEC, NAO menciona PROCON em lugar nenhum. Placar 1x1, sem base para recomendar. Fica como opcao do advogado.'
   responsavel: advogado
-  prioridade: alta
-  bloqueia:
-  - G3
+  prioridade: baixa
+  bloqueia: []

@@ -11,7 +11,7 @@ g2: pendente
 g3: pendente
 proximo_prazo: ""
 pendencias_criticas_abertas: 3
-atualizado: 2026-07-22 18:34
+atualizado: 2026-07-22 18:43
 ---
 
 # STATUS — Edson x Ferreira Representacoes e Lima Financeira — NULIDADE de contrato de intermediacao de consorcio c/c restituicao integral e danos morais
@@ -24,7 +24,7 @@ atualizado: 2026-07-22 18:34
 - Nenhum prazo registrado.
 
 ## Pendências críticas abertas
-- PEN04 (cliente): PARCIALMENTE RESPONDIDA pelo OCR de 22/07/2026: o recibo (P01 p.4) traz R$ 14.483,00 de corretagem e o BO (P02) fala em R$ 14.400,00 pagos por PIX a chave CNPJ 43.674.644/0001-78 — diferenca de R$ 83,00 a esclarecer. AINDA FALTA: (a) o COMPROVANTE do PIX — o proprio contrato avisa que o recibo so vale mediante comprovacao de compensacao bancaria; (b) saber se houve MAIS algum pagamento depois (parcela de consorcio, boleto de administradora). Sem o comprovante, o PED02 nao fecha e o valor da causa nao se define. — bloqueia G2, G3
+- PEN04 (cliente): QUANTO E QUANDO O CLIENTE PAGOU — a pendencia mudou de natureza em 22/07/2026, depois de ler a conversa dia a dia. DESCOBERTA: ele NAO pagou em 27/09/2025, data do contrato. Naquele dia ele foi a loja, gostou ('foi bom o atendimento', 'proposta boa') e disse que retornaria 'na semana que vem' (27/09 12:47). O unico comprovante que existe na conversa e de R$ 2.000,00, em 07/10/2025 — e no mesmo dia, as 09:06, a vendedora enviara a foto da placa de PIX da loja. O comprovante dos R$ 14.483/14.400 NAO ESTA na conversa (as 10 imagens foram todas abertas e catalogadas). ENTAO: pedir ao cliente o extrato bancario de set/2025 a hoje, e nao so 'o comprovante' — pode ter havido pagamento parcelado, presencial ou por outro canal, e o valor do BO (R$ 14.400) pode nao corresponder ao efetivamente pago de uma vez. Sem isso o valor da causa nao fecha e o PED02 fica sem lastro. — bloqueia G2, G3
 - PEN06 (advogado): RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos". — bloqueia G2, G3
 - PEN09 (advogado): REENQUADRAR A ACAO ANTES DE REDIGIR — decisao do advogado. As sentencas reais mostram que pedir RESCISAO/desistencia ativa a regra do consorcio (assembleia de excluidos, 200 meses) e MATA o pedido de dinheiro; pedir NULIDADE (CC art. 166) produz restituicao integral sem desconto ('nenhum valor podera ser descontado ou compensado, em razao da declaracao de nulidade' — 0810538-17.2023, 2a Vara Civel). Hoje o CONTRATO DE HONORARIOS do Edson (P08) descreve 'ACAO DE RESCISAO CONTRATUAL POR VICIO DE CONSENTIMENTO'. O titulo do caso ja foi ajustado para NULIDADE; o contrato de honorarios precisa da sua conferencia. — bloqueia G2, G3
 
