@@ -422,7 +422,7 @@ def _pacote_via_submit(pagina, contexto, espera_max: float):
 
 
 def baixar_integral(contexto, cnj: str, url_autos: str,
-                    espera_max: float = 300.0) -> dict:
+                    espera_max: float = 300.0, forcar: bool = False) -> dict:
     """
     Autos INTEGRAIS de um processo: abre a tela de autos, dispara o empacotamento,
     pega a URL assinada e busca o PDF pela sessao (GET). Salva em
@@ -430,7 +430,7 @@ def baixar_integral(contexto, cnj: str, url_autos: str,
     """
     destino = RAIZ / "AUTOS" / cnj
     ja = sorted(destino.glob("autos_integral_*.pdf")) if destino.exists() else []
-    if ja:
+    if ja and not forcar:
         return {"cnj": cnj, "status": "ja_existe",
                 "arquivo": str(ja[-1]), "bytes": ja[-1].stat().st_size}
     regras.guarda_de_url(url_autos)
@@ -470,7 +470,7 @@ def baixar_integral(contexto, cnj: str, url_autos: str,
 
 
 def coletar_integral(s: "sessao.SessaoEfemera", cnj_alvo: str, todos: bool,
-                     espera_max: float, pausa: float) -> list[dict]:
+                     espera_max: float, pausa: float, forcar: bool = False) -> list[dict]:
     """
     UM login -> autos integrais de UM processo (--cnj) ou de TODO o acervo
     (--todos). Le a aba Acervo do painel e baixa cada um. So leitura.
@@ -515,7 +515,7 @@ def coletar_integral(s: "sessao.SessaoEfemera", cnj_alvo: str, todos: bool,
     resultados: list[dict] = []
     for i, (cnj, url) in enumerate(alvos, 1):
         print(f"[{i:>2}/{len(alvos)}] {cnj} ... ", end="", flush=True)
-        r = baixar_integral(s.contexto, cnj, url, espera_max)
+        r = baixar_integral(s.contexto, cnj, url, espera_max, forcar)
         resultados.append(r)
         if r["status"] == "ok":
             print(f"OK  {r['bytes'] / 1024 / 1024:.1f} MB")
@@ -677,6 +677,8 @@ def main() -> None:
                     help="segundos entre processos (rate limit; padrao 2.0)")
     ap.add_argument("--instancia", default="tjpa",
                     help="instancia PJe: " + ", ".join(i.chave for i in instancias.listar()))
+    ap.add_argument("--forcar", action="store_true",
+                    help="rebaixa mesmo se ja existe (atualiza o integral do processo)")
     args = ap.parse_args()
 
     try:
@@ -702,7 +704,7 @@ def main() -> None:
         if args.pecas:                       # fallback: peca a peca (REST)
             coletar(s, args.cnj, args.limite, args.pausa)
         elif args.todos or args.cnj:         # integral (padrao)
-            coletar_integral(s, args.cnj, args.todos, args.espera, args.pausa)
+            coletar_integral(s, args.cnj, args.todos, args.espera, args.pausa, args.forcar)
         else:
             print("[baixar] diga --todos (acervo inteiro) ou --cnj <numero>.")
             print("         (--pecas usa o metodo antigo, peca a peca.)")
