@@ -77,3 +77,26 @@ Lei 13.460/2017; Tema 929/STJ; Súmula 385/STJ. O G3 impede o uso sem verbete.)
 
 (mesma regra: precedentes TJPA/STJ da skill em
 `MODULOS/consumidor_aguas/referencias/jurisprudencia.md` — verbetar ao usar.)
+
+# VERIFICAÇÃO DE JURISPRUDÊNCIA — tentativa de 22/07/2026 (RESULTADO: BLOQUEADA)
+
+Os três precedentes que a petição vencedora (`0815826-72.2025`) usa foram lidos
+**dentro daquela petição**, não na fonte. Tentativa de conferir na origem:
+
+| Precedente | Fonte oficial | Resultado |
+|---|---|---|
+| **TJ-MG, AC 1.0000.22.039932-3/001** — ementa sobre "golpe do consórcio", moldura "pretensão de adquirir imóvel certo e com prazo de entrega determinado" | `www5.tjmg.jus.br/jurisprudencia` | ❌ **CAPTCHA** ("Digite os números abaixo"). O robô não resolve captcha, por regra. `www4.tjmg.jus.br/juridico/sf/proc_resultado2.jsp` responde **HTTP 401**. |
+| **TJ-RS, Ap. 70068923770**, Rel. Eduardo João Lima Costa, 19ª Câm. Cível, j. 25/08/2016 | `tjrs.jus.br/buscas/jurisprudencia` | ❌ sem captcha, mas a busca é SPA e não retornou resultado pelas ferramentas disponíveis |
+| **TJ-SP, AI 2144270-54.2021.8.26.0000** (Leme) — inversão do ônus | `esaj.tjsp.jus.br/cjsg` | ❌ não tentado após os dois anteriores |
+
+**Situação: NÃO VERIFICADOS. Não podem ir para peça** (regra de ferro da casa;
+o G3 barra). Para liberar, o advogado precisa abrir a consulta do TJMG,
+resolver o captcha e conferir o teor literal — leva minutos.
+
+> ⚠️ **Mas note:** para ESTE caso talvez nem sejam necessários. Temos algo mais
+> forte e **já verificado na fonte oficial**: as **sentenças reais do TJPA
+> contra as próprias rés**, colhidas em inteiro teor do **DJEN** (34 decisões,
+> incluindo a procedência de `0810538-17.2023` e a improcedência de
+> `0814910-72.2024`). Jurisprudência local, do mesmo juízo, contra o mesmo
+> adversário, obtida de publicação oficial — vale mais que ementa de outro
+> estado. Ver `MODULOS/consumidor_consorcio/O_QUE_GANHA_E_O_QUE_PERDE.md`.
