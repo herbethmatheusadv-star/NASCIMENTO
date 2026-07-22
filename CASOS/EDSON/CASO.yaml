@@ -70,7 +70,7 @@ fatos:
   status: provado
   provas: [P06]
 - id: F04
-  descricao: "A relacao efetivamente contratada e de CONSORCIO, com contemplacao por LANCE em ASSEMBLEIA — e nao compra e venda: o cliente afirma 'o combinado nao era participa de sorteio' (04/03/2026 16:02) e a preposta responde 'e lance, seu Edson, e ofertar lance, a gente trabalha com lance' (PTT-20260304-WA0313) e 'vou ofertar um lance bem alto, que ai o senhor ja passa pela proxima assembleia' (PTT-20260304-WA0314). TERMOS EXATOS do instrumento ainda nao lidos — o PDF do contrato (P01) e imagem sem camada de texto (PEN02)."
+  descricao: "A relacao efetivamente contratada e de CONSORCIO, com contemplacao por LANCE em ASSEMBLEIA — e nao compra e venda: o cliente afirma 'o combinado nao era participa de sorteio' (04/03/2026 16:02) e a preposta responde 'e lance, seu Edson, e ofertar lance, a gente trabalha com lance' (PTT-20260304-WA0313) e 'vou ofertar um lance bem alto, que ai o senhor ja passa pela proxima assembleia' (PTT-20260304-WA0314). O contrato FOI lido por OCR local em 22/07/2026 (PEN02 resolvida): confirma contrato de INTERMEDIACAO, credito de R$ 110.000, 180 meses, parcela R$ 733, taxa de administracao 24% — ver F08 a F10."
   status: provado
   provas: [P06, P01]
 - id: F05

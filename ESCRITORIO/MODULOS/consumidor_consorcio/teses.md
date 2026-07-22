@@ -10,7 +10,14 @@
 
 ---
 
-## T1 — O SERVIÇO NÃO FOI PRESTADO (a tese mais forte, se o Ramo B se confirmar)
+## T1 — O SERVIÇO NÃO FOI PRESTADO (só no Ramo B)
+
+> 🔴 **REBAIXADA em 22/07/2026.** Escrevi que esta era "a tese mais forte" antes
+> de abrir as imagens da conversa. No caso-fonte 2026-0006 o **Ramo B foi
+> refutado**: a cota EXISTE (EMBRACON, grupo 7261, cota 1768). Logo T1 **não se
+> aplica lá**, e a tese principal passa a ser a T2 (vício de consentimento),
+> apoiada em T4. T1 segue válida — mas só para casos em que a cota realmente
+> não exista, o que se apura **antes**, não se presume.
 
 **Enunciado:** a corretora recebeu R$ 14.483,00 para cadastrar o consumidor em
 grupo de consórcio de administradora autorizada e entregar-lhe o contrato de
@@ -134,15 +141,26 @@ impresso ao pé de cinco páginas do contrato da J. Ferreira.
 e declarar que vai operar o portal dele para ofertar lance em seu nome é
 conduta autônoma e agravadora.
 
-**Exige:** F06 (provado em áudio e nas mensagens dos três códigos) **e** a
-apuração do que efetivamente ocorreu na conta — que ainda não foi feita
-(PEN05 do caso-fonte).
+> 🟢 **PROMOVIDA em 22/07/2026** (antes estava como "NÃO USAR AINDA — alegação
+> de risco, não de dano"). As **imagens da conversa**, que não haviam sido
+> abertas, provam que o dano **se consumou**.
 
-**Status: NÃO USAR AINDA.** Sem saber o que aconteceu no portal, a tese é
-alegação de risco, não de dano. Se a apuração mostrar lance ofertado sem ordem
-ou alteração cadastral, ela pode virar a tese principal do dano moral — e
-mudar a qualificação dos fatos. Se mostrar que nada ocorreu, permanece como
-reforço da má-fé.
+**Exige — e no caso-fonte JÁ EXISTE:**
+- **seis meses** de captura de códigos e **senhas temporárias** emitidas pela
+  administradora ao e-mail do consumidor (F15 · IMG-20251208-WA0123 e WA0138);
+- **três lances efetivamente ofertados**, com protocolo e segundo exato:
+  `46484701` (10/10/2025 14:36:51), `46604410` (06/11 15:47:11), `46703501`
+  (24/11 16:34:48) — F16;
+- **prova de autoria**: cada print chegou ao WhatsApp **minutos** após o
+  protocolo nascer (o de 10/10 às 14:37), e as telas são de **computador**
+  (barra do Windows e aba "…racon" visíveis), não do celular do cliente;
+- **admissão em áudio**: *"eu ofertei o lance, né, esse mês"* (`PTT-20251222-WA0041`).
+
+**Status: USAR — em capítulo SEPARADO.** Contra a corretora, a tese é venda
+enganosa; esta é de outra natureza e não deve contaminar aquela. Contra a
+**administradora**, é a única frente que quebra a defesa padrão dela ("contrato
+firmado em ambiente externo à ré"): o ambiente era o **dela**. O que ainda falta
+é o **efeito** na cota (PEN05) — quanto foi ofertado e o que mudou.
 
 ---
 

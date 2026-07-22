@@ -54,9 +54,13 @@ mesma função — corretagem disfarçada de entrada.
 | Marabá, Ananindeua, Belém (execução fiscal) | 4 |
 | 2º grau (3 Turmas de Direito Privado + 2 Turmas Recursais) | 5 |
 
-**Rito:** 15 Procedimento Comum Cível × 8 Juizado Especial. **A maioria vai
-para Vara Cível, não para o JEC** — dado que alimenta diretamente a decisão
-reservada R2 do módulo.
+**Rito:** 15 Procedimento Comum Cível × 8 Juizado Especial.
+🔴 **CORRIGIDO em 22/07/2026 — a leitura inicial deste item estava enganosa.**
+Eu havia escrito apenas que "a maioria vai para Vara Cível", como se fosse
+orientação. Ir para lá é o que a maioria **faz**, não o que **dá certo**: as
+Varas Cíveis produziram **4 improcedências × 1 procedência** (e essa única veio
+com as rés **revéis**), enquanto o **JEC deu as 2 procedências**. Ver
+`O_QUE_GANHA_E_O_QUE_PERDE.md` §1.
 
 **Assuntos:** "Rescisão do contrato e devolução do dinheiro" (11) · "Consórcio"
 (10) · Dano Material (7) · Dano Moral (4) · Práticas Abusivas (3) ·
@@ -88,8 +92,13 @@ São **as mesmas duas rés**, o **mesmo pedido** e a **mesma comarca**.
   haveria restituição.
 - **Pediu:** gratuidade · relação de consumo + inversão do ônus · nulidade do
   contrato · restituição **em dobro** (R$ 31.605,62) · dano moral R$ 20.000.
-- **Sentença em 27/01/2026**; **o autor apelou** (ID 167574616) — sinal de
-  procedência parcial ou improcedência. **Ler a sentença é prioridade.**
+- **Sentença em 27/01/2026 — ✅ JÁ LIDA (22/07/2026): JULGOU IMPROCEDENTE.**
+  Obtida em inteiro teor no próprio DJEN (23.946 caracteres), sem baixar autos.
+  Juiz Leonardo Batista Pereira Cavalcante. Enquadrou como "conhecimento da
+  desistência do consorciado", brigou sobre taxa de administração (terreno
+  perdido, STJ) e reprovou que a parte "não indicou quaisquer cláusulas que
+  evidenciem ilegalidade". O autor apelou. **Análise completa em
+  `O_QUE_GANHA_E_O_QUE_PERDE.md` §2.**
 - Em 15/06/2026 o Relator recebeu as apelações no **duplo efeito** e
   **determinou remessa ao MINISTÉRIO PÚBLICO** antes do julgamento.
 

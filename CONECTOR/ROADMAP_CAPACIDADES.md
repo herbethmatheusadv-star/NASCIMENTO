@@ -41,10 +41,31 @@ explícita da R7** — decisão deliberada do titular, nunca efeito colateral de
    Kz (sem token, pela sessão logada — `MAPA_PJE.md §13.12`), dirigido pelo Claude.
    `trt8_kz.py` (API+token, §13.10-13.11) fica como via programática/fallback.
    *Pendente: enriquecer as fichas PROC-0001..0005 com o conteúdo dos autos.*
-2. **Download em massa por EMPRESA (CNPJ / razão social)** — dado um CNPJ/nome,
-   pesquisar, **enumerar TODOS os processos** e baixar os autos de cada um. Caso
-   de uso: litígio contra uma empresa (mapear o adversário inteiro de uma vez).
-3. **Download em massa por CPF / pessoa** — idem para pessoa física.
+2. **Download em massa por EMPRESA (CNPJ / razão social)** — ✅ **FEITO
+   (22/07/2026)**, com uma correção de premissa: **não se busca por CNPJ**. O
+   DataJud público **não devolve parte nenhuma** (testado: só tribunal, grau,
+   número, ajuizamento, sigilo, órgão, classe, assuntos, movimentos), e a
+   consulta do TJPA busca por **nome**, com captcha e teto de resultados.
+   A via que funciona é a mesma do Jusbrasil/Escavador: o **DIÁRIO**.
+   `CONECTOR/mapear_adversario.py` usa `nomeParte` na API do DJEN e enumerou
+   **28 processos** das rés do caso 2026-0006; `CONECTOR/baixar_por_chave.py`
+   baixou **50 documentos** pelas chaves publicadas, sem login e sem captcha.
+   *Limite honesto: busca por NOME erra dos dois lados — traz homônimo e perde
+   variação de razão social (no caso-fonte, "J FERREIRA REPRESENTAÇÕES" acha
+   ZERO no TJPA e "FERREIRA REPRESENTAÇÕES" acha 58). Sempre rodar variantes,
+   filtrar por tribunal e conferir a lista de partes.*
+3. **Download em massa por CPF / pessoa** — ✅ **mesma ferramenta**: o
+   `nomeParte` vale para pessoa física (usado para achar HAYARA PATRICIA LIMA
+   DE SOUZA, titular da Lima Financeira). Vale a mesma ressalva de homonímia,
+   **agravada** em pessoa física.
+3-B. **Jurisprudência nacional por texto livre** — ✅ **FEITO (22/07/2026)**,
+   capacidade que nem estava neste roadmap. A mesma API do DJEN aceita o
+   parâmetro **`texto`** e busca em **texto integral** o que foi publicado por
+   **todos os tribunais do país** — sem captcha, sem login.
+   `CONECTOR/buscar_jurisprudencia.py`. Testado: "golpe do consórcio" → 625
+   publicações nacionais; "consórcio vício de consentimento" no TJPA → 12
+   acórdãos de 2º grau com ementa. *Limite: acha o que foi PUBLICADO no diário
+   no período indexado, não o acervo histórico de um tribunal.*
 4. **Download por recorte (comarca / órgão / tribunal)** — enumerar e baixar um
    conjunto (ex.: todos os do titular numa comarca; um bloco de um tribunal).
 5. **Radar de novidades multi-tribunal** — `consultarAlteracao` (MNI) e a API do

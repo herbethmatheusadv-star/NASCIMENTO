@@ -283,9 +283,17 @@ Os itens 6, 7 e 9 são os mais discriminantes — o 7 quase sempre revela o Ramo
 Este módulo nasce de **um único caso** (n=1). Não confundir padrão com
 coincidência. Ainda falta, e deve ser preenchido conforme novos casos chegarem:
 
-- **Jurisprudência local (TJPA) verbetada na fonte** — nada foi verbetado
-  ainda; a pesquisa de 22/07/2026 encontrou apenas ementas de segunda mão
-  (Jusbrasil), que a doutrina da casa proíbe em peça.
+- ~~Jurisprudência local (TJPA) verbetada na fonte — nada foi verbetado.~~
+  🟡 **PARCIALMENTE SUPERADO em 22/07/2026.** A busca inicial só achou ementas
+  de portal (proibidas em peça), mas depois se descobriu a via do **DJEN por
+  texto livre** (`CONECTOR/buscar_jurisprudencia.py`): há **acórdãos do próprio
+  TJPA** sobre consórcio e vício de consentimento, colhidos de **publicação
+  oficial** — inclusive `0838071-12.2021.8.14.0301` (1ª Turma, Des. Alex
+  Pinheiro Centeno: anulatória, vício de consentimento, publicidade enganosa,
+  **restituição integral e imediata**, recurso da administradora **desprovido**)
+  e o contra-exemplo `0803935-86.2021.8.14.0301` (improcedente por **ausência de
+  prova** do vício). **Ainda falta virar VERBETE formal** com teor conferido no
+  inteiro teor do acórdão — a publicação pode vir truncada.
 - **CDC e Código Civil verbetados** — o sítio do Planalto recusou conexão em
   22/07/2026; os artigos-candidatos estão listados em `BASE_LEGAL/consumidor.md`
   e nenhum pode ser citado antes de conferido.

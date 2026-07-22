@@ -72,6 +72,12 @@ de uma empresa) · `CONECTOR/baixar_por_chave.py` (autos por chave do DJEN) ·
 **O limite que continua de pé:** captcha não se resolve, credencial não se usa
 sem o titular, e nada disso dispensa conferir o teor na fonte antes de citar.
 
+**Antes de redigir peça contra alguém: ler `ESCRITORIO/DOUTRINA_INTELIGENCIA_ADVERSARIA.md`
+e rodar o protocolo P1-P5.** Saber como aquele adversário já perdeu e já ganhou
+naquele foro é o que separa a petição correta da petição que vence. No caso
+2026-0006 o levantamento mudou a tese, o rito, o valor e o nome da ação — antes
+de a inicial existir.
+
 ## Regras duras (blueprint)
 
 - `00_originais/` é imutável. `DIARIO.md` é append-only (corrigir = nova

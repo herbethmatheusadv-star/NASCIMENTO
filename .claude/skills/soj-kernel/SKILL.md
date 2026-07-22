@@ -163,6 +163,28 @@ Regras INEGOCIÁVEIS do modo:
 - Mídias dentro dos autos (.opus etc.): lacradas no mesmo manifesto;
   degravação sob demanda pelo transcritor local.
 
+## INTELIGÊNCIA ADVERSÁRIA (kernel — 22/07/2026)
+
+Antes de redigir peça contra alguém: **ler `ESCRITORIO/DOUTRINA_INTELIGENCIA_ADVERSARIA.md`**
+e rodar o protocolo. Comandos:
+
+- **"mapear o adversário X"** → `CONECTOR/mapear_adversario.py "NOME" --tribunal
+  TJPA --datajud`. Enumera TODOS os processos da parte pelo **DJEN** (`nomeParte`),
+  cruza com DataJud (classe, assuntos, movimentos) e sai em `ADVERSARIOS/<slug>/`.
+  ⚠️ Busca por NOME: rodar **variantes** e **conferir a lista de partes** — no caso
+  2026-0006, "J FERREIRA REPRESENTAÇÕES" acha ZERO no TJPA e "FERREIRA
+  REPRESENTAÇÕES" acha 58.
+- **"baixar as peças desses processos"** → `CONECTOR/baixar_por_chave.py <chaves.json>`.
+  As publicações do DJEN trazem **chave de acesso**; o `ConsultaDocumento` abre
+  **sem login e sem captcha**. Baixa contestação, sentença, inicial, IP.
+- **"o que os tribunais decidem sobre X"** → `CONECTOR/buscar_jurisprudencia.py
+  "termo" --tribunal TJPA --so-acordaos`. Busca **nacional em texto integral** no
+  DJEN. Priorizar o tribunal LOCAL: vale mais que ementa de outro estado.
+- **O DJEN publica a ÍNTEGRA de muitas sentenças** — conferir isso ANTES de
+  baixar autos: no caso-fonte, 34 decisões vieram completas do próprio diário.
+- Regra de ouro da rota: **antes de dizer "não dá", perguntar como o
+  Jusbrasil/Escavador fariam.** A resposta quase sempre é o DIÁRIO.
+
 ## DOUTRINA DE ANÁLISE (kernel — LEITURA OBRIGATÓRIA antes de analisar)
 
 Antes de qualquer tarefa ANALÍTICA (diagnóstico, estratégia, simulação

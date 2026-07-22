@@ -39,8 +39,11 @@ antecipação tudo o que a vítima vai alegar depois.
 
 ## Lacunas conhecidas (não fingir que não existem)
 
-- **Nenhuma jurisprudência verbetada.** A busca de 22/07/2026 só achou ementas
-  de portal, que a doutrina da casa proíbe em peça.
+- **Nenhuma jurisprudência virou VERBETE formal ainda** — mas já existe
+  matéria-prima oficial: acórdãos do TJPA colhidos do DJEN por texto livre
+  (`CONECTOR/buscar_jurisprudencia.py`). Falta conferir o inteiro teor e
+  verbetar. (A busca inicial de 22/07 só achara ementas de portal, proibidas
+  em peça; a via do diário resolveu isso no mesmo dia.)
 - **CDC e Código Civil não verbetados** — Planalto recusou conexão em
   22/07/2026. Candidatos listados em `BASE_LEGAL/consumidor.md`.
 - **Lei 11.795/2008 verbetada como `a_confirmar`** (texto da publicação
