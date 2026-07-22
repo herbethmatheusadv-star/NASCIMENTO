@@ -40,3 +40,14 @@ Export de conversa do WhatsApp recebido: CONVERSA COM A VENDEDORA RAIANE SOUZA -
 G1 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G1_2026-07-22.md
 Itens reprovados: Prazos identificados (PZ##) ou declaracoes.sem_prazos com referencia ao DIARIO; Complexidade classificada (D9) e modulo definido; Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
 ---
+## #009 | 2026-07-22 17:08 | DOC_RECEBIDO
+Recebido PROCURACAO ASSINADA [rota: prova] -> 00_originais/PROCURACAO ASSINADA.pdf -> DOC-07_PROCURACAO_ASSINADA.pdf.
+Cadeia de custodia: SHA-256 c3d0b265388e30b8a3bee54dc4ebcb6d991b38b19147adff18af1b40fdf1488d.
+Registrado como P07.
+---
+## #010 | 2026-07-22 17:08 | DOC_RECEBIDO
+Recebido CONTRATO DE HONORARIOS ASSINADO [rota: prova] -> 00_originais/CONTRATO DE HONORARIOS ASSINADO.pdf -> DOC-08_CONTRATO_DE_HONORARIOS_ASSINADO.pdf.
+Cadeia de custodia: SHA-256 257fef05c80c5655d7f63a2f174177ed18c9fb2d03a5aeea2a7feecf2e21d425.
+Registrado como P08.
+Resolve: PEN01
+---

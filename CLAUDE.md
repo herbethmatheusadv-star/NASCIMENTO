@@ -68,6 +68,13 @@ provas + teses do módulo), nunca menos.
   praxe_decisoria (árvore Tier A/B + camada LOCAL), decisoes_reservadas,
   checklist_documental, anti_erro_fatal, teses (com antiteses) e templates.
   Esqueletos: `trabalhista/`, `previdenciario/` (módulo nasce do caso 1).
+- Módulo SEMEADO `consumidor_consorcio/` — **golpe do falso consórcio**
+  (vende-se casa, assina-se intermediação; a "entrada" é corretagem a fundo
+  perdido). Nasceu do caso 2026-0006 em 22/07/2026; n=1. **Ler
+  `ANATOMIA_DO_GOLPE.md` primeiro.** Área de especialização declarada pelo
+  advogado em Parauapebas. Regra própria: **degravar os áudios ANTES de opinar
+  sobre viabilidade** — o papel está todo contra o cliente, o caso vive na
+  prova oral. Jurisprudência ainda NÃO verbetada; Lei 11.795 `a_confirmar`.
 - Camada LOCAL da praxe: anotação com contagem (fontes = Acervo); vira
   recomendação só com n≥3 do MESMO juízo; divergiu do nacional = Tier B.
 

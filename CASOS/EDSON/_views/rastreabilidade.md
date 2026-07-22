@@ -7,10 +7,14 @@ Minuta lida: nenhuma minuta ainda
 | F01 | provado | P06 | PED01 | — |
 | F02 | provado | P06 | PED01 | — |
 | F03 | provado | P06 | PED01, PED02 | — |
-| F04 | provado | P06 | PED01, PED02 | — |
+| F04 | provado | P06, P01 | PED01, PED02 | — |
 | F05 | provado | P06 | PED02, PED03 | — |
 | F06 | provado | P06 | PED03 | — |
-| F07 | alegado | P02 | — | — |
+| F07 | provado | P02 | — | — |
+| F08 | provado | P01, P02 | — | — |
+| F09 | provado | P01, P02 | — | — |
+| F10 | provado | P01 | — | — |
+| F11 | controverso | P01 | — | — |
 
 ## Pedidos
 
