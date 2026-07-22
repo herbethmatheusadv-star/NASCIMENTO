@@ -202,30 +202,53 @@ def extrair_acervo(html: str, inst=None) -> dict[str, str]:
 # le os processos e junta. Tudo LEITURA — cada clique passa por guarda_de_clique
 # (o rotulo e "Acervo"/nome de comarca, nunca um verbo de acao).
 
-def _ir_para_acervo(pagina) -> bool:
-    """Troca para a aba Acervo (se ainda nao estiver). True se a arvore montou.
+def _clicar_leitura(pagina, elem_id: str) -> None:
+    """Clique de LEITURA robusto por id: dispara a sequencia mousedown/mouseup/click
+    UMA vez cada (nao um .click() puro, que o RichFaces as vezes perde logo apos o
+    painel montar, com o A4J ainda sem ligar os handlers). Uma so passada por
+    evento — nao duplica o disparo (nao alterna um accordion duas vezes). Quem
+    autoriza o rotulo e a guarda_de_clique, chamada ANTES desta funcao."""
+    pagina.evaluate(
+        "(id) => { const e = document.getElementById(id); if (!e) return;"
+        " for (const t of ['mousedown','mouseup','click'])"
+        "   e.dispatchEvent(new MouseEvent(t, {bubbles:true, cancelable:true, view:window})); }",
+        elem_id)
 
-    Com RETRY do clique: o 1o clique as vezes nao registra (o A4J do RichFaces
-    ainda nao esta pronto logo apos o painel montar) — bateu no TJMA e no 2o grau.
-    Re-clica ate a arvore de comarcas/orgaos aparecer."""
-    def ativo():
-        return pagina.evaluate(
-            "() => { const c=document.getElementById('tabAcervo_cell');"
-            " return !!(c && (c.className||'').includes('active')); }")
+
+def _ir_para_acervo(pagina, tentativas: int = 8, espera: float = 6.0) -> bool:
+    """Troca para a aba Acervo e espera a ARVORE de comarcas montar. True se montou.
+
+    O RichFaces 'engole' o 1o clique — o A4J ainda nao ligou os handlers logo apos
+    o painel montar (bateu no TJPA, no TJMA e no 2o grau, 21/07/2026). Robustez
+    contra isso:
+      - decide pela ARVORE, nao pela classe 'active': a celula fica 'active' mesmo
+        quando o clique se perdeu e a arvore nunca montou (a armadilha da versao
+        anterior — era por isso que o acervo vinha VAZIO no --todos de 21/07);
+      - RE-CLICA a cada tentativa enquanto a arvore nao aparece, com clique robusto
+        (mousedown/mouseup/click), nao so um .click() que se perde;
+      - orcamento generoso (padrao ~48s) — o painel do PJe as vezes custa a montar.
+    Leitura: o rotulo ('Acervo') passa por guarda_de_clique a cada clique."""
     def tem_arvore():
         return pagina.evaluate(
             "() => document.querySelectorAll(\"a[id$='::jNd']\").length>0")
-    if not pagina.evaluate("() => !!document.getElementById('tabAcervo_lbl')"):
+    # o rotulo da aba pode ainda nao existir (painel montando): espera ate 15s
+    fim_lbl = time.time() + 15
+    while time.time() < fim_lbl:
+        if pagina.evaluate("() => !!document.getElementById('tabAcervo_lbl')"):
+            break
+        time.sleep(0.5)
+    else:
         return False
-    for _ in range(3):
-        if not ativo():
-            lbl = (pagina.evaluate(
-                "() => (document.getElementById('tabAcervo_lbl')||{}).innerText||''")
-                or "").strip().split("\n")[0]
-            regras.guarda_de_clique(lbl or "Acervo")   # R7: "Acervo" e leitura
-            pagina.evaluate("() => { const e=document.getElementById('tabAcervo_lbl');"
-                            " if(e) e.click(); }")
-        for _ in range(10):
+    for _ in range(tentativas):
+        if tem_arvore():
+            return True
+        lbl = (pagina.evaluate(
+            "() => (document.getElementById('tabAcervo_lbl')||{}).innerText||''")
+            or "").strip().split("\n")[0]
+        regras.guarda_de_clique(lbl or "Acervo")   # R7: "Acervo" e leitura
+        _clicar_leitura(pagina, "tabAcervo_lbl")
+        fim = time.time() + espera
+        while time.time() < fim:
             time.sleep(1)
             if tem_arvore():
                 return True

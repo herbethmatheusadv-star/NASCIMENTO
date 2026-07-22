@@ -17,6 +17,10 @@ RADAR/.cache_datajud.json
 RADAR/fixtures/
 _SISTEMA/browser_profile/
 
+# estado de runtime da marcha viva (fila de captura + sem-cobertura): muda a cada
+# varredura, se regenera sozinho — como os logs, nao se versiona.
+_SISTEMA/marcha/
+
 # perfis de navegador nunca entram no git (e nao devem nem existir: sao efemeros)
 CONECTOR/**/browser_profile/
 _SISTEMA/quarentena.md.bak

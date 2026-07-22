@@ -108,6 +108,26 @@ def cnjs_ativos() -> list[str]:
     return out
 
 
+def motivo_sem_cobertura(cnj: str) -> str:
+    """Por que o DataJud publico ainda nao devolve este ATIVO — p/ a lista
+    SEM_COBERTURA. Nao e cegueira: o radar DJEN cobre a PUBLICACAO; isto so
+    explica a lacuna. Medido em 21/07/2026: os dois ausentes (PROC-0007 TJMA 1o
+    grau; PROC-0028 TJPA origem 0000) sao processos NOVOS ainda nao indexados — a
+    base tem ~4 dias de defasagem, as vezes mais. NAO e regra de 2o grau: outro
+    processo origem 0000 do TJPA (0807884-…-0000) esta na base normalmente."""
+    if sigla_do_cnj(cnj) is None:
+        return "tribunal fora do DataJud (sem indice publico)"
+    return "ainda nao indexado no DataJud (processo novo; a base atrasa) — retry diario"
+
+
+def ativos_sem_baseline() -> list[str]:
+    """ATIVOS (fichas) que NAO tem regua/baseline — os que o DataJud nao indexou.
+    Se um deles aparecer no DataJud num dia, o --init cria a regua e ele sai
+    daqui sozinho (auto-cura)."""
+    com = {cnj for cnj, _ in ativos_com_baseline()}
+    return [c for c in cnjs_ativos() if c not in com]
+
+
 def init_baselines(usar_rede: bool = True) -> list[tuple[str, str]]:
     """Cria a regua (baseline) via DataJud para cada ATIVO que ainda nao tem.
     Nao mexe em quem ja tem baseline (ex.: a Beatryz, com a timeline rica do Kz).
@@ -210,6 +230,25 @@ def main() -> None:
         print("      Kz no proximo login (radar_delta + baixar a peca). Nao estamos cegos.")
     else:
         print("  [ok] Nenhuma novidade — os ativos nao andaram desde a ultima captura.")
+
+    # Fase C — o elo DETECTAR->CAPTURAR: grava a FILA de capturas pendentes (o
+    # que o proximo login vai buscar) e a lista dos que o DataJud nao ve — que NAO
+    # ficam cegos: o radar DJEN cobre a publicacao deles. Tudo local, sem rede.
+    import marcha_fila
+    marcha_fila.registrar(novidades)
+    sem_cob = [{"cnj": c, "sigla": sigla_do_cnj(c), "motivo": motivo_sem_cobertura(c)}
+               for c in ativos_sem_baseline()]
+    marcha_fila.registrar_sem_cobertura(sem_cob)
+    fila = marcha_fila.pendentes()
+    if fila:
+        print("-" * 74)
+        print(f"  [!] fila de captura: {len(fila)} processo(s) esperando o proximo login")
+        print("      (rode a captura logada; o orquestrador aplica so o delta).")
+    if sem_cob:
+        print("-" * 74)
+        print(f"  [i] {len(sem_cob)} ativo(s) SEM regua DataJud — cobertos pelo radar DJEN:")
+        for i in sem_cob:
+            print(f"      {i['cnj']}  ({i['motivo']})")
     print("=" * 74)
 
     # heartbeat persistente: o titular ve a varredura mesmo rodando sozinha (07h)
@@ -222,12 +261,15 @@ def main() -> None:
                     "> O que mexeu nos processos ATIVOS, via DataJud (sem login).\n"
                     "> NOVIDADE = capturar a peca nova no Kz no proximo login.\n\n")
         f.write(f"## {datetime.now():%Y-%m-%d %H:%M} — {len(rel)} ativo(s), "
-                f"{len(novidades)} novidade(s)\n")
+                f"{len(novidades)} novidade(s), fila {len(fila)}\n")
         for r in novidades:
             f.write(f"- [!] {r['cnj']} mexeu (ult.mov {r.get('ultimo_movimento')} "
                     f"· {r.get('ultimo_nome')}) — capturar no Kz\n")
         if not novidades and rel:
             f.write("- (nada novo)\n")
+        if sem_cob:
+            f.write(f"- [i] {len(sem_cob)} sem regua DataJud (DJEN cobre a publicacao): "
+                    + ", ".join(i["cnj"] for i in sem_cob) + "\n")
         f.write("\n")
 
 
