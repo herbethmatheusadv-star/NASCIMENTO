@@ -203,3 +203,88 @@ Fluxo provado em 22/07/2026, sem login e sem captcha:
 
 Restam **1.020 chaves** mapeadas em `chaves.json` (10 contestações distintas,
 6 sentenças, petições iniciais, decisões, e 6 pedidos de instauração de IP).
+
+---
+
+# 9. A DEFESA DA PRÓPRIA FERREIRA — e o ponto cego dela
+
+> Fonte: `contestacao_...01._contestacao_J_ferreira_...pdf` (18 pgs, autos
+> 0810809-89.2024, JEC Parauapebas), baixada em 22/07/2026. Advogada
+> ISABELLE NONATO DE OLIVEIRA MOURA, Av. Liberdade 1358-C, Parauapebas.
+
+## 9.1 A tese central: "nós também fomos vítimas"
+
+A FERREIRA **não** defende a legalidade da venda. Ela se declara **vítima de
+estelionato** e empurra a responsabilidade para um esquema criminoso:
+
+> *"a primeira requerida foi vítima de um estelionato, conforme devidamente
+> comprovado nos autos do processo n.º 0801489-49.2023.8.14.0040, em trâmite
+> perante a 2ª Vara Criminal da Comarca de Parauapebas/PA"*
+
+E aponta, com base na **denúncia do Ministério Público** naquele feito:
+- **ERIK ALMEIDA LUZ** — apontado como líder; criou a empresa de fachada
+  **"BBC CONSÓRCIOS LTDA"**, com nome homônimo ao da idônea BBC Administradora
+  (CNPJ 36.770.683/0001-03), "para conferir credibilidade às operações
+  fraudulentas". Indiciado no **art. 171, §2º-A, do CP e art. 1º da Lei
+  9.613/98** (estelionato + lavagem).
+- **FERNANDA KELLY MONTEIRO MALCHER** — esposa de Erik, "secretária" da
+  empresa fraudulenta. Mesmos tipos penais.
+- **JESSICA DE SOUZA OLIVEIRA** — cunhada, sócia administradora da BBC
+  Consórcio de fachada. Art. 171, §2º-A, do CP.
+
+## 9.2 O restante do roteiro dela
+
+1. **Inclusão no polo passivo** de **LR REPRESENTAÇÕES EIRELI** e BBC CONSÓRCIO
+   LTDA — alegando que a LR figura como responsável pela intermediação e
+   "gestora das demais empresas envolvidas", cabendo à Ferreira só a venda.
+2. **Responsabilização SUBSIDIÁRIA**: que se atinja primeiro o patrimônio de
+   BBC Consórcio, Erik, Fernanda, Jéssica e LR.
+3. **Prova emprestada** do processo criminal 0801489-49.2023 (denúncia,
+   depoimentos, sentença).
+4. **"TODOS OS VALORES FORAM DEPOSITADOS DIRETAMENTE NA CONTA DA EMPRESA
+   ESTELIONATÁRIA"** — o coração da defesa.
+5. **Impugnação aos documentos juntados pelo autor.**
+6. Junta BO próprio e inquérito, com "depoimento da requerida e de demais
+   vítimas da fraude".
+
+## 9.3 ONDE ESSA DEFESA NÃO ALCANÇA O CASO DO EDSON (2026-0006)
+
+O item 4 é a viga da defesa — e **ela não sustenta o nosso caso**:
+
+| A defesa deles diz | O que o caso do Edson prova |
+|---|---|
+| o dinheiro foi para a conta da empresa estelionatária | o PIX de **R$ 14.483** e o de **R$ 2.000** foram para o **CNPJ 43.674.644/0001-78 — o da própria FERREIRA** (comprovante BB, F13; recibo do contrato, P01 p.4; e a **foto da placa de PIX da loja**, IMG-20251007-WA0042, que estampa "JFERREIRA REPRESENTAÇÕES — PIX: 43.674.644/0001-78") |
+| a fraude foi da "BBC Consórcios" de fachada | o consórcio do Edson é da **EMBRACON**, grupo 7261 cota 1768 (F11) — nada a ver com a BBC |
+| os fatos são de 2022, obra de terceiros já denunciados | a venda ao Edson é de **27/09/2025** e a última mensagem é de **18/03/2026** — três anos depois de a Ferreira dizer que descobriu o golpe e "adotou medidas" |
+| a Ferreira foi vítima | em 2025-2026 quem operou o portal da EMBRACON e ofertou os lances foi **preposta da própria Ferreira**, que admite em áudio "foi comigo que o senhor fechou" (F02, F15, F16) |
+
+> **Consequência para a inicial:** antecipar a tese "fomos vítimas do Erik" e
+> desarmá-la com o **destino do dinheiro** (CNPJ da própria ré), com a **data**
+> (2025/2026, não 2022) e com a **administradora** (Embracon, não BBC). Sem
+> isso, a defesa transfere o caso para um processo criminal alheio e ganha
+> tempo — ou a subsidiariedade.
+
+## 9.4 A FRENTE CRIMINAL QUE EXISTE (e o BO do Edson que foi arquivado)
+
+Há **denúncia do MP recebida** e processo criminal em curso na **2ª Vara
+Criminal de Parauapebas (0801489-49.2023.8.14.0040)** contra o esquema —
+estelionato + lavagem. **A sentença desse feito está baixada** em
+`ADVERSARIOS/ferreira_representacoes/docs/sentenca_..._0801489-49.2023...pdf`.
+
+Isso importa porque o BO do Edson foi classificado como "fato atípico" e
+**arquivado automaticamente** (F07). Existe caminho criminal aberto nesta
+praça para fatos da mesma família — o que reabre a decisão reservada **R4**
+(comunicar MP/Delegacia) com base concreta, e não por intuição.
+
+## 9.5 O acervo baixado (50 documentos)
+
+`ADVERSARIOS/ferreira_representacoes/docs/` — 11 contestações · 9 petições
+iniciais (uma delas **"Ação Anulatória de Negócio Jurídico c/c Tutela de
+Urgência"**, o modelo que ganha) · 3 pedidos de instauração de IP (um com 9,4 MB)
+· 2 sentenças · 3 recursos (um deles "recurso inominado — fraude consórcio —
+**procedência**") · 1 minuta de acordo assinado · 16 documentos societários
+(contrato social consolidado da Ferreira, contrato social da Lima Financeira,
+cartões CNPJ de todas as empresas) · 7 substabelecimentos (quem advoga por elas).
+
+As 43 chaves que falharam eram, quase todas, da categoria "decisão" — a chave
+publicada ali não abre documento. Não é bloqueio: é ruído da extração.
