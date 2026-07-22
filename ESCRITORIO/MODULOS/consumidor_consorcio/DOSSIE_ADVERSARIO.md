@@ -121,3 +121,85 @@ Da 1ª Vara Cível e Empresarial de Parauapebas, autos 0814910-72.2024:
 - [ ] Verificar se as 5 decisões de 2º grau já têm acórdão publicado
 - [ ] Rodar o mesmo mapa nas **administradoras** (BBC, ADEMICON) para saber se
       elas são condenadas solidariamente ou se safam
+
+---
+
+# 8. A DEFESA DAS ADMINISTRADORAS (contestação obtida em 22/07/2026)
+
+Baixada pelo `ConsultaDocumento` (chave `23051717484217000000088069886`, autos
+0801946-81.2023, JEC de Parauapebas) — **sem login e sem captcha**. 29 páginas.
+Arquivo em `ADVERSARIOS/ferreira_representacoes/docs/`. O nome do arquivo, dado
+pelos próprios advogados da BBC, é: `Contestacao - MAX PEREIRA DA SILVA - BBC -
+fraude consorcio.pdf`.
+
+## 8.1 A ADMINISTRADORA ACUSA A NOSSA RÉ DE FRAUDE, EM JUÍZO
+
+É o achado mais valioso do levantamento. Na contestação, a **BBC
+Administradora de Consórcios** (CNPJ 36.770.683/0001-03, Av. Paulista 726, São
+Paulo) sustenta, contra a FERREIRA REPRESENTAÇÕES:
+
+- capítulo III — *"esclarecimentos quanto à **utilização indevida do nome e
+  marca da ré**, e dos esforços da ré para cessar a **ação dolosa de
+  terceiros**. **Contrato fraudulento** que foi firmado em ambiente externo à
+  ré e sem sua participação/contribuição"*;
+- que o consumidor foi informado de que *"o contrato assinado havia sido
+  **fraudado pela empresa a Ré estava representando**, e que o contrato não
+  possuía validade"*;
+- que havia *"**processo ajuizado contra a empresa fraudulenta**"* — uma
+  **ação de obrigação de fazer c/c indenização na Vara Empresarial e de
+  Conflitos de Arbitragem da Comarca de São Paulo/SP**.
+
+> **Uso prático:** uma administradora de consórcio, em peça processual
+> assinada, chama a nossa ré de empresa fraudulenta e diz tê-la processado.
+> Isso é elemento de convicção poderoso contra a Ferreira — e é público.
+> **A ação da BBC em São Paulo precisa ser localizada** (rodar o
+> `mapear_adversario.py` sem filtro de tribunal, ou no TJSP).
+
+## 8.2 O ROTEIRO DE DEFESA DELAS (para antecipar na inicial)
+
+1. **Ausência de interesse em audiência de conciliação** (preliminar de abertura).
+2. **"Contrato firmado em ambiente externo à ré, sem sua participação"** — a
+   administradora se descola da corretora.
+3. **"Fraude grosseira e perceptível ao homem médio. Conduta descuidada do
+   autor"** — culpa exclusiva da vítima.
+4. **"Ré que não foi a destinatária do valor pago"** — o dinheiro foi para a
+   corretora, não para a administradora.
+5. **Inadimplemento contratual não gera dano moral** (subsidiário).
+6. Jurisprudência de apoio: acórdão sobre *"golpe, cota de consórcio, fraude de
+   terceiro"* em que a conversa **de WhatsApp** entre consumidor e vendedor foi
+   considerada **insuficiente** para imputar intermediação à ré, e a procedência
+   parcial foi **reformada**.
+
+## 8.3 COMO ISSO MUDA O CASO 2026-0006 (EDSON)
+
+O item 6 é um tiro na nossa principal prova: eles já venceram, alhures,
+argumentando que conversa de WhatsApp com o vendedor **não vincula a
+administradora**.
+
+**Mas o caso do Edson quebra a defesa nº 2 e nº 4 das administradoras:**
+- a vendedora **operou o portal da própria EMBRACON**, com senhas de
+  recuperação emitidas pela EMBRACON ao e-mail do consumidor, e **ofertou três
+  lances** que o sistema da EMBRACON aceitou e protocolou (F15, F16). Isso
+  **não é "ambiente externo à ré"** — é o ambiente da ré;
+- houve **pagamento de parcelas via boleto EMBRACON** (F14), então a
+  administradora **foi destinatária de valores**.
+
+> Conclusão operacional: contra a **corretora**, a prova é a venda enganosa.
+> Contra a **administradora**, o eixo é outro — falha de segurança do portal e
+> lances de terceiro aceitos pelo próprio sistema. São teses distintas e não
+> devem ser misturadas. Incluir ou não a EMBRACON segue sendo decisão
+> reservada (R3), agora com base concreta.
+
+## 8.4 A PORTA DE DOWNLOAD, DOCUMENTADA (funciona)
+
+Fluxo provado em 22/07/2026, sem login e sem captcha:
+1. abrir `https://pje.tjpa.jus.br/pje/Processo/ConsultaDocumento/listView.seam`;
+2. **digitar** a chave no campo (valor setado por script não dispara o
+   RichFaces — tem de ser digitação) e clicar em *Consultar*;
+3. a página responde *"A assinatura é válida para o documento"* e cria um `<a>`
+   com `idBin`, `numeroDocumento`, `idProcessoDocumento`, `nomeArqProcDocBin` e
+   o `cid` da conversa;
+4. baixar essa URL com o `JSESSIONID` da sessão — devolve `application/pdf`.
+
+Restam **1.020 chaves** mapeadas em `chaves.json` (10 contestações distintas,
+6 sentenças, petições iniciais, decisões, e 6 pedidos de instauração de IP).
