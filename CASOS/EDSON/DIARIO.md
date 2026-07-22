@@ -1,0 +1,42 @@
+# DIÁRIO — EDSON (caso 2026-0006)
+
+Ledger append-only (blueprint, seção 4). NUNCA edite ou apague uma entrada:
+correção é entrada NOVA referenciando a antiga. Formato e tipos de entrada:
+ESCRITORIO/MODELOS/DIARIO.formato.md
+
+---
+## #001 | 2026-07-22 16:48 | NOTA
+Caso criado pelo novo_caso.py. Id: 2026-0006. Area: consumidor. Modulo: a_definir. Complexidade: padrao. Fase: E1_intake.
+---
+## #002 | 2026-07-22 16:49 | DOC_RECEBIDO
+Recebido CONTRATO DE CONSORCIO [rota: prova] -> 00_originais/DOC. CONTRATO CONSÓRCIO FRAUDULENTO.pdf -> DOC-01_CONTRATO_DE_CONSORCIO.pdf.
+Cadeia de custodia: SHA-256 2a3bf8a61a4856b21bec8737f42e9b455ee32904783eef29530cce9924a0bbb6.
+Registrado como P01.
+---
+## #003 | 2026-07-22 16:49 | DOC_RECEBIDO
+Recebido BOLETIM DE OCORRENCIA [rota: prova] -> 00_originais/BOLETIM DE OCORRÊNCIA.pdf -> DOC-02_BOLETIM_DE_OCORRENCIA.pdf.
+Cadeia de custodia: SHA-256 4e708bc70a6e480ba718ff93af2de84290eee323e2a30c61a0d04e2f1edde556.
+Registrado como P02.
+---
+## #004 | 2026-07-22 16:49 | DOC_RECEBIDO
+Recebido PROCURACAO AD JUDICIA [rota: prova] -> 00_originais/PROCURAÇÃO - EDSON RIBEIRO DIAS.docx -> DOC-03_PROCURACAO_AD_JUDICIA.docx.
+Cadeia de custodia: SHA-256 ebf0d7e77cf5631a477e1a0efcfcf2f7218c9b2dfed0023bea7b064ca291eddb.
+Registrado como P03.
+---
+## #005 | 2026-07-22 16:49 | DOC_RECEBIDO
+Recebido CONTRATO DE HONORARIOS [rota: prova] -> 00_originais/CONTRATO DE HONORÁRIOS - EDSON RIBEIRO DIAS.docx -> DOC-04_CONTRATO_DE_HONORARIOS.docx.
+Cadeia de custodia: SHA-256 6bba5b3eac0d5f6f3249f31f4b69eea744ba53f02c120ce0d75991dc21d03aa0.
+Registrado como P04.
+---
+## #006 | 2026-07-22 16:49 | DOC_RECEBIDO
+Recebido CNH DIGITAL DO CLIENTE [rota: prova] -> 00_originais/CNH-e.pdf.pdf -> DOC-05_CNH_DIGITAL_DO_CLIENTE.pdf.
+Cadeia de custodia: SHA-256 68833705bf2906dadf3c540bdb16329661d69f1e8d08d8632e35f4c884a6b31f.
+Registrado como P05.
+---
+## #007 | 2026-07-22 16:49 | DOC_RECEBIDO
+Export de conversa do WhatsApp recebido: CONVERSA COM A VENDEDORA RAIANE SOUZA -> 00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/ (256 arquivos com SHA-256 no manifesto) -> DOC-06_CONVERSA_WHATSAPP_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA.md (cronologia unificada). Registrado como P06. Mensagens: 185; audios: 122 (122 degravados via sidecar, 0 pendentes). DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica.
+---
+## #008 | 2026-07-22 16:52 | GATE
+G1 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G1_2026-07-22.md
+Itens reprovados: Prazos identificados (PZ##) ou declaracoes.sem_prazos com referencia ao DIARIO; Complexidade classificada (D9) e modulo definido; Checklist do cliente gerado e enviado (declaracoes.checklist_cliente_enviado)
+---

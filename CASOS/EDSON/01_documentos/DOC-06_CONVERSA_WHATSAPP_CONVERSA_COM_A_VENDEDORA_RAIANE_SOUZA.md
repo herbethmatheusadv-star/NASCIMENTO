@@ -1,0 +1,585 @@
+# CRONOLOGIA UNIFICADA — CONVERSA DE WHATSAPP
+**CONVERSA COM A VENDEDORA RAIANE SOUZA** · montada em 2026-07-22 16:49 pela porta única
+
+> ⚖️ DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica.
+> Cronologia de TRABALHO gerada do export; os ORIGINAIS lacrados
+> (com hash) estão em `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/`.
+
+## Manifesto de custódia (SHA-256 na entrada)
+
+- `Conversa do WhatsApp com Raiane_Souza.txt` — `f7dbe86fdff885e5041d1e32292f406ba7517b27e2f47e6489d22763681c346e`
+- `DEGRAVACAO_CONVERSA_DO_WHATSAPP_COM_RAIANE_SOUZA.md` — `ebb424f260e3747b9628811163c3f451e41077f6a383f1464719a11b779aebcc`
+- `IMG-20250925-WA0146.jpg` — `860e9835c2910c00b1f1fadf88d19c6c081457469281a32f3e48507e9601e60a`
+- `IMG-20251007-WA0042.jpg` — `3bb58445caefff98d7707cd0f79c1b646fbda70bcb725c5c859725276b72975d`
+- `IMG-20251007-WA0050.jpg` — `1a2db58d7b0dfeffd5de9d2ce5614695dc9cdc36cc80277afaa4ad8cb9b2b059`
+- `IMG-20251010-WA0133.jpg` — `1d7aaac015b2b92cc1dba261bd8c75087379529b4b1a8feb3c8094b49eb30b9d`
+- `IMG-20251106-WA0112.jpg` — `e08cee007e504e964056a88fcf72b9338e3df25bf41a5c14ee45020a1a438834`
+- `IMG-20251124-WA0131.jpg` — `c083fd87d6f5ec2f7611d6835b5e2ba35090c9376bbeb2e00f08c779624a0996`
+- `IMG-20251124-WA0133.jpg` — `518309d30ea6f1b79dc9bf435675e1e1419752a51ddae4cde1a41693218577e3`
+- `IMG-20251208-WA0123.jpg` — `f524c197592d4e4e9f13b2c54f83390c098f99ba1ceb7fec153bfce09105657d`
+- `IMG-20251208-WA0138.jpg` — `485d86ba19880e633f0a61a61d3944f605cb7b6297d73679ecfa821059e8dc43`
+- `IMG-20251215-WA0013.jpg` — `5cbd9e0a52eba768c066d11eaf2b7154be9b101bbca42dbf3dac010b3ccef0fd`
+- `PTT-20250925-WA0147.opus` — `31ff01f0658b152ef810a9c654b53db92c26e1bee60900ab72000ebf22e124f5`
+- `PTT-20250925-WA0147.opus.txt` — `29e951b49c635d5d0813b6dc0f5058f6dfd71e76984d261d8731478eba710ee1`
+- `PTT-20250925-WA0148.opus` — `1b0628c0b079f7ecd0ba87527f770cf8747cac12c8c656645051bbcf20b7119f`
+- `PTT-20250925-WA0148.opus.txt` — `f6789e98792fb8e380aeeba9003a6fb8dcbad4f12433b2b21b70f5559f3a4a75`
+- `PTT-20250925-WA0149.opus` — `a68ab4b8f3de57a7c24c71deff509658dbde0d42c205ce15cc35e8132abc5435`
+- `PTT-20250925-WA0149.opus.txt` — `62d670ea7204c92ef427d12db1584962136c935b954990dc976726a9a2d47512`
+- `PTT-20250925-WA0151.opus` — `51172cc4c1f4ec516e5143895f8c65467ad554a0c2b5c81623c09cd2fab655d7`
+- `PTT-20250925-WA0151.opus.txt` — `49650c4eb80be2b0cf97324a7ea298779d4d4ffdbec118369f85aed0caec575f`
+- `PTT-20250926-WA0155.opus` — `3b2a02c0d805654a4ba8c3fce30415e42a8e68bf18fdb461917a0128243b7098`
+- `PTT-20250926-WA0155.opus.txt` — `da0c46fc1d45216b247b1c3f9d7732e53a95df91f8f22fef2b9d2a1b6653582f`
+- `PTT-20250926-WA0156.opus` — `a9fa368d9010dc699821fab00e1ebf2304cc3b9445a7446834827d38287d442a`
+- `PTT-20250926-WA0156.opus.txt` — `b87cffd316a5d3d15b8172d080f7e34a58f4b96903dd4753c24c1a70b25d37a3`
+- `PTT-20250927-WA0050.opus` — `c373bd58e6e55ce731b03bcbc6780ae6ce70ccac2d1d8f37c004f4f83fa9099e`
+- `PTT-20250927-WA0050.opus.txt` — `2b87b66028de3a4151fdb95e298bed518e0d3020719f77a489f044c31abaf558`
+- `PTT-20250927-WA0052.opus` — `21c518cda6cb948abf264d05573f8b8bad9dfd5ccdd649efb0ce3a29675a9a9c`
+- `PTT-20250927-WA0052.opus.txt` — `24a79de3e36cf0e55f905be3bf461e0fe5bbbb180acd05137de6706997cd6d81`
+- `PTT-20250927-WA0053.opus` — `f670c162b0ee23c3b7184f0ee4bc02fe7077b78ce54a01e6b937003b9c7e5ba0`
+- `PTT-20250927-WA0053.opus.txt` — `4d64b41069cd361135a9f5624ded01e165d01f3950a6c994434cec4eeb3f5a6f`
+- `PTT-20250929-WA0023.opus` — `d89e889b5911222530c9e4aa9812d5904a8e6228e95128b14b867479305943a1`
+- `PTT-20250929-WA0023.opus.txt` — `9c8f75f67bd61e4c834c00d3d147828a760436153f2e434a535438dd7f3c3511`
+- `PTT-20250929-WA0024.opus` — `b5e65bbda27b31dc7410b9643fad6772d6727fdfee60b7336334a9d60b675b41`
+- `PTT-20250929-WA0024.opus.txt` — `dc1b820a45ee4d95f8586f839de876520db6ba851de1a62226130025d0f19766`
+- `PTT-20250929-WA0028.opus` — `57140d5d943d426d41c0ec782396796919199e924e610e43436d5e4c7fade91a`
+- `PTT-20250929-WA0028.opus.txt` — `c75a91fd674dfff3cc3e4865dfab37881d309edd50fc9f910265df585fa104c0`
+- `PTT-20250930-WA0039.opus` — `61162f89915a6499efb992e2d75d1bbfe745ed0dbbdff4cd5ffbbbc027406df4`
+- `PTT-20250930-WA0039.opus.txt` — `811bdda67da3802b5308c729d183082de3c54300f432e5b0d737d9efb0bfd153`
+- `PTT-20250930-WA0121.opus` — `6e59400dee7283feb924dfc458b3cbac49c076a3ff2ab4c8b01f911704fc916c`
+- `PTT-20250930-WA0121.opus.txt` — `b15dba43e3913eef20ae7c696c350d5b953fa9a0b543975e9c1658e5a8cecf91`
+- `PTT-20250930-WA0135.opus` — `31b3b471102d766f010bde6c2ef6cf81a3166537fb7f1bcc1edeb45f2aa0b5fb`
+- `PTT-20250930-WA0135.opus.txt` — `dfcb5d0d01868f090457398d9878c7e9009e5afa59bd5ae03e285e86be19f5c0`
+- `PTT-20250930-WA0136.opus` — `5a46200baff42a6dffa84736684be366d130c0dd18584753b85d0dcc1ba2c63a`
+- `PTT-20250930-WA0136.opus.txt` — `4f91eaa396656d05286caba0a1e785918d2c196f003d510e835a92f17d3bf57c`
+- `PTT-20250930-WA0141.opus` — `87257e4dae143e34aa43dca7727ad2c87794d86829f3460665fc4afbe5371b58`
+- `PTT-20250930-WA0141.opus.txt` — `039187626c7e6496320b7597dab1ee4d8532b47a9903da2d3d8a0545da81764e`
+- `PTT-20250930-WA0152.opus` — `190cc6af1387ccb1f59bd9ccd8fd73dbc883850c85cc31dd9c3ccacc9300a3fa`
+- `PTT-20250930-WA0152.opus.txt` — `8f5846f4876a429ae4fcef6245a3457fdd34eff8ca755c2ea7a22baac2cf6593`
+- `PTT-20251001-WA0035.opus` — `92ed627f29081e382811b038262200f1086502b2358fc5497f811d2d06ad474c`
+- `PTT-20251001-WA0035.opus.txt` — `b2dd1bdf4eb69c98f55f7b1abdd371ef3ef81079e7512a7260a84a0f528eb0ef`
+- `PTT-20251001-WA0036.opus` — `7ce7e949e1805085cf9e98a17f275c2e5d8f85ad1f1dbc31747d0c7f6ea67dfb`
+- `PTT-20251001-WA0036.opus.txt` — `38a27b4e9f2af269eb97126349cfdcf3cbc397fce22a2e17aae8367983ba59ad`
+- `PTT-20251001-WA0037.opus` — `92ea9fa557d7801f3b248ee2d606c03e5fb3b6d28a9d5d8bdf110c841ec854d4`
+- `PTT-20251001-WA0037.opus.txt` — `19b72d98d09e99d91c36b721b5402d0c4ac8cafe328d8c16d23b2755cb1d8931`
+- `PTT-20251001-WA0038.opus` — `7c962b95ee30b41e0026ed3da1a388fa09c14795300fc9fb9ee371008e17a298`
+- `PTT-20251001-WA0038.opus.txt` — `46b8752b51bdab8a07bb3256833ccb5f1884ae8d0edee33b7fffd1c3f4ec762a`
+- `PTT-20251001-WA0039.opus` — `766453cae8b29a43b5a6eee6e2ffc2fccfdad26d06492b22280b99abca76a334`
+- `PTT-20251001-WA0039.opus.txt` — `851c917fea8d6bb97f5b19e133e553e50c4b82c4fc97679b789ff0c3d8778021`
+- `PTT-20251001-WA0052.opus` — `f2762a870e479aa951cd3dcd7a9d0b6524e3b6041db9e15f616e12aec3993103`
+- `PTT-20251001-WA0052.opus.txt` — `e6fbb59916b36e77b6c9b5a7bc738c74a563183ecbf935a16c99b798627b8a94`
+- `PTT-20251001-WA0074.opus` — `3b7b4bf7cd379ea940e6d6d8f26494bb042454eaefe04b00e28377851e9b4106`
+- `PTT-20251001-WA0074.opus.txt` — `0351f3d791c52f3834448385707e61934bfb1d0689df7d78c4879e81ad0dde97`
+- `PTT-20251003-WA0117.opus` — `b79800a71ddc7200b625f1fc572040329808ddbced6ab5484c8db9fc2ec57ab0`
+- `PTT-20251003-WA0117.opus.txt` — `5d62b592b71547f1abaa2f74edb7854f568025bb030d2d6421ba881a30134c68`
+- `PTT-20251003-WA0118.opus` — `0e492f218ee04aba065b92d8199c6f06e67031808001033d79f7cd02a569e7a1`
+- `PTT-20251003-WA0118.opus.txt` — `10c8cad059df2b3beadbd5b7e31e2902cf5a39852784e789c132c00b19bcbfa1`
+- `PTT-20251003-WA0121.opus` — `614f9a0ab87178c373653c0bdafc50590622a146f11da0c349fafef4a683d53a`
+- `PTT-20251003-WA0121.opus.txt` — `0aa6625f8e1cdc66a641a45a3ee81041b3d6ca225bb69c5779797765691f45d3`
+- `PTT-20251006-WA0049.opus` — `04010d262cb95c0511a22c895abb37ea50cc8838e8bbd290a71ed0d7e7c06e6c`
+- `PTT-20251006-WA0049.opus.txt` — `98534b4e8988eec23ef28d596a74abfde228ae902f85780f5436814780872fa6`
+- `PTT-20251006-WA0057.opus` — `827ce81daa060b913e6376d8f131cab22a15962f4eb90cb719d10486fd93c0ca`
+- `PTT-20251006-WA0057.opus.txt` — `2fa087adaab254c2937a2380007f4be24903b5157ec0e9961250f7d416d5fa4b`
+- `PTT-20251007-WA0039.opus` — `3c5938a322c2fa3ffd38d04a0a1aea35cb701e13d2ab38fa9ef1f8aeeaa71d2c`
+- `PTT-20251007-WA0039.opus.txt` — `a9a8eee2f5beed05db66f5543d89c2e682fb78ecf9c033982dfc266854d97f0e`
+- `PTT-20251007-WA0041.opus` — `3360eaf68a27bdad8b688c07648576e415c699d50ffbd9005b91dcd2d32940d0`
+- `PTT-20251007-WA0041.opus.txt` — `28e0d505b2675caceb1bac91ac1c1c9ba769020931ad587aeaf693db6d32c5ad`
+- `PTT-20251007-WA0089.opus` — `a67cd2a09f48bd883d2e114e3dce42da267ccf8378641905ca0b2722ae54c8cf`
+- `PTT-20251007-WA0089.opus.txt` — `5ded17f92812096d65bf41389d0aca52da542093e01b007d7fdb8761c9550f51`
+- `PTT-20251007-WA0091.opus` — `88c7aa0729ccd2a55a2a5662197f4866e18681d4a532afa5d37cd7e76c3b4963`
+- `PTT-20251007-WA0091.opus.txt` — `6ca4ce4e5318ba6bcb4f489d3d51493da850e8dec86c8d71f978b7bf31c53b76`
+- `PTT-20251007-WA0096.opus` — `a70f70f328e1c14767d782689021bed1a49bb6e4c7ae855757a239eab61eece6`
+- `PTT-20251007-WA0096.opus.txt` — `8de6e3c40e67966bbf66fbf20809a9411812ae8fd338a4f2bde9a1f9a529565d`
+- `PTT-20251007-WA0104.opus` — `4f9e31234bac48e06b8a9331055e3e179f90e827793bb95ea8445e1cb5b997e7`
+- `PTT-20251007-WA0104.opus.txt` — `91e3e8330a4cae74fe0f6d158c143bf7f15a817dbbe40b7712f60f2b5022b037`
+- `PTT-20251007-WA0105.opus` — `ab2e3d920a9b3f7f50acfcfd36d5351de66756c77970a0cbd110c7900d2f01e0`
+- `PTT-20251007-WA0105.opus.txt` — `bd38bdb4c0806939c471768445a7291adb9b3e18446a0e04b6e85b672ab0b51f`
+- `PTT-20251007-WA0106.opus` — `a6ddbd0bd97843c972e4a847d6db0fa761417222ef11aef2f0401cfbe7a232da`
+- `PTT-20251007-WA0106.opus.txt` — `701166f23c7e718575a8f3d4a9a4e2974a4da1e3f05278db975726b964bf3374`
+- `PTT-20251007-WA0107.opus` — `2a455fcf87d5dc0960463dad9b592c570b3d871f480d1cb599f87e6628292f8f`
+- `PTT-20251007-WA0107.opus.txt` — `b53da218cb4d163eb305ae370c4fe5238bc5a96dbd07a11d97cac11c4da206ef`
+- `PTT-20251007-WA0110.opus` — `93b9e36b6da5d2cf00337f1004616cc46a8b522e8a9b56a5eaee78636a5a3ceb`
+- `PTT-20251007-WA0110.opus.txt` — `0bf43b3363199ba4144c5425b74249452cd44e3bb809ffb340e90ddc938a2977`
+- `PTT-20251007-WA0111.opus` — `40322eb127edec48763037891014251f2e284fc40612093e2e824ba54cd2e405`
+- `PTT-20251007-WA0111.opus.txt` — `9d74956f7c622a645d2d5c708f64278180ec4459fab3b33ebdea4713eadb17a3`
+- `PTT-20251007-WA0126.opus` — `41ad1ed535f03c517bd21c1039a9a6fd1a9289b1a5ea0320926f2bd2492c1120`
+- `PTT-20251007-WA0126.opus.txt` — `a62e2bde448dff920265f17b0bd3a17b44e74632c0ed1677990d8e3b4db6e619`
+- `PTT-20251008-WA0052.opus` — `66846734dfebbe314b74c5e8ad75da699577198d685c5fc68b17b0ad0da94960`
+- `PTT-20251008-WA0052.opus.txt` — `e2336cf692c79ab61d076cd336721887e49c4d174cca52faf1b3121e6e43e3a9`
+- `PTT-20251008-WA0165.opus` — `a49dfbb40325d586438d5a39720560a68e1dca5e78a2b20b5ee7b8416f01b12a`
+- `PTT-20251008-WA0165.opus.txt` — `cb9ebb3bf716ac42224ba13bc5aacdea09489273fde95442ae862be28749916a`
+- `PTT-20251008-WA0166.opus` — `17a20652573b34baa5095806745e5953101439bb135a8593b541c4b0760ebb86`
+- `PTT-20251008-WA0166.opus.txt` — `2010f5e38ae4aad91d8c5f0adfca8f140004d8f88821be7013d41ded16cb293e`
+- `PTT-20251009-WA0129.opus` — `686b2673d0e0633744ac2b1b70fd8b3709e401fad668d0fc6670b6305e201797`
+- `PTT-20251009-WA0129.opus.txt` — `3b22f149334b3e5039b010980d9fc5b01acee7b6cced9549079f92c0ca94fafa`
+- `PTT-20251009-WA0130.opus` — `9b125f606a2914da98738bf56152048576d078b3c3b404aa34137fbbe7f24eda`
+- `PTT-20251009-WA0130.opus.txt` — `cbd96b5166bec0783f3901991e1865b39ad7b367beb12926620259f888a6a4bb`
+- `PTT-20251009-WA0131.opus` — `4b692017791cb8edad5cefaba908499fc4aa40f05d7eb4eae5343860a2d6037f`
+- `PTT-20251009-WA0131.opus.txt` — `5bfe55aafcb04904eede0a4a6a65b2652163fa9aa19e9a4e83101b5c451dba88`
+- `PTT-20251009-WA0137.opus` — `491ad11eeaf50721dcd372dd9dfc3e17489885d8e91fc366de0bdd0de3b4f44c`
+- `PTT-20251009-WA0137.opus.txt` — `428d540bfc7af08418fba904893944d074a2aa299dcda32feef0fe402b2d4fe0`
+- `PTT-20251009-WA0138.opus` — `6d5b9c877e43528ab035fe7aaa7f7c2e1c9aee6b09dc6f0eabf77db06750220b`
+- `PTT-20251009-WA0138.opus.txt` — `698ed260008e73bdcab483ae86bc9cbee7eaa8c73a425437e7f55f8b6ffcd176`
+- `PTT-20251009-WA0147.opus` — `e1c0b3bc6be49bfa5bfc092458210877f62b5b485408267e98648a36167c122d`
+- `PTT-20251009-WA0147.opus.txt` — `10de57d33a7256eaf6655f2bd5dbb6b4df3992a0c37fe362729007a50eba31f2`
+- `PTT-20251010-WA0078.opus` — `1b964c78bd47d4c836c1886f0378ba92f2575bfc72eea41fb9c5f02b37e9375f`
+- `PTT-20251010-WA0078.opus.txt` — `13482ca4fc94fdacd5970871973cd3cbd569f785ff9262be173b046a72806d63`
+- `PTT-20251010-WA0082.opus` — `d88c5434059ebef6eabacb023823683be61381d76a974b71862f5900dc1d56af`
+- `PTT-20251010-WA0082.opus.txt` — `fe1b2902009b5b821cbd7ccacc7bd7303e2927e29b7cecf5c688c546dbbbac3d`
+- `PTT-20251010-WA0083.opus` — `7fee0713512ebe0cf0d15b6ebee1983f561461b225e6537e01ad5daea97c9666`
+- `PTT-20251010-WA0083.opus.txt` — `5e2fa639b345e60c99afb462387dbf8f98262b704a3a57b47ff18e4b2994d7c6`
+- `PTT-20251010-WA0088.opus` — `713759761c94e8ccfeb0adb9cbf0748d0a625dbf2f9985f857346e40e24b5030`
+- `PTT-20251010-WA0088.opus.txt` — `f1102daf2588aa29f4aa1f34abf481b41d3eb3fe0490aeb99c38bd02f8f7416d`
+- `PTT-20251010-WA0090.opus` — `ebca02e811b2204899c5f5d345b559d5e95cfcb1309f36f0d629141bc5deead0`
+- `PTT-20251010-WA0090.opus.txt` — `2d14f62dbc70410ddd8088d1377aabbaa5c0b5446af266535d837dff540451f4`
+- `PTT-20251010-WA0092.opus` — `d57b15754a22826473fe1e761249b7cabe9ac80be229ae86803b7ae2dda30e96`
+- `PTT-20251010-WA0092.opus.txt` — `a9105842f7e14ac15f0da04f0ecb92a491b7684fcca0d4117def76b25634af3e`
+- `PTT-20251010-WA0127.opus` — `12d281842f5b4723e6ff81872e89ad2132710d320614267f46403b8824711bd1`
+- `PTT-20251010-WA0127.opus.txt` — `3613a53d243fd90527ec3e5e27aa1f53bdd9d11d88e220fca8622756fe82f446`
+- `PTT-20251010-WA0130.opus` — `80f10330512f21cbcd8ce08ca11e9385b632801012168e6a3fc0b521c0c15597`
+- `PTT-20251010-WA0130.opus.txt` — `0f06c1686f4eed16ee6cd6211e198702abe2efd15a0b7c2509ffa5d0303462c2`
+- `PTT-20251010-WA0134.opus` — `3f10ad7ed4dac7ef26c7a669f882428f2424c9a74b1ed6e8670c7bd55f8060a2`
+- `PTT-20251010-WA0134.opus.txt` — `3ecd9cf9c24bdc2ab01f7c82d06ac325ffc6fcc10f621acae71ba4c901ae040f`
+- `PTT-20251010-WA0140.opus` — `05feea14beb80b2134ce3440fdeac7f735679d3bd35bf37ec18dd8dd5e0dcb6a`
+- `PTT-20251010-WA0140.opus.txt` — `87e6931e7e23f7e4efc448b63b3c21550ad008b0d8071bc64a3e094ed655cba2`
+- `PTT-20251016-WA0189.opus` — `1a0c1c1d81e090657c6d5072e70934f718027b48b8d4c141066ca779c1754b8b`
+- `PTT-20251016-WA0189.opus.txt` — `f26c653dd34d2fa9d48e22cb5e4809235c13da4c4dfcabfde4c236a484d4c5b5`
+- `PTT-20251030-WA0043.opus` — `ce8409d1e5d6995f3ab0e14e5db4e0ef0fdd02121cd72165e290346caf0253f1`
+- `PTT-20251030-WA0043.opus.txt` — `a52bc6704ef3be0698448765ba5be8b52ccc854d20abe2677d88ec163a7db9c8`
+- `PTT-20251030-WA0044.opus` — `7dcb62d6b9a5ac39d75d97e5ef233fa1abeec8ef0ea9c24e65acc7fd3c385db0`
+- `PTT-20251030-WA0044.opus.txt` — `30f77386a0249dfc9117a7e191de59577017ce78c7bed23f8741e3e41ccc1789`
+- `PTT-20251030-WA0049.opus` — `c0173a0df4a27e629812826757dfaea9e59ca0ff3901268b57f963cb4529d02a`
+- `PTT-20251030-WA0049.opus.txt` — `8ee454ddf18f9855e8030b77a5295a0143790c64fed7c81cf449d380da3950f9`
+- `PTT-20251103-WA0050.opus` — `0c7194694f31736f2675975557d475df360f38bb2683b52dc614d7227cb586b8`
+- `PTT-20251103-WA0050.opus.txt` — `be6ea58539187ed1e92496cb2bb9bfb0786de6ad9a541ff9358e74f7debdb314`
+- `PTT-20251103-WA0051.opus` — `30431ece5b31661170663a2c0d574fe511168e6c65f5102217a31d4fc9929b6d`
+- `PTT-20251103-WA0051.opus.txt` — `c5bfe4afd6ecf5a7a89aebfbf2cd9132c9d63721ac3fb9c154dcefea704a74eb`
+- `PTT-20251103-WA0060.opus` — `604001dfdf386240e35fc527adbce9bacdb9fb8550acb46f38fc4c372330af2f`
+- `PTT-20251103-WA0060.opus.txt` — `30fb77136ca3c0132c44aee56d8447ebdced6a86fd382b742f66dbd6b2d16c76`
+- `PTT-20251103-WA0061.opus` — `3a0f6b2ccda0d38b82e2ef6c0876531829b3e6ac55a4c2178b579d3581c564c2`
+- `PTT-20251103-WA0061.opus.txt` — `5c0da1d1cda6761c9df3578cbea20d2fbcb242677cecadd66048b8af6f5f6a9a`
+- `PTT-20251103-WA0064.opus` — `0acdd6ee506392779598974f77f86e5682af4059cd9c6a588f8990ffc92e8e32`
+- `PTT-20251103-WA0064.opus.txt` — `fa1410e4650103a238cc0887630d0bfcfb35c79a481f47d7267bf7a4d4fcece5`
+- `PTT-20251106-WA0047.opus` — `817dc037fb65e21696de919c4249e14bdd4b76d6e41a843fcf47e929dc209f53`
+- `PTT-20251106-WA0047.opus.txt` — `c0218dcc5e4ae8f5dd144496e2d5713dd7e957437d67674af60e89b11e7e3aaa`
+- `PTT-20251106-WA0048.opus` — `05ad75cbe46feea43bc4bdc32452fe69fb81e302abe21146f26fff24a9b301b1`
+- `PTT-20251106-WA0048.opus.txt` — `78532456074549a7071993afdd4753f02ab1c82c23fa0c3f69794e15656a3518`
+- `PTT-20251106-WA0051.opus` — `882cd75ee97dbb0f82e1dbefd296090acb11843d7da6abcb3ab121a13282e63a`
+- `PTT-20251106-WA0051.opus.txt` — `c8f9f3acb5e1c9a53d3df1ba75a0130f7c2e9884f30c61af7456fb970d5bd653`
+- `PTT-20251106-WA0063.opus` — `06f42826e204e5269292490a4d0682ff3f34c4de9e308ae6baf5c12b841788cd`
+- `PTT-20251106-WA0063.opus.txt` — `02f051126a12bf8e94e60f5b2eb8a9cc97dbfc14af7946b8834466ad352eca0f`
+- `PTT-20251106-WA0064.opus` — `cbcf955a5d18ae366a93b96c901ea7bd062d1e13f251e744a3ae6eee1fab88ed`
+- `PTT-20251106-WA0064.opus.txt` — `158798e3a49de43910fdbecbcb9a51541d4678c884d5d351d76e70b10cda92d9`
+- `PTT-20251106-WA0065.opus` — `7be9524b9e7ac537e60a7ee69e15b12d04b59b1bc0246d2ff6e30a9bddc42c19`
+- `PTT-20251106-WA0065.opus.txt` — `5cb49603f571bd0435735a53435f3be2ea14b403e2b8a5da2d29469c4cc443c2`
+- `PTT-20251106-WA0099.opus` — `cadfce95adb3fd59fddce9c96509ea7f3912ec902f0d9a583812ab2d61106f22`
+- `PTT-20251106-WA0099.opus.txt` — `3f505cd88b417c782d0c6c7861a9dc95605b999cbeabba15a81d53c010179bad`
+- `PTT-20251106-WA0107.opus` — `37af8e55f239bba2886e5fb1654c738e61a2c1605a47d26d14dfcce3e10ea090`
+- `PTT-20251106-WA0107.opus.txt` — `55d32d2bf0d34b5ae7530b1cde588ffd74a23597c6056365ab47d43d16490167`
+- `PTT-20251106-WA0108.opus` — `b571089608f9e531f661d4515977a8b87e9bb59fc9b03a9cde7b5ebfd0da317f`
+- `PTT-20251106-WA0108.opus.txt` — `fc1b75cc2dc5f4bb0c7f159297b864a001b0550f93c478382713ddf16769fd53`
+- `PTT-20251106-WA0110.opus` — `7a4447e035503ac1222a66b5266ef54363606384d1039816b65d8bd043e96243`
+- `PTT-20251106-WA0110.opus.txt` — `484634e4338f0fca781c6630145950713f1d69ae083ff6f32b7a25109a246612`
+- `PTT-20251106-WA0111.opus` — `5b7e0795a44dac7ec18e549a4c53f1a06142cd8f2746b1a36cae01b26935fd02`
+- `PTT-20251106-WA0111.opus.txt` — `5705f6eb5208da5cce0b0743a447fb537e0e4dbd54ccd9d8ddfa4189dbe1175b`
+- `PTT-20251106-WA0113.opus` — `fbed1b8fc652d3479a007ba46fbae286f97a3d54100a5dd60383540eb15f8739`
+- `PTT-20251106-WA0113.opus.txt` — `78d4dcd35e0fa4904ecd6774ce4d19dc77851e429f26cc7591ebb50c773f4742`
+- `PTT-20251124-WA0105.opus` — `7a48b1c0e975c98a9382769599f00d692102acf61ae846d62507ff308e290588`
+- `PTT-20251124-WA0105.opus.txt` — `a13af67b922a0802b96543feb473116eb9ead010dfe60b1978ca4ef8ac33fa72`
+- `PTT-20251124-WA0120.opus` — `283fc93e83ac8cc8dbd2428279b452b2d958d124cda2f6f5dba29f05467b892e`
+- `PTT-20251124-WA0120.opus.txt` — `5e9106095962cecb797e56012a6f83586d87471888689c761791bf09a0f154a4`
+- `PTT-20251124-WA0121.opus` — `883d7de281f313d6f8065ae73e13233d52799c54412526756084298404b42898`
+- `PTT-20251124-WA0121.opus.txt` — `4755775127213b5cac2f82ad4ef809fff690c0992ea13d7c48071c518f62a31e`
+- `PTT-20251124-WA0122.opus` — `258755b8047a08695f6703a1d3600b082287d4dfb5f0aa890a4874661ebea5f0`
+- `PTT-20251124-WA0122.opus.txt` — `d760217e1b804cee075d889278bc0d991e2456206ebdef6fef8a251b5bb8ab10`
+- `PTT-20251124-WA0123.opus` — `9b153d4a182226eb56e385ded9beab1de61ba2cc2b2221b4d782e64ac92b8fb1`
+- `PTT-20251124-WA0123.opus.txt` — `9ee054fd424e9c5513bc50901c5843e77c357fa6cf5c4935cc8a56692029708c`
+- `PTT-20251124-WA0124.opus` — `84088227fc454975271affaec5651a40d1c7a51eee2843c3f0a39f9841481634`
+- `PTT-20251124-WA0124.opus.txt` — `4ae81fad6d8c0c0702f9ce217eb0204726f273473812fb2003de67739565f905`
+- `PTT-20251124-WA0125.opus` — `61ecce63840d2988d5c0f23621b0835915ddee49620d5bde982066ea26f4ff59`
+- `PTT-20251124-WA0125.opus.txt` — `4c5b56dadcdfca5cee4dba8249c8c722d9f9ee53c837ab589ce5aaf1a2ec7440`
+- `PTT-20251124-WA0126.opus` — `aa088754dd38e3e3b2295b1df3fda6f37504c1db2f808f2e0f8c7d0a4b23d751`
+- `PTT-20251124-WA0126.opus.txt` — `fc3eb9461fb1fef85a2a1027a30bcaae1c86b9f98c170a2c8acd20ed68303fe1`
+- `PTT-20251124-WA0128.opus` — `8fbc4d20e2d7c255985a7fe13253ad8f5779a18bd5343db803c03a1553c79245`
+- `PTT-20251124-WA0128.opus.txt` — `56273897b8417f8f17e64c0d274cd49c2a9f4860343c0ef292c5123475334aad`
+- `PTT-20251124-WA0129.opus` — `61d233e3102738c5d7cc256d5aacde0b0270a19be0a5d77c5ff5a3c915403175`
+- `PTT-20251124-WA0129.opus.txt` — `7d19f6ad71b5fef8b5ae54a6f6256d0ae24bc91e6d64f8c2682feb1b5c967aa9`
+- `PTT-20251124-WA0130.opus` — `c70376ceea0c67cef2cc72fea7f044684241c1d11fea73fb488aa945c1e6f0cb`
+- `PTT-20251124-WA0130.opus.txt` — `8de4634b31d3e6824ba645d056483e6b5a150d8888bebe8c311077e6e31d4236`
+- `PTT-20251124-WA0132.opus` — `86165f69ef314faa37f487f57114fd9983fc7152c3ccb8a08b707aa58baf2829`
+- `PTT-20251124-WA0132.opus.txt` — `10e01114c82c00d6ba0bcd190ff40263359b5e630a94110c37e722fc221fbae9`
+- `PTT-20251124-WA0134.opus` — `1efc8f7a566313be6fc217b573ebe79b88a136b88e7eb7c7a0fb03737154f734`
+- `PTT-20251124-WA0134.opus.txt` — `e285f0091e2206c5fd4bb79cd6bfebe80eeb2f883882ebdd7a1209b0322f131d`
+- `PTT-20251208-WA0034.opus` — `f73ab5ba5a1a5180ed84f6515f670bfab1aae13e5018e3e8ea194dcb3256fbd4`
+- `PTT-20251208-WA0034.opus.txt` — `2a17de7828b6ab43c25171c5bd0dafebab3c18bf21192a4aee1d961ca0a08994`
+- `PTT-20251208-WA0088.opus` — `950ce6ff10127a7db819e5bccadf59dd7ccedfd19cfc8af387eb523f605aaeb4`
+- `PTT-20251208-WA0088.opus.txt` — `e31f2ce602ea441ee5b07853d201b791c3ce645587e2f26be273bc6ba0d17209`
+- `PTT-20251208-WA0112.opus` — `148a371a8e2f6c212da2ef17409a0db2ba4e2a335b63c057248b1ef671f9e977`
+- `PTT-20251208-WA0112.opus.txt` — `27d8eab13d13e7d5affab03de6bc884efe526caae756e67e2893246d43f24d42`
+- `PTT-20251208-WA0115.opus` — `c4aa3b70e845dfd253f4f5ef348050fd764eb83e1e911aa68cad25e5b9c10e3b`
+- `PTT-20251208-WA0115.opus.txt` — `dc5d7f82fc506d3c48b535018642e2b72d8839fdc3069bcb044f4a9c57bba42e`
+- `PTT-20251208-WA0120.opus` — `ddfdfd20470c644a59af43e4c585b83c1644036af2f15a89f70ad730ed831840`
+- `PTT-20251208-WA0120.opus.txt` — `ad9ff8d0818f8a384d4f2eb5599b9da3fdcd0e230bfd3111ea7bd631a27148d5`
+- `PTT-20251208-WA0126.opus` — `03591afcea6ea56d78d544cc1405b80089f64b2d35cf819b79e531d0655a4c50`
+- `PTT-20251208-WA0126.opus.txt` — `6e87270404123bf44a9139fe20e0ec4b97d90fbf9f23638c437bb5472b3ca803`
+- `PTT-20251222-WA0038.opus` — `8286ff35508b708ddbcf0b21733e2e07a8f8d6583b37ec0f802e12c35f6aef86`
+- `PTT-20251222-WA0038.opus.txt` — `015828b5ebb6ea542498c92b4b93cdfe9d4bf347c34b2c7d637ab4dee6e0258e`
+- `PTT-20251222-WA0040.opus` — `9aa3b60964d5fce68025dde9844940c9527263f22551fe235e83bf2f19f5ea38`
+- `PTT-20251222-WA0040.opus.txt` — `34a609de201f40d7bc728f5e048b6b29f2f0968ce8e73c06a526c08071982008`
+- `PTT-20251222-WA0041.opus` — `28689451c30093aadcca7594af0e873699ced4745e8e585c6664691913de408b`
+- `PTT-20251222-WA0041.opus.txt` — `df17d825dcba6affbfd6b3695466d4392351083721cb40cd4cc72bd4b61c6af8`
+- `PTT-20260304-WA0108.opus` — `f5e9d7c48b84e584d71e963a830c9b3666700e5510d1c7f5354ebc4d7dcb2d7b`
+- `PTT-20260304-WA0108.opus.txt` — `2e7234facefa8e1dac5796481be0aa8fc470710727a814b11bafbc5d52243f54`
+- `PTT-20260304-WA0111.opus` — `6437e93e0689e5ef6780b77240434555d6af8d9a31f2699370458b234259d012`
+- `PTT-20260304-WA0111.opus.txt` — `a6700e0dca3a518f747838b6e537dd85fcbcff6e67125cdf99d1cf03959d8192`
+- `PTT-20260304-WA0172.opus` — `7f12326848cfcead725b9bce23e6facbd35a7217dfe5d133c0e965418e089010`
+- `PTT-20260304-WA0172.opus.txt` — `b0177317ae4b82da18c892e46dd5f6e1bccbbda329ba108a7c3cc1466f228629`
+- `PTT-20260304-WA0268.opus` — `cfca8d2fc6f59bc6f708e462e97a9c36575c88a3468a68b1f617317f4bbd9568`
+- `PTT-20260304-WA0268.opus.txt` — `920b0c0866e84d312e07f33a3300d8f6697027958a4dc5b76a30ea6e0b563fe4`
+- `PTT-20260304-WA0302.opus` — `8360cf6ce03c645150d4f0e3ceca67680a5facfbb6619d0074c31930c53aca44`
+- `PTT-20260304-WA0302.opus.txt` — `3425eae56c593f44d17ff5f2340f9a202ea3e7afcd530f9e8c20567abbf10c42`
+- `PTT-20260304-WA0304.opus` — `502e10441204c70c6574cc14e032f4548e092fc047d53dec33c792d2beb9b44d`
+- `PTT-20260304-WA0304.opus.txt` — `a40f1af5985d0b3079db5f4caa01ba3743ae47c3bb1192ec84526e19dcaabf32`
+- `PTT-20260304-WA0305.opus` — `eb320947f789b45fb35552942ed1efc17736253756afe053027e458eb90fa768`
+- `PTT-20260304-WA0305.opus.txt` — `95e39f6ea01223ad411a71255b778081f3105d9e68a5b571bc6236d509d78b8f`
+- `PTT-20260304-WA0313.opus` — `d5588ba8047bc56293bbbc7f03b56ec7dfbae8c344e1de378431b4736946768a`
+- `PTT-20260304-WA0313.opus.txt` — `633159ce09ea0fbeaf443939b356306ba52bbd6b3c97ed924b4a669b2e4e9ac6`
+- `PTT-20260304-WA0314.opus` — `83950008764a08adf17dfde858258371a40efce16a6d6bfd1fd422a2347f8463`
+- `PTT-20260304-WA0314.opus.txt` — `bbaeb9065032960a9f52a1225e3a959c3d58574cabbd2f370c29548aaa2485a0`
+- `PTT-20260304-WA0323.opus` — `e9e01842672fa80915130d4f60c69a7a098b30adcd657d696e95b11429d88082`
+- `PTT-20260304-WA0323.opus.txt` — `816a03fcc09c5fc04350a5a0469be8fde2d5d2905addd4019e11bae91b88920b`
+- `PTT-20260304-WA0324.opus` — `6441be4b74197287d9fa27f8dd5251793296d3719e8e8f834318e910e29a9f22`
+- `PTT-20260304-WA0324.opus.txt` — `8177a81ab30b98a224f7b3519445a2b7bb8a49560477ca7df4a70449e77cfa55`
+- `PTT-20260304-WA0362.opus` — `549a624249b69917abbaed8e8854e0f732e51a82794cfe814adfec3f780c0dad`
+- `PTT-20260304-WA0362.opus.txt` — `42015619646900cc6c5c57315b748ded9698c38db12406d02110d06532a665b8`
+- `PTT-20260304-WA0364.opus` — `0707685d159374dc11d9952cedc702b5486adec528985737ff378fc2be90acbf`
+- `PTT-20260304-WA0364.opus.txt` — `00e3948b1815577a847d7abcefcd0d83de89bc72e95a9b4787f3d2a37bc72c17`
+- `PTT-20260318-WA0144.opus` — `0f74a564649ec0cc6f31571e540b8fb4656f3184d40c64adc13336b27d5d0803`
+- `PTT-20260318-WA0144.opus.txt` — `04d10ba830281ee6accd18bd4e57085217d27efb1e9a3c4dba4b4b19a023f2ed`
+- `PTT-20260318-WA0151.opus` — `672b819c47518cbf5b179e74f6b94a3f06285192b46abfdba4ac3054947f58a6`
+- `PTT-20260318-WA0151.opus.txt` — `3bc0f8314118bd1efc68549a44ec7f5e876556bb75fdf3936b70d34d78c5ce16`
+- `PTT-20260318-WA0168.opus` — `b2d1a84e2d9d27266f3f30c2a65e7e7f74a7a0e3f94c6503063038f5714f8153`
+- `PTT-20260318-WA0168.opus.txt` — `6c22fa8a167539abee021d578272fb2396ffb9fe996e2cf29fead4b93aa1815d`
+- `PTT-20260318-WA0169.opus` — `eb83187bc37c534f41c063a29258f27d71e39b25e65c4e6b026511657b15da1a`
+- `PTT-20260318-WA0169.opus.txt` — `b18ae28af6efef3634b4725c736962c8349a805caf97901fc9b23588ae87db74`
+- `PTT-20260318-WA0186.opus` — `81f7babedd03a6b243d59edd138ee410a6955d8fe763436703fa72c5102b3e03`
+- `PTT-20260318-WA0186.opus.txt` — `038b55576b68a5bd8d32bcc826904c4610e4638a6a9fec63ee147a6b16f862f9`
+
+## Cronologia
+
+- **25/09/2025 16:05 — Raiane_Souza:** Olá 👋🏻
+- **25/09/2025 16:06 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20250925-WA0146.jpg`]
+- **25/09/2025 16:06 — Deus:** Ok
+- **25/09/2025 16:06 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250925-WA0147.opus`]: “Olá meu amigo Edson, tudo bem? Estava falando com o senhor aí no messaging a respeito desse imóvel. Seu Edson, eu estava falando com o senhor pelo Face de um amigo meu, tá bom? Porém, ele se desligou da empresa, mas eu continuo com o Face dele para fazer divulgação dos imóveis, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **25/09/2025 16:06 — Raiane_Souza:** Me chamo Rayane
+- **25/09/2025 16:07 — Deus:** Ta bom
+- **25/09/2025 16:07 — Raiane_Souza:** 
+- **25/09/2025 16:08 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250925-WA0148.opus`]: “Deixa eu dar o quadro, seu Edson.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **25/09/2025 16:08 — Raiane_Souza:** Gostaria de falar um pouco com senhor pode ser?
+- **25/09/2025 16:09 — Deus:** Sim
+- **25/09/2025 16:09 — Raiane_Souza:** 
+- **25/09/2025 16:12 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250925-WA0149.opus`]: “Seu Edson, vou fazer o seguinte, no sábado eu mando um bom dia pro senhor, mais ou menos umas 8 horas da manhã, tá bom? Aí eu passo logo o endereço e a localização pro senhor, fica melhor, né?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **25/09/2025 16:13 — Deus:** Ta bom
+- **25/09/2025 16:23 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250925-WA0151.opus`]: “Combinado então, seu Edson.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **26/09/2025 17:49 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250926-WA0155.opus`]: “Opa, seu Edson, boa tarde, tudo bem? Eu fiquei de mandar um bom dia amanhã pro senhor e mandar o endereço certinho pro senhor. Tá de pé o nosso agendamento pra amanhã, seu Edson? Posso já mandar o endereço pro senhor, já deixar tudo certinho, unhado pra amanhã?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **26/09/2025 17:52 — Deus:** Boa tarde
+- **26/09/2025 17:52 — Deus:** Ta sim
+- **26/09/2025 17:54 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250926-WA0156.opus`]: “combinado então meu amigo, vou lhe passar o endereço, tá bom? nosso endereço fica aqui no bairro Bira Rio próxima rodoviária, tá bom? a gente fica em cima do outlet do 20 de esquina, tá bom? entrada pela lateral só subir a escada no final do corredor e apertar a campainha, tá bom? mas vamos passar aqui a localização, é melhor” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **26/09/2025 17:54 — Raiane_Souza:** Rua Rio Grande, N 156 bairro beira Rio, em cima do outlet do 20 (Chamar por especialista *RAIANE SOUZA* na recepção)
+- **26/09/2025 17:54 — Raiane_Souza:** localização: https://maps.google.com/?q=-6.078082084655762,-49.88423156738281
+- **26/09/2025 18:06 — Deus:** Ok
+- **27/09/2025 09:06 — Raiane_Souza:** Bom dia passando para lembrá-lo que temos um horário agendado às 09 horas 🤝
+- **27/09/2025 09:21 — Deus:** Ok
+- **27/09/2025 09:21 — Deus:** Já saindo de casa
+- **27/09/2025 09:23 — Raiane_Souza:** Ok🤝
+- **27/09/2025 10:00 — Deus:** Bom dia
+- **27/09/2025 10:02 — Deus:** 
+- **27/09/2025 11:33 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250927-WA0050.opus`]: “Oi, sou o Edson. Perdão, estava para a igreja. Aí, agora que eu estou chegando. Mas fale, o senhor conseguiu ir para o escritório?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **27/09/2025 11:41 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250927-WA0052.opus`]: “Seu Edson, dia de sábado eu mando o cliente para o escritório, só que quem atende é o meu supervisor, tá bom? O senhor foi lá, o senhor não me encontrou, mas o meu supervisor atendeu o senhor, não foi?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **27/09/2025 11:45 — Deus:** Ta bom
+- **27/09/2025 11:46 — Deus:** Atendeu sim
+- **27/09/2025 11:46 — Deus:** Conseguir
+- **27/09/2025 11:48 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250927-WA0053.opus`]: “Certo, seu Edson, o que o senhor achou do atendimento? O senhor gostou? O senhor gostou da proposta? O que o senhor diz?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **27/09/2025 12:39 — Deus:** Foi bom o atendimento
+- **27/09/2025 12:40 — Deus:** Proposta boa
+- **27/09/2025 12:46 — Raiane_Souza:** Que bom que o senhor gostou, quando o senhor vai poder retornar com a gente?
+- **27/09/2025 12:47 — Deus:** Na semana que vem
+- **27/09/2025 12:47 — Raiane_Souza:** Certo, entro em contato com o senhor tá ok?
+- **27/09/2025 14:56 — Deus:** Ok
+- **29/09/2025 08:26 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250929-WA0023.opus`]: “Olá, bom dia. Tudo bem, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **29/09/2025 08:26 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250929-WA0024.opus`]: “Eu vim aqui no escritório que o senhor deixou um retorno para eu tornar amanhã às 3 horas, não foi isso?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **29/09/2025 08:46 — Deus:** Bom dia tudo bem
+- **29/09/2025 08:46 — Deus:** Sim
+- **29/09/2025 08:48 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250929-WA0028.opus`]: “Pois tá bom, seu Edson. Então eu posso agendar aqui amanhã para as 3 horas da tarde? Pode ser? Posso confirmar esse horário com o senhor?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **29/09/2025 08:49 — Deus:** Sim
+- **29/09/2025 08:49 — Raiane_Souza:** Combinado 🤝
+- **30/09/2025 09:02 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0039.opus`]: “Bom dia, seu Edson, tudo bem? Mandando um bom dia pro senhor, hein? Lembrar o senhor que nós temos um horário agendado hoje às 3 horas, tá bom? Aguardo o senhor às 3 horas, tá bom, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 09:14 — Deus:** Ok
+- **30/09/2025 09:15 — Raiane_Souza:** Combinado 🤝
+- **30/09/2025 14:36 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0135.opus`]: “Seu S, boa tarde. Eu vou mandar a lista de documentação para o senhor, tá bom? O que o senhor tiver, o senhor traz. O que o senhor não tiver, não tem problema, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 14:36 — Raiane_Souza:** LISTA DA DOCUMENTAÇÃO Identidade Comprovante de residência Comprovante de renda Carteira de trabalho digital E-mail OBS:(caso for casado) Certidão de casamento Identidade do cônjuge
+- **30/09/2025 14:36 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0121.opus`]: “Já estou por aqui pelo escritório, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 15:08 — Raiane_Souza:** ?
+- **30/09/2025 15:33 — Raiane_Souza:** 
+- **30/09/2025 15:48 — Deus:** Boa tarde tive um imprevisto e não consegui comparecer aí vamos remarcar meu comparecimento ai
+- **30/09/2025 15:49 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0136.opus`]: “Boa tarde, seu medicina. Tá bom, não tem problema não. E qual dia o senhor vai estar disponível? Posso remarcar pra amanhã?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 15:51 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0141.opus`]: “Seu Edson, passagem da manhã por hora da manhã, viu? Fica bom esse horário ou pela parte da tarde?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 16:23 — Deus:** Vou verificar aqui
+- **30/09/2025 16:25 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20250930-WA0152.opus`]: “Tá bom, seu Edson, então eu fico no aguardo do senhor, tá? O senhor tem um horário bom ainda, me tá agendando aqui pro senhor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/09/2025 19:33 — Deus:** Ta
+- **01/10/2025 08:27 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0035.opus`]: “Bom dia, deixa eu te falar. É, esse do dois dias não vai dar pra gente ter um encontro aí no escritório, tá? Vamos deixar pra segunda-feira, que segunda-feira eu vou ter três dias de folga na semana. Aí nós resolvemos tudo de nada, da segunda pra frente, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 08:28 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0036.opus`]: “E Raiane, eu combinei com o menino aí, não sei se passou pra frente, e após o pagamento nós teríamos 60 dias pra comprar uma casa. E se confere certinho, como é que vai ser isso aí?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 08:28 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0037.opus`]: “que não pode passar na provasão. [degravação de baixa confiança — conferir no áudio]” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 08:32 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0038.opus`]: “Certo, meu amigo, bom dia, ok, ok. Segunda-feira que horas pra você fica bom? Você vai vir pela parte da manhã ou pela parte da tarde? Mas me compre um horário aí que é pra me deixar agendado, tá bom? Porque assim eu não perco clientes e não deixo... agendo pro mesmo horário, tá bom? Que aí eu fico agendando pro horário e acabo perdendo outros clientes. Então você vê aí pra mim um horário bom, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 08:32 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0039.opus`]: “É um horário que vai dar pra você mesmo, você tá vindo até o escritório pra gente conversar.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 08:33 — Raiane_Souza:** Agilizar seu processo!
+- **01/10/2025 08:36 — Deus:** Período da manhã
+- **01/10/2025 08:38 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0052.opus`]: “Certo, seu Edson. Então, horário das 9h10 horas. Fica bom pro senhor o horário das 10h? Você me confirma esse horário e a presença do senhor aqui na segunda-feira?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 09:11 — Raiane_Souza:** ?
+- **01/10/2025 09:11 — Deus:** 10
+- **01/10/2025 09:13 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251001-WA0074.opus`]: “Certo, seu Edson, vou deixar agendadinho aqui, tá bom? Segunda-feira, logo de manhã, eu mando um bom dia pro senhor, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **01/10/2025 10:26 — Deus:** Ok
+- **03/10/2025 17:36 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251003-WA0117.opus`]: “Oi, seu Edson, boa tarde, tudo bem? Passando pra dar um boa tarde ao senhor e lembrar o senhor que segunda-feira nós temos um horário agendado, tá bom? Às 10 horas e eu aguardo o senhor nesse horário, tá bom, seu Edson? Tá de pé ainda o seu retorno aqui no nosso escritório?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/10/2025 17:36 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251003-WA0118.opus`]: “Estou no aguardo senhor às 10 horas da manhã, tá? Na segunda-feira.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/10/2025 17:51 — Deus:** Ta sim
+- **03/10/2025 17:52 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251003-WA0121.opus`]: “Combinado então, minha amiga, então aguardo o senhor aqui na segunda-feira, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/10/2025 08:35 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251006-WA0049.opus`]: “Bom dia, seu Edson, tudo bem? Passando aqui para desejar um bom dia ao senhor e lembrar o senhor que nós temos um horário agendado hoje, a gente faz 10 horas, tá bom? O senhor me confirma a sua presença?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/10/2025 09:25 — Raiane_Souza:** ??
+- **06/10/2025 09:35 — Deus:** Bom dia
+- **06/10/2025 09:35 — Deus:** Sim
+- **06/10/2025 09:37 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251006-WA0057.opus`]: “Combinado então, seu Edson, aguardo o senhor aqui, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/10/2025 11:19 — Deus:** ‎DOC-20251006-WA0094. (arquivo anexado)
+- **07/10/2025 08:57 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0039.opus`]: “Bom dia, seu Edson, tudo bem? O senhor vai conseguir fazer outra transferência hoje, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 09:03 — Deus:** Sim
+- **07/10/2025 09:05 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0041.opus`]: “Tá bom, seu Edson, eu vou lhe mandar aí, tá bom? A chave pede.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 09:06 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251007-WA0042.jpg`]
+- **07/10/2025 09:16 — Deus:** No período da tarde irei ai
+- **07/10/2025 09:20 — Raiane_Souza:** 
+- **07/10/2025 10:58 — Deus:** ‎DOC-20251007-WA0049. (arquivo anexado)
+- **07/10/2025 11:01 — Deus** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251007-WA0050.jpg`]
+- **07/10/2025 11:31 — Deus:** ‎DOC-20251007-WA0054. (arquivo anexado)
+- **07/10/2025 14:35 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0089.opus`]: “Seu Edson, boa tarde. Seu Edson, o senhor tem algum comprovante de residência, seja de internet ou de energia?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:09 — Deus:** Tem
+- **07/10/2025 15:14 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0091.opus`]: “O senhor pode me mandar, por gentileza, seu Edson.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:22 — Deus:** <Mídia oculta>
+- **07/10/2025 15:25 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0096.opus`]: “E senhor Edson, tira um pouquinho mais de cima, só da parte mais ou menos aí do meio pra cima, tá bom? Que fica um pouquinho mais perto, por gentileza.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:31 — Deus:** <Mídia oculta>
+- **07/10/2025 15:42 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0104.opus`]: “Seu Edson, tá amassado aí o nome da pessoa, tem como o senhor desamassar? Tem esse pedaço dele aí, porque tá tampando aí o nome da pessoa?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:42 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0105.opus`]: “Acho que é a Francisca, não é isso?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:42 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0106.opus`]: “Queria como o senhor desamassar e vai tirar uma foto dele certinho pra mim, por favor?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:43 — Deus:** <Mídia oculta>
+- **07/10/2025 15:44 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0107.opus`]: “Perfeito, Ed, obrigado.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:48 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0110.opus`]: “Só mais uma coisa, o centro carteira digital, tem que se eu tiver em dia também, por gentileza.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 15:49 — Deus:** Qual carteira
+- **07/10/2025 15:56 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0111.opus`]: “Seu Edson, é a carteira digital de trabalho do senhor, tá bom? Seu tem?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 16:31 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251007-WA0126.opus`]: “Seu Edson, a carteira de trabalho seu tem ou não? Porque geralmente quem trabalha de carteira assinada, ele tem a carteira digital de trabalho, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **07/10/2025 19:32 — Deus:** Tenho
+- **07/10/2025 19:36 — Raiane_Souza:** O senhor me manda por gentileza!
+- **07/10/2025 19:40 — Deus:** Sim só a minha internet fica normal e envio
+- **07/10/2025 19:44 — Raiane_Souza:** Tudo bem 🤝
+- **08/10/2025 08:17 — Raiane_Souza:** Bom dia seu Edson tudo bem?
+- **08/10/2025 08:38 — Deus:** Bom dia
+- **08/10/2025 08:38 — Deus:** Tudo bem
+- **08/10/2025 08:38 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251008-WA0052.opus`]: “Se o Edson consegue enviar já a carteira para mim, a carteira digital?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/10/2025 08:52 — Deus:** ‎DOC-20251008-WA0056. (arquivo anexado)
+- **08/10/2025 08:52 — Deus:** Ja
+- **08/10/2025 08:52 — Raiane_Souza:** Ok obrigada, vou agilizar aqui o processo!
+- **08/10/2025 15:20 — Raiane_Souza:** 
+- **08/10/2025 15:21 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251008-WA0165.opus`]: “Seu Edson, boa tarde. O senhor está com disponibilidade agora?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/10/2025 15:26 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251008-WA0166.opus`]: “Boa tarde, não te acendei porque eu tava aqui no trânsito aqui, ó. Aí o menino acabou de ligar aqui pra mim também, mas já já tô indo pra aí, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/10/2025 15:27 — Raiane_Souza:** Combinado 🤝 sem problema
+- **09/10/2025 06:53 — Deus:** https://meiosdepagamentobradesco.com.br/apiboleto/Bradesco?token=bXVLMlVTWEdTVkNGbldEa2cyWHVTYkJYMFhMZU5mTGp2N3BjSEwxbWJFeFpMK2Y1N0F3RU16K29QYkE2M1RLRDltNU9pMzhteDFnPQ..
+- **09/10/2025 16:13 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0129.opus`]: “Seu Edson, boa tarde. Já foi pago o coleto, tá bom, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 16:14 — Deus:** Ok
+- **09/10/2025 16:15 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0130.opus`]: “Seu Edson, eu vou abrir aqui o portal do senhor, tá bom? Vai chegar alguns códigos aí, o senhor vai só me passar eles, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 16:16 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0131.opus`]: “Vou abrir o portal do senhor que é pra me ofertar o lance, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 16:23 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0137.opus`]: “Seu Edson, verifica o e-mail do senhor e manda para mim o e-mail do senhor correto, porque eu estou tentando aquele e-mail do senhor e está dando o incorreto.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 16:23 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0138.opus`]: “Manda pra mim o seu e-mail, por favor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 16:59 — Deus:** edsonagora6312@gmail.com
+- **09/10/2025 17:03 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251009-WA0147.opus`]: “Seu Edson, eu tentei fazer agora aqui o portal do senhor, tá bom? Só que o banco tá com estabilidade hoje, amanhã de manhã eu tento de novo, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **09/10/2025 18:12 — Deus:** Ok
+- **10/10/2025 11:50 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0078.opus`]: “Oi, seu Edson, bom dia!” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 11:53 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0082.opus`]: “Seu Edson, eu tô criando um portal do senhor aqui, caiu uma senha aí no meio do senhor. Se tiver essa senha, o senhor manda pra mim, por gentileza.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 11:53 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0083.opus`]: “É um códigozinho que vai cair no e-mail do senhor, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 11:55 — Deus:** Vou verificar
+- **10/10/2025 11:56 — Raiane_Souza:** Ok
+- **10/10/2025 11:58 — Deus:** 680943
+- **10/10/2025 12:00 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0088.opus`]: “Perfeito, seu Edson. Agora eu mandei outro código no número do senhor, vai chegar via SMS, vai ser um código com letras, tá bom? Mande pra mim, por gentileza.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 12:03 — Deus:** Codigo de verificacao: FGR5
+- **10/10/2025 12:05 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0090.opus`]: “Seu Ed, esse código não foi, eu tô achando que foi porque demorou muito. Eu vou reenviar o código pra ver se vai de novo, um novo código, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 12:05 — Deus:** Ta bom
+- **10/10/2025 12:06 — Deus:** Codigo de verificacao: 2I8B
+- **10/10/2025 12:11 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0092.opus`]: “Seu Edson, depois de medir eu vou tentar de novo, tá bom? Porque não tá entrando aqui no código, não tá indo de jeito nenhum, não sei porquê. Não sei se é o banco que tá instável, mas tô tentando que não tá indo. Aí depois de medir eu tento de novo, tá bom? Depois do almoço.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 12:12 — Deus:** Ta
+- **10/10/2025 14:12 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0127.opus`]: “Oi, sou Edson, boa tarde. Tô tentando aqui no portal do senhor de novo, tá bom? Se caiu um código aí, o senhor me manda um código SMS.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 14:23 — Deus:** Codigo de verificacao: 9QMY
+- **10/10/2025 14:28 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0130.opus`]: “Seu edicórdico não tá indo, eu vou mandar agora pro e-mail do senhor pra ver se consegue ir. Porque se não for dessa vez, vai ser problema mesmo num banco, porque ele tá instável, tá bom? Vou mandar pro e-mail do senhor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 14:30 — Deus:** LEIL
+- **10/10/2025 14:37 — Raiane_Souza:** Mensagem apagada
+- **10/10/2025 14:37 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251010-WA0133.jpg`]
+- **10/10/2025 14:37 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0134.opus`]: “Pronto, senhor Edson, deu certo, viu?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 15:00 — Deus:** Brigado
+- **10/10/2025 15:00 — Deus:** Sai esse mês
+- **10/10/2025 15:03 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251010-WA0140.opus`]: “Seu Edson, a gente está agilizando para isso, tá bom? Já ofertei logo o lance do senhor, que é para a gente já estar agilizando todo o processo do senhor, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **10/10/2025 17:46 — Deus:** Ok
+- **16/10/2025 10:37 — Deus:** Bom dia
+- **16/10/2025 10:38 — Deus:** Alguma novidade
+- **16/10/2025 10:39 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251016-WA0189.opus`]: “Oi, seu Edson, bom dia, tudo bem? Estão me agilizando, tá bom? Já ofertei o lance do senhor, estou aguardando agora, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **16/10/2025 10:48 — Deus:** Ok
+- **30/10/2025 09:05 — Deus:** Bom dia
+- **30/10/2025 09:06 — Deus:** Alguma notícia
+- **30/10/2025 09:07 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251030-WA0043.opus`]: “Olá, seu Edson, bom dia, tudo bem? Seu Edson, a gente tá com já uns 3 dias, já que o banco caiu, tá fora do ar, a gente tá esperando ele retornar. Só que não tá tendo previsão ainda, viu? Como é que tá chegando o final de ano, são muita gente entrando nele, apertando o lance. Muito, muito clínico mesmo, aí o banco deu uma travada, viu? Aí saiu fora do sistema, a gente tá esperando o retorno dele, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/10/2025 09:07 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251030-WA0044.opus`]: “Assim que retornar, eu vou estar entrando no seu portal para enviar a oferta do lance do senhor, né? Vamos ver como é que está o processo, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/10/2025 09:16 — Deus:** Ta bem
+- **30/10/2025 09:24 — Raiane_Souza:** <Mídia oculta>
+- **30/10/2025 09:24 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251030-WA0049.opus`]: “Mas senti-vão retornar, se vai te dar em contato com o senhor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **30/10/2025 09:31 — Deus:** Ok
+- **03/11/2025 09:08 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251103-WA0050.opus`]: “Olá, seu Edson, bom dia, tudo bem? Meu supervisor disse que o senhor estava mandando mensagem pra ele. Então, que eu possa ajudar, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/11/2025 09:09 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251103-WA0051.opus`]: “Seu Edson, com a questão do banco, ainda não conseguimos ter contato ainda, entrar em contato com o banco, ter acesso ao banco, né? Que ainda não voltou, tá estável ainda, e a gente não tem previsão de quando que ele vai retornar, tá bom? Pelo menos foi o que passaram pra gente, pra gente aguardar um pouco mais.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/11/2025 09:14 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251103-WA0060.opus`]: “Bom dia, foi porque era sábado aí eu não tive como mandar mensagem para você, entende? Aí eu mandei para ele para ver se ele tinha alguma resposta já, entendeu? Era só isso.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/11/2025 09:14 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251103-WA0061.opus`]: “tá ok vou aguardar que a resposta de você aqui do banco também tá” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **03/11/2025 09:18 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251103-WA0064.opus`]: “Tá bom, seu Edson, não se preocupe, viu? Assim que a gente tem o retorno do banco e o outro em contato com o senhor, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 09:00 — Raiane_Souza:** Bom dia tudo bem?
+- **06/11/2025 11:11 — Deus:** Bom dia
+- **06/11/2025 11:12 — Deus:** Deu certo
+- **06/11/2025 11:12 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0047.opus`]: “Mandei um bom dia aí pro senhor que eu vou entrar no portado do senhor hoje pra ofertar o índice, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 11:12 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0048.opus`]: “Aí vou mandar alguns códigos pro senhor, que vai chegar no e-mail do senhor. Aí assim que chegar os códigos pro senhor, o senhor me envia, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 11:13 — Deus:** Ok
+- **06/11/2025 11:22 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0051.opus`]: “Envie aí pro e-mail do senhor, tá bom, seu Edson? Seu só um passo a ele, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 11:22 — Raiane_Souza:** O código
+- **06/11/2025 11:26 — Raiane_Souza:** ???
+- **06/11/2025 11:51 — Deus:** Até agora não chegou
+- **06/11/2025 11:57 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0063.opus`]: “Seu Edson, é de tarde, o senhor criou a disponibilidade, porque a gente tá vendo logo isso aí, tá bom? Vamos criar o portal do senhor?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 11:57 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0064.opus`]: “Não ia apertar não, dá o lance do senhor, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 11:59 — Deus:** Olhei aqui não chegou
+- **06/11/2025 12:00 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0065.opus`]: “Tá bom, mais tarde eu vou tentar mandar de novo, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 14:09 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0099.opus`]: “Oi, sou Ed, boa tarde, já está disponível agora.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:28 — Deus:** Tou
+- **06/11/2025 15:28 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0107.opus`]: “Seu Edson, dá uma olhadinha, seu e-mail chegou, algum código aí.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:30 — Deus:** Não
+- **06/11/2025 15:30 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0108.opus`]: “Tá bom, seu Edson, eu vou enviar de novo, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:34 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0110.opus`]: “Vem ver com o e-mail do senhor, seu Edson, dá uma olhadinha aí.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:41 — Deus:** 713547
+- **06/11/2025 15:42 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0111.opus`]: “Seu Edson, vai cair outro códigozinho, são três, quatro números que o senhor me manda, tá bom? Leitrinha.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:44 — Deus:** W20b
+- **06/11/2025 15:47 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251106-WA0112.jpg`]
+- **06/11/2025 15:47 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251106-WA0113.opus`]: “Pronto, meu amigo, vou apertar o seu lance, viu? Agora é só aguardar, tá certo, Jesus.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **06/11/2025 15:48 — Deus:** Ok
+- **24/11/2025 10:03 — Deus:** Bom dia tudo bem
+- **24/11/2025 10:03 — Deus:** Deu tudo certo
+- **24/11/2025 14:18 — Raiane_Souza:** Boa tarde tudo bem
+- **24/11/2025 14:21 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0105.opus`]: “Seu Edson, vou dar uma entrada aqui no seu portal pra me dar uma conferida nele, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 14:21 — Deus:** Ok
+- **24/11/2025 16:09 — Raiane_Souza:** Oi
+- **24/11/2025 16:10 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0120.opus`]: “Seu Edson, eu mandei um código aí no e-mail do senhor. Quando cair, o senhor me passa esse código, por gentileza.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:12 — Deus:** Ta bom
+- **24/11/2025 16:13 — Raiane_Souza:** Mande aí pra me por favor
+- **24/11/2025 16:14 — Deus:** 697537
+- **24/11/2025 16:15 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0121.opus`]: “Ok, seu Edson, agora mandei o tempo para o número do senhor, tá? VSMS, são quatro letrinhas.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:17 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0122.opus`]: “Me mande aí, seu Edson, por favor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:19 — Deus:** Ft7e
+- **24/11/2025 16:19 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0123.opus`]: “Seu Edson acabou demorando um pouquinho, aí você ficou inválido. Vai cair outro, aí o senhor me passa por gentileza assim, porque aí o senhor me manda, tá? Porque é código temporário, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:23 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0124.opus`]: “Ainda não caiu não, seu Edson?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:23 — Deus:** Ainda não
+- **24/11/2025 16:24 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0125.opus`]: “É o seguinte, seu Edson, eu vou mandar pro e-mail do senhor também, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:24 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0126.opus`]: “Eu mandei pro e-mail do senhor, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:25 — Deus:** Mensagem apagada
+- **24/11/2025 16:25 — Deus:** Ta
+- **24/11/2025 16:26 — Deus:** IZHL
+- **24/11/2025 16:27 — Raiane_Souza:** <Mídia oculta>
+- **24/11/2025 16:27 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0128.opus`]: “Eu quero que tada nem vale pra se o Edson.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:28 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0129.opus`]: “Acabei mandando de novo aí pro SMS do senhor, tá bom? Pra ver se vai.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:29 — Deus:** 82v1
+- **24/11/2025 16:30 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0130.opus`]: “Ok, seu Edson, agora foi.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:30 — Deus:** Ok
+- **24/11/2025 16:32 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251124-WA0131.jpg`]
+- **24/11/2025 16:33 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0132.opus`]: “Seu Edson, infelizmente não foi dessa vez, tá bom? Eu vou ofertar o lance do senhor mais alto, tá bom? Pra gente conseguir essa nova agora de dezembro, né? Essa nova assembleia agora de dezembro, tá bom? Vou ofertar o lance do senhor mais alto, que é pra gente conseguir essa contemplação agora no mês de dezembro, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:33 — Deus:** Ok
+- **24/11/2025 16:34 — Raiane_Souza** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251124-WA0133.jpg`]
+- **24/11/2025 16:34 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251124-WA0134.opus`]: “Com certeza o lance, tá bom, Suede? Deu um lance mais alto agora.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **24/11/2025 16:37 — Deus:** Dezembro e o prazo do combinado
+- **24/11/2025 16:38 — Raiane_Souza:** Ok
+- **08/12/2025 10:18 — Deus:** Bom dia
+- **08/12/2025 10:18 — Deus:** Depois vc me manda o boleto
+- **08/12/2025 10:20 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0034.opus`]: “Bom dia, seu Edson. Tudo bem? Não caio no e-mail do senhor, não?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 10:28 — Deus:** Ainda não
+- **08/12/2025 10:30 — Raiane_Souza:** Ok
+- **08/12/2025 14:16 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0088.opus`]: “Seu Edson, boa tarde. Seu Edson, vou mandar um código aí pro e-mail do senhor. O senhor só me envia de volta, tá? O código...” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 15:00 — Deus:** Ok
+- **08/12/2025 15:08 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0112.opus`]: “Seu Hélio, eu vou ter que enviar uma nova, tá? Porque como a temporada é temporária, esgota, tá bom?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 15:10 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0115.opus`]: “Caiu aí no meio de sinhona, mas assim achou um impasse aí.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 15:11 — Raiane_Souza:** 
+- **08/12/2025 15:13 — Deus:** 2giv
+- **08/12/2025 15:13 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0120.opus`]: “Essa foi a senha que apareceu, seu Edson? O senhor pode bater um print e mandar pra mim?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 15:16 — Raiane_Souza:** Me manda aqui caí no email
+- **08/12/2025 15:17 — Deus:** Ok
+- **08/12/2025 15:18 — Deus** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251208-WA0123.jpg`]
+- **08/12/2025 15:20 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251208-WA0126.opus`]: “Não, seu Edson, é um número de seis números, tá bom? É um código com seis números.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **08/12/2025 15:40 — Deus** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251208-WA0138.jpg`]
+- **15/12/2025 07:19 — Deus** 📎 [anexo: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/IMG-20251215-WA0013.jpg`] Bom dia
+- **15/12/2025 07:19 — Deus:** Esse boleto aqui ne
+- **15/12/2025 08:58 — Raiane_Souza:** Bom dia
+- **15/12/2025 08:58 — Raiane_Souza:** Isso
+- **15/12/2025 11:08 — Deus:** Ta pago
+- **15/12/2025 11:08 — Deus:** Ja
+- **15/12/2025 11:09 — Raiane_Souza:** Ok obrigada 🤝
+- **19/12/2025 11:01 — Deus:** Bom dia
+- **22/12/2025 07:49 — Deus:** Bom dia
+- **22/12/2025 08:36 — Raiane_Souza:** Bom dia seu Edson, tudo bem?
+- **22/12/2025 08:38 — Raiane_Souza:** No momento  estou ausente do escritório, por questões pessoais, o senhor gostaria de ter informações certo, eu teria que entrar no seu portal, porém os computadores todos os materiais estão no escritório, se o senhor poder dá uma passadinha lá eu aviso o supervisor pra atender o senhor?
+- **22/12/2025 08:39 — Raiane_Souza:** Entrar no portal do senhor e ver o processo!
+- **22/12/2025 08:40 — Deus:** Já mandei mensagem pra ele
+- **22/12/2025 08:40 — Deus:** Só visualizou não responde
+- **22/12/2025 08:41 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251222-WA0038.opus`]: “Se eu me aviso quando o chão puder estar indo lá, que aí eu aviso ele.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **22/12/2025 08:42 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251222-WA0040.opus`]: “Agora eu não estou podendo ir lá, só se for a parte da tarde, né? Mas eu vou ver o horário aqui ainda. Mas não era para sair agora, em dezembro, essa casa?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **22/12/2025 08:43 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20251222-WA0041.opus`]: “Tá bom, seu Ades, então se eu ver o horário certinho, o senhor me avisa, tá? Se o senhor tá podendo ir lá hoje, o senhor me avisa com antecedência pra me avisar ele. Aí a gente, eu ofertei o lance, né, esse mês. Aí o senhor ia passar pela Assembleia agora de dezembro. Aí falta só entrar no seu portal pra ver o resultado da Assembleia. Então tá confiante, né? Então tem que dar tudo certo.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **23/12/2025 09:03 — Deus:** Bom dia
+- **23/12/2025 09:03 — Deus:** Ele tá lá agora
+- **23/12/2025 09:10 — Raiane_Souza:** Bom dia seu Edson, eu tem que ser agendado um horário primeiro
+- **23/12/2025 09:11 — Deus:** Agora no período da manhã
+- **23/12/2025 09:12 — Deus:** Ta
+- **23/12/2025 09:13 — Raiane_Souza:** Seu Edson o escritório informou que agora pela parte da manhã o supervisor não se encontra no escritório só no período da tarde.
+- **23/12/2025 09:14 — Deus:** Pode marcar pra tarde
+- **23/12/2025 09:15 — Raiane_Souza:** Qual horário, pode ser às 17:00 horas
+- **23/12/2025 09:18 — Deus:** 1 horas
+- **23/12/2025 09:19 — Raiane_Souza:** Esse horário o escritório tá fechado todos pro almoço!
+- **23/12/2025 09:20 — Deus:** Pode marcar no primeiro horário
+- **23/12/2025 09:21 — Raiane_Souza:** 14 horas
+- **23/12/2025 09:23 — Raiane_Souza:** Vou agendar pras 15:30 esse horário o supervisor já tem chegado tá bom?
+- **23/12/2025 09:31 — Deus:** Ok
+- **04/03/2026 10:12 — Raiane_Souza:** Olá bom dia seu Edson tudo bem
+- **04/03/2026 10:14 — Deus:** Tudo
+- **04/03/2026 10:14 — Raiane_Souza:** Retornei agora essa pro escritório, tô organizando toda a agenda.
+- **04/03/2026 10:15 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0108.opus`]: “Vou entrar agora no seu portal, viu, seu Edson? Vou mandar um código aí para o senhor. Aí o senhor me passa, por gentileza, me dá uma olhada como é que está o seu portal.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 10:15 — Raiane_Souza:** Estou retomando a agenda
+- **04/03/2026 10:29 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0111.opus`]: “Me veio uma senha pro e-mail do senhor, me envia ela por favor, seu Edson.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 12:25 — Deus:** Internet ruim aqui
+- **04/03/2026 12:56 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0172.opus`]: “Tudo bem, seu Edson, tá? Tudo bem. Agora tá, a gente tenta de novo, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 14:24 — Deus:** Agenda uma visita minha ai sábado
+- **04/03/2026 14:49 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0268.opus`]: “Seu Edson, boa tarde. Eu vou tentar entrar no seu portal agora. No sábado eu não consigo agendar o horário porque no sábado eu não trabalho, tá? Só durante a semana mesmo. Eu vou entrar no seu portal agora, se o senhor puder estar me enviando o código, o senhor consegue?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 15:34 — Deus:** Pode ser com Arthur
+- **04/03/2026 15:41 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0302.opus`]: “Seu Edson, seu processo ele é tratado diretamente comigo, tá? Porque foi comigo que o senhor fechou. O Arthur, ele é o supervisor da empresa, tá? Mas quem cuida do seu processo sou eu. Eu saí, dei um tempo da empresa, voltei, porém agora tô reclamando de novo, tá? A agenda de novo. Então, seu processo voltou pra mim de novo. Eu vou estar responsável de novo por ele, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 15:47 — Deus:** Pois e casa foi prometida pra dezembro e até agora nada
+- **04/03/2026 15:49 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0304.opus`]: “Eu entendo, senhor, senhor Edson, entendo. Como eu retomei agora pra empresa, eu tô vendo, revendo a agenda, tá? Ofertando os lanços de novo, vendo como é que tá o portal dos clientes, tá? Então, eu quero entrar no seu portal pra me ver como é que tá o seu portal, pra me ofertar o lance, tá? Então, eu preciso que o senhor me envie um código que cai no e-mail do senhor.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 15:49 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0305.opus`]: “Eu preciso averiguar, né, como é que tá o seu portal.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 15:58 — Deus:** 044985
+- **04/03/2026 16:02 — Deus:** O combinado não era participa de sorteio
+- **04/03/2026 16:05 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0313.opus`]: “É lance, seu Edson, tá? É ofertar lance, é lance, a gente trabalha com lance.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 16:05 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0314.opus`]: “Vou entrar no seu portal agora à tarde e vou ofertar um lance bem alto, tá? Que aí o senhor já passa pela próxima assembleia.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 17:01 — Deus:** Mensagem apagada
+- **04/03/2026 17:01 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0323.opus`]: “Naquele dia lá que a gente tava conversando, foi falado que eu não ia depender de sorteio. Ia dar os 14 mil. Aí vocês falaram que já ia fazer a documentação já. E aí, cadê a documentação?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 17:02 — Deus** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0324.opus`]: “Por isso que arrumar a documentação para dia 18 de dezembro, eu já entraria em janeiro, dentro de uma casa já. Isso foi combinado, que foi falado naquele dia.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 17:13 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0362.opus`]: “Tudo bem, seu Edson, eu entendo, tá? Entendo. Inclusive, eu tô agilizando isso. Como eu me ausentei um pouco da empresa, voltei agora, eu voltei já a atividade de novo e tô agilizando já isso, tá?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 17:14 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260304-WA0364.opus`]: “Acabei de enviar um novo código, aquele que o senhor mandou, demorou muito, acabou expirando. Eu mandei outro código agora, consegue me passar ele?” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **04/03/2026 17:31 — Raiane_Souza:** Me manda o código
+- **18/03/2026 10:12 — Raiane_Souza:** Bom diaaa
+- **18/03/2026 10:12 — Raiane_Souza:** Seu Edson
+- **18/03/2026 11:45 — Deus:** Bom dia
+- **18/03/2026 11:50 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260318-WA0144.opus`]: “Seu Edson, bom dia. Eu preciso entrar no portal do senhor para me averiguar como está o seu portal, tá? Então eu vou entrar agora, está entrando agora no seu portal.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **18/03/2026 11:56 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260318-WA0151.opus`]: “Seu Edson, eu enviei uma senha para o e-mail do senhor, me passa ela, por gentileza, assim que cair.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **18/03/2026 12:05 — Deus:** 717085
+- **18/03/2026 12:06 — Deus:** O dia que vcs falaram que ia mim passar a casa venceu faz dias
+- **18/03/2026 12:13 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260318-WA0168.opus`]: “Seu Edson, o senhor tá demorando pra me passar o código, ele expira, ele é espiral, hein? Vou mandar outro aí, o senhor me manda assim, fica aí.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **18/03/2026 12:14 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260318-WA0169.opus`]: “Acabei de enviar, assim que caiu o seu não passa.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **18/03/2026 16:31 — Deus:** 127622
+- **18/03/2026 16:32 — Raiane_Souza** 🎙️ *fala degravada* [origem: `00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA/PTT-20260318-WA0186.opus`]: “Seu Edson, boa tarde. No caso, o senhor está trabalhando, né, seu Edson? Quando o senhor tiver uma disponibilidade, estiver sem estar trabalhando um tempinho, o senhor me manda mensagem, porque esse código, ele é expiratório. Em cinco minutos, ele expira, tá? Aí eu mandei, foi, mandei mais cedo, eu só estou mandando agora, não tem como mais entrar, tá? Porque já expirou esse código.” *( DEGRAVAÇÃO DE TRABALHO — não substitui perícia nem ata notarial; se a autenticidade for ponto controverso, providenciar prova técnica. )*
+- **18/03/2026 16:33 — Deus:** Ok

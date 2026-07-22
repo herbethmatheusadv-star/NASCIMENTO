@@ -1,0 +1,208 @@
+# =====================================================================
+# CASO.yaml — FONTE DA VERDADE deste caso (SOJ, blueprint secao 3).
+# Modelo comentado completo: ESCRITORIO/MODELOS/CASO.schema.yaml
+# Regra de ouro: informacao vive AQUI, uma unica vez. Views sao geradas.
+# IDs estaveis: PT=parte, F=fato, P=prova, PED=pedido, PZ=prazo, PEN=pendencia.
+# =====================================================================
+
+caso:
+  id: 2026-0006
+  titulo: "Edson x J. Ferreira Representacoes e Lima Financeira — Rescisao de consorcio por vicio de consentimento"
+  area: consumidor                # familia | consumidor | bancario | ...
+  modulo: a_definir            # ex.: familia/alimentos_guarda_convivencia
+  complexidade: padrao  # simples | padrao | complexo (D9)
+  fase: E1_intake               # fase interna: E1_intake | E2_estrategia | E3_minuta | E4_protocolo | ativo | encerrado
+  fase_processual: pre_protocolo  # pre_protocolo | postulatoria | instrutoria | decisoria | recursal | cumprimento | encerrado
+  comarca: "Parauapebas/PA"
+  polo: ativo                # ativo (autor) | passivo (reu/executado — MODO DEFESA: G1 ganha item zero do prazo de resposta)
+  segredo_justica: false  # true quando ha menores / dados sensiveis
+  gates:
+    G1:
+      status: reprovado
+      data: '2026-07-22'
+      diario: '#008'
+    G2: {status: pendente}
+    G3: {status: pendente}
+
+partes:
+- id: PT01
+  papel: autor
+  nome: "EDSON RIBEIRO DIAS"
+  cpf: "895.555.542-34"
+  rg: "424030 PC/PA"
+  estado_civil: solteiro
+  endereco: "Rua H, n. 21, Bairro Uniao, Parauapebas/PA, CEP 68.515-000"
+  qualificacao: completa       # extraida da procuracao e do contrato (P03/P04)
+- id: PT02
+  papel: reu
+  nome: "J. FERREIRA REPRESENTACOES LTDA"
+  cnpj: "43.674.644/0001-78"
+  endereco: {valor: "Avenida Rio Grande, n. 155, Bairro Beira Rio, Parauapebas/PA, CEP 68515-000", status: nao_confirmado, pendencia: PEN03}
+- id: PT03
+  papel: reu
+  nome: "LIMA FINANCEIRA LTDA"
+  cnpj: "46.603.969/0001-58"
+  endereco: {valor: "Avenida Rio Grande, n. 155, Bairro Beira Rio, Parauapebas/PA, CEP 68515-000", status: nao_confirmado, pendencia: PEN03}
+# - { id: PT02, papel: reu, nome: "...",
+#     endereco: { status: nao_confirmado, pendencia: PEN01 } }
+
+fatos:
+- id: F01
+  descricao: "Em 25/09/2025 o cliente foi abordado por RAIANE SOUZA, que se apresentou como 'especialista' da empresa e disse atuar por perfil de Facebook de ex-funcionario, oferecendo IMOVEL (audio PTT-20250925-WA0147)."
+  status: provado
+  provas: [P06]
+- id: F02
+  descricao: "A preposta encaminhou o endereco do estabelecimento (26/09/2025, 17:54) e agendou atendimento presencial; a propria preposta afirma depois, em audio, 'foi comigo que o senhor fechou' (PTT-20260304-WA0302) — vinculo de preposicao admitido pela propria vendedora."
+  status: provado
+  provas: [P06]
+- id: F03
+  descricao: "O negocio foi apresentado ao consumidor como AQUISICAO DE CASA com entrega em DEZEMBRO: a preposta afirma 'vou ofertar o lance do senhor mais alto, que e pra gente conseguir essa contemplacao agora no mes de dezembro' (PTT-20251124-WA0132); o cliente cobra 'nao era para sair agora, em dezembro, essa casa?' (PTT-20251222-WA0040) e 'arrumar a documentacao para dia 18 de dezembro, eu ja entraria em janeiro dentro de uma casa' (PTT-20260304-WA0324)."
+  status: provado
+  provas: [P06]
+- id: F04
+  descricao: "A relacao efetivamente contratada e de CONSORCIO, com contemplacao por LANCE em ASSEMBLEIA — e nao compra e venda: o cliente afirma 'o combinado nao era participa de sorteio' (04/03/2026 16:02) e a preposta responde 'e lance, seu Edson, e ofertar lance, a gente trabalha com lance' (PTT-20260304-WA0313) e 'vou ofertar um lance bem alto, que ai o senhor ja passa pela proxima assembleia' (PTT-20260304-WA0314). TERMOS EXATOS do instrumento ainda nao lidos — o PDF do contrato (P01) e imagem sem camada de texto (PEN02)."
+  status: provado
+  provas: [P06]
+  pendencias: [PEN02]
+- id: F05
+  descricao: "Ate 18/03/2026 (ultima mensagem da conversa) a casa nao havia sido entregue: 'o dia que vcs falaram que ia mim passar a casa venceu faz dias' (18/03/2026 12:06), sem impugnacao da preposta."
+  status: provado
+  provas: [P06]
+- id: F06
+  descricao: "A preposta solicitou REITERADAMENTE ao consumidor os CODIGOS de verificacao enviados ao e-mail/telefone dele ('preciso que o senhor me envie um codigo que cai no e-mail do senhor' — PTT-20260304-WA0304; 'me manda o codigo' — 04/03/2026 17:31) e declarou que entraria no portal dele para ofertar lance em seu nome ('vou entrar no seu portal agora a tarde e vou ofertar um lance bem alto' — PTT-20260304-WA0314). O cliente efetivamente enviou os codigos 044985, 717085 e 127622."
+  status: provado
+  provas: [P06]
+- id: F07
+  descricao: "O cliente registrou boletim de ocorrencia sobre os fatos."
+  status: alegado
+  provas: [P02]
+  pendencias: [PEN02]
+# status: provado | alegado | controverso. Provado exige prova; sem prova,
+# abrir pendencia (ou campo justificativa: "...").
+# - { id: F01, descricao: "...", status: alegado, provas: [], pendencias: [PEN01] }
+
+provas:
+- id: P01
+  doc: 01_documentos/DOC-01_CONTRATO_DE_CONSORCIO.pdf
+  original: 00_originais/DOC. CONTRATO CONSÓRCIO FRAUDULENTO.pdf
+  o_que_prova: o contrato efetivamente assinado pelo cliente e sua natureza REAL (consorcio com contemplacao por sorteio/lance), oposta ao que lhe foi prometido (aquisicao de imovel com entrega em dezembro)
+  forca: plena
+  fragilidade:
+  sha256: 2a3bf8a61a4856b21bec8737f42e9b455ee32904783eef29530cce9924a0bbb6
+# Registradas pelo receber_documento.py — nao preencher a mao sem necessidade.
+# - { id: P01, doc: "01_documentos/DOC-01_....pdf", original: "00_originais/...",
+#     o_que_prova: "...", forca: plena, fragilidade: null }
+
+- id: P02
+  doc: 01_documentos/DOC-02_BOLETIM_DE_OCORRENCIA.pdf
+  original: 00_originais/BOLETIM DE OCORRÊNCIA.pdf
+  o_que_prova: a comunicacao dos fatos a autoridade policial e a data em que o cliente se deu por lesado; declaracao UNILATERAL do noticiante, nao prova o fato em si
+  forca: indiciaria
+  fragilidade:
+  sha256: 4e708bc70a6e480ba718ff93af2de84290eee323e2a30c61a0d04e2f1edde556
+- id: P03
+  doc: 01_documentos/DOC-03_PROCURACAO_AD_JUDICIA.docx
+  original: 00_originais/PROCURAÇÃO - EDSON RIBEIRO DIAS.docx
+  o_que_prova: a representacao processual do cliente pelo titular (art. 105 CPC) — instrumental, nao prova fato
+  forca: plena
+  fragilidade:
+  sha256: ebf0d7e77cf5631a477e1a0efcfcf2f7218c9b2dfed0023bea7b064ca291eddb
+- id: P04
+  doc: 01_documentos/DOC-04_CONTRATO_DE_HONORARIOS.docx
+  original: 00_originais/CONTRATO DE HONORÁRIOS - EDSON RIBEIRO DIAS.docx
+  o_que_prova: a contratacao dos servicos advocaticios e o objeto da acao — instrumental, nao prova fato
+  forca: plena
+  fragilidade:
+  sha256: 6bba5b3eac0d5f6f3249f31f4b69eea744ba53f02c120ce0d75991dc21d03aa0
+- id: P05
+  doc: 01_documentos/DOC-05_CNH_DIGITAL_DO_CLIENTE.pdf
+  original: 00_originais/CNH-e.pdf.pdf
+  o_que_prova: a identidade e a qualificacao civil do cliente — instrumental, nao prova fato
+  forca: plena
+  fragilidade:
+  sha256: 68833705bf2906dadf3c540bdb16329661d69f1e8d08d8632e35f4c884a6b31f
+- id: P06
+  doc: 01_documentos/DOC-06_CONVERSA_WHATSAPP_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA.md
+  original: 00_originais/whatsapp_CONVERSA_COM_A_VENDEDORA_RAIANE_SOUZA
+  nota: 256 arquivos originais lacrados; manifesto SHA-256 dentro do DOC
+  o_que_prova: 'a negociacao inteira, do primeiro contato (25/09/2025) ao ultimo (18/03/2026): como o negocio foi APRESENTADO ao cliente pela preposta, a promessa de entrega da casa em dezembro, a cobranca do cliente pela casa nao entregue e o pedido reiterado de CODIGOS de verificacao ao consumidor'
+  forca: indiciaria
+  fragilidade: conversa eletronica — se a autenticidade for controvertida, exige pericia/ata notarial (degravacao e de trabalho)
+  categoria: conversa_whatsapp
+  sha256: f7dbe86fdff885e5041d1e32292f406ba7517b27e2f47e6489d22763681c346e
+pedidos:
+- id: PED01
+  tipo: rescisao_contratual
+  parametro: "Rescisao/anulacao do contrato por VICIO DE CONSENTIMENTO — o que foi ofertado (casa entregue em dezembro) nao e o que foi contratado (consorcio com contemplacao por lance em assembleia). Fundamentos a VERIFICAR na BASE_LEGAL antes da minuta — nenhuma lei citada aqui de memoria."
+  fundamentos: []
+  fatos: [F01, F02, F03, F04]
+- id: PED02
+  tipo: restituicao
+  parametro: "Restituicao INTEGRAL dos valores pagos. VALOR AINDA DESCONHECIDO — depende de PEN04 (extratos/comprovantes). Nao estimar."
+  fundamentos: []
+  fatos: [F03, F04, F05]
+- id: PED03
+  tipo: dano_moral
+  parametro: "Indenizacao por danos morais. QUANTUM E DECISAO RESERVADA (Tier B): NAO fixar sem o ok do advogado — ver DOUTRINA_ANALISE e a praxe do modulo quando ele existir."
+  fundamentos: []
+  fatos: [F05, F06]
+# - { id: PED01, tipo: ..., parametro: "... — DECISAO_SISTEMA #NNN",
+#     fundamentos: [CC:art1694], fatos: [F01] }
+
+fundamentos_citados: []
+# Espelho local da BASE_LEGAL (D6). validade_dias: 90 padrao / 30 alterada.
+# nucleo: true => rechecagem obrigatoria na vespera do protocolo (G3).
+# - { ref: "CC:art1694", verificado_em: 2026-01-01, status: vigente,
+#     validade_dias: 90, nucleo: true }
+
+financeiro:
+  contrato:
+    tipo: a_definir     # fixo | percentual | exito | misto | probono
+    valor: 0.00
+    parcelas: 0
+    doc_assinado: false         # true quando o contrato assinado for arquivado (DOC-NN)
+  custas: []
+  # - { data: 2026-01-01, descricao: "custas iniciais", valor: 0.00 }
+  recebimentos: []
+  # - { data: 2026-01-01, descricao: "parcela 1/N", valor: 0.00 }
+
+audiencias: []
+# - { data: 2026-01-01, hora: "09:00", tipo: instrucao, local: "...", status: designada }
+
+prazos: []
+# - { id: PZ01, descricao: "...", data: 2026-01-01, criticidade: alta }
+# Caso genuinamente sem prazos: registrar NOTA "SEM PRAZOS" no DIARIO.
+
+pendencias:
+- id: PEN01
+  descricao: 'Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato'
+  responsavel: cliente
+  prioridade: alta
+  bloqueia: []
+  mensagem_cliente: o contrato de honorarios assinado (posso te mandar pelo WhatsApp para assinar digital)
+- id: PEN02
+  descricao: 'LER os dois documentos que sao SCAN sem camada de texto: o CONTRATO DE CONSORCIO (P01, 12 paginas) e o BOLETIM DE OCORRENCIA (P02, 1 pagina). Ate serem lidos, F04 tem os termos exatos do instrumento em aberto e F07 fica como ALEGADO. Sao a espinha dorsal do pedido: precisam de OCR local ou leitura pelo advogado.'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia: [G2, G3]
+- id: PEN03
+  descricao: 'Confirmar a qualificacao e o endereco das RES: o contrato de honorarios diz "Avenida Rio Grande, n. 155" e a preposta enviou no WhatsApp "Rua Rio Grande, N 156, bairro Beira Rio, em cima do outlet do 20". Divergencia de via e numero — conferir cartao CNPJ das duas empresas antes de distribuir (citacao).'
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: [G3]
+- id: PEN04
+  descricao: 'Levantar QUANTO o cliente efetivamente pagou e como (parcelas, datas, meio de pagamento, comprovantes/extratos). Sem isso o PED02 (restituicao integral) nao tem valor e o valor da causa nao se fecha.'
+  responsavel: cliente
+  prioridade: critica
+  bloqueia: [G2, G3]
+  mensagem_cliente: os comprovantes de TUDO que voce ja pagou para essa empresa (extrato, recibo, print do banco) e a data de cada pagamento
+- id: PEN05
+  descricao: 'Apurar o que aconteceu com os CODIGOS que o cliente enviou (F06): se houve lance ofertado em nome dele, alteracao cadastral ou movimentacao no portal sem autorizacao. Pedir ao cliente o acesso ao portal/e-mails e conferir. Pode mudar a natureza do pedido.'
+  responsavel: advogado
+  prioridade: alta
+  bloqueia: [G2]
+# responsavel: cliente | advogado | terceiro; prioridade: critica|alta|media|baixa
+# critica DEVE ter bloqueia: [G2] e/ou [G3]. status: aberta (padrao) | resolvida.
+# mensagem_cliente: versao leiga p/ checklist WhatsApp (opcional).
+# - { id: PEN01, descricao: "...", responsavel: cliente, prioridade: critica,
+#     bloqueia: [G3], mensagem_cliente: "..." }

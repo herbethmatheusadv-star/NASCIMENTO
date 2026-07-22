@@ -140,7 +140,8 @@
       "PowerShell(\"=== DRY RUN \\(sem efeitos\\): item 8 contra a ESTRATEGIA da DAIANE ===\")",
       "PowerShell(python \"ESCRITORIO\\\\scripts\\\\gate_check.py\" TANIA G2)",
       "PowerShell(\"=== LAB primeiro ===\")",
-      "PowerShell(\"=== TANIA G2 \\(reaprovacao\\) ===\")"
+      "PowerShell(\"=== TANIA G2 \\(reaprovacao\\) ===\")",
+      "Bash(python ESCRITORIO/scripts/git_health.py)"
     ]
   }
 }
