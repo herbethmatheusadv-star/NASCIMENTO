@@ -428,7 +428,8 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | Sentença Leandra (ganhou) — 8.192 chars | **integral** |
 | Contestação da Ferreira (18 pgs, 27.236 chars) | ✅ **integral** (seção 12) |
 | Contestação da BBC (29 pgs, 40.056 chars) | ✅ **integral** (seção 13) |
-| 9 petições iniciais baixadas | ⚠️ **NÃO integrais** — títulos e trechos |
+| Inicial da Defensoria — Anulatória c/ Tutela (25.271 chars) | ✅ **integral** (seção 14) |
+| Outras 7 iniciais baixadas (~180 mil chars) | ⚠️ **NÃO lidas integralmente** |
 | Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
 | Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
 
@@ -633,3 +634,96 @@ A BBC lista o que o autor teria de provar para responsabilizar a administradora.
 > não temos (a) e (c). É mais do que os autores desses precedentes tinham — mas
 > **não é uma frente segura**. Se entrar, entra em **capítulo próprio**, com a
 > tese de **falha de segurança do portal**, jamais pendurada na venda enganosa.
+
+---
+
+## 14. A INICIAL DA DEFENSORIA — LEITURA INTEGRAL (25.271 caracteres)
+
+**Cobertura:** `Acao Anulatoria de Negocio Juridico cc Tutela de Urgencia -
+Maria de Nazare.pdf`, autos 0811128-57.2024, **Defensoria Pública do Estado do
+Pará**, Defensora **KELLY APARECIDA SOARES**, 10/07/2024 — **lida
+integralmente**.
+
+### 14.1 A TÉCNICA PROBATÓRIA CENTRAL — o confronto de CNPJ
+
+A peça monta um **confronto visual**, com dois recortes lado a lado:
+
+> **"CNPJ INFORMADO NO CONTRATO"** (a BBC verdadeira, 36.770.683/0001-03)
+> **× "CNPJ INFORMADO PARA PIX"** (a BBC falsa, 45.858.358/0001-98)
+
+É essa divergência que prova o dolo, sem depender de interpretação.
+
+**Aplicando ao Edson:** o CNPJ é o mesmo nos dois lados (43.674.644/0001-78),
+mas há **duas divergências análogas e verificáveis**:
+- o contrato manda pagar **na CORA SCD** (P01 p.1 e p.4) e o PIX de R$ 2.000
+  foi recebido no **ITAÚ** (F13);
+- o recebedor aparece como **"J FERREIRA FINANCIAL SOLUTION"**, e não
+  "J Ferreira Representações", que é a contratada.
+
+→ **Montar o mesmo confronto visual na nossa inicial**: o que o contrato manda ×
+o que o comprovante mostra.
+
+### 14.2 A ARQUITETURA DA PEÇA (o esqueleto que funciona)
+
+1. gratuidade · 2. inversão do ônus (CDC 6º, VIII) · 3. **anulação do negócio
+por erro substancial — CC arts. 138 e 139** · 4. **repetição em dobro — CDC 42,
+parágrafo único** · 5. danos morais (pediu R$ 20.000) · 6. **TUTELA DE URGÊNCIA
+com bloqueio de valores** · 7. valor da causa = dobro + dano moral.
+
+### 14.3 ⭐ A TUTELA DE URGÊNCIA — o pedido que eu não tinha previsto
+
+Ela pede **bloqueio do valor nas contas das rés** (CPC arts. 294 e 300), com
+este fundamento:
+
+> *"diante da constatação de que as requeridas atuam mediante fraude em seus
+> contratos, inevitável o temor de que a quantia paga não seja ressarcida, **de
+> que tais empresas deixem de existir, passem a adotar endereço incerto e não
+> sabido**, ou mesmo que nada possa ser resolvido pelo decurso do tempo"*
+> — e completa: os efeitos *"são facilmente reversíveis"*, pois o valor fica à
+> disposição do juízo.
+
+**No caso do Edson o argumento é ainda mais forte**, porque temos o que ela não
+tinha: **28 processos** contra as mesmas rés, com **4 improcedências, 2 acordos
+e uma curva que explodiu em 2025-2026** — prova documental de risco patrimonial
+concreto. → **Incluir tutela de urgência na nossa inicial** (decisão do
+advogado; ver R6 das decisões reservadas).
+
+### 14.4 Precedentes que ela usa (verificar na fonte antes de citar)
+
+- **TJ-MG, AC 10433120341428001** (Rel. Rogério Medeiros, j. 02/07/2015) —
+  **art. 34 do CDC**: *"o fornecedor de produto ou serviço é solidariamente
+  responsável pelos atos de seus prepostos ou representantes autônomos"*, com
+  **teoria da aparência**; e *"a frustração da legítima expectativa do autor ao
+  direito de posse da **casa própria, sonho de muitos brasileiros**"* configura
+  dano moral. **Ressalva:** esse mesmo acórdão diz que a **repetição em dobro só
+  cabe com má-fé comprovada**.
+- **TJPR, RI 0000536-83.2021.8.16.0024** (3ª Turma Recursal, Rel. Juan Daniel
+  Pereira Sobreiro, j. 18/02/2022) — **o mais aderente ao nosso caso**:
+  *"EMPRESA RECLAMADA QUE FAZIA USO DE **ANÚNCIOS DE VENDA DE VEÍCULOS PARA
+  CAPTAÇÃO DE CLIENTES** PARA OFERTA DE CONSÓRCIO. FARTO CONJUNTO PROBATÓRIO
+  QUE DEMONSTRA A INDUÇÃO EM ERRO. RECONHECIMENTO DO DIREITO DO CONSUMIDOR A
+  VER RESTITUÍDO O VALOR DADO A TÍTULO DE ENTRADA. DANO MORAL... R$ 5.000,00"*.
+
+> **⭐ O art. 34 do CDC é a peça que faltava na nossa T5 (solidariedade):**
+> o fornecedor responde pelos atos de **prepostos e representantes autônomos**.
+> A Raiane é preposta da Ferreira e o admite em áudio (F02).
+
+### 14.5 O PROCON reaparece — mas como via de DESCOBERTA, não requisito
+
+A autora só descobriu a fraude **por causa** do PROCON (Processo Administrativo
+**23.11.0163.001.00046-3**, 08/11/2023): foi na defesa apresentada ali que a BBC
+verdadeira revelou não reconhecer o contrato. **Isso ajusta a PEN10:** o PROCON
+não é requisito para ganhar (a Leandra ganhou sem), mas **é um bom instrumento
+de descoberta** — pode fazer a administradora dizer, por escrito, o que ela sabe.
+No caso do Edson, uma reclamação no PROCON **contra a EMBRACON** poderia obrigá-la
+a se manifestar sobre a cota, os três lances e o credenciamento da Ferreira.
+
+### 14.6 Dados novos das rés colhidos aqui
+
+- **LR REPRESENTAÇÕES EIRELI** = **"Lobato e Rodrigues Representação"**, CNPJ
+  32.934.061/0001-12, Rua B, 377, Cidade Nova, Parauapebas · `caahrodr123@gmail.com`
+  · (94) 99190-8218.
+- **Outro e-mail da Ferreira:** `jandersonfonseca123@gmail.com` (o do dossiê
+  era `jaferreiraadm.pbs@gmail.com`) — **duas caixas distintas**.
+- No contrato daquele caso, LR consta como **"REPRESENTAÇÃO"** e Ferreira como
+  **"VENDEDOR"** — a mesma hierarquia que a contestação da Ferreira descreve.
