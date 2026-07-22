@@ -10,7 +10,7 @@ g1: reprovado
 g2: pendente
 g3: pendente
 proximo_prazo: ""
-pendencias_criticas_abertas: 2
+pendencias_criticas_abertas: 3
 atualizado: 2026-07-22 16:52
 ---
 
@@ -26,9 +26,10 @@ atualizado: 2026-07-22 16:52
 ## Pendências críticas abertas
 - PEN02 (advogado): LER os dois documentos que sao SCAN sem camada de texto: o CONTRATO DE CONSORCIO (P01, 12 paginas) e o BOLETIM DE OCORRENCIA (P02, 1 pagina). Ate serem lidos, F04 tem os termos exatos do instrumento em aberto e F07 fica como ALEGADO. Sao a espinha dorsal do pedido: precisam de OCR local ou leitura pelo advogado. — bloqueia G2, G3
 - PEN04 (cliente): Levantar QUANTO o cliente efetivamente pagou e como (parcelas, datas, meio de pagamento, comprovantes/extratos). Sem isso o PED02 (restituicao integral) nao tem valor e o valor da causa nao se fecha. — bloqueia G2, G3
+- PEN06 (advogado): RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos". — bloqueia G2, G3
 
 ## Números do caso
-- Partes: 3 · Fatos: 7 (provados 6 / alegados 1 / controversos 0) · Provas: 6 · Pedidos: 3 · Pendências abertas: 5
+- Partes: 3 · Fatos: 7 (provados 6 / alegados 1 / controversos 0) · Provas: 6 · Pedidos: 3 · Pendências abertas: 6
 
 ## Últimas entradas do diário
 - #008 | 2026-07-22 16:52 | GATE — G1 executado: REPROVADO. 4/7 itens. Relatorio: _views/gate_G1_2026-07-22.md

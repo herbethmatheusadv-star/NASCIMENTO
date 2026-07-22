@@ -196,6 +196,16 @@ pendencias:
   prioridade: critica
   bloqueia: [G2, G3]
   mensagem_cliente: os comprovantes de TUDO que voce ja pagou para essa empresa (extrato, recibo, print do banco) e a data de cada pagamento
+- id: PEN06
+  descricao: 'RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os
+    prazos de decadencia/prescricao que correm contra este caso e a partir de quando:
+    a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo
+    contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o
+    relogio material ja corre e precisa de data certa antes do G1 declarar
+    "sem prazos".'
+  responsavel: advogado
+  prioridade: critica
+  bloqueia: [G2, G3]
 - id: PEN05
   descricao: 'Apurar o que aconteceu com os CODIGOS que o cliente enviou (F06): se houve lance ofertado em nome dele, alteracao cadastral ou movimentacao no portal sem autorizacao. Pedir ao cliente o acesso ao portal/e-mails e conferir. Pode mudar a natureza do pedido.'
   responsavel: advogado

@@ -3,6 +3,7 @@
 ## CRITICA
 - **PEN02** (advogado): LER os dois documentos que sao SCAN sem camada de texto: o CONTRATO DE CONSORCIO (P01, 12 paginas) e o BOLETIM DE OCORRENCIA (P02, 1 pagina). Ate serem lidos, F04 tem os termos exatos do instrumento em aberto e F07 fica como ALEGADO. Sao a espinha dorsal do pedido: precisam de OCR local ou leitura pelo advogado. — bloqueia: G2, G3
 - **PEN04** (cliente): Levantar QUANTO o cliente efetivamente pagou e como (parcelas, datas, meio de pagamento, comprovantes/extratos). Sem isso o PED02 (restituicao integral) nao tem valor e o valor da causa nao se fecha. — bloqueia: G2, G3
+- **PEN06** (advogado): RELOGIO MATERIAL — verificar NA BASE_LEGAL (nao de memoria) quais os prazos de decadencia/prescricao que correm contra este caso e a partir de quando: a contratacao e de ~set/out 2025, a promessa venceu em dez/2025 e o ultimo contato foi 18/03/2026. Nao ha prazo PROCESSUAL (ainda nao ha processo), mas o relogio material ja corre e precisa de data certa antes do G1 declarar "sem prazos". — bloqueia: G2, G3
 
 ## ALTA
 - **PEN01** (cliente): Contrato de honorarios ASSINADO e arquivado como DOC-NN (pendencia padrao do intake — Onda 1/F6; NAO bloqueia protocolo: regularizavel em qualquer fase); preencher financeiro.contrato — bloqueia: nada
