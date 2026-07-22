@@ -108,10 +108,23 @@ download traz `idBin=143053560`. A chave é auto-suficiente.
 - **Cobertura parcial:** das 92 comunicações da OAB em 12 meses, só **3
   processos** trazem a lista de chaves (60 documentos). É padrão do JEC de
   Parauapebas; nem toda vara publica. **Não cobre o acervo inteiro.**
-- **É JSF/Seam:** o campo é `pesquisaProcessoDocumentoForm:numeroDocumento…`, o
-  botão `botaoConsultar` é ajax RichFaces e o link de download é ação com `cid`
-  de conversação — funciona **clicado no navegador**, não com `fetch`/`urllib`
-  cru. Playwright com download habilitado é o caminho; POST às cegas não é.
+- ~~**É JSF/Seam:** … funciona **clicado no navegador**, não com `fetch`/`urllib`
+  cru. Playwright com download habilitado é o caminho; POST às cegas não é.~~
+  🔴 **ESTA CONCLUSÃO ESTAVA ERRADA — corrigida em 22/07/2026.** O POST por
+  script **funciona**, e é como o `CONECTOR/baixar_por_chave.py` baixou 50
+  documentos sem abrir navegador. O que faltava era o **`javax.faces.ViewState`**:
+  o JSF rejeita POST sem o token que a própria página emite. Colhido o ViewState
+  no GET e enviado junto com `AJAXREQUEST=_viewRoot` e o nome do botão (como
+  chave **e** valor), a resposta traz o `<a href=…idBin=…>` e o download sai em
+  `application/pdf` na mesma sessão.
+  **A armadilha é inversa nos dois caminhos, e por isso cada um parece fechado:**
+  no **navegador**, o valor tem de ser **digitado** (o RichFaces ignora campo
+  setado por JavaScript); no **script**, tem de ir o **ViewState**. Um teste que
+  falhou por um desses detalhes virou, aqui, uma lei — e ela travou o download em
+  massa por seis dias.
+  **Lição de método:** conclusão negativa registrada neste mapa deve vir com
+  *como foi testada*, para que a sessão seguinte possa refazer o teste barato em
+  vez de herdar o veredito.
 - **DNS quebrado do próprio tribunal:** o TJPA imprime nas intimações o host
   `pje-consultas.tjpa.jus.br`, que **não resolve**. O host vivo é
   `pje.tjpa.jus.br`. Reescrever o host ao usar a chave.
