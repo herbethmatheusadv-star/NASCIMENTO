@@ -426,10 +426,19 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | 10 imagens da conversa | **integral** (uma a uma) |
 | Sentença Vagno (perdeu) — 23.946 chars | **integral** |
 | Sentença Leandra (ganhou) — 8.192 chars | **integral** |
-| Contestação da Ferreira (18 pgs, 27.236 chars) | ✅ **integral** (seção 12) |
-| Contestação da BBC (29 pgs, 40.056 chars) | ✅ **integral** (seção 13) |
+| Contestação Ferreira — Antonio Vitor (27.236 chars) | ✅ **integral** (seção 12) |
+| Contestação BBC — Max Pereira (40.056 chars) | ✅ **integral** (seção 13) |
 | Inicial da Defensoria — Anulatória c/ Tutela (25.271 chars) | ✅ **integral** (seção 14) |
-| Outras 7 iniciais baixadas (~180 mil chars) | ⚠️ **NÃO lidas integralmente** |
+| Contestação Ferreira — Max Pereira (19.408 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação BBC — Micheli (40.317 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação Ferreira — Micheli (19.715 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação ZEMA — Elyeuton (52.794 chars) | ✅ **integral** (seção 15 · 23/07) |
+| ⭐ Contestação Ferreira+Lima — **Leandra/vencedor** (39.975 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação BBC — Antonio Vitor 2026 (38.554 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação ADEMICON — Anízio (44.616 chars) | ✅ **integral** (seção 15 · 23/07) |
+| Contestação BBC — Orlando (38.694 chars) | ✅ **integral** (seção 15 · 23/07) |
+| **Todas as 10 contestações/defesas da pasta** | ✅ **integral** (2 já lidas + 8 em 23/07) |
+| Outras 7 iniciais dos autores (~180 mil chars) | ⚠️ **NÃO lidas integralmente** (próxima pilha) |
 | Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
 | Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
 
@@ -727,3 +736,140 @@ a se manifestar sobre a cota, os três lances e o credenciamento da Ferreira.
   era `jaferreiraadm.pbs@gmail.com`) — **duas caixas distintas**.
 - No contrato daquele caso, LR consta como **"REPRESENTAÇÃO"** e Ferreira como
   **"VENDEDOR"** — a mesma hierarquia que a contestação da Ferreira descreve.
+
+---
+
+## 15. AS 8 CONTESTAÇÕES RESTANTES — LEITURA INTEGRAL (23/07/2026)
+
+**Cobertura declarada** (as 8 que faltavam na pasta `ADVERSARIOS/ferreira_representacoes/docs/`,
+todas **lidas integralmente** em 23/07/2026; somadas às 2 já lidas em §12/§13,
+fecham as **10 contestações/defesas** existentes):
+
+| Doc | Processo (autor) | Réu que contesta | Chars | Cobertura |
+|---|---|---|---|---|
+| 1 | 0801946-81.2023 (Max) | Ferreira (adv. Caio Di Giosia, SP) | 19.408 | integral |
+| 2 | 0805136-52.2023 (Micheli) | BBC (Stephanie Feitosa, SP) | 40.317 | integral |
+| 3 | 0805136-52.2023 (Micheli) | Ferreira (Caio Di Giosia, SP) | 19.715 | integral |
+| 4 | 0807958-43.2025 (Elyeuton) | **ZEMA** administradora | 52.794 | integral |
+| 5 | ⭐ 0815826-72.2025 (**Leandra/venceu**) | **Ferreira+Lima** (Isabelle Nonato) | 39.975 | integral |
+| 6 | 0810809-89.2024 (Antonio Vitor) | BBC (Joaquim Vaz, Campinas) | 38.554 | integral |
+| 7 | 0804893-06.2026 (Anízio) | **ADEMICON** administradora | 44.616 | integral |
+| 8 | 0805777-35.2026 (Orlando) | BBC (Joaquim Vaz, Campinas) | 38.694 | integral |
+
+> Duplicata detectada e descartada: `CONTESTACAO_MAX_PEREIRA_BBC.pdf` (raiz) = a
+> BBC/Max já lida em §13 (mesmos 804.792 bytes).
+
+### 15.1 O MAPA DAS TRÊS FRENTES DE DEFESA
+
+Há dois tipos de réu e **três roteiros distintos** — e a Ferreira mudou de versão:
+
+**A) As CORRETORAS (Ferreira + Lima/HR Representações):**
+- **2023** (Max e Micheli), por advogado paulista **Caio Di Giosia (OAB/SP 350.381)**:
+  *"o consórcio é VÁLIDO, o autor é DESISTENTE — Tema 312 (REsp 1.119.300, devolução
+  só ao fim do grupo) e Súmula 538 (taxa livre)"*. Defende o produto como legítimo.
+- **2024** (Antonio Vitor, §12), por **Isabelle Nonato (OAB/PA 20.134-B)**: *"a Ferreira
+  foi VÍTIMA, a BBC falsa fraudou o contrato e levou o dinheiro; incluam os criminosos"*.
+- **2025** (Leandra, Doc 5), por Isabelle Nonato: *"somos CORRETORAS; a corretagem é
+  legítima; o serviço foi prestado; o cliente é desistente de má-fé"*.
+
+**B) As ADMINISTRADORAS (BBC · ZEMA · ADEMICON — e ainda CAIXA no Leandra, EMBRACON
+no Edson = cinco):** todas com *"não recebi o dinheiro / não trabalho com representantes
+/ culpa exclusiva de terceiro (art. 14, §3º, II, CDC) / desistente Tema 312 / Súmula 538"*.
+A ADEMICON acrescenta **reserva mental (art. 110 CC)** e a tese do **mandato** (o corretor
+agiria "em nome do cliente").
+
+### 15.2 ⭐ A DEFESA QUE O EDSON VAI ENFRENTAR JÁ PERDEU — e temos a peça inteira
+
+O Doc 5 é **o espelho exato do caso do Edson**: **mesmos réus (Ferreira + Lima),
+mesma advogada (Isabelle Nonato), mesma ação (anulatória c/c restituição c/c dano
+moral)** — e é a contestação que **PERDEU** para a Leandra. Isso **reordena a simulação
+adversária (§3)**: a defesa PRIMÁRIA do Edson **não** será a A1 ("BBC falsa/vítima", que
+era a de 2024) e sim a linha **"corretagem legítima / serviço prestado"**. Seu roteiro,
+palavra por palavra:
+
+1. **Preliminar de incompetência do JEC** (valor da causa = contrato R$100k + pedidos,
+   citando art. 292, II/VI, CPC; AREsp 2035121; AgInt REsp 2007077-PE) — **já rejeitada**
+   por este juízo (§8.2.4: valor = proveito econômico).
+2. **"Somos intermediadoras/corretoras; do valor pago só a 1ª parcela foi à administradora;
+   o resto é corretagem legítima por serviço prestado; não se restitui na desistência."**
+3. **Checagem telefônica** (áudio) provando ciência.
+4. **Impugnação das provas digitais**: prints de WhatsApp/redes/e-mail sem ata notarial
+   (art. 384 CPC), citando **AREsp 2588588 (Bellizze)**, **RHC 79.848** e a **NBR ISO/IEC
+   27037:2013**; impugna o BO como unilateral.
+5. **Dano moral** inexistente; teto R$1.000; sem correção/juros desde o ajuizamento.
+6. **Contra a inversão do ônus** (não hipossuficiente; prova diabólica).
+
+**Tudo isso perdeu** para a ratio de **publicidade enganosa (CDC 37, §1º) + erro (CC 138/145)**
+já dissecada em §8. E o Edson chega **mais forte que a Leandra**: tem o anúncio "CASA À
+VENDA — R$ 15.000" (F12), 122 áudios com promessa explícita de dezembro (F03), o dinheiro
+no **CNPJ da própria ré** (F08/F13) e o **portal da Embracon operado** (F15/F16).
+
+### 15.3 AS TRÊS CONTRADIÇÕES QUE A LEITURA ENTREGOU (munição de réplica)
+
+1. **Ferreira 2023 × Ferreira 2024:** em 2023 defendeu o negócio como **consórcio válido**
+   (desistente/Tema 312); em 2024 disse ter sido **vítima de fraude**. Teses que se excluem,
+   mesma ré (autos 0801946-81.2023 e 0805136-52.2023 × 0810809-89.2024, todos públicos).
+2. **Ferreira × BBC:** a Ferreira jura *"não recebi, o dinheiro foi para a BBC falsa"*; a
+   **BBC juntou comprovante** de que o pagamento foi para o **CNPJ da Ferreira** (§13.1).
+   Corré desmente corré, com documento.
+3. **Lima é ré × "HR Representações é alheia à lide":** a defesa do Doc 5 tenta jogar os
+   R$50 para "HR Representações", que tem o **mesmo CNPJ 46.603.969/0001-58 da corré Lima**.
+
+### 15.4 O QUE MUDA NA NOSSA INICIAL (consequências acionáveis)
+
+1. **⭐ Usar a confissão de "corretagem" para armar o Tema 938.** A própria defesa admite
+   que o grosso do valor (no Edson, **~R$14.483**) foi **corretagem**, não parcela de
+   consórcio — só a 1ª parcela foi repassada. O Tema 938 exige informação **clara e prévia**
+   da corretagem. Edson respondeu a "CASA À VENDA — R$15.000" (F12): a pergunta que ganhou
+   o Leandra é se lhe disseram, **antes**, que pagaria ~R$14.483 de comissão que não abate
+   nada da casa. **A defesa entrega a premissa de fato.**
+2. **Não ancorar o caso nos prints/áudios — a impugnação digital é séria.** A espinha vai
+   nas peças fora do alcance da ata notarial: o **anúncio (F12)**, o **contrato (P01)**, o
+   **comprovante bancário do PIX (F13)**, a **foto da placa de PIX (F08/IMG)**, o **BO (P02)**.
+   ⭐ A Leandra **venceu apesar desta mesma impugnação**, porque a prova vencedora (anúncio
+   + "Proposta de Liberação de Crédito" com timbre da Caixa) **não era print de WhatsApp**.
+   Reforça §5 e a tese A5, e a urgência de perguntar ao Edson pela "carta/crédito aprovado"
+   da Embracon (§8.3).
+3. **A checagem NÃO é fatal.** A Leandra tinha checagem gravada e **ganhou**. O determinante
+   é *ter o anúncio (publicidade enganosa) que sobrepuja termos e checagem* — e o Edson tem
+   (F12). Isso **refina §10.1/§10.3**: seguir perguntando ao Edson sobre a ligação de checagem,
+   mas sabendo que ela é **superável** (Vagno perdeu por checagem + áudios fracos **e sem
+   anúncio**; Leandra ganhou com anúncio apesar da checagem).
+4. **Blindar a preliminar de valor da causa:** fixar valor = **proveito econômico**
+   (restituição + dano moral), nunca o valor do contrato; antecipar citando a própria
+   rejeição da sentença vencedora (§8.2.4).
+5. **Checklist anti-inépcia (das preliminares de 2026 da BBC, Docs 6 e 8):** objeto coerente
+   (imóvel, **nunca "veículo"**); valores batendo entre fundamentação e pedido; **procuração
+   e BO atuais** (a BBC derrubou tutela alheia com "documentos de 2022"); gratuidade instruída;
+   **CNPJs corretos das rés** (Ferreira 43.674.644/0001-78; Lima 46.603.969/0001-58 — conferir
+   no contrato do Edson, F10).
+6. **Conferir se o contrato do Edson tem cláusula de MANDATO** (poderes para a Ferreira/Lima
+   aderirem "em nome do Edson") — a ADEMICON usa isso para quebrar a cadeia. Se houver, a
+   resposta é que mandato obtido por **publicidade enganosa** não valida a corretagem (a
+   causa vicia o instrumento — §8.1).
+7. **Não pedir aluguel como dano material.** O Orlando pediu (R$33.747) e a BBC rebateu por
+   art. 403 CC ("fortuito interno / despesa ordinária"). Manter o pedido material = **restituição
+   do desembolso**; a casa não entregue vai no **dano moral** (frustração do sonho da casa
+   própria — a fórmula aceita no Leandra, §6.1), não em lucros cessantes.
+8. **Repetição em dobro é terreno arriscado.** A defesa (e o precedente TJ-MG do §14.4)
+   condicionam o dobro a **má-fé/cobrança indevida comprovada**. Pedir como subsidiário,
+   com a publicidade enganosa como base da má-fé; não apostar a peça nisso.
+
+### 15.5 CINCO ADMINISTRADORAS = uma operação industrial (tutela e inteligência)
+
+A leitura revelou que o esquema Ferreira/Lima rodou por **BBC, ZEMA, CAIXA, EMBRACON e
+ADEMICON** — cinco administradoras diferentes, o mesmo *modus operandi* (anúncio-isca de
+casa/carro barato → "entrada" que é corretagem a fundo perdido). Isso **reforça a tutela de
+urgência (§14.3)**: não é caso isolado, é risco patrimonial sistêmico e documentado; e
+municia o protocolo P1-P5 de inteligência adversária. **Decisão reservada R3 (incluir a
+Embracon) permanece de pé:** contra ela valem (b) boleto Embracon pago (F14) e (d) portal/
+domínio/e-mails da Embracon operados (F15/F16) — mais do que os autores que perderam contra
+administradora tinham, porém ainda **frente não segura** (o muro é o mesmo dos Docs 4/7/6/8).
+
+### 15.6 LIMITE DESTA LEITURA
+
+Foram lidas as **contestações** (a defesa). Continuam **não lidas** as **7 petições iniciais**
+dos outros autores (a próxima pilha) e as **32 decisões publicadas**; e **não temos autos
+integrais** de nenhum processo (§9). As citações jurisprudenciais colhidas nas contestações
+(AREsp 2588588, RHC 79.848, REsp 1964337, Tema 312, Súmula 538, NBR 27037) foram lidas **na
+peça do adversário** — reverificar na fonte antes de usar, como manda o G3.
