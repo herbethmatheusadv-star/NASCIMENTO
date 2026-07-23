@@ -446,8 +446,14 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | Inicial Anízio (21.949 chars) | ✅ **integral** (seção 16 · 23/07) |
 | Inicial Orlando (50.737 chars) | ✅ **integral** (seção 16 · 23/07) |
 | **Todas as 8 iniciais da pasta** | ✅ **integral** (Maria de Nazaré §14 + 7 em 23/07) |
-| Demais 32 decisões publicadas | ⚠️ **NÃO lidas** (única pilha restante) |
-| Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
+| ⭐ Sentença CRIMINAL 0801489-49.2023 (49.681 chars) | ✅ **integral** (seção 17 · 23/07) |
+| Acordo assinado — caso Leandra (4.050 chars) | ✅ **integral** (seção 17 · 23/07) |
+| Recurso do autor + cumprimento — Max Pereira | ✅ **integral** (seção 17 · 23/07) |
+| Recurso + embargos da BBC — Micheli | ✅ **integral** (seção 17 · 23/07) |
+| Inquéritos (notícia-crime BBC) — Max e Micheli | ✅ **integral** (cópias idênticas · 23/07) |
+| Inquérito Antonio Vitor (62 pgs) | ⚠️ **NÃO lido** — scan sem texto; conteúdo = inquérito 2022, superado pela sentença criminal |
+| "32 decisões publicadas" da §11 | ⚠️ stubs do DJEN **sem texto baixado** (chaves que não abriram, §9); só o PJe logado traz o inteiro teor |
+| Autos integrais de qualquer processo | ❌ **não temos** — só o publicado/baixado |
 
 ---
 
@@ -972,3 +978,75 @@ de inépcia da BBC (Doc 6). **A Leandra é a única limpa — e a única que ven
 5. **Antes de protocolar:** conferir presença do cliente na audiência (R2); fechar o valor (PEN04);
    perguntar ao Edson sobre a "carta/crédito aprovado" da Embracon (§8.3) e a ligação de checagem (§10.1);
    G3 para verbetar CDC/CC e reverificar os precedentes na fonte.
+
+---
+
+## 17. A PILHA "DECISÕES" — LEITURA INTEGRAL (23/07/2026): sentença criminal, acordo, recursos
+
+**Nota sobre a pilha:** as "32 decisões publicadas" da §11 são, na maioria, **stubs do DJEN sem texto
+baixado** (as chaves que não abriram, §9) — não há PDF delas. O que ESTÁ baixado e foi lido
+integralmente: a **sentença criminal**, o **acordo da Leandra**, os **recursos + cumprimento** (Max e
+Micheli) e os **inquéritos** (a notícia-crime da BBC). Coberturas na §11.
+
+### 17.1 ⭐⭐ A SENTENÇA CRIMINAL (0801489-49.2023) reposiciona a defesa "fui vítima" da Ferreira
+
+A 2ª Vara Criminal de Parauapebas (Juíza Flávia Oliveira do Rosário, 23/10/2025) **condenou os
+operadores do golpe da BBC FALSA** — ERICK ALMEIDA LUZ (18a4m), FERNANDA KELLY MALCHER (16a6m),
+JÉSSICA DE SOUZA OLIVEIRA (5a10m) — por estelionato eletrônico + lavagem. Fatos judicialmente
+estabelecidos: Erick criou a **BBC CONSÓRCIOS falsa** (45.858.358/0001-98), credenciou representantes
+via software **SIPROV**; a máster CAROLINA (LR REPRESENTAÇÕES) credenciou três, entre eles a
+**JFERREIRA (Janderson Ferreira)**; >100 vítimas, ~R$1 mi de prejuízo, R$8 mi de movimentação.
+
+**O que isso muda para o Edson:**
+1. **A defesa "a Ferreira foi vítima" é sobre o golpe da BBC de 2022 — não sobre o Edson (2025).**
+   Janderson Ferreira figura como **vítima** e depôs no criminal; a Ferreira foi **assistente de
+   acusação** (por Isabelle Nonato, a mesma advogada). Mas o contrato do Edson é de **27/09/2025**, com
+   **EMBRACON** (administradora real, cota real grupo 7261/1768) — nada a ver com a BBC falsa.
+2. **A linha do tempo fica demolidora (fecha o §12.4 com a data do criminal):** vítima documentada em
+   2022 → moveu-se como assistente de acusação → condenação em **23/10/2025**. Ainda assim, **em
+   27/09/2025 seguia vendendo o mesmo "casa barata" ao Edson**, agora com administradora real e
+   **recebendo o dinheiro no próprio CNPJ** (F08/F13). *Vítima em 2022, o que era em 2025?*
+3. **A "checagem" é, na origem, dispositivo de comissão, não proteção:** no esquema de 2022, a ligação
+   de confirmação era feita por Fernanda (posando de funcionária da BBC) e **liberava a comissão do
+   representante**. Reforça §10.2 (checagem roteirizada = encenação).
+4. **A juíza criminal remeteu expressamente as vítimas ao juízo cível** para indenização (não fixou
+   reparação mínima) — endosso ao caminho do Edson.
+5. **Munição para a tutela de urgência (R6):** o criminal documenta lavagem, laranjas e dissipação
+   (carro de luxo Toyota Cross placa QVX-1F26 — o **mesmo** que a defesa cível ofereceu como penhora,
+   §12.2) — risco patrimonial reconhecido.
+6. ⚠️ **Preempção:** a Ferreira poderia tentar "em 2025 fui vítima de novo". Não cola: dinheiro no CNPJ
+   dela, Embracon real e autorizada, cota existente. **O caso do Edson é "consórcio REAL + venda
+   enganosa/corretagem" (como o da Leandra), não "administradora falsa".**
+
+### 17.2 ⭐ DUAS DECISÕES LOCAIS PROVAM QUE O ENQUADRAMENTO DECIDE TUDO
+
+- **Micheli (0805136-52.2023) — a armadilha do Tema 312 em ato:** incluiu a BBC e pediu "obrigação de
+  fazer/rescisão". Ganhou no papel ("parcialmente procedente"), mas a sentença mandou restituir **só a
+  partir do encerramento do grupo — fixado em 06/2037 — descontadas taxa de administração e multa de
+  desistência, e julgou IMPROCEDENTE o dano moral**. Uma "vitória" que paga em 2037 menos as taxas.
+- **Leandra (0815826-72.2025) — o caminho certo:** nulidade da **intermediação**, administradora
+  **fora**. Restituição **integral e imediata** + dano moral. Mesmo juízo, resultado oposto.
+- **Max Pereira (0801946-81.2023) — precedente local de dano moral alto:** perdeu em 1º grau (rescisão
+  + BBC), mas **na Turma Recursal a FERREIRA foi condenada, sozinha, a restituir R$ 5.895,49 + dano
+  moral de R$ 13.020,00** (cumprimento: R$ 16.772,90). → precedente do nosso tribunal condenando a
+  Ferreira com **dano moral bem acima do R$ 2.000 da Leandra** — sustenta pedir moral mais robusto.
+
+> **Consequência:** confirma, com decisões desta comarca, tudo o que a §16 concluiu — enquadrar como
+> **nulidade da intermediação**, deixar a **administradora fora**, e mirar dano moral com apoio no
+> precedente Max (R$ 13.020) e no parâmetro Leandra (R$ 2.000): **faixa realista de dano moral ~R$
+> 2.000 a R$ 13.000** neste foro contra a Ferreira.
+
+### 17.3 O ACORDO REAL (parâmetro de negociação)
+
+No caso Leandra, após a procedência (~22/02/2026), as rés **acordaram em ~2 semanas** (10/03/2026):
+**R$ 15.000 em 5 parcelas** (R$5.000 + 4×R$2.500), quitação plena, multa de 20% no inadimplemento.
+→ Elas só acordam **depois de perder**, e o patamar (**R$15.000 parcelado**) fica **abaixo do prejuízo
+do Edson** (R$14.483 + R$2.000 + parcelas Embracon). Orientar o cliente: não aceitar acordo precoce
+abaixo do desembolso; havendo acordo, mirar acima disso e à vista, com a força das provas do Edson.
+
+### 17.4 LIMITE DESTA LEITURA
+O inquérito do caso Antonio Vitor (62 págs) é **scan sem camada de texto** — não lido integralmente;
+seu conteúdo (inquérito do golpe de 2022) está **superado pela sentença criminal**. As "32 decisões"
+seguem como stubs sem inteiro teor. **Fecha-se aqui a leitura de tudo que está baixado na pasta do
+adversário.** O que só o PJe logado traria: os documentos por ID da sentença vencedora (§9), as atas
+de audiência e o inteiro teor das 32 decisões/32 chaves que não abriram.
