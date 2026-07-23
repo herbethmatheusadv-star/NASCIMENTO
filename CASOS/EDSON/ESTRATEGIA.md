@@ -100,7 +100,7 @@ liberdade de fixação acima de 10%). Terreno perdido.
 
 ### V — Pedidos
 Gratuidade · inversão do ônus · **declaração de nulidade** · **restituição
-integral** (R$ 14.483 + R$ 2.000 + parcelas Embracon — fechar com PEN04),
+integral** (R$ 14.483 à Ferreira/Lima — documentado por P09/P10/P11 + F13; ver §18 — **+ parcelas Embracon**; fechar com PEN04),
 corrigida e **sem desconto** · **danos morais** (quantum = Tier B, do
 advogado) · **exibição** do contrato de adesão, do extrato da cota 7261/1768,
 do histórico de lances e da **"checagem telefônica gravada"** que o próprio
@@ -1050,3 +1050,37 @@ seu conteúdo (inquérito do golpe de 2022) está **superado pela sentença crim
 seguem como stubs sem inteiro teor. **Fecha-se aqui a leitura de tudo que está baixado na pasta do
 adversário.** O que só o PJe logado traria: os documentos por ID da sentença vencedora (§9), as atas
 de audiência e o inteiro teor das 32 decisões/32 chaves que não abriram.
+
+---
+
+## 18. ATUALIZAÇÃO DOCUMENTAL (23/07/2026): os comprovantes fecham a PEN04 e reconciliam o valor
+
+O cliente entregou os **comprovantes bancários** dos pagamentos à ré. Ingeridos pela porta única
+(receber_documento.py), com cadeia de custódia, vinculados ao **F08**:
+
+| Prova | Meio | Data/hora | Valor | Recebedor / id |
+|---|---|---|---|---|
+| **P09** | PIX Caixa → Itaú | 06/10/2025 11:19 | R$ 5.000,00 | J Ferreira Financial Solution · id 41rd9e4RqRCTYFIAfWoBo7 |
+| **P10** | PIX Caixa → Itaú | 07/10/2025 10:57 | R$ 5.000,00 | idem · mesmo id 41rd9e4RqRCTYFIAfWoBo7 |
+| F13 (P06) | PIX BB → Itaú | 07/10/2025 11:01 | R$ 2.000,00 | idem · Cód.Produto 41rd9e4RqRCTYFIAfWoBo7 · SISBB 5.803.30F.A6B.171.9F6 |
+| **P11** | PIX Mercado Pago → Itaú | 07/10/2025 11:31 | R$ 2.483,00 | J Ferreira Financial Solution · auth 128411683979 |
+| | | **SOMA** | **R$ 14.483,00** | = a "entrada"/corretagem do recibo (P01 p.4) |
+
+**Achados:**
+1. **A entrada de R$ 14.483 foi paga em 4 PIX** (06–07/10/2025), dividida por limites diários, **toda
+   para o CNPJ da própria ré** (43.674.644/0001-78, Itaú). Três das quatro trazem o **mesmo
+   identificador** de cobrança (41rd9e4RqRCTYFIAfWoBo7). **O F08 agora está provado por comprovante
+   BANCÁRIO** (P09/P10/P11), não só pelo recibo do contrato e o BO — prova documental **imune à
+   impugnação de WhatsApp** (a arma central da defesa, §15.4).
+2. **Reconciliação do valor — o "+R$ 2.000" era duplicidade.** O F13 registrava o R$ 2.000 como
+   *"pagamento adicional, além da entrada"*. Os comprovantes mostram que esse **mesmo** R$ 2.000
+   (idêntica autenticação SISBB) é **uma das 4 parcelas que somam R$ 14.483**. Logo o total pago à
+   Ferreira/Lima é **R$ 14.483, não R$ 16.483**. ⚠️ **Decisão do titular:** confirmar a correção (muda
+   o valor da causa e o pedido de restituição). Enquanto não confirmado, F13 permanece como está.
+3. **Confronto visual reforçado (§14.1):** o contrato mandava pagar na **CORA SCD** (P01), mas os
+   quatro PIX foram recebidos no **ITAÚ**, sob o nome **"J Ferreira Financial Solution"** (≠ "J Ferreira
+   Representações" do contrato). Contrato × comprovante, lado a lado — como na inicial vencedora.
+4. **PEN04 — parcialmente resolvida:** os comprovantes documentam **tudo o que foi pago à Ferreira**
+   (o núcleo da restituição). Permanece o levantamento do **extrato/das parcelas pagas à EMBRACON**
+   (F14) para fechar a segunda rubrica. **Não fechei a PEN04 no sistema** — decisão do titular se a
+   considera cumprida ou se a mantém aberta só para a parte Embracon.

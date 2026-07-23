@@ -60,3 +60,21 @@ LEITURA INTEGRAL das 7 peticoes iniciais dos outros autores (as 8 da pasta agora
 ## #013 | 2026-07-23 16:35 | NOTA
 LEITURA INTEGRAL da pilha "decisoes" (o que estava baixado). Registrado em ESTRATEGIA.md §17 + cobertura §11. Esclarecimento: as "32 decisoes" da §11 sao majoritariamente STUBS do DJEN sem texto baixado (as chaves que nao abriram, §9) — nao ha PDF. Lidos integralmente: SENTENCA CRIMINAL 0801489-49.2023 (49.681 chars — 2a Vara Criminal), ACORDO Leandra (4.050), recurso do autor + cumprimento Max Pereira, recurso + embargos BBC/Micheli, inqueritos Max e Micheli (copias identicas da noticia-crime BBC). NAO lido: inquerito Antonio Vitor (62 pgs, SCAN sem camada de texto — conteudo = inquerito 2022, superado pela sentenca criminal). Achados centrais: (1) a sentenca criminal condena o golpe da BBC FALSA de 2022 (Erick/Fernanda/Jessica) e mostra que a defesa "a Ferreira foi vitima" e sobre 2022 — nao sobre o Edson (2025/Embracon, cota real, dinheiro no CNPJ dela); linha do tempo demolidora (vitima 2022 → condenacao 23/10/2025 → mas vendendo ao Edson em 27/09/2025). (2) Duas decisoes LOCAIS provam que o enquadramento decide tudo: Micheli (BBC in + obrigacao de fazer) = restituicao so em 2037 menos taxas, sem dano moral; Leandra (BBC out + nulidade da intermediacao) = restituicao integral imediata + dano moral. (3) Precedente local: Turma Recursal condenou a FERREIRA sozinha a restituicao + dano moral de R$ 13.020 (Max) → faixa realista de dano moral neste foro ~R$ 2.000 a R$ 13.000. (4) Acordo real: R$ 15.000 em 5x, so apos derrota, abaixo do prejuizo do Edson. FECHA a leitura de tudo que esta baixado na pasta do adversario. Nada disso vai a peca antes do G3; reverificar citacoes na fonte.
 ---
+## #014 | 2026-07-23 16:49 | DOC_RECEBIDO
+Recebido COMPROVANTE PIX 5000 CAIXA 06-10-2025 [rota: prova] -> 00_originais/comprovante2025-10-06_111930.pdf -> DOC-09_COMPROVANTE_PIX_5000_CAIXA_06_10_2025.pdf.
+Cadeia de custodia: SHA-256 1c2b0d5ec7337346cc896c4d06da0ec317ba51279e889838a9b1b2083713679b.
+Registrado como P09, vinculado a F08.
+---
+## #015 | 2026-07-23 16:49 | DOC_RECEBIDO
+Recebido COMPROVANTE PIX 5000 CAIXA 07-10-2025 [rota: prova] -> 00_originais/comprovante2025-10-07_105813.pdf -> DOC-10_COMPROVANTE_PIX_5000_CAIXA_07_10_2025.pdf.
+Cadeia de custodia: SHA-256 5aa800a5cc3f21abf5d2d6524c8aac5a754fbf4cada67566662da5af0bacf8f3.
+Registrado como P10, vinculado a F08.
+---
+## #016 | 2026-07-23 16:49 | DOC_RECEBIDO
+Recebido COMPROVANTE PIX 2483 MERCADO PAGO 07-10-2025 [rota: prova] -> 00_originais/comprovante-128411683979.pdf -> DOC-11_COMPROVANTE_PIX_2483_MERCADO_PAGO_07_10_2025.pdf.
+Cadeia de custodia: SHA-256 3c9875cf95e1cfc5103a4d9461ef67c1eacada820bffc8fe3dbb26a3200b2771.
+Registrado como P11, vinculado a F08.
+---
+## #017 | 2026-07-23 16:51 | NOTA
+RECONCILIACAO DOS PAGAMENTOS A FERREIRA (a partir dos comprovantes P09/P10/P11 recebidos hoje). A entrada de R$ 14.483 (F08) foi paga em QUATRO PIX ao CNPJ da re 43.674.644/0001-78 (Itau, "J Ferreira Financial Solution"), dividida por limites diarios: R$ 5.000 (Caixa 06/10, P09) + R$ 5.000 (Caixa 07/10, P10) + R$ 2.000 (BB 07/10, F13/P06) + R$ 2.483 (Mercado Pago 07/10, P11) = R$ 14.483,00. Tres das quatro trazem o mesmo identificador de cobranca 41rd9e4RqRCTYFIAfWoBo7. CONSEQUENCIAS: (1) F08 agora esta provado por comprovante BANCARIO (nao so pelo recibo do contrato P01 e o BO P02) — prova documental imune a impugnacao de WhatsApp. (2) RECONCILIACAO DE VALOR A CONFIRMAR PELO TITULAR: o F13 registra o R$ 2.000 como "pagamento ADICIONAL, alem da entrada", mas os comprovantes mostram que esse MESMO R$ 2.000 (identica autenticacao SISBB 5.803.30F.A6B.171.9F6) e uma das 4 parcelas que somam R$ 14.483 — logo o total a Ferreira/Lima e R$ 14.483, NAO R$ 16.483; o "+R$ 2.000" do pedido era duplicidade. NAO alterei o F13 nem o valor no sistema — aguarda ratificacao do titular (muda o valor da causa). (3) PEN04 NAO fechada: os comprovantes cobrem TUDO que foi pago a Ferreira (nucleo da restituicao), mas falta o extrato/parcelas pagas a EMBRACON (F14) — decisao do titular se fecha a PEN04 ou a mantem so para a parte Embracon. Detalhe em ESTRATEGIA §18. Confronto contrato (pagamento na CORA) x comprovantes (recebidos no Itau/"Financial Solution") reforca §14.1.
+---

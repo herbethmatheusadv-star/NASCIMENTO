@@ -88,7 +88,7 @@ fatos:
 - id: F08
   descricao: "DIVERGENCIA DE VALORES (o nucleo economico do caso). Ao cliente foi dito que a casa custava R$ 90.000,00; o contrato traz credito de R$ 110.000,00 (P01 p.1); o cliente afirma ter visto R$ 120.000,00 no documento (P02). Pagou de imediato R$ 14.400,00 (valor no BO) / R$ 14.483,00 (valor no recibo, P01 p.4) por PIX a chave CNPJ 43.674.644/0001-78 — chave da J. FERREIRA. Plano: 180 meses, parcela R$ 733,00, taxa de administracao 24%, fundo de reserva 3%, correcao INCC, ~1.788 participantes (P01 p.1)."
   status: provado
-  provas: [P01, P02]
+  provas: [P01, P02, P09, P10, P11]
 - id: F09
   descricao: "O VALOR PAGO NAO E ENTRADA DA CASA: e CORRETAGEM. O proprio contrato declara que 'o pagamento efetuado a EMPRESA JFERREIRA REPRESENTACOES nao e antecipacao de lance, lance ou entrada de Consorcio e nao sera repassado a Administradora de Consorcio' (P01 p.8) — dinheiro que nao abate NADA do bem. Sao 13,2% do credito, pagos a vista e a fundo perdido. O cliente, porem, descreve o pagamento como 'entrada' (P02): e exatamente essa a distancia entre o que se vendeu e o que se contratou."
   status: provado
@@ -199,6 +199,27 @@ provas:
   forca: plena
   fragilidade:
   sha256: 257fef05c80c5655d7f63a2f174177ed18c9fb2d03a5aeea2a7feecf2e21d425
+- id: P09
+  doc: 01_documentos/DOC-09_COMPROVANTE_PIX_5000_CAIXA_06_10_2025.pdf
+  original: 00_originais/comprovante2025-10-06_111930.pdf
+  o_que_prova: Comprovante bancario CAIXA de PIX de R$ 5.000,00 do cliente ao CNPJ da re J Ferreira (43.674.644/0001-78, Itau) em 06/10/2025 11:19 (id 41rd9e4RqRCTYFIAfWoBo7) — uma das 4 transferencias que somam a entrada de R$ 14.483
+  forca: plena
+  fragilidade:
+  sha256: 1c2b0d5ec7337346cc896c4d06da0ec317ba51279e889838a9b1b2083713679b
+- id: P10
+  doc: 01_documentos/DOC-10_COMPROVANTE_PIX_5000_CAIXA_07_10_2025.pdf
+  original: 00_originais/comprovante2025-10-07_105813.pdf
+  o_que_prova: Comprovante bancario CAIXA de PIX de R$ 5.000,00 do cliente ao CNPJ da re J Ferreira (43.674.644/0001-78, Itau) em 07/10/2025 10:57 (id 41rd9e4RqRCTYFIAfWoBo7) — uma das 4 transferencias que somam a entrada de R$ 14.483
+  forca: plena
+  fragilidade:
+  sha256: 5aa800a5cc3f21abf5d2d6524c8aac5a754fbf4cada67566662da5af0bacf8f3
+- id: P11
+  doc: 01_documentos/DOC-11_COMPROVANTE_PIX_2483_MERCADO_PAGO_07_10_2025.pdf
+  original: 00_originais/comprovante-128411683979.pdf
+  o_que_prova: Comprovante bancario Mercado Pago de PIX de R$ 2.483,00 do cliente ao CNPJ da re J Ferreira Financial Solution (43.674.644/0001-78, Itau) em 07/10/2025 11:31 (auth 128411683979) — uma das 4 transferencias que somam a entrada de R$ 14.483
+  forca: plena
+  fragilidade:
+  sha256: 3c9875cf95e1cfc5103a4d9461ef67c1eacada820bffc8fe3dbb26a3200b2771
 pedidos:
 - id: PED01
   tipo: rescisao_contratual
