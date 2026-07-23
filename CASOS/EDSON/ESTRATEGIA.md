@@ -438,8 +438,15 @@ Se aparecer checagem no caso do Edson, é por aí que se ataca. E vale varrer os
 | Contestação ADEMICON — Anízio (44.616 chars) | ✅ **integral** (seção 15 · 23/07) |
 | Contestação BBC — Orlando (38.694 chars) | ✅ **integral** (seção 15 · 23/07) |
 | **Todas as 10 contestações/defesas da pasta** | ✅ **integral** (2 já lidas + 8 em 23/07) |
-| Outras 7 iniciais dos autores (~180 mil chars) | ⚠️ **NÃO lidas integralmente** (próxima pilha) |
-| Demais 32 decisões publicadas | ⚠️ **NÃO lidas** |
+| ⭐ Inicial Leandra — **vencedora** (29.322 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Vagno — **perdedora** (24.288 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Micheli (37.378 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Elyeuton (7.550 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Antonio Vitor (38.415 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Anízio (21.949 chars) | ✅ **integral** (seção 16 · 23/07) |
+| Inicial Orlando (50.737 chars) | ✅ **integral** (seção 16 · 23/07) |
+| **Todas as 8 iniciais da pasta** | ✅ **integral** (Maria de Nazaré §14 + 7 em 23/07) |
+| Demais 32 decisões publicadas | ⚠️ **NÃO lidas** (única pilha restante) |
 | Autos integrais de qualquer processo | ❌ **não temos** — só o publicado |
 
 ---
@@ -873,3 +880,95 @@ dos outros autores (a próxima pilha) e as **32 decisões publicadas**; e **não
 integrais** de nenhum processo (§9). As citações jurisprudenciais colhidas nas contestações
 (AREsp 2588588, RHC 79.848, REsp 1964337, Tema 312, Súmula 538, NBR 27037) foram lidas **na
 peça do adversário** — reverificar na fonte antes de usar, como manda o G3.
+
+---
+
+## 16. AS 7 PETIÇÕES INICIAIS — LEITURA INTEGRAL (23/07/2026): o molde e o anti-modelo
+
+**Cobertura declarada** (as 7 iniciais dos outros autores contra Ferreira/Lima, todas **lidas
+integralmente** em 23/07/2026; com a da Defensoria já lida em §14, fecham as **8 iniciais** da pasta):
+Leandra 29.322 · Vagno 24.288 · Micheli 37.378 · Elyeuton 7.550 · Antonio Vitor 38.415 ·
+Anízio 21.949 · Orlando 50.737 caracteres.
+
+### 16.1 ⭐ A INICIAL QUE GANHOU (Leandra, 0815826-72.2025) — o molde do Edson
+
+Adv. José Lopes da Silva Filho (OAB/PA 36.029). **É o espelho positivo do caso do Edson: mesmos
+réus (Ferreira + Lima), mesma ação, e VENCEU.** As cinco jogadas que a fizeram ganhar:
+
+1. **SEPARAÇÃO CIRÚRGICA — anular o contrato de INTERMEDIAÇÃO, não o de consórcio.**
+   *"O vício de consentimento não decorre da adesão ao consórcio em si, mas do contrato de
+   intermediação."* Numa tacada isso: (a) mantém o JEC (valor pequeno), (b) deixa a administradora
+   FORA do polo, (c) mira exatamente a corretagem. **É a chave-mestra da peça.**
+2. **Título:** "AÇÃO DECLARATÓRIA DE NULIDADE DE NEGÓCIO JURÍDICO c/c RESTITUIÇÃO c/c DANOS
+   MORAIS" — sem "rescisão". **Só Ferreira + Lima** no polo (Caixa fora). Valor da causa = **proveito
+   econômico** (restituição R$13.225 + dano moral R$10.000 = R$23.225), não os R$100k do consórcio.
+3. **A prova-espinha:** o **anúncio** (Facebook, casa R$15.000) + a **"Proposta de Liberação de Crédito"
+   com timbre da Caixa** dizendo crédito aprovado — os IDs 156984549/156984550 da sentença vencedora
+   (§8). Peças que a impugnação de WhatsApp **não alcança**.
+4. **O texto do contrato vira arma:** o contrato dizia que os R$13.175 *"serão repassados à
+   administradora a título de 1ª parcela"* — e não foram; **e não havia documento algum especificando
+   a corretagem**. → erro (CC 138) + dolo (CC 171) + **art. 423 CC** (ambiguidade do contrato de
+   adesão interpretada pró-consumidor) + **art. 34 CDC** (fornecedor responde por representante autônomo).
+5. **Dano moral pelo método bifásico** (REsp 1.152.541), com os precedentes gêmeos TJ-RS 70068923770
+   e TJ-MG 1.0000.22.039932-3 (já no §5). **Não pediu dobro** — só restituição simples corrigida.
+
+### 16.2 O ANTI-MODELO (Vagno, que perdeu) e o padrão das outras 5
+
+**Vagno** fez o oposto em tudo: título com **"rescisão"** mirando o **contrato de consórcio**;
+incluiu a **administradora** (Porto Seguro), o que trouxe o muro Tema 312/Súmula 538; ajuizou na
+**Vara Cível**; pediu **dobro**; **não tinha anúncio**; valor da causa alto (R$51.605). Resultado:
+improcedente.
+
+E as **outras 5 iniciais repetiram o erro do Vagno de incluir a administradora**: Micheli+BBC,
+Elyeuton+Zema, Antonio Vitor+BBC, Anízio+Ademicon, Orlando+BBC — e várias ainda usaram enquadramento
+de rescisão/reparação, dobro (Elyeuton) ou aluguel/lucros cessantes (Orlando). O Antonio Vitor
+ainda entregou **objeto confuso (carro×casa) e valores inconsistentes**, munição para as preliminares
+de inépcia da BBC (Doc 6). **A Leandra é a única limpa — e a única que venceu.**
+
+> **Conclusão que refina a decisão reservada R3:** a leitura das iniciais **confirma NÃO incluir a
+> Embracon**. Toda inicial que pôs a administradora no polo herdou a defesa de administradora
+> (deflexão + Tema 312); a única que a deixou de fora venceu. Se a tese de falha do portal (F15/F16)
+> valer, vai em **ação própria**.
+
+### 16.3 REFORÇOS COLHIDOS DAS INICIAIS (para a peça do Edson, a reverificar no G3)
+
+- **Preliminar de nulidade da cláusula de eleição de foro** (SP → Parauapebas): as iniciais de Micheli
+  e Orlando atacam a **cláusula 27.3** do contrato (foro Central de SP) por abusiva — art. 51, IV e XV,
+  CDC; art. 63, §3º, CPC; art. 101, I, CDC; STJ CC 41728, CC 23968, REsp 722437. ⚠️ **Conferir se o
+  contrato do Edson (P01) tem essa cláusula** — provável, dado que a defesa é a mesma. Se tiver, entra
+  como preliminar.
+- **art. 30 e 31 CDC** (a oferta/publicidade **vincula** o fornecedor) + **art. 46 CDC** (as condições
+  têm de ser conhecidas **previamente**) — Anízio. Reforçam a publicidade enganosa e a tese de que a
+  corretagem oculta não obriga.
+- **art. 101, I, CDC** (foro do domicílio do autor) — Antonio Vitor. Âncora alternativa de competência.
+- **Precedentes locais TJ-PA (Rel. Gleide Pereira de Moura)** sobre responsabilidade objetiva e
+  solidariedade em fraude — jurisprudência do **nosso** tribunal, mais persuasiva que as de SP/MG.
+- **Súmula 543 do STJ** (restituição integral **sem retenção** quando a culpa é do fornecedor) e
+  **art. 35 CDC** — úteis para blindar a restituição integral, mas usar com cautela para não escorregar
+  no enquadramento de rescisão de compra e venda.
+- **art. 42, §u CDC (dobro) e aluguel/lucros cessantes: NÃO como pedido principal.** A vencedora não
+  pediu; a defesa (Doc 8) derruba o aluguel por art. 403 CC (fortuito interno). O dano da casa não
+  entregue vai no **dano moral** (fórmula do §6.1).
+
+### 16.4 ESQUELETO SUGERIDO DA INICIAL DO EDSON (a partir do molde vencedor)
+
+1. **Preliminares:** gratuidade · Juízo 100% Digital · **nulidade da cláusula de foro (27.3)** ·
+   competência do JEC pelo **proveito econômico** (objeto = intermediação, não o consórcio) ·
+   legitimidade solidária **de Ferreira + Lima** (só elas).
+2. **Fatos, na ordem do engano:** anúncio "CASA À VENDA R$15.000" (F12) → abordagem → loja e 12
+   páginas no mesmo sábado → R$14.483 ao CNPJ da própria ré (F08/F13) → +R$2.000 (F13) → promessa de
+   dezembro (F03) → senhas/lances (F15/F16) → BO arquivado (F07). **Trazer os fatos frágeis na nossa
+   voz** ("proposta boa" etc., §7).
+3. **Direito:** relação de consumo + inversão do ônus · **publicidade enganosa (CDC 37, §1º) c/c erro
+   (CC 138) e dolo (CC 145/171)** — a razão de decidir vencedora (§8) · **anulação do contrato de
+   INTERMEDIAÇÃO** por vício, com o texto do contrato ("1ª parcela à administradora" × corretagem
+   oculta) + art. 423 CC + arts. 30/31/34/46 CDC · **Tema 938** (corretagem exige informação clara e
+   prévia — a defesa confessa que o grosso é corretagem, §15.4) · nulidade das cláusulas de blindagem
+   (§III.2) com página e transcrição · **NÃO pisar em taxa de administração** (§III.5).
+4. **Pedidos:** nulidade · **restituição integral** (corretagem + PIX + parcelas Embracon, fechar com
+   PEN04) corrigida e sem desconto · **dano moral** (método bifásico; parâmetro real do juízo = ~R$2.000,
+   §6.1) · exibição de documentos · solidariedade Ferreira+Lima · honorários. **Tutela de urgência**
+   (decisão R6) bem fundamentada, com os 5-administradoras + a curva de processos como risco patrimonial.
+5. **Antes de protocolar:** conferir presença do cliente na audiência (R2); fechar o valor (PEN04);
+   perguntar ao Edson sobre a "carta/crédito aprovado" da Embracon (§8.3) e a ligação de checagem (§10.1);
+   G3 para verbetar CDC/CC e reverificar os precedentes na fonte.
