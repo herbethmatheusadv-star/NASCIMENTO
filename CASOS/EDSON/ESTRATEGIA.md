@@ -1084,3 +1084,144 @@ O cliente entregou os **comprovantes bancários** dos pagamentos à ré. Ingerid
    (o núcleo da restituição). Permanece o levantamento do **extrato/das parcelas pagas à EMBRACON**
    (F14) para fechar a segunda rubrica. **Não fechei a PEN04 no sistema** — decisão do titular se a
    considera cumprida ou se a mantém aberta só para a parte Embracon.
+
+---
+
+## 19. O CONTRATO (P01) LIDO INTEGRALMENTE, PÁGINA A PÁGINA (23/07/2026)
+
+**Cobertura:** as **12 páginas** do maço assinado em **sábado, 27/09/2025**, lidas **uma a uma**. O PDF
+é **scan sem camada de texto** (0 chars extraíveis) e o OCR de 22/07 **não ficou persistido** no caso —
+por isso as páginas foram rasterizadas a 200 dpi e lidas visualmente, com zoom onde necessário.
+Transcrições abaixo conferidas na imagem.
+
+### 19.1 O que é o documento
+"**PROPOSTA COMERCIAL DE CONTRATAÇÃO DE INTERMEDIAÇÃO NA AQUISIÇÃO DE CONSÓRCIOS nº 512**" +
+"**CONTRATO DE INTERMEDIAÇÃO PARA ADESÃO A GRUPO DE CONSÓRCIOS DE BENS MÓVEIS E IMÓVEIS NÃO
+CONTEMPLADOS**" + 4 declarações de ciência + termo de pós-venda + termo LGPD. Plano: crédito
+**R$ 110.000**, 180 meses, ~1.788 participantes, **taxa de administração 24%**, fundo de reserva 3%,
+INCC, parcela **R$ 733,00**, tipo do bem IMÓVEL. Vendedora nomeada à mão na p.3: **"Raiane do S. de S.
+Sousa"**. **LIMA FINANCEIRA (CNPJ 46.603.969/0001-58) carimbada como "Representante/Vendedor"** nas
+pp. 3, 4, 6, 7, 9, 10 e 11 — a solidariedade da 2ª ré está **no próprio contrato**.
+
+### 19.2 ⭐⭐ AS CINCO CONTRADIÇÕES INTERNAS (o coração da nulidade)
+
+**1) O PREÇO — declarado R$ 733, cobrado R$ 14.483 (20×).**
+> p.7, DECLARAÇÃO DE CIÊNCIA: *"...está **CIENTE QUE o valor R$ 733,00** pago nessa ocasião da
+> contratação corresponde ao pagamento de serviço de contratação da **intermediação** que inclui custos
+> comerciais e administrativos..."*
+> p.4, RECIBO: *"Deverá ser recebido de EDSON RIBEIRO DIAS, a importância supra de **R$ 14.483,00**
+> referente ao pagamento do **serviço de intermediação** contratado."*
+R$ 733,00 é exatamente **o valor da parcela mensal** do consórcio (p.1). **O único documento do maço
+que declara o PREÇO da intermediação declara R$ 733 — e cobraram R$ 14.483.** É a prova documental do
+vício de informação e o cerne do **Tema 938** (corretagem exige informação clara e prévia). Pelo
+**art. 423 CC**, a ambiguidade do contrato de adesão se interpreta a favor do aderente.
+
+**2) A PROMESSA — o próprio formulário registra que houve.**
+> p.2, quesito 5: *"Em algum momento lhe foi prometida contemplação ou dito que a cota adquirida já
+> estaria contemplada?"* — **marcado ( X ) SIM** (conferido com zoom).
+> p.8: *"Declaro ainda que o vendedor **NÃO** me fez **nenhuma promessa de contemplação**..."*
+> p.11, item II: *"Que **NÃO RECEBI NENHUMA PROMESSA DE CONTEMPLAÇÃO**..."*
+No mesmo maço, no mesmo dia: um documento diz que houve promessa e outros dois dizem que não.
+**Ou o formulário confessa a promessa (confirmando F03), ou foi preenchido sem leitura — e aí a
+blindagem inteira perde valor de "ciência".** Note que o quesito 12 foi marcado NÃO, isto é, quem
+preencheu diferenciava as respostas.
+
+**3) O DESTINO DO DINHEIRO — o contrato diz as duas coisas.**
+> p.1: *"a contratada se compromete a efetuar o pagamento da **primeira parcela** do consórcio aderido
+> **diretamente à Administradora de Consórcios em nome do contratante**."*
+> p.7: *"Com o pagamento do valor estipulado de intermediação, **a contratada se responsabiliza pelo
+> pagamento da primeira parcela do Consórcio aderido**."*
+> p.8: *"o pagamento efetuado à EMPRESA JFERREIRA REPRESENTAÇÕES não é antecipação de lance, lance ou
+> entrada de Consórcio e **NÃO SERÁ REPASSADO À Administradora de Consórcio**."*
+Irreconciliável. E a p.9 fecha: *"O contratante concorda que **dos valores pago na entrada seja
+repassado o valor da corretagem** para o corretor"* — ou seja, **a corretagem é uma PARTE da entrada**,
+não a entrada inteira.
+
+**4) O BANCO — três vezes o contrato manda pagar na CORA; o dinheiro caiu no ITAÚ.**
+> pp. 1, 4 e 11: *"...através do **Banco: CORA (Cód. 403) Agência 0001 Conta Corrente 1809601-9**,
+> CNPJ 43.674.644/0001-78, Chave Pix 43.674.644/0001-78, **sempre em favor da JFERREIRA
+> REPRESENTAÇÕES**"* — e a p.11 ainda diz *"todos os pagamentos são efetuados SOMENTE por meio do
+> boleto da JFERREIRA ou débito em conta, nos bancos Banco: CORA..."*
+Os quatro PIX (P09, P10, P11 e F13) foram recebidos no **ITAÚ**, em nome de **"J Ferreira Financial
+Solution"**. → **o confronto visual da inicial** (§14.1): o que o contrato manda × o que o comprovante
+mostra, lado a lado.
+
+**5) O OBJETO — "não vendemos cota" × "adquiri uma cota da JFerreira".**
+> cl. 1.1 (p.5): *"Não constitui objeto do presente contrato a venda direta de participação em grupo
+> de consórcios."* · p.10: *"NÃO INTERMEDIAMOS CONSÓRCIOS CONTEMPLADOS"*
+> p.11: *"declaro... que **adquiri** por meio da ________ **uma cota da JFERREIRA REPRESENCAÇÕES**,
+> conforme contrato nº 512"* e *"o conteúdo e objetivos do **Contrato de Venda da Cota** de consórcio"*
+(O campo da administradora está **em branco** na p.11 e a p.8 diz "administradora **a ser contratada**"
+— ele assinou sem saber qual seria.)
+
+### 19.3 ELES VIOLARAM AS PRÓPRIAS CLÁUSULAS
+- **Definição "D" (p.5):** a corretora *"não participam ou interferem na administração do Consórcio"*;
+  **p.10:** *"NÃO RECEBEMOS VALORES RELATIVOS A LANCES"*. → mas a preposta **entrou no portal da
+  Embracon e ofertou TRÊS lances** em nome do cliente (F16), com protocolo e horário.
+- **cl. 7.0–7.3 (p.6), itens VIII–XI (p.11) e o termo LGPD (p.12):** a contratada se obriga a tratar os
+  dados *"respeitando os princípios da finalidade, adequação, transparência, segurança"* e a garantir
+  confidencialidade. → mas **colheu por seis meses as senhas e códigos do portal EMBRACON** (F15).
+  ⚠️ **Contramedida deles:** a p.12 autoriza tratar *"Nome de usuário e senha específicos para uso dos
+  serviços **do Controlador**"*. **Resposta:** a autorização é dos serviços **dela**, não do portal de
+  **terceiro** (Embracon); e a cl. 5.3 encerra a atuação dela após a 1ª parcela.
+- **cl. 5.3 (p.6):** *"Após a assinatura do Contrato de Adesão; aprovação pela Administradora e
+  **pagamento da primeira parcela**, a contratada **não prestará nenhum atendimento** ao consorciado,
+  sendo findada a sua obrigação"* → ela seguiu operando a conta dele até **março de 2026**.
+
+### 19.4 ⭐ A CLÁUSULA QUE PODE DERRUBAR A CORRETAGEM INTEIRA (cl. 4.0)
+> p.5, cl. **4.0**: *"A remuneração será devida mesmo que o consorciado desista ou se arrependa...
+> **eis que com a assinatura do contrato de adesão a Consórcio E PAGAMENTO DA PRIMEIRA PARCELA da cota
+> de consórcio, considera-se cumprido este instrumento particular pela contratada.**"*
+
+Pelo **próprio contrato**, a corretagem só se torna devida quando **dois** fatos ocorrem: (a) a
+assinatura da adesão **e** (b) **o pagamento da primeira parcela** — que, pelas pp. 1 e 7, era
+**obrigação DELA**. → **Se a Ferreira não pagou a primeira parcela à EMBRACON, ela não cumpriu o
+contrato e a corretagem de R$ 14.483 não é devida** — exatamente a razão que ganhou o caso Leandra.
+🔴 **PERGUNTA FACTUAL PIVOTAL, AGORA A PRIMEIRA DA LISTA: a Ferreira pagou a 1ª parcela à Embracon?**
+(F14 mostra o cliente pagando boleto Embracon em 15/12/2025 — mas e a **primeira**, de out/2025?)
+Levantar no extrato da cota 7261/1768 (PEN04) ou por exibição.
+
+### 19.5 O QUE O CONTRATO NOS DÁ DE PRESENTE
+- **Mata a preliminar de incompetência:** p.10, em caixa alta — *"**O CONTRATO DE INTERMEDIAÇÃO NÃO SE
+  CONFUNDE COM O CONTRATO DE PARTICIPAÇÃO A GRUPO DE CONSÓRCIO EM HIPÓTESE ALGUMA**"*; e cl. 6.0
+  (p.6) repete. É o argumento da Leandra para o valor da causa, **escrito por eles**.
+- **Mata "não se aplica o CDC":** cl. 6.1 (p.6) submete o contrato expressamente à **Lei 8.078/90** e
+  aos arts. **113, 421, 422** do CC (boa-fé objetiva).
+- **Consagra nossos comprovantes como recibo:** p.4 — *"**O RECIBO DE PAGAMENTO SERÁ SEMPRE O
+  COMPROVANTE BANCÁRIO DEVIDAMENTE AUTENTICADO**"*.
+- **Foro:** cl. final da p.6 — *"As partes elegem o foro da comarca de **Parauapebas/PA**"*. **NÃO há
+  cláusula de foro de São Paulo** neste contrato → **cai a preliminar sugerida no §16.3** (aquela era
+  dos contratos de adesão das administradoras nos outros casos, não deste).
+- **Mandato: NÃO existe** cláusula dando poderes para agir em nome dele no consórcio → a tese de
+  mandato da ADEMICON (§15) **não se aplica ao Edson**, e a oferta de lances (F16) fica sem cobertura.
+- **Preposição documentada:** o nome da vendedora **Raiane** está escrito à mão na p.3.
+
+### 19.6 O MAPA DA BLINDAGEM PARA O CAPÍTULO III.2 (página + transcrição)
+| Cláusula | Pág. | Transcrição (trecho) | Vício |
+|---|---|---|---|
+| cl. 4.1 | 5 | *"multa correspondente a **50%** do valor estipulado pelos serviços de intermediação"* | multa desproporcional (art. 51, IV, CDC) |
+| cl. 4.2 | 5 | *"não praticar atos que venham **prejudicar moralmente** ou financeiramente a contratada"* | silencia o consumidor |
+| cl. 4.5 | 6 | *"obriga a pagar pelo objeto... **mesmo que venha desistir**"* | art. 51, IV |
+| cl. 5.1 | 6 | *"obrigam em manter a **confidencialidade** de toda a relação negocial"* | silencia o consumidor |
+| cl. 5.2 | 6 | *"não poderá exigir informações ou atendimento **fora do horário comercial**"* | restringe direito à informação |
+| cl. 5.4 | 6 | *"reconhece a **inexistência e a exclusão de qualquer espécie de responsabilidade** por parte da Contratada"* | **nula de pleno direito — art. 51, I, CDC** |
+| cl. 5.5 | 6 | *"**não haverá devolução dos valores pagos pelos serviços de intermediação**"* | a cláusula anulada no caso Leandra |
+| p.9 (ATENÇÃO) | 9 | *"nenhum documento, promessa escrita, verbal ou **GRAVADA**... não terão nenhuma validade"* | exclui meio de prova e blinda o fornecedor pelos atos do preposto (**art. 34 CDC**) |
+| p.9 (ciência) | 9 | *"promete **reparar as perdas e danos** [da corretora] em caso de prejuízo"* | inverte o risco do negócio |
+| p.8 (declaração) | 8 | *"Declaro que **nada tenho a reclamar** da empresa JFERREIRA, quer seja em juízo ou fora dele"* | **renúncia prévia ao direito de ação — art. 51, I, CDC e art. 5º, XXXV, CF** |
+
+### 19.7 CONSEQUÊNCIAS PARA A INICIAL
+1. A **tese principal ganha um segundo pilar documental**: além da publicidade enganosa (anúncio F12),
+   agora há o **vício de preço dentro do próprio contrato** (R$ 733 × R$ 14.483) — e isso **não depende
+   de WhatsApp nem de áudio**, é papel assinado por eles.
+2. O **capítulo III.2** sai pronto: cláusulas com página e transcrição (tabela 19.6) — era exatamente
+   onde o autor do caso Vagno foi reprovado (§4.3).
+3. **Retirar do roteiro** a preliminar de nulidade de foro (não existe cláusula de SP aqui) e a
+   preocupação com mandato (não existe).
+4. **Acrescentar** a preliminar de competência ancorada na **p.10 deles** e a aplicação do CDC pela
+   **cl. 6.1 deles**.
+5. **Nova prioridade factual:** apurar se a **1ª parcela foi paga pela Ferreira à Embracon** (cl. 4.0).
+   Se não foi, ataca-se a corretagem pela raiz, no terreno contratual, sem depender de vício de vontade.
+6. **Perguntar ao Edson sobre a checagem gravada** — a p.7 diz *"Está ciente e autoriza a **checagem
+   telefônica gravada**"* e a p.12 autoriza tratar *"Imagem/Voz do Titular"*: **é quase certo que exista
+   uma gravação**. Descobrir o teor ANTES de protocolar (§10.1).
