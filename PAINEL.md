@@ -1,15 +1,16 @@
 # PAINEL DO ESCRITÓRIO
 
-Gerado em 2026-07-22 19:05 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
+Gerado em 2026-07-23 15:24 por gerar_views.py — não editar. Fonte: frontmatter dos STATUS.md de cada caso.
 
 ## ⚠️ PRAZOS NO RADAR (vencidos ou a 7 dias)
 
-- 🔴 **TESTE_FICTICIO** · PZ05 · 2026-07-24 · vence em **2 dia(s)** (alta): FIXTURE ONDA5 — prazo recursal da sentenca sintetica (15 dias uteis; publicacao DJe 03/07/2026; autos fls. 59-62)
+- 🔴 **GETULIO** · PZ02 · 2026-07-30 · vence em **7 dia(s)** (alta): RECURSO INOMINADO contra a sentenca de 15/07/2026 (parcial procedencia; Num. 182402245, fls. 71-75) — 10 dias uteis (art. 42 c/c 12-A, Lei 9.099/95). DECISAO DO TITULAR 15/07/2026: NAO RECORRER (sentenca favoravel ao cliente) — prazo CANCELADO. Memoria de calculo preservada no DIARIO #008; decisao no DIARIO #009.
+- 🔴 **TESTE_FICTICIO** · PZ05 · 2026-07-24 · vence em **1 dia(s)** (alta): FIXTURE ONDA5 — prazo recursal da sentenca sintetica (15 dias uteis; publicacao DJe 03/07/2026; autos fls. 59-62)
 
 ## 📚 VERBETES A VENCER (validade ≤ 15 dias)
 
-- 🟡 **ECA:art22** (familia.md) · validade até 2026-08-03 · vence em **12 dia(s)** → revalidar na fonte oficial
-- 🟡 **LAB:art999** (teste_laboratorio.md) · validade até 2026-08-05 · vence em **14 dia(s)** → revalidar na fonte oficial
+- 🟡 **ECA:art22** (familia.md) · validade até 2026-08-03 · vence em **11 dia(s)** → revalidar na fonte oficial
+- 🟡 **LAB:art999** (teste_laboratorio.md) · validade até 2026-08-05 · vence em **13 dia(s)** → revalidar na fonte oficial
 
 ## 💰 FINANCEIRO DO ESCRITÓRIO
 
